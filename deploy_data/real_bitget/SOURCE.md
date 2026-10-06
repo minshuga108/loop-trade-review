@@ -1,0 +1,3 @@
+# Real Bitget futures order-history export (public)
+
+File: doge_trades_analysis.csv. Published by its owner in the public repository Youra82/jaegerbot under the GPL-3.0 licence (see LICENSE-GPL-3.0.txt). It is a Bitget website 'Export futures order history' file (English columns) for a trading bot's account, DOGEUSDT long trades, 134 orders. Extra analysis columns on the right were added by that repository's author and are ignored by our reader. We use it only as test and demo data for our Bitget CSV importer; it is a separate data file, not part of our MIT-licensed code. Opening fees are not in this export format.

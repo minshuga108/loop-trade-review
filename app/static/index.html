@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Loop reviews a trader's fills, prices one habit in dollars, and tests every rule on trades it never saw before you trust it.">
+<title>Loop: trade review that tests its own rules</title>
+<link rel="stylesheet" href="/static/home.css">
+<link rel="stylesheet" href="/static/cards.css">
+<link rel="stylesheet" href="/static/strip.css">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the review</a>
+<header class="mast" id="top">
+  <div class="mast-row wrap">
+    <a class="brand" href="/" aria-label="Loop, home"><span class="brand-mark">Loop</span><span class="brand-tag">Trade review that tests its own rules</span></a>
+    <nav class="mini" aria-label="Sections of this page">
+      <a href="#onelook">Finding</a><a href="#hero-chart">Chart</a><a href="#ask">Ask</a><a href="#court">Court</a><a href="#rbcard">Rulebook</a><a href="#winrate-card">Costs</a><a href="#cards">Report</a>
+    </nav>
+    <div class="mast-tools">
+      <a class="wrong" href="/cockpit#losses">What we got wrong</a>
+      <a class="video" href="/video">Demo video</a>
+      <a class="cockpit" href="/cockpit">Cockpit</a>
+      <button type="button" id="themebtn" aria-label="Switch light or dark theme">◑ Dark</button>
+      <button type="button" id="langbtn">中文</button>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="strip" id="strip" aria-live="polite"><span class="chip quiet">Read-only. No login. No key.</span></div>
+  <div class="picker" id="picker"></div>
+
+  <h1 class="vh">Loop: trade review that tests its own rules</h1>
+  <main id="main" aria-live="polite"><p class="tag">Loading…</p></main>
+
+  <footer>
+    <a href="/video">Watch the 3-minute demo video</a> (silent, captioned, with transcript).
+    Every number on this page is computed from fills when you load it; none is typed by hand. A flagged habit is a pattern in the data,
+    not a judgement of the person. Rules are tested on trades they were not learned from, and "underpowered" means the honest answer is "not enough trades yet".
+  </footer>
+</div>
+<script src="/static/snapshot.js"></script>
+<script src="/static/i18n.js"></script>
+<script src="/static/import.js"></script>
+<script src="/static/home.js"></script>
+<script src="/static/rulebook.js"></script>
+<script src="/static/cards.js"></script>
+<script src="/static/strip.js"></script>
+</body>
+</html>

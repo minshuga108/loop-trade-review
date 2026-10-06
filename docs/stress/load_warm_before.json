@@ -1,0 +1,150 @@
+{
+ "users": 50,
+ "rounds": 2,
+ "endpoints": {
+  "page /": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 887.2,
+   "p95_ms": 1516.9,
+   "max_ms": 3626.6,
+   "mean_ms": 961.0
+  },
+  "static rulebook.js": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 409.0,
+   "p95_ms": 2798.5,
+   "max_ms": 3624.1,
+   "mean_ms": 690.3
+  },
+  "static i18n.js": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 297.8,
+   "p95_ms": 2773.2,
+   "max_ms": 3625.7,
+   "mean_ms": 626.9
+  },
+  "traders": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 373.0,
+   "p95_ms": 2115.4,
+   "max_ms": 2479.1,
+   "mean_ms": 630.8
+  },
+  "review": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 375.3,
+   "p95_ms": 2797.7,
+   "max_ms": 2932.6,
+   "mean_ms": 1047.3
+  },
+  "toggle halt": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 499.1,
+   "p95_ms": 2507.3,
+   "max_ms": 2940.1,
+   "mean_ms": 870.7
+  },
+  "rulebook view": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 676.2,
+   "p95_ms": 2586.4,
+   "max_ms": 3897.0,
+   "mean_ms": 902.7
+  },
+  "chat habit": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 754.3,
+   "p95_ms": 2155.1,
+   "max_ms": 3312.0,
+   "mean_ms": 823.1
+  },
+  "toggle cap (court)": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 1838.0,
+   "p95_ms": 3180.4,
+   "max_ms": 3412.0,
+   "mean_ms": 1822.5
+  },
+  "gate": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 1365.0,
+   "p95_ms": 2823.2,
+   "max_ms": 3397.8,
+   "mean_ms": 1438.7
+  },
+  "chat order idea": {
+   "n": 100,
+   "ok": 100,
+   "errors": 0,
+   "status": {
+    "200": 100
+   },
+   "p50_ms": 766.3,
+   "p95_ms": 2024.2,
+   "max_ms": 3320.1,
+   "mean_ms": 826.4
+  }
+ },
+ "total": {
+  "requests": 1100,
+  "errors": 0,
+  "p50_ms": 697.9,
+  "p95_ms": 2773.8,
+  "max_ms": 3897.0,
+  "wall_s": 23.9,
+  "throughput_rps": 46.0
+ },
+ "warm_s": 27.5,
+ "cold": false,
+ "ratelimit": true
+}

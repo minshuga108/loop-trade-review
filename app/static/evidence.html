@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop: Bitget tool evidence</title>
+<style>
+:root{
+  --bg:#f5f3ee; --surface:#ffffff; --ink:#15212b; --muted:#5d6b76; --line:#d9d5ca;
+  --accent:#0f6b63; --accent-soft:#d7ece8; --warn:#9a5b00; --warn-soft:#f6e6c8; --bad:#a3322a; --bad-soft:#f5d9d6; --ok:#1f6b34; --ok-soft:#d8ecdc; --grey-soft:#e8e6df;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10181f; --surface:#17222b; --ink:#e8eef2; --muted:#9aa8b2; --line:#2b3a45;
+  --accent:#4cc3b5; --accent-soft:#143a37; --warn:#e3a94b; --warn-soft:#3a2d10; --bad:#ef7d74; --bad-soft:#3f1d1a; --ok:#6fcf8a; --ok-soft:#173523; --grey-soft:#23303a;
+}}
+:root[data-theme="dark"]{
+  --bg:#10181f; --surface:#17222b; --ink:#e8eef2; --muted:#9aa8b2; --line:#2b3a45;
+  --accent:#4cc3b5; --accent-soft:#143a37; --warn:#e3a94b; --warn-soft:#3a2d10; --bad:#ef7d74; --bad-soft:#3f1d1a; --ok:#6fcf8a; --ok-soft:#173523; --grey-soft:#23303a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif;padding-inline:16px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:18px 48px}
+header{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px}
+h1{font:600 22px/1.2 Georgia,"Times New Roman",serif;margin:0;letter-spacing:-.01em}
+.tag{color:var(--muted);font-size:13px}
+.tag a{color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0;min-width:0}
+.card h2{font:600 15px/1.3 "Segoe UI",system-ui,sans-serif;margin:0 0 6px;letter-spacing:.01em;text-transform:uppercase;color:var(--muted)}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:6px}
+.num{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg)}
+.num b{display:block;font:600 22px/1.2 Georgia,serif;font-variant-numeric:tabular-nums}
+.num span{font-size:12px;color:var(--muted)}
+.badge{display:inline-flex;gap:6px;align-items:center;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.b-ok{background:var(--ok-soft);color:var(--ok)} .b-warn{background:var(--warn-soft);color:var(--warn)} .b-bad{background:var(--bad-soft);color:var(--bad)} .b-grey{background:var(--grey-soft);color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;overflow-wrap:normal;word-break:normal}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+td small{color:var(--muted);display:block;overflow-wrap:anywhere}
+.scroll{overflow-x:auto}
+.honest{border-left:3px solid var(--accent);padding:6px 12px;background:var(--accent-soft);border-radius:0 8px 8px 0;font-size:13.5px;margin:8px 0 0}
+.path{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:14px 0 4px}
+.path h3{font:600 15px Georgia,serif;margin:0}
+.ctx{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.ctx input{font:inherit;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;min-width:0;flex:1 1 140px}
+.ctx button{font:inherit;font-weight:600;border:0;background:var(--accent);color:#fff;border-radius:8px;padding:6px 14px;cursor:pointer}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ctx button{color:#06201d}}
+:root[data-theme="dark"] .ctx button{color:#06201d}
+footer{color:var(--muted);font-size:12.5px;margin-top:20px}
+.err{color:var(--bad)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Loop <span class="tag">Bitget tool evidence</span></h1>
+    <span class="tag">Read-only. No key. <a href="/">Back to the review</a></span>
+  </header>
+  <div id="main" aria-live="polite"><p class="tag">Loading…</p></div>
+  <section class="card" id="skills"><p class="tag">Loading the skills panel…</p></section>
+  <footer>
+    Every count here is generated from the call log and the newest probe file when the page loads; none is typed.
+    Context from a Bitget tool is shown as context, not evidence: no detector, rule or verdict reads it.
+  </footer>
+</div>
+<script src="/static/i18n.js"></script>
+<script src="/static/evidence.js"></script>
+<script src="/static/pages.js"></script>
+</body>
+</html>

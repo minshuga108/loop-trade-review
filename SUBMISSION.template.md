@@ -1,0 +1,53 @@
+# Submission text (paste into the form; every number must be re-checked against the file named beside it before sending)
+
+## Form fields
+
+- **Competition Track:** AI Trading Desk
+- **Competition Sub-theme (free text, type exactly):** Review & Self-Evolution
+- **Project Name:** Loop *(working name; change before sending)*
+- **One-line Project Summary (140 characters max):** {{summary.text}}
+  *({{summary.chars}} characters, computed by claims.py)*
+
+## Project Description (five parts; judges weigh the first three most)
+
+### 1. Thesis
+Journals die because they are manual, their "leak" numbers are assumed, and nobody tests whether a new rule would have worked on trades it was not built from. Loop is a review desk for traders of Bitget's tokenized US stocks and stock perps. It reads a trader's own fills, prices each costly habit in dollars from measured results, and sends every proposed rule to a court that judges it only on later trades, counts every rule tried, and says "not enough trades yet" when that is the honest answer. A rule that passes becomes part of a versioned rulebook after one click, feeds a checklist whose effect is measured, and guards the next order idea. We built the review loop because Bitget asks how AI can help a trader "review and iterate their research framework": the framework must change because of evidence, and be able to say when it has none.
+
+### 2. Target user and product value
+Retail and pro discretionary traders of stock perps and rTokens on Bitget: roughly 20 to 200 trades a month, accounts of about $5k to $200k, who already export their fills and have no time to review them. Existing journals fail them in three ways: manual entry, assumed costs, and no test of whether a rule works on their own fills. Loop imports the export (or a read-only key), finds habits that survive a within-trader test, shows what they cost, and keeps the trader in control: nothing is armed without a click, and nothing places an order.
+
+### 3. Validation data and key metrics (label: observed / estimated / targeted)
+- **Observed** (computed, reproducible): on {{court.sims}} simulated traders per cell the walk-forward court wrongly accepted a rule for a trader with no leak {{court.fa_null_600}} of the time at 600 trips (the bar is about 1%), and caught a real costly leak {{court.power_150}} / {{court.power_300}} / {{court.power_600}} of the time at 150 / 300 / 600 trips (`court_results.json`, `scripts/measure_court.py`); a look-ahead cheat is rejected in 100 of 100 planted runs (SUITE_RESULTS.md); the chat intent router scored {{router.blind}} on a blind set written by its own author (eval/RESULTS.md, optimistic) and {{router.independent}} on a set written by a different author (eval/INDEPENDENT_RESULTS.md); after fixing its misses it scored {{router.independent2}} on a second independent set the first time it was scored (our honest estimate; eval/INDEPENDENT_2_RESULTS.md). We then added Chinese patterns for that set's misses and it re-scored {{router.independent2_after}}, but that set is now tuned on and no longer blind, so we do not quote the higher number as an estimate; first byte and page weight from `scripts/cold_visit.py` [FILL AFTER DEPLOY]; {{tests.collected}} automated tests collected by pytest at render time (`python -m pytest -q`; `scripts/render_docs.py --check` recounts them).
+- **Observed on real wallets:** {{wallets.text}} reviewed. {{court.real_acceptance}}. Rejections and underpowered results are shown, not hidden.
+- **Observed with users:** [FILL: 5 non-team testers, 5 fixed tasks each, completion rate and time, n=5, from the app's own log]. If not done, write "targeted, not yet observed".
+- **Targeted, not observed:** Activation = first finding within 60 seconds of opening the page; Retention = a second weekly review opened. Trading volume, AUM and incremental fee are not applicable to a read-only review tool; Risk: read-only, no write scope, paper only.
+- **Not yet validated:** a real Bitget trader's history end to end (importers are tested on real Bitget rows from other accounts).
+
+### 4. Progress
+Built and tested: the ledger and importers (Bitget UTA v3 API, Bitget website CSV, public wallets), {{habit.tests}} habit tests (plus fee drag and the required win rate), dollar pricing, the walk-forward rule court with a trial-count ledger and a look-ahead guard, the rulebook (versions, hash-chained log, human approval), a measured checklist, the Rule Gate with a live Bitget order-book cost line, the weekly 复盘 report, chat in English and Chinese with a number lock, a public append-only record anchored with OpenTimestamps, a judge cockpit, a selftest page, and an MCP server with {{mcp.tools}} read-only tools. Bitget tools actually used: public market endpoints (instruments, order book, tickers, market states) for the cost line, the UTA v3 history schema for importers, and {{evidence.signal}}; Agent Hub funding-rate history calls also answered (see /evidence). Models: Qwen (qwen3.8-max) only to classify unclear questions when a key is present; no model computes a number or decides. The demo also includes wallet G, a real Bitget futures export from a trading bot (not a human trader), and an Import panel where a visitor can load their own Bitget CSV for the session (not stored). Not built / next: a real human Bitget trader's history in the demo, scheduled weekly push (Telegram, Feishu, WeChat Work), signed report exports, user accounts, a forward paper record graded on outcomes.
+Problems hit: the first demo story ("loss-chasing wallet") did not survive a stricter unit of analysis, so the demo uses the wallet that passes the test and says so; Bitget's MCP data calls returned 503 on 2026-10-05, so nothing depends on them.
+
+### 5. Your take on AI trading (optional)
+AI is most useful in trading as an auditor that cannot flatter you: it should compute, test and refuse, and let the human decide. The most valuable thing a review tool can say is "this rule did not hold up on trades it never saw".
+
+## Role of the LLM / AI in your project
+Qwen (model `qwen3.8-max`, via [state which key: hackathon base URL or Alibaba Cloud DashScope]) reads unclear chat questions and maps them to a fixed set of intents, but only when a key is configured; the hosted build as it stands runs with the model off (deterministic parser, "Qwen off"), so no model is used there until the owner adds a key; it never writes numbers into an answer and never decides anything. Everything else (habit detection, pricing, the court, the rulebook, the gate, the report) is deterministic code. With the key off, the template path answers every question ("Qwen off"). The router is tested on a blind English and Chinese question set; every number in an answer is checked against a computed fact before it is shown.
+
+## Submission Material Links (one per line, labelled)
+- Demo (no login): `{{url.live}}`
+- Project repo (public, complete README): `{{url.repo}}`
+- Run record: research-task walkthrough (3 minutes or less): `{{url.video}}`
+- Judge cockpit: `{{url.live}}/cockpit`
+- Public forward record and verification: `{{url.live}}/record`
+- What we got wrong: `{{url.repo}}/blob/main/LOSSES.md`
+- Self-assessment: `{{url.repo}}/blob/main/SELF_ASSESSMENT.md`
+- Independent validation (cross-checks against scipy, statsmodels and arch, planted-bias power table, PBO; {{validation.p_agree}} p-values agree, {{validation.court_agree}} court verdicts reproduced): `{{url.repo}}/blob/main/VALIDATION.md`
+
+## X post (owner posts; must include #BitgetHackathon and @Bitget_AI and quote https://x.com/Bitget_AI/status/2100519318824055159)
+> Loop: a trade-review desk for Bitget stock perps and rTokens. It prices your costly habits in dollars, then tests every proposed rule on trades it never saw, counts every rule it tried, and says "not enough trades yet" when that is the truth. Paper only, read only, no keys. 🧪
+> Demo (no login): `{{url.live}}` · 3-min walkthrough: `{{url.video}}`
+> #BitgetHackathon @Bitget_AI
+> (quote-post the announcement above)
+
+## Checklist before pressing submit
+Team lead Bitget UID entered; sub-theme typed exactly "Review & Self-Evolution"; all links open logged out in a clean browser; the X post is public and quotes the announcement; every number above re-checked; K3 credits / Demo Day / Playbook interest boxes answered; S1 participation answered truthfully.

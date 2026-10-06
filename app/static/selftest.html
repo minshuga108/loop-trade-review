@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop selftest</title>
+<style>
+:root{
+  --bg:#f5f3ee; --surface:#ffffff; --ink:#15212b; --muted:#5d6b76; --line:#d9d5ca;
+  --accent:#0f6b63; --accent-soft:#d7ece8; --warn:#9a5b00; --warn-soft:#f6e6c8; --bad:#a3322a; --bad-soft:#f5d9d6; --ok:#1f6b34; --ok-soft:#d8ecdc; --grey-soft:#e8e6df;
+  --on-accent:#ffffff;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10181f; --surface:#17222b; --ink:#e8eef2; --muted:#9aa8b2; --line:#2b3a45;
+  --accent:#4cc3b5; --accent-soft:#143a37; --warn:#e3a94b; --warn-soft:#3a2d10; --bad:#ef7d74; --bad-soft:#3f1d1a; --ok:#6fcf8a; --ok-soft:#173523; --grey-soft:#23303a;
+  --on-accent:#06201d;
+}}
+:root[data-theme="dark"]{
+  --bg:#10181f; --surface:#17222b; --ink:#e8eef2; --muted:#9aa8b2; --line:#2b3a45;
+  --accent:#4cc3b5; --accent-soft:#143a37; --warn:#e3a94b; --warn-soft:#3a2d10; --bad:#ef7d74; --bad-soft:#3f1d1a; --ok:#6fcf8a; --ok-soft:#173523; --grey-soft:#23303a;
+  --on-accent:#06201d;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif;padding-inline:16px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:18px 48px}
+header{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px}
+h1{font:600 22px/1.2 Georgia,"Times New Roman",serif;margin:0;letter-spacing:-.01em}
+.tag{color:var(--muted);font-size:13px}
+a{color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0;min-width:0}
+.card h2{font:600 15px/1.3 "Segoe UI",system-ui,sans-serif;margin:0 0 8px;letter-spacing:.01em;text-transform:uppercase;color:var(--muted)}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:6px}
+.num{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);min-width:0}
+.num b{display:block;font:600 22px/1.2 Georgia,serif;font-variant-numeric:tabular-nums}
+.num span{font-size:12px;color:var(--muted)}
+.badge{display:inline-flex;gap:6px;align-items:center;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.b-ok{background:var(--ok-soft);color:var(--ok)} .b-warn{background:var(--warn-soft);color:var(--warn)} .b-bad{background:var(--bad-soft);color:var(--bad)} .b-grey{background:var(--grey-soft);color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+th{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;overflow-wrap:normal;word-break:normal}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+.honest{border-left:3px solid var(--accent);padding:6px 12px;background:var(--accent-soft);border-radius:0 8px 8px 0;font-size:13.5px;margin:8px 0 0}
+.btn{font:inherit;font-size:14px;border:0;background:var(--accent);color:var(--on-accent);border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:600}
+.btn[disabled]{opacity:.6;cursor:wait}
+.bar{height:8px;border-radius:99px;background:var(--grey-soft);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--accent);width:0}
+.btnlink{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}
+.mob{display:none}
+@media(max-width:640px){
+  table.rows thead{display:none}
+  table.rows tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}
+  table.rows td{display:block;border:0;padding:2px 0}
+  table.rows td[data-l]::before{content:attr(data-l) ": ";color:var(--muted);font-size:12px}
+}
+footer{color:var(--muted);font-size:12.5px;margin-top:20px}
+.err{color:var(--bad)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Loop <span class="tag">selftest</span></h1>
+    <span class="tag"><a href="/">Open the app</a> · <a href="/cockpit">Judge cockpit</a> · <button class="btnlink" id="theme" type="button" aria-label="Switch light or dark theme">Theme</button></span>
+  </header>
+
+  <div class="card">
+    <h2>What this runs</h2>
+    <p style="margin:0">Fixed review sentences in English and Chinese, with typos, follow-ups that depend on the previous answer, "cut the size in half", and injection or "place it for me" attempts. Each goes through the same in-process chat the first screen uses, and through the intent router on its own. A row passes when the chat lands on the gold intent written beside it in <code>eval/selftest_prompts.jsonl</code> before the first run. Injection and order requests must end in the refusal (gold: help).</p>
+    <p class="honest">The sentences were written by an agent that had already read the router's code, so a pass here is not a blind score. The first run is frozen below with its misses; later runs do not replace it.</p>
+    <p style="margin:12px 0 0"><button class="btn" id="run" type="button">Run it now</button> <span class="tag" id="runmsg"></span></p>
+    <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+  </div>
+
+  <div id="live"></div>
+
+  <div class="card" id="firstcard"><h2>Frozen first run</h2><div id="first"><p class="tag">Loading…</p></div></div>
+
+  <footer>Every number on this page comes from <code>/api/selftest/latest</code> or <code>/api/selftest/first-run</code> when it loads; none is typed into the page.</footer>
+</div>
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+(function theme() {
+  let t = null; try { t = localStorage.getItem("theme"); } catch (e) {}
+  if (t) document.documentElement.setAttribute("data-theme", t);
+  $("#theme").addEventListener("click", () => {
+    const cur = document.documentElement.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const nx = cur === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", nx); try { localStorage.setItem("theme", nx); } catch (e) {}
+  });
+})();
+const pass = (ok) => ok ? '<span class="badge b-ok">pass</span>' : '<span class="badge b-bad">miss</span>';
+const ms = (x) => x == null ? "–" : x < 10 ? x.toFixed(2) + " ms" : Math.round(x).toLocaleString("en-US") + " ms";
+
+function summaryBlock(res) {
+  const s = res.summary;
+  const langs = Object.entries(s.by_lang).map(([k, v]) => `${esc(k)} ${v.passed} of ${v.n}`).join(" · ");
+  const kinds = Object.entries(s.by_kind).map(([k, v]) => `${esc(k)} ${v.passed} of ${v.n}`).join(" · ");
+  return `<div class="nums">
+      <div class="num"><b>${s.passed} of ${s.n}</b><span>chat landed on the gold intent</span></div>
+      <div class="num"><b>${s.router_agrees_with_gold} of ${s.n}</b><span>router alone agrees with gold</span></div>
+      <div class="num"><b>${s.errors}</b><span>unhandled errors</span></div>
+      <div class="num"><b>${ms(s.chat_ms.p50)}</b><span>chat answer, median (95th pct ${ms(s.chat_ms.p95)}, slowest ${ms(s.chat_ms.max)})</span></div>
+      <div class="num"><b>${ms(s.router_ms.p50)}</b><span>router alone, median</span></div>
+      <div class="num"><b>${s.number_lock_refusals}</b><span>answers refused by the number-lock</span></div>
+    </div>
+    <p class="tag" style="margin:8px 0 0">By language: ${langs}. By kind: ${kinds}. Trader used: ${esc(res.trader)}. Language model: ${esc(res.llm)}. Finished ${esc(res.finished_at)}.</p>`;
+}
+
+function rowsTable(rows) {
+  const tr = rows.map((r) => `<tr>
+    <td data-l="id">${esc(r.id)} <span class="tag">${esc(r.lang)}</span></td>
+    <td data-l="sentence">${esc(r.text)}${r.after ? `<br><span class="tag">follow-up to ${esc(r.after)} (previous answer: ${esc(r.previous_intent || "none")})</span>` : ""}<br><span class="tag">${esc(r.kind.join(", "))}</span></td>
+    <td data-l="gold">${esc(r.gold)}</td>
+    <td data-l="router">${esc(r.router_intent)}${r.router_flags && r.router_flags.length ? ' <span class="tag">' + esc(r.router_flags.join(",")) + "</span>" : ""}</td>
+    <td data-l="chat">${esc(r.chat_intent || "error")}</td>
+    <td data-l="result">${pass(r.pass)}${r.error ? '<br><span class="err">' + esc(r.error) + "</span>" : ""}</td>
+    <td data-l="time" class="n">${ms(r.chat_ms)}</td>
+    <td data-l="answer"><span class="tag">${esc(r.answer_preview)}</span></td></tr>`).join("");
+  return `<div class="scroll"><table class="rows"><thead><tr><th>#</th><th>Sentence</th><th>Gold</th><th>Router</th><th>Chat</th><th>Result</th><th>Time</th><th>Answer (start)</th></tr></thead><tbody>${tr}</tbody></table></div>`;
+}
+
+function coldBlock(cv) {
+  if (!cv) return "";
+  const rows = cv.checks.map((c) => `<tr><td>${esc(c.check)}</td><td class="n">${c.value_ms != null ? ms(c.value_ms) + " (budget " + ms(c.budget_ms) + ")" : c.value_bytes != null ? c.value_bytes.toLocaleString("en-US") + " bytes (budget " + c.budget_bytes.toLocaleString("en-US") + ")" : ""}</td><td>${pass(c.pass)}</td></tr>`).join("");
+  return `<div class="card"><h2>Cold visit to '/', in-process</h2>
+    <div class="scroll"><table><tbody>${rows}</tbody></table></div><p class="tag" style="margin:8px 0 0">${esc(cv.note)}</p></div>`;
+}
+
+function renderLive(st) {
+  const bar = st.total ? Math.round(100 * st.done / st.total) : 0;
+  $("#bar").style.width = (st.state === "done" ? 100 : bar) + "%";
+  if (st.state === "running") { $("#runmsg").textContent = `Running: ${st.done} of ${st.total} sentences answered…`; $("#run").disabled = true; return; }
+  $("#run").disabled = false;
+  if (st.state === "error") { $("#runmsg").innerHTML = '<span class="err">The run failed: ' + esc(st.error) + "</span>"; return; }
+  if (st.state === "done" && st.result) {
+    $("#runmsg").textContent = st.cached ? "Showing the run that finished in the last minute (runs are rate-limited)." : "Done.";
+    const res = st.result;
+    $("#live").innerHTML = `<div class="card"><h2>This run</h2>${summaryBlock(res)}
+      ${res.summary.misses.length ? `<p class="honest">Misses: ${esc(res.summary.misses.join(", "))}.</p>` : ""}</div>
+      ${coldBlock(res.cold_visit)}
+      <div class="card"><h2>Every sentence, this run</h2>${rowsTable(res.rows)}</div>`;
+  } else { $("#runmsg").textContent = "No run yet on this server since it started."; }
+}
+
+async function poll() {
+  const st = await (await fetch("/api/selftest/latest", { cache: "no-store" })).json();
+  renderLive(st);
+  if (st.state === "running") setTimeout(poll, 1500);
+}
+$("#run").addEventListener("click", async () => {
+  $("#run").disabled = true; $("#runmsg").textContent = "Starting…";
+  try { const st = await (await fetch("/api/selftest/run", { method: "POST" })).json(); renderLive(st); if (st.state === "running") setTimeout(poll, 1000); }
+  catch (e) { $("#runmsg").innerHTML = '<span class="err">Could not start the run.</span>'; $("#run").disabled = false; }
+});
+
+async function first() {
+  try {
+    const f = await (await fetch("/api/selftest/first-run")).json();
+    if (f.missing) { $("#first").innerHTML = '<p class="tag">No frozen first run in this build.</p>'; return; }
+    const misses = f.rows.filter((r) => !r.pass);
+    $("#first").innerHTML = `${summaryBlock(f)}<p class="honest">${esc(f.note)}</p>
+      <h2 style="margin-top:14px">First-run misses, kept as they were</h2>${misses.length ? rowsTable(misses) : '<p class="tag">None.</p>'}
+      <details style="margin-top:10px"><summary>All first-run rows</summary>${rowsTable(f.rows)}</details>`;
+  } catch (e) { $("#first").innerHTML = '<p class="err">Could not read the first run.</p>'; }
+}
+first(); poll();
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{"id": "r01", "trader": "G", "text": "how much did I lose after losses", "intent": "qa", "has": ["after a loss", "out of 67"], "note": "CRIT19 F3: filtered answer must name its slice"}
+{"id": "r02", "trader": "G", "text": "哪天亏最多", "intent": "qa", "has": ["亏得最多的一天"], "note": "CRIT19 F9: was help / not understood"}
+{"id": "r03", "trader": "G", "text": "买入100 DOGE呢", "intent": "gate", "has": ["100", "DOGE"], "not": ["约 100 USDT"], "note": "CRIT23: units, never a $100 notional; was a hang"}
+{"id": "r04", "trader": "G", "text": "buy 100 DOGE", "intent": "gate", "has": ["100 DOGE"], "not": ["about 100 USDT"], "note": "CRIT19 F10: units are not dollars"}
+{"id": "r05", "trader": "G", "text": "what is the lowest weekday pnl", "intent": "qa", "has": ["lowest on"], "note": "CRIT19 F4: was total net P&L"}
+{"id": "r06", "trader": "G", "text": "which weekday is my worst", "after": ["and on fridays?"], "intent": "qa", "has": ["lowest on"], "not": ["Only one group"], "note": "CRIT19 F1: a new grouping resets the inherited filter"}
+{"id": "r07", "trader": "G", "text": "what is my Sharpe ratio", "after": ["show me the weekly review"], "intent": "qa", "not": ["Weekly review"], "note": "CRIT21 H2: report context must not hijack a new metric"}
+{"id": "r08", "trader": "G", "text": "what did the gate block?", "intent": "gate_log", "has": ["gate"], "note": "CRIT23 item 7 chip: answered from the public record"}

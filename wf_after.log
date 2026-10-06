@@ -1,0 +1,10 @@
+null      n= 150 split accepts    0% | walk-forward accepts    0% underpowered   50%
+null      n= 300 split accepts    3% | walk-forward accepts    0% underpowered    0%
+null      n= 600 split accepts    0% | walk-forward accepts    0% underpowered    0%
+costless  n= 150 split accepts    3% | walk-forward accepts    2% underpowered    0%
+costless  n= 300 split accepts    5% | walk-forward accepts    0% underpowered    0%
+costless  n= 600 split accepts    0% | walk-forward accepts    2% underpowered    0%
+costly    n= 150 split accepts   13% | walk-forward accepts   30% underpowered    0%
+costly    n= 300 split accepts   33% | walk-forward accepts   58% underpowered    0%
+costly    n= 600 split accepts   63% | walk-forward accepts   92% underpowered    0%
+seconds 186

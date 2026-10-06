@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Silent, captioned walkthrough of Loop: the finding, the rule the court rejects, a rule that passes, and the gate that blocks an order.">
+<title>Loop demo video</title>
+<link rel="stylesheet" href="/static/home.css">
+<style>
+.vwrap{max-width:960px;margin:18px auto 0}
+.vwrap video{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;background:#000}
+.vwrap h1{font:600 22px/1.2 Georgia,"Times New Roman",serif;margin:0 0 6px}
+.vnote{color:var(--muted);font-size:13px;margin:8px 0 16px}
+.vtrans{margin:18px 0;padding:0;list-style:none;counter-reset:n}
+.vtrans li{counter-increment:n;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px 10px 44px;margin:8px 0;position:relative}
+.vtrans li::before{content:counter(n);position:absolute;left:14px;top:10px;font-weight:700;color:var(--accent)}
+html[lang="zh-CN"] [data-l="en"]{display:none}
+html:not([lang="zh-CN"]) [data-l="zh"]{display:none}
+.vback{display:inline-block;margin:6px 0 24px}
+</style>
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<header class="mast" id="top">
+  <div class="mast-row wrap">
+    <a class="brand" href="/" aria-label="Loop, home"><span class="brand-mark">Loop</span><span class="brand-tag">Trade review that tests its own rules</span></a>
+    <div class="mast-tools">
+      <a href="/">Back to the review</a>
+      <button type="button" id="themebtn" aria-label="Switch light or dark theme">◑ Dark</button>
+      <button type="button" id="langbtn">中文</button>
+    </div>
+  </div>
+</header>
+<main class="wrap vwrap" id="main">
+  <h1><span data-l="en">Loop in three minutes, no sound needed</span><span data-l="zh">三分钟看懂 Loop，无需声音</span></h1>
+  <video id="v" controls preload="metadata" playsinline>
+    <source src="/media/loop_demo.webm" type="video/webm">
+    <span data-l="en">Your browser cannot play this video. Read the transcript below, or </span><span data-l="zh">你的浏览器无法播放此视频。请阅读下方文字稿，或</span><a href="/media/loop_demo.webm">download it</a>.
+  </video>
+  <p class="vnote"><span data-l="en">Silent, captioned screen recording of the live app, paper only.</span><span data-l="zh">带字幕的无声屏幕录像，来自在线应用，仅限模拟盘。</span></p>
+  <h2><span data-l="en">Transcript</span><span data-l="zh">文字稿</span></h2>
+  <ol class="vtrans">
+    <li><span data-l="en">This is Loop. It reviews a trader's own trades. This is a public wallet, hand-picked and labelled illustrative. In one look: one habit, what it cost in dollars, and what the rule court decided.</span><span data-l="zh">这是 Loop。它复盘交易者自己的交易。这是一个公开钱包，经人工挑选，仅作示例。一眼看到：一个习惯、它造成的美元损失，以及规则法庭的裁决。</span></li>
+    <li><span data-l="en">I ask in plain words. The answer is computed from the fills, not written by a model: every number is locked to a computed fact. The pattern is sizing up after a loss, with a range that is honest about how little data there is.</span><span data-l="zh">我用日常语言提问。答案由成交记录计算得出，而不是模型写的：每个数字都锁定在已计算的事实上。规律是亏损后加仓，并给出一个如实反映数据量不足的区间。</span></li>
+    <li><span data-l="en">Here is what a rule would have changed. On the trades it was built from it looks good. On trades it never saw it does not hold up, so the court says no. A tool that always says yes is fooling itself.</span><span data-l="zh">这是一条规则本可以带来的改变。在它的来源交易上看起来不错，但在它没见过的交易上站不住脚，所以法庭说不。总是说“是”的工具是在自欺欺人。</span></li>
+    <li><span data-l="en">To show what a pass looks like, this simulated trader has a costly habit built in. The rule is tested on later trades, every proposal is counted, and this one passes. Nothing is armed until I click. Now it is guarding my orders. Paper only.</span><span data-l="zh">为了展示通过的样子，这个模拟交易者被设定了一个代价高昂的习惯。规则在之后的交易上检验，每次提案都计数，这一条通过了。我点击之前什么都不会启用。现在它在守护我的订单。仅限模拟盘。</span></li>
+    <li><span data-l="en">I ask the gate about an idea. Last trade lost and this size breaks my own rule, so it is blocked, with a checklist built from my own losses and a live Bitget order-book cost. The gate never places an order.</span><span data-l="zh">我向关卡询问一个想法。上一笔亏损，且这个仓位违反我自己的规则，所以被拦下，并附带由我自己的亏损生成的清单和实时 Bitget 订单簿成本。关卡从不下单。</span></li>
+    <li><span data-l="en">I can ask what would make this wrong, and in Chinese. It tells me what it did not test.</span><span data-l="zh">我可以问什么会让这个结论出错，也可以用中文问。它会告诉我哪些内容没有检验。</span></li>
+    <li><span data-l="en">The weekly review follows the fupan template: what happened, the priority finding, what would make it wrong, tomorrow's plan, what changed, and what we assumed or are missing.</span><span data-l="zh">每周复盘遵循复盘模板：发生了什么、优先发现、什么会让它出错、明天的计划、有什么变化，以及我们的假设和缺失。</span></li>
+    <li><span data-l="en">Bring your own history: a real Bitget futures export is read in memory for this session only, is not stored, and needs no key.</span><span data-l="zh">带上你自己的历史：真实的 Bitget 合约导出仅在本次会话的内存中读取，不会存储，也不需要密钥。</span></li>
+    <li><span data-l="en">Everything we got wrong is public. The court admits more false rules than it should in some cases, and power is low on short histories. That is why the honest answer is often 'not enough trades yet'.</span><span data-l="zh">我们做错的一切都是公开的。在某些情况下法庭放进的错误规则比应有的多，短历史上的检验力也低。所以诚实的答案常常是“交易笔数还不够”。</span></li>
+  </ol>
+  <a class="vback" href="/"><span data-l="en">← Back to the live review</span><span data-l="zh">← 返回在线复盘</span></a>
+</main>
+<script src="/static/i18n.js"></script>
+<script src="/static/video.js"></script>
+</body>
+</html>

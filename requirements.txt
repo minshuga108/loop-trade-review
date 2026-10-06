@@ -1,0 +1,12 @@
+# Pinned from the development venv (Python 3.12.10) on 2026-10-06.
+fastapi==0.142.2
+starlette==1.7.0
+uvicorn==0.54.0
+httpx==0.28.1
+pydantic==2.13.5
+pydantic_core==2.46.5
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+# engine/execution.py uses zoneinfo("America/New_York"); slim images may lack the system tz database
+tzdata==2026.5

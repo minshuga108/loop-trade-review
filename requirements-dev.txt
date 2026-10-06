@@ -1,0 +1,7 @@
+# Dev-only validation tooling (scripts/crosscheck_stats.py, scripts/run_validation.py, tests/test_validation_properties.py).
+# NOT needed to run the app: never add these to requirements.txt or the Dockerfile. Tests that use them skip when absent.
+-r requirements.txt
+pytest==9.1.1
+hypothesis==6.168.5
+statsmodels==0.15.0
+arch==8.0.0

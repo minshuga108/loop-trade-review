@@ -1,0 +1,23 @@
+.git
+.gitignore
+.venv
+.claude
+**/__pycache__
+**/*.pyc
+.pytest_cache
+data/
+tests/
+# scratch and debugging files at the repo root
+dbg*.py
+shot*.py
+shot_*.png
+selftest_suite.py
+scripts_review_wallet.py
+server.err
+server.log
+suite_run.log
+*.md
+!LOSSES.md
+!deploy_data/trader_samples/SOURCES.md
+.env
+.env.*

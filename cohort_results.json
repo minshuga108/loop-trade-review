@@ -1,0 +1,7754 @@
+{
+ "n_wallets": 60,
+ "n_round_trips": 18412,
+ "n_fills": 459230,
+ "fdr_q": 0.1,
+ "detectors": {
+  "size_after_loss": {
+   "tested": 55,
+   "underpowered": 5,
+   "bh_significant": 4,
+   "raw_p_below_0_05": 8,
+   "expected_raw_p_below_0_05_if_no_habit": 2.75,
+   "effect_distribution": {
+    "n": 55,
+    "min": 0.398282,
+    "q25": 0.775993,
+    "median": 1.00041,
+    "q75": 1.250825,
+    "max": 2.434882
+   },
+   "sign_test": {
+    "above_null": 28,
+    "below_null": 27,
+    "two_sided_p": 1.0
+   },
+   "engine_flagged": 6,
+   "std_effect_distribution": {
+    "n": 55,
+    "min": -0.920594,
+    "q25": -0.253642,
+    "median": 0.00041,
+    "q75": 0.223773,
+    "max": 0.889898
+   },
+   "pooled": {
+    "n_rows": 18309,
+    "n_labelled": 9310,
+    "statistic": 0.18217,
+    "p_pooled_shuffle": 0.0005,
+    "p_within_trader_shuffle": 0.514743,
+    "scale_free": {
+     "statistic": 0.001206,
+     "p_pooled_shuffle": 0.165917,
+     "p_within_trader_shuffle": 0.156922
+    }
+   }
+  },
+  "hold_asymmetry": {
+   "tested": 54,
+   "underpowered": 6,
+   "bh_significant": 2,
+   "raw_p_below_0_05": 5,
+   "expected_raw_p_below_0_05_if_no_habit": 2.7,
+   "effect_distribution": {
+    "n": 54,
+    "min": 0.013944,
+    "q25": 0.259106,
+    "median": 0.428128,
+    "q75": 1.104004,
+    "max": 18.798148
+   },
+   "sign_test": {
+    "above_null": 14,
+    "below_null": 40,
+    "two_sided_p": 0.000535
+   },
+   "engine_flagged": 4,
+   "std_effect_distribution": {
+    "n": 54,
+    "min": -4.272675,
+    "q25": -1.350906,
+    "median": -0.848973,
+    "q75": 0.097396,
+    "max": 2.933758
+   },
+   "pooled": {
+    "n_rows": 18412,
+    "n_labelled": 9352,
+    "statistic": -0.939598,
+    "p_pooled_shuffle": 1.0,
+    "p_within_trader_shuffle": 1.0,
+    "scale_free": {
+     "statistic": -0.508228,
+     "p_pooled_shuffle": 1.0,
+     "p_within_trader_shuffle": 1.0
+    }
+   }
+  },
+  "overtrading_clusters": {
+   "tested": 50,
+   "underpowered": 10,
+   "bh_significant": 0,
+   "raw_p_below_0_05": 3,
+   "expected_raw_p_below_0_05_if_no_habit": 2.5,
+   "effect_distribution": {
+    "n": 50,
+    "min": -1583.664937,
+    "q25": -88.135046,
+    "median": -2.663834,
+    "q75": 86.184587,
+    "max": 1103.666408
+   },
+   "sign_test": {
+    "above_null": 23,
+    "below_null": 27,
+    "two_sided_p": 0.671811
+   },
+   "engine_flagged": 3,
+   "std_effect_distribution": {
+    "n": 50,
+    "min": -0.359471,
+    "q25": -0.132099,
+    "median": -0.024738,
+    "q75": 0.059024,
+    "max": 0.239137
+   },
+   "pooled": {
+    "n_rows": 18412,
+    "n_labelled": 5336,
+    "statistic": 31.826268,
+    "p_pooled_shuffle": 0.50025,
+    "p_within_trader_shuffle": 0.225887,
+    "scale_free": {
+     "statistic": 0.026527,
+     "p_pooled_shuffle": 0.051974,
+     "p_within_trader_shuffle": 0.082459
+    }
+   }
+  },
+  "revenge_reentry": {
+   "tested": 14,
+   "underpowered": 46,
+   "bh_significant": 0,
+   "raw_p_below_0_05": 0,
+   "expected_raw_p_below_0_05_if_no_habit": 0.7,
+   "effect_distribution": {
+    "n": 14,
+    "min": -263.898451,
+    "q25": -95.19557,
+    "median": -5.225845,
+    "q75": 55.13689,
+    "max": 325.271854
+   },
+   "sign_test": {
+    "above_null": 6,
+    "below_null": 8,
+    "two_sided_p": 0.790527
+   },
+   "engine_flagged": 0,
+   "std_effect_distribution": {
+    "n": 14,
+    "min": -0.427458,
+    "q25": -0.17759,
+    "median": -0.068405,
+    "q75": 0.10772,
+    "max": 0.399815
+   },
+   "pooled": {
+    "n_rows": 3975,
+    "n_labelled": 974,
+    "statistic": 20.615905,
+    "p_pooled_shuffle": 0.397801,
+    "p_within_trader_shuffle": 0.135932,
+    "scale_free": {
+     "statistic": 0.04605,
+     "p_pooled_shuffle": 0.105447,
+     "p_within_trader_shuffle": 0.186407
+    }
+   }
+  }
+ },
+ "blotter_replication": {
+  "weekend_entry": {
+   "tested": 46,
+   "underpowered": 14,
+   "bh_significant": 1,
+   "raw_p_below_0_05": 4,
+   "expected_raw_p_below_0_05_if_no_habit": 2.3,
+   "effect_distribution": {
+    "n": 46,
+    "min": -0.1875,
+    "q25": -0.055739,
+    "median": -0.022503,
+    "q75": 0.072025,
+    "max": 0.199807
+   },
+   "sign_test": {
+    "above_null": 20,
+    "below_null": 26,
+    "two_sided_p": 0.461391
+   },
+   "pooled": {
+    "n_rows": 18412,
+    "n_labelled": 3515,
+    "statistic": 0.004792,
+    "p_pooled_shuffle": 0.310345,
+    "p_within_trader_shuffle": 0.236882
+   }
+  },
+  "entry_within_60m_of_loss": {
+   "tested": 39,
+   "underpowered": 21,
+   "bh_significant": 1,
+   "raw_p_below_0_05": 6,
+   "expected_raw_p_below_0_05_if_no_habit": 1.95,
+   "effect_distribution": {
+    "n": 39,
+    "min": -0.185386,
+    "q25": -0.009322,
+    "median": 0.034242,
+    "q75": 0.081752,
+    "max": 0.329678
+   },
+   "sign_test": {
+    "above_null": 27,
+    "below_null": 12,
+    "two_sided_p": 0.023703
+   },
+   "pooled": {
+    "n_rows": 18412,
+    "n_labelled": 4659,
+    "statistic": 0.188086,
+    "p_pooled_shuffle": 0.0005,
+    "p_within_trader_shuffle": 0.0005
+   }
+  }
+ },
+ "exploratory_after_win_60m": {
+  "note": "exploratory, added after seeing results; tests whether entries within 60 minutes after a WIN win MORE than other entries (statistic = labelled win rate minus other win rate)",
+  "n_labelled": 4017,
+  "statistic": 0.121108,
+  "p_pooled_shuffle": 0.0005,
+  "p_within_trader_shuffle": 0.029985,
+  "per_wallet_gap_distribution": {
+   "n": 36,
+   "min": -0.144393,
+   "q25": -0.009912,
+   "median": 0.026352,
+   "q75": 0.054381,
+   "max": 0.131111
+  },
+  "sign_test": {
+   "above_null": 25,
+   "below_null": 11,
+   "two_sided_p": 0.028817
+  }
+ },
+ "court": {
+  "rules": [
+   1.0,
+   1.5,
+   2.0,
+   3.0
+  ],
+  "trials_per_wallet": 4,
+  "alpha_per_rule": 0.0125,
+  "cohort_trials": 240,
+  "judged_not_underpowered": 191,
+  "per_rule": {
+   "1.0": {
+    "ACCEPTED": 0,
+    "REJECTED": 55,
+    "UNDERPOWERED": 5
+   },
+   "1.5": {
+    "ACCEPTED": 0,
+    "REJECTED": 49,
+    "UNDERPOWERED": 11
+   },
+   "2.0": {
+    "ACCEPTED": 1,
+    "REJECTED": 45,
+    "UNDERPOWERED": 14
+   },
+   "3.0": {
+    "ACCEPTED": 0,
+    "REJECTED": 41,
+    "UNDERPOWERED": 19
+   }
+  },
+  "wallets_with_any_accepted": 1,
+  "wallets_with_all_underpowered": 5,
+  "expected_acceptances_if_no_leak_at_most": 2.39
+ },
+ "sampling": {
+  "leaderboard_rows": 47438,
+  "eligible": 11037,
+  "candidates_tried": 102,
+  "tried_per_stratum": {
+   "1": 26,
+   "2": 14,
+   "3": 17,
+   "4": 19,
+   "5": 26
+  },
+  "kept_per_stratum": {
+   "1": 12,
+   "2": 12,
+   "3": 12,
+   "4": 12,
+   "5": 12
+  },
+  "rule": "COHORT_NOTES.md section 2 (pre-registered)"
+ },
+ "wallets": [
+  {
+   "wid": "W001",
+   "n_fills": 4408,
+   "n_trips": 251,
+   "span_days": 193.7,
+   "fills_per_day": 22.8,
+   "win_rate": 0.358566,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 165,
+     "n_b": 84,
+     "effect": 0.796146,
+     "ci": [
+      0.563919,
+      1.11798
+     ],
+     "p": 0.912522,
+     "std_effect": -0.227972,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 161,
+     "n_b": 90,
+     "effect": 0.469531,
+     "ci": [
+      0.275308,
+      0.916039
+     ],
+     "p": 0.992002,
+     "std_effect": -0.75602,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 45,
+     "n_b": 206,
+     "effect": -300.762698,
+     "ci": [
+      -690.7348,
+      73.656346
+     ],
+     "p": 0.097226,
+     "std_effect": -0.203358,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 36,
+     "n_b": 94,
+     "effect": -230.463581,
+     "ci": [
+      -889.245034,
+      526.180299
+     ],
+     "p": 0.229193,
+     "std_effect": -0.155456,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 50,
+     "n_b": 201,
+     "effect": 0.073134,
+     "p": 0.214446,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 126,
+     "n_b": 125,
+     "effect": 0.130349,
+     "p": 0.022494,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.621189,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 16071.086732,
+     "oos_trips": 210,
+     "oos_affected": 98
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.591204,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 15479.837308,
+     "oos_trips": 210,
+     "oos_affected": 81
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.590705,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 13362.039349,
+     "oos_trips": 210,
+     "oos_affected": 68
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.538231,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 7328.745451,
+     "oos_trips": 210,
+     "oos_affected": 53
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W002",
+   "n_fills": 9974,
+   "n_trips": 776,
+   "span_days": 415.8,
+   "fills_per_day": 24.0,
+   "win_rate": 0.270619,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 574,
+     "n_b": 201,
+     "effect": 1.19067,
+     "ci": [
+      1.007698,
+      1.423598
+     ],
+     "p": 0.007248,
+     "std_effect": 0.174517,
+     "bh_significant": true
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 566,
+     "n_b": 210,
+     "effect": 0.199588,
+     "ci": [
+      0.150104,
+      0.282908
+     ],
+     "p": 1.0,
+     "std_effect": -1.611499,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 227,
+     "n_b": 549,
+     "effect": -10.562587,
+     "ci": [
+      -23.083457,
+      2.075408
+     ],
+     "p": 0.097726,
+     "std_effect": -0.099201,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 44,
+     "n_b": 88,
+     "effect": -7.586605,
+     "ci": [
+      -26.413778,
+      14.203696
+     ],
+     "p": 0.233692,
+     "std_effect": -0.130876,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 217,
+     "n_b": 559,
+     "effect": 0.017427,
+     "p": 0.345164,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 264,
+     "n_b": 512,
+     "effect": 0.025509,
+     "p": 0.261935,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.430785,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 943.910702,
+     "oos_trips": 647,
+     "oos_affected": 354
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.393803,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 919.274441,
+     "oos_trips": 647,
+     "oos_affected": 253
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.394303,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 827.228472,
+     "oos_trips": 647,
+     "oos_affected": 167
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.497251,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 519.422364,
+     "oos_trips": 647,
+     "oos_affected": 104
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W003",
+   "n_fills": 9996,
+   "n_trips": 204,
+   "span_days": 62.1,
+   "fills_per_day": 161.1,
+   "win_rate": 0.607843,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 78,
+     "n_b": 125,
+     "effect": 1.443601,
+     "ci": [
+      0.762539,
+      1.998596
+     ],
+     "p": 0.126968,
+     "std_effect": 0.367141,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 80,
+     "n_b": 124,
+     "effect": 0.395891,
+     "ci": [
+      0.119483,
+      1.944478
+     ],
+     "p": 0.87953,
+     "std_effect": -0.926617,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 52,
+     "n_b": 152,
+     "effect": -293.133386,
+     "ci": [
+      -725.075339,
+      90.442188
+     ],
+     "p": 0.187453,
+     "std_effect": -0.141058,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 20,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 45,
+     "n_b": 159,
+     "effect": -0.103983,
+     "p": 0.932017,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 37,
+     "n_b": 167,
+     "effect": 0.115229,
+     "p": 0.138465,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.497251,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 6058.014956,
+     "oos_trips": 170,
+     "oos_affected": 43
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.530735,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 6683.396467,
+     "oos_trips": 170,
+     "oos_affected": 33
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.587206,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 6614.046493,
+     "oos_trips": 170,
+     "oos_affected": 27
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.705147,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 6093.139122,
+     "oos_trips": 170,
+     "oos_affected": 24
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W004",
+   "n_fills": 7064,
+   "n_trips": 821,
+   "span_days": 48.3,
+   "fills_per_day": 146.2,
+   "win_rate": 0.405603,
+   "detectors": {
+    "size_after_loss": {
+     "status": "FLAGGED",
+     "n_a": 487,
+     "n_b": 333,
+     "effect": 1.260532,
+     "ci": [
+      1.039597,
+      1.582619
+     ],
+     "p": 0.011247,
+     "std_effect": 0.231534,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 488,
+     "n_b": 333,
+     "effect": 0.443448,
+     "ci": [
+      0.301375,
+      0.668214
+     ],
+     "p": 1.0,
+     "std_effect": -0.813175,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 291,
+     "n_b": 530,
+     "effect": -1.996317,
+     "ci": [
+      -10.730274,
+      6.352402
+     ],
+     "p": 0.345664,
+     "std_effect": -0.030568,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 82,
+     "n_b": 148,
+     "effect": -18.572323,
+     "ci": [
+      -51.620691,
+      6.707402
+     ],
+     "p": 0.089978,
+     "std_effect": -0.202748,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 163,
+     "n_b": 658,
+     "effect": -0.006788,
+     "p": 0.604099,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 424,
+     "n_b": 397,
+     "effect": 0.077919,
+     "p": 0.016246,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.244378,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1949.249226,
+     "oos_trips": 685,
+     "oos_affected": 161
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.225387,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1721.754443,
+     "oos_trips": 685,
+     "oos_affected": 99
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.243378,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1480.728339,
+     "oos_trips": 685,
+     "oos_affected": 68
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.224888,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1135.88465,
+     "oos_trips": 685,
+     "oos_affected": 33
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W005",
+   "n_fills": 9616,
+   "n_trips": 103,
+   "span_days": 1136.9,
+   "fills_per_day": 8.5,
+   "win_rate": 0.427184,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 66,
+     "n_b": 36,
+     "effect": 0.922531,
+     "ci": [
+      0.346627,
+      1.526189
+     ],
+     "p": 0.605349,
+     "std_effect": -0.080635,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 59,
+     "n_b": 44,
+     "effect": 0.412809,
+     "ci": [
+      0.149154,
+      1.267446
+     ],
+     "p": 0.954761,
+     "std_effect": -0.88477,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 15,
+     "n_b": 88,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 7,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 18,
+     "n_b": 85,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 15,
+     "n_b": 88,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.357821,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 25806.582992,
+     "oos_trips": 86,
+     "oos_affected": 23
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.375812,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 10684.644298,
+     "oos_trips": 86,
+     "oos_affected": 16
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.412294,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 129.467716,
+     "oos_trips": 86,
+     "oos_affected": 12
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -18522.730157,
+     "oos_trips": 86,
+     "oos_affected": 7
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W006",
+   "n_fills": 9984,
+   "n_trips": 685,
+   "span_days": 51.6,
+   "fills_per_day": 193.6,
+   "win_rate": 0.172263,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 590,
+     "n_b": 93,
+     "effect": 0.955948,
+     "ci": [
+      0.699869,
+      1.530295
+     ],
+     "p": 0.555611,
+     "std_effect": -0.045051,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 567,
+     "n_b": 118,
+     "effect": 0.134088,
+     "ci": [
+      0.087411,
+      0.241006
+     ],
+     "p": 1.0,
+     "std_effect": -2.00926,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 264,
+     "n_b": 421,
+     "effect": -78.761845,
+     "ci": [
+      -189.357397,
+      57.996918
+     ],
+     "p": 0.064734,
+     "std_effect": -0.114014,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 103,
+     "n_b": 145,
+     "effect": -22.380725,
+     "ci": [
+      -288.715156,
+      315.564122
+     ],
+     "p": 0.469883,
+     "std_effect": -0.021204,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 110,
+     "n_b": 575,
+     "effect": -0.022213,
+     "p": 0.76031,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 424,
+     "n_b": 261,
+     "effect": 0.037383,
+     "p": 0.11822,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.783608,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 10332.397412,
+     "oos_trips": 571,
+     "oos_affected": 320
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.776612,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 9048.238148,
+     "oos_trips": 571,
+     "oos_affected": 254
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.772614,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 8178.337925,
+     "oos_trips": 571,
+     "oos_affected": 227
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.769115,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 6862.283795,
+     "oos_trips": 571,
+     "oos_affected": 168
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W007",
+   "n_fills": 6199,
+   "n_trips": 525,
+   "span_days": 928.6,
+   "fills_per_day": 6.7,
+   "win_rate": 0.234286,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 402,
+     "n_b": 122,
+     "effect": 0.955568,
+     "ci": [
+      0.669333,
+      1.671751
+     ],
+     "p": 0.610597,
+     "std_effect": -0.045449,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 402,
+     "n_b": 123,
+     "effect": 0.208446,
+     "ci": [
+      0.151942,
+      0.328099
+     ],
+     "p": 1.0,
+     "std_effect": -1.568073,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 157,
+     "n_b": 368,
+     "effect": 2.732494,
+     "ci": [
+      -3.943672,
+      9.248688
+     ],
+     "p": 0.740565,
+     "std_effect": 0.062567,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 70,
+     "n_b": 211,
+     "effect": -2.865084,
+     "ci": [
+      -9.104769,
+      3.771042
+     ],
+     "p": 0.196701,
+     "std_effect": -0.115606,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 116,
+     "n_b": 409,
+     "effect": 0.07942,
+     "p": 0.043239,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 256,
+     "n_b": 269,
+     "effect": 0.076063,
+     "p": 0.028243,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.997001,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 795.579805,
+     "oos_trips": 438,
+     "oos_affected": 173
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.996502,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 668.056312,
+     "oos_trips": 438,
+     "oos_affected": 129
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.993003,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 653.491278,
+     "oos_trips": 438,
+     "oos_affected": 104
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.972014,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 562.168587,
+     "oos_trips": 438,
+     "oos_affected": 64
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W008",
+   "n_fills": 3156,
+   "n_trips": 235,
+   "span_days": 655.6,
+   "fills_per_day": 4.8,
+   "win_rate": 0.361702,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 152,
+     "n_b": 82,
+     "effect": 1.37139,
+     "ci": [
+      0.78708,
+      2.247384
+     ],
+     "p": 0.103974,
+     "std_effect": 0.315825,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 150,
+     "n_b": 85,
+     "effect": 0.288724,
+     "ci": [
+      0.118169,
+      0.846657
+     ],
+     "p": 0.993252,
+     "std_effect": -1.242283,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 65,
+     "n_b": 170,
+     "effect": 127.458399,
+     "ci": [
+      -313.304805,
+      534.696759
+     ],
+     "p": 0.712072,
+     "std_effect": 0.053453,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 24,
+     "n_b": 44,
+     "effect": -263.898451,
+     "ci": [
+      -626.541217,
+      44.454646
+     ],
+     "p": 0.054486,
+     "std_effect": -0.427458,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 62,
+     "n_b": 173,
+     "effect": 0.075051,
+     "p": 0.186953,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 67,
+     "n_b": 168,
+     "effect": -0.036869,
+     "p": 0.750312,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.384308,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 928.087332,
+     "oos_trips": 196,
+     "oos_affected": 48
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.573713,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 64.038097,
+     "oos_trips": 196,
+     "oos_affected": 25
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.326837,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 133.471867,
+     "oos_trips": 196,
+     "oos_affected": 17
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3.999162,
+     "oos_trips": 196,
+     "oos_affected": 2
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W009",
+   "n_fills": 9981,
+   "n_trips": 134,
+   "span_days": 96.1,
+   "fills_per_day": 103.9,
+   "win_rate": 0.776119,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 23,
+     "n_b": 105,
+     "effect": 1.351046,
+     "ci": [
+      0.810355,
+      2.527327
+     ],
+     "p": 0.092727,
+     "std_effect": 0.300879,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 30,
+     "n_b": 104,
+     "effect": 1.666149,
+     "ci": [
+      0.660995,
+      3.665245
+     ],
+     "p": 0.130717,
+     "std_effect": 0.510515,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 37,
+     "n_b": 97,
+     "effect": 417.551827,
+     "ci": [
+      -1166.189632,
+      2501.872053
+     ],
+     "p": 0.667333,
+     "std_effect": 0.079428,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 3,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 21,
+     "n_b": 113,
+     "effect": -0.096081,
+     "p": 0.898525,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 3,
+     "n_b": 131,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.873063,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -9508.436145,
+     "oos_trips": 112,
+     "oos_affected": 11
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -8992.105887,
+     "oos_trips": 112,
+     "oos_affected": 7
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -8509.860217,
+     "oos_trips": 112,
+     "oos_affected": 6
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -7675.491538,
+     "oos_trips": 112,
+     "oos_affected": 5
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W010",
+   "n_fills": 9986,
+   "n_trips": 940,
+   "span_days": 463.5,
+   "fills_per_day": 21.5,
+   "win_rate": 0.25,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 720,
+     "n_b": 219,
+     "effect": 1.035864,
+     "ci": [
+      0.7908,
+      1.310986
+     ],
+     "p": 0.387153,
+     "std_effect": 0.035235,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 705,
+     "n_b": 235,
+     "effect": 0.170506,
+     "ci": [
+      0.129672,
+      0.258659
+     ],
+     "p": 1.0,
+     "std_effect": -1.768986,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 311,
+     "n_b": 629,
+     "effect": -20.831878,
+     "ci": [
+      -71.967575,
+      30.201386
+     ],
+     "p": 0.212947,
+     "std_effect": -0.054,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 148,
+     "n_b": 161,
+     "effect": 80.765733,
+     "ci": [
+      -10.827221,
+      178.655886
+     ],
+     "p": 0.956511,
+     "std_effect": 0.195358,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 122,
+     "n_b": 818,
+     "effect": -0.032967,
+     "p": 0.815796,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 392,
+     "n_b": 548,
+     "effect": -0.013128,
+     "p": 0.700575,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.828586,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 639.503109,
+     "oos_trips": 784,
+     "oos_affected": 327
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.863568,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2710.279455,
+     "oos_trips": 784,
+     "oos_affected": 269
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.869065,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4321.858974,
+     "oos_trips": 784,
+     "oos_affected": 214
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.645177,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2639.886729,
+     "oos_trips": 784,
+     "oos_affected": 132
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W011",
+   "n_fills": 9982,
+   "n_trips": 346,
+   "span_days": 93.0,
+   "fills_per_day": 107.4,
+   "win_rate": 0.950867,
+   "detectors": {
+    "size_after_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 16,
+     "n_b": 324,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "UNDERPOWERED",
+     "n_a": 17,
+     "n_b": 329,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "FLAGGED",
+     "n_a": 58,
+     "n_b": 288,
+     "effect": -69.208909,
+     "ci": [
+      -158.945517,
+      -4.785415
+     ],
+     "p": 0.022994,
+     "std_effect": -0.328986,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 23,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 36,
+     "n_b": 310,
+     "effect": -0.023835,
+     "p": 0.854786,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 10,
+     "n_b": 336,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -389.892048,
+     "oos_trips": 289,
+     "oos_affected": 5
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -254.142713,
+     "oos_trips": 289,
+     "oos_affected": 5
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -118.393377,
+     "oos_trips": 289,
+     "oos_affected": 5
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4.315379,
+     "oos_trips": 289,
+     "oos_affected": 1
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W012",
+   "n_fills": 9994,
+   "n_trips": 865,
+   "span_days": 220.0,
+   "fills_per_day": 45.4,
+   "win_rate": 0.760694,
+   "detectors": {
+    "size_after_loss": {
+     "status": "FLAGGED",
+     "n_a": 114,
+     "n_b": 750,
+     "effect": 2.008688,
+     "ci": [
+      2.001178,
+      2.502132
+     ],
+     "p": 0.00025,
+     "std_effect": 0.697482,
+     "bh_significant": true
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 207,
+     "n_b": 658,
+     "effect": 0.99999,
+     "ci": [
+      0.970348,
+      1.000012
+     ],
+     "p": 0.836791,
+     "std_effect": -1e-05,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 448,
+     "n_b": 417,
+     "effect": 1.365707,
+     "ci": [
+      -43.787126,
+      51.416574
+     ],
+     "p": 0.529618,
+     "std_effect": 0.004002,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 11,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 104,
+     "n_b": 761,
+     "effect": -0.064351,
+     "p": 0.947013,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 44,
+     "n_b": 821,
+     "effect": -0.060569,
+     "p": 0.87803,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.867066,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2957.161438,
+     "oos_trips": 721,
+     "oos_affected": 55
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.858571,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2569.331631,
+     "oos_trips": 721,
+     "oos_affected": 34
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.857071,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2407.023653,
+     "oos_trips": 721,
+     "oos_affected": 25
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.849075,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2153.944123,
+     "oos_trips": 721,
+     "oos_affected": 18
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W013",
+   "n_fills": 9981,
+   "n_trips": 88,
+   "span_days": 39.9,
+   "fills_per_day": 249.8,
+   "win_rate": 0.136364,
+   "detectors": {
+    "size_after_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 82,
+     "n_b": 5,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "UNDERPOWERED",
+     "n_a": 76,
+     "n_b": 12,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 25,
+     "n_b": 63,
+     "effect": -1.829404,
+     "ci": [
+      -58.931538,
+      41.712201
+     ],
+     "p": 0.485129,
+     "std_effect": -0.016691,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 9,
+     "n_b": 24,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 8,
+     "n_b": 80,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 42,
+     "n_b": 46,
+     "effect": -0.012422,
+     "p": 0.688828,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.828586,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1261.468397,
+     "oos_trips": 74,
+     "oos_affected": 40
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.834083,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1201.811656,
+     "oos_trips": 74,
+     "oos_affected": 34
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.845577,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1144.992506,
+     "oos_trips": 74,
+     "oos_affected": 34
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.867566,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1034.178706,
+     "oos_trips": 74,
+     "oos_affected": 30
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W014",
+   "n_fills": 8777,
+   "n_trips": 490,
+   "span_days": 193.0,
+   "fills_per_day": 45.5,
+   "win_rate": 0.365306,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 317,
+     "n_b": 171,
+     "effect": 0.749521,
+     "ci": [
+      0.582927,
+      1.060635
+     ],
+     "p": 0.950012,
+     "std_effect": -0.288321,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 311,
+     "n_b": 179,
+     "effect": 0.169748,
+     "ci": [
+      0.13056,
+      0.244797
+     ],
+     "p": 1.0,
+     "std_effect": -1.773438,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 140,
+     "n_b": 350,
+     "effect": -91.259447,
+     "ci": [
+      -215.203207,
+      34.416854
+     ],
+     "p": 0.181455,
+     "std_effect": -0.089764,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 19,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 81,
+     "n_b": 409,
+     "effect": -0.035649,
+     "p": 0.782554,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 259,
+     "n_b": 231,
+     "effect": 0.005031,
+     "p": 0.499875,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.447776,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -8794.543641,
+     "oos_trips": 409,
+     "oos_affected": 131
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.407296,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -5804.441686,
+     "oos_trips": 409,
+     "oos_affected": 99
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.390305,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3566.098389,
+     "oos_trips": 409,
+     "oos_affected": 87
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.352324,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2258.507055,
+     "oos_trips": 409,
+     "oos_affected": 68
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W015",
+   "n_fills": 9962,
+   "n_trips": 314,
+   "span_days": 84.3,
+   "fills_per_day": 118.2,
+   "win_rate": 0.611465,
+   "detectors": {
+    "size_after_loss": {
+     "status": "FLAGGED",
+     "n_a": 123,
+     "n_b": 189,
+     "effect": 1.834041,
+     "ci": [
+      0.885691,
+      2.686281
+     ],
+     "p": 0.007248,
+     "std_effect": 0.606522,
+     "bh_significant": true
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 122,
+     "n_b": 192,
+     "effect": 0.827925,
+     "ci": [
+      0.425948,
+      2.46668
+     ],
+     "p": 0.686578,
+     "std_effect": -0.188833,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 95,
+     "n_b": 219,
+     "effect": 221.700353,
+     "ci": [
+      -811.533289,
+      1407.515074
+     ],
+     "p": 0.508373,
+     "std_effect": 0.039707,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 7,
+     "n_b": 41,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 53,
+     "n_b": 261,
+     "effect": 0.054652,
+     "p": 0.286678,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 44,
+     "n_b": 270,
+     "effect": 0.076768,
+     "p": 0.206948,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.435282,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 13150.337231,
+     "oos_trips": 262,
+     "oos_affected": 78
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.365317,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 12122.710383,
+     "oos_trips": 262,
+     "oos_affected": 65
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.238381,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 9728.923942,
+     "oos_trips": 262,
+     "oos_affected": 58
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.372814,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4937.887963,
+     "oos_trips": 262,
+     "oos_affected": 48
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W016",
+   "n_fills": 9976,
+   "n_trips": 176,
+   "span_days": 164.8,
+   "fills_per_day": 60.5,
+   "win_rate": 0.573864,
+   "detectors": {
+    "size_after_loss": {
+     "status": "FLAGGED",
+     "n_a": 67,
+     "n_b": 108,
+     "effect": 1.407248,
+     "ci": [
+      0.907229,
+      1.572844
+     ],
+     "p": 0.003249,
+     "std_effect": 0.341636,
+     "bh_significant": true
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 75,
+     "n_b": 101,
+     "effect": 1.186673,
+     "ci": [
+      0.504106,
+      1.798425
+     ],
+     "p": 0.267683,
+     "std_effect": 0.171153,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 38,
+     "n_b": 138,
+     "effect": 705.358986,
+     "ci": [
+      -652.89503,
+      2129.396715
+     ],
+     "p": 0.714071,
+     "std_effect": 0.122297,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 1,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 21,
+     "n_b": 155,
+     "effect": 0.002765,
+     "p": 0.586353,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 6,
+     "n_b": 170,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.487756,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 650.919552,
+     "oos_trips": 147,
+     "oos_affected": 18
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.586207,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -122.593765,
+     "oos_trips": 147,
+     "oos_affected": 11
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -406.778873,
+     "oos_trips": 147,
+     "oos_affected": 8
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -340.375548,
+     "oos_trips": 147,
+     "oos_affected": 3
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W017",
+   "n_fills": 9914,
+   "n_trips": 203,
+   "span_days": 60.3,
+   "fills_per_day": 164.4,
+   "win_rate": 0.482759,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 104,
+     "n_b": 98,
+     "effect": 0.769934,
+     "ci": [
+      0.59909,
+      1.335328
+     ],
+     "p": 0.765559,
+     "std_effect": -0.261451,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 105,
+     "n_b": 98,
+     "effect": 0.943588,
+     "ci": [
+      0.458151,
+      1.825088
+     ],
+     "p": 0.569858,
+     "std_effect": -0.058066,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 104,
+     "n_b": 99,
+     "effect": 88.900338,
+     "ci": [
+      -96.606998,
+      279.249286
+     ],
+     "p": 0.827293,
+     "std_effect": 0.126953,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 10,
+     "n_b": 78,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 13,
+     "n_b": 190,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 64,
+     "n_b": 139,
+     "effect": -0.02518,
+     "p": 0.68033,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.683158,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 341.055402,
+     "oos_trips": 170,
+     "oos_affected": 12
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 92.680738,
+     "oos_trips": 170,
+     "oos_affected": 6
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 26.003401,
+     "oos_trips": 170,
+     "oos_affected": 1
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 0.0,
+     "oos_trips": 170,
+     "oos_affected": 0
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W018",
+   "n_fills": 9970,
+   "n_trips": 235,
+   "span_days": 648.8,
+   "fills_per_day": 15.4,
+   "win_rate": 0.565957,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 94,
+     "n_b": 139,
+     "effect": 1.228677,
+     "ci": [
+      0.662362,
+      2.007438
+     ],
+     "p": 0.288928,
+     "std_effect": 0.205938,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 102,
+     "n_b": 133,
+     "effect": 1.314923,
+     "ci": [
+      0.592372,
+      5.456752
+     ],
+     "p": 0.262434,
+     "std_effect": 0.273778,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 45,
+     "n_b": 190,
+     "effect": -359.397065,
+     "ci": [
+      -1312.52215,
+      426.991957
+     ],
+     "p": 0.28068,
+     "std_effect": -0.096415,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 6,
+     "n_b": 20,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 47,
+     "n_b": 188,
+     "effect": -0.06383,
+     "p": 0.831542,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 31,
+     "n_b": 204,
+     "effect": 0.02024,
+     "p": 0.474881,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.189905,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 30967.142972,
+     "oos_trips": 196,
+     "oos_affected": 67
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.205397,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 28534.408417,
+     "oos_trips": 196,
+     "oos_affected": 60
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.210895,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 27314.296264,
+     "oos_trips": 196,
+     "oos_affected": 51
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.231384,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 24701.184882,
+     "oos_trips": 196,
+     "oos_affected": 44
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W019",
+   "n_fills": 9977,
+   "n_trips": 121,
+   "span_days": 305.2,
+   "fills_per_day": 32.7,
+   "win_rate": 0.867769,
+   "detectors": {
+    "size_after_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 14,
+     "n_b": 106,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "UNDERPOWERED",
+     "n_a": 16,
+     "n_b": 105,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 19,
+     "n_b": 102,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 3,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 27,
+     "n_b": 94,
+     "effect": -0.074862,
+     "p": 0.917521,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 117,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -8677.154651,
+     "oos_trips": 101,
+     "oos_affected": 6
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1947.854892,
+     "oos_trips": 101,
+     "oos_affected": 3
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1579.554789,
+     "oos_trips": 101,
+     "oos_affected": 3
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -842.954582,
+     "oos_trips": 101,
+     "oos_affected": 3
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W020",
+   "n_fills": 8389,
+   "n_trips": 280,
+   "span_days": 391.2,
+   "fills_per_day": 21.4,
+   "win_rate": 0.521429,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 133,
+     "n_b": 146,
+     "effect": 0.764813,
+     "ci": [
+      0.326679,
+      1.24923
+     ],
+     "p": 0.892277,
+     "std_effect": -0.268124,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 134,
+     "n_b": 146,
+     "effect": 0.181822,
+     "ci": [
+      0.086997,
+      0.781109
+     ],
+     "p": 1.0,
+     "std_effect": -1.704725,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 95,
+     "n_b": 185,
+     "effect": 382.072909,
+     "ci": [
+      -93.000356,
+      961.315813
+     ],
+     "p": 0.847288,
+     "std_effect": 0.131405,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 19,
+     "n_b": 53,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 32,
+     "n_b": 248,
+     "effect": -0.1875,
+     "p": 0.985004,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 69,
+     "n_b": 211,
+     "effect": 0.076516,
+     "p": 0.175956,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.708146,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 6338.264927,
+     "oos_trips": 234,
+     "oos_affected": 44
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.3998,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4621.863682,
+     "oos_trips": 234,
+     "oos_affected": 38
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.269365,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3738.186709,
+     "oos_trips": 234,
+     "oos_affected": 32
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.066967,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3198.727597,
+     "oos_trips": 234,
+     "oos_affected": 20
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W021",
+   "n_fills": 9972,
+   "n_trips": 220,
+   "span_days": 331.9,
+   "fills_per_day": 30.0,
+   "win_rate": 0.372727,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 150,
+     "n_b": 69,
+     "effect": 1.225282,
+     "ci": [
+      0.774777,
+      1.987111
+     ],
+     "p": 0.182954,
+     "std_effect": 0.203171,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 138,
+     "n_b": 82,
+     "effect": 0.506731,
+     "ci": [
+      0.274608,
+      0.976868
+     ],
+     "p": 0.974256,
+     "std_effect": -0.679775,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 62,
+     "n_b": 158,
+     "effect": 440.897827,
+     "ci": [
+      -61.116035,
+      941.358325
+     ],
+     "p": 0.945764,
+     "std_effect": 0.239137,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 7,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 29,
+     "n_b": 191,
+     "effect": -0.047301,
+     "p": 0.754811,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 36,
+     "n_b": 184,
+     "effect": -0.185386,
+     "p": 0.989253,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.592704,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 16195.001413,
+     "oos_trips": 184,
+     "oos_affected": 84
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.648676,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 8764.710483,
+     "oos_trips": 184,
+     "oos_affected": 69
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.744628,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 2359.63878,
+     "oos_trips": 184,
+     "oos_affected": 57
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.832584,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2000.556093,
+     "oos_trips": 184,
+     "oos_affected": 32
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W022",
+   "n_fills": 9995,
+   "n_trips": 163,
+   "span_days": 130.8,
+   "fills_per_day": 76.4,
+   "win_rate": 0.460123,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 91,
+     "n_b": 71,
+     "effect": 0.621375,
+     "ci": [
+      0.047575,
+      8.311812
+     ],
+     "p": 0.676831,
+     "std_effect": -0.475821,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 88,
+     "n_b": 75,
+     "effect": 0.404438,
+     "ci": [
+      0.223903,
+      1.408444
+     ],
+     "p": 0.978005,
+     "std_effect": -0.905258,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 39,
+     "n_b": 124,
+     "effect": -7.907535,
+     "ci": [
+      -75.611264,
+      54.900289
+     ],
+     "p": 0.397901,
+     "std_effect": -0.046365,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 5,
+     "n_b": 11,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 39,
+     "n_b": 124,
+     "effect": -0.035567,
+     "p": 0.710322,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 26,
+     "n_b": 137,
+     "effect": 0.135598,
+     "p": 0.137216,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.238381,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 414.037114,
+     "oos_trips": 136,
+     "oos_affected": 28
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.252374,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 339.962397,
+     "oos_trips": 136,
+     "oos_affected": 21
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.307346,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 227.448346,
+     "oos_trips": 136,
+     "oos_affected": 13
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.409795,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 106.751928,
+     "oos_trips": 136,
+     "oos_affected": 12
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W023",
+   "n_fills": 2443,
+   "n_trips": 64,
+   "span_days": 302.2,
+   "fills_per_day": 8.1,
+   "win_rate": 0.75,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 22,
+     "n_b": 37,
+     "effect": 0.693928,
+     "ci": [
+      0.454278,
+      1.361962
+     ],
+     "p": 0.897526,
+     "std_effect": -0.365388,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "UNDERPOWERED",
+     "n_a": 16,
+     "n_b": 48,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 22,
+     "n_b": 42,
+     "effect": -908.371757,
+     "ci": [
+      -2881.437191,
+      398.350826
+     ],
+     "p": 0.265434,
+     "std_effect": -0.207172,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 0,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 7,
+     "n_b": 57,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 2,
+     "n_b": 62,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.681659,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -38048.438571,
+     "oos_trips": 54,
+     "oos_affected": 12
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -33993.872538,
+     "oos_trips": 54,
+     "oos_affected": 9
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -30427.474211,
+     "oos_trips": 54,
+     "oos_affected": 7
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -24739.407934,
+     "oos_trips": 54,
+     "oos_affected": 4
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W024",
+   "n_fills": 6558,
+   "n_trips": 719,
+   "span_days": 757.0,
+   "fills_per_day": 8.7,
+   "win_rate": 0.609179,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 268,
+     "n_b": 448,
+     "effect": 0.925297,
+     "ci": [
+      0.684541,
+      1.2144
+     ],
+     "p": 0.663584,
+     "std_effect": -0.07764,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 281,
+     "n_b": 438,
+     "effect": 0.841403,
+     "ci": [
+      0.488413,
+      1.149754
+     ],
+     "p": 0.864784,
+     "std_effect": -0.172684,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 271,
+     "n_b": 448,
+     "effect": 25.312428,
+     "ci": [
+      -55.563493,
+      125.031792
+     ],
+     "p": 0.615596,
+     "std_effect": 0.034392,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 27,
+     "n_b": 227,
+     "effect": 111.131277,
+     "ci": [
+      -120.64719,
+      366.106794
+     ],
+     "p": 0.829793,
+     "std_effect": 0.10939,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 145,
+     "n_b": 574,
+     "effect": -0.048973,
+     "p": 0.88078,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 144,
+     "n_b": 575,
+     "effect": 0.041002,
+     "p": 0.213947,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.747626,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4170.19322,
+     "oos_trips": 600,
+     "oos_affected": 141
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.753123,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4190.66673,
+     "oos_trips": 600,
+     "oos_affected": 111
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.792604,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4663.515666,
+     "oos_trips": 600,
+     "oos_affected": 78
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.887056,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -5094.160081,
+     "oos_trips": 600,
+     "oos_affected": 50
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W025",
+   "n_fills": 9671,
+   "n_trips": 271,
+   "span_days": 130.5,
+   "fills_per_day": 74.1,
+   "win_rate": 0.232472,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 213,
+     "n_b": 56,
+     "effect": 1.285598,
+     "ci": [
+      0.672857,
+      2.573641
+     ],
+     "p": 0.171457,
+     "std_effect": 0.251224,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 208,
+     "n_b": 63,
+     "effect": 0.27233,
+     "ci": [
+      0.151887,
+      0.441127
+     ],
+     "p": 1.0,
+     "std_effect": -1.300742,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 39,
+     "n_b": 232,
+     "effect": -60.107805,
+     "ci": [
+      -244.537304,
+      118.785978
+     ],
+     "p": 0.215446,
+     "std_effect": -0.138128,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 19,
+     "n_b": 28,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 39,
+     "n_b": 232,
+     "effect": -0.057913,
+     "p": 0.831792,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 93,
+     "n_b": 178,
+     "effect": -0.006222,
+     "p": 0.612347,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.89905,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 180.526297,
+     "oos_trips": 226,
+     "oos_affected": 54
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.890055,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -150.500824,
+     "oos_trips": 226,
+     "oos_affected": 38
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.901049,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -208.778007,
+     "oos_trips": 226,
+     "oos_affected": 32
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.923538,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -83.215,
+     "oos_trips": 226,
+     "oos_affected": 24
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W026",
+   "n_fills": 9972,
+   "n_trips": 390,
+   "span_days": 298.7,
+   "fills_per_day": 33.4,
+   "win_rate": 0.417949,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 220,
+     "n_b": 168,
+     "effect": 1.118105,
+     "ci": [
+      0.886255,
+      1.432457
+     ],
+     "p": 0.171707,
+     "std_effect": 0.111635,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 227,
+     "n_b": 163,
+     "effect": 0.193437,
+     "ci": [
+      0.084869,
+      0.452622
+     ],
+     "p": 0.99975,
+     "std_effect": -1.642804,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 55,
+     "n_b": 335,
+     "effect": 166.71372,
+     "ci": [
+      -369.84523,
+      897.949691
+     ],
+     "p": 0.422894,
+     "std_effect": 0.030646,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 19,
+     "n_b": 28,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 86,
+     "n_b": 304,
+     "effect": -0.030676,
+     "p": 0.725569,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 95,
+     "n_b": 295,
+     "effect": -0.004103,
+     "p": 0.589103,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.935032,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -34263.568284,
+     "oos_trips": 325,
+     "oos_affected": 105
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.961519,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -22559.485769,
+     "oos_trips": 325,
+     "oos_affected": 75
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.981009,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -13691.842882,
+     "oos_trips": 325,
+     "oos_affected": 54
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.956522,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4404.839892,
+     "oos_trips": 325,
+     "oos_affected": 33
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W027",
+   "n_fills": 4122,
+   "n_trips": 328,
+   "span_days": 610.7,
+   "fills_per_day": 6.7,
+   "win_rate": 0.439024,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 188,
+     "n_b": 139,
+     "effect": 0.725797,
+     "ci": [
+      0.481281,
+      1.093228
+     ],
+     "p": 0.937766,
+     "std_effect": -0.320484,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 184,
+     "n_b": 144,
+     "effect": 0.38163,
+     "ci": [
+      0.271002,
+      0.73682
+     ],
+     "p": 0.99875,
+     "std_effect": -0.963304,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 163,
+     "n_b": 165,
+     "effect": 52.822004,
+     "ci": [
+      -99.395386,
+      224.140384
+     ],
+     "p": 0.726818,
+     "std_effect": 0.071831,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 42,
+     "n_b": 157,
+     "effect": -119.467185,
+     "ci": [
+      -423.654501,
+      106.381807
+     ],
+     "p": 0.153962,
+     "std_effect": -0.184968,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 74,
+     "n_b": 254,
+     "effect": -0.06129,
+     "p": 0.852537,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 119,
+     "n_b": 209,
+     "effect": 0.082345,
+     "p": 0.088228,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.347826,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4353.027685,
+     "oos_trips": 274,
+     "oos_affected": 101
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.454773,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 711.130506,
+     "oos_trips": 274,
+     "oos_affected": 90
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.449275,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 307.959213,
+     "oos_trips": 274,
+     "oos_affected": 79
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.462769,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 228.724939,
+     "oos_trips": 274,
+     "oos_affected": 58
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W028",
+   "n_fills": 3414,
+   "n_trips": 102,
+   "span_days": 218.8,
+   "fills_per_day": 15.6,
+   "win_rate": 0.323529,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 69,
+     "n_b": 30,
+     "effect": 1.125528,
+     "ci": [
+      0.521057,
+      1.874699
+     ],
+     "p": 0.329418,
+     "std_effect": 0.118252,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 69,
+     "n_b": 33,
+     "effect": 0.129187,
+     "ci": [
+      0.06281,
+      0.522644
+     ],
+     "p": 0.9995,
+     "std_effect": -2.046498,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 32,
+     "n_b": 70,
+     "effect": -418.298557,
+     "ci": [
+      -1529.967733,
+      462.338753
+     ],
+     "p": 0.184704,
+     "std_effect": -0.221193,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 6,
+     "n_b": 11,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 28,
+     "n_b": 74,
+     "effect": 0.199807,
+     "p": 0.036491,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 17,
+     "n_b": 85,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.745127,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4812.574432,
+     "oos_trips": 85,
+     "oos_affected": 45
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.511244,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4890.882626,
+     "oos_trips": 85,
+     "oos_affected": 35
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.412294,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 5021.453679,
+     "oos_trips": 85,
+     "oos_affected": 32
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.329835,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4890.425234,
+     "oos_trips": 85,
+     "oos_affected": 26
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W029",
+   "n_fills": 9974,
+   "n_trips": 375,
+   "span_days": 110.4,
+   "fills_per_day": 90.3,
+   "win_rate": 0.32,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 252,
+     "n_b": 122,
+     "effect": 0.652436,
+     "ci": [
+      0.499979,
+      1.051802
+     ],
+     "p": 0.978755,
+     "std_effect": -0.427043,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 255,
+     "n_b": 120,
+     "effect": 0.333238,
+     "ci": [
+      0.18219,
+      0.850284
+     ],
+     "p": 1.0,
+     "std_effect": -1.098899,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 184,
+     "n_b": 191,
+     "effect": -11.072431,
+     "ci": [
+      -43.856699,
+      22.905423
+     ],
+     "p": 0.28168,
+     "std_effect": -0.066012,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 15,
+     "n_b": 182,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 42,
+     "n_b": 333,
+     "effect": 0.011798,
+     "p": 0.497876,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 174,
+     "n_b": 201,
+     "effect": 0.018013,
+     "p": 0.40065,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.383308,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1090.451996,
+     "oos_trips": 313,
+     "oos_affected": 99
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.311344,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -675.252193,
+     "oos_trips": 313,
+     "oos_affected": 68
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.288856,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -602.895834,
+     "oos_trips": 313,
+     "oos_affected": 61
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.286857,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -473.891514,
+     "oos_trips": 313,
+     "oos_affected": 38
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W030",
+   "n_fills": 3771,
+   "n_trips": 93,
+   "span_days": 465.7,
+   "fills_per_day": 8.1,
+   "win_rate": 0.602151,
+   "detectors": {
+    "size_after_loss": {
+     "status": "FLAGGED",
+     "n_a": 38,
+     "n_b": 54,
+     "effect": 1.634789,
+     "ci": [
+      0.966048,
+      3.107824
+     ],
+     "p": 0.031242,
+     "std_effect": 0.491514,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 37,
+     "n_b": 56,
+     "effect": 1.53089,
+     "ci": [
+      0.198927,
+      7.670266
+     ],
+     "p": 0.270182,
+     "std_effect": 0.425849,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 23,
+     "n_b": 70,
+     "effect": -401.546342,
+     "ci": [
+      -1148.351165,
+      238.339073
+     ],
+     "p": 0.265434,
+     "std_effect": -0.159979,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 3,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 23,
+     "n_b": 70,
+     "effect": -0.06646,
+     "p": 0.787303,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 6,
+     "n_b": 87,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.371814,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1837.987979,
+     "oos_trips": 78,
+     "oos_affected": 23
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.401799,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -660.858741,
+     "oos_trips": 78,
+     "oos_affected": 20
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.383808,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 298.55084,
+     "oos_trips": 78,
+     "oos_affected": 17
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.478261,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 511.860061,
+     "oos_trips": 78,
+     "oos_affected": 10
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W031",
+   "n_fills": 3456,
+   "n_trips": 255,
+   "span_days": 423.1,
+   "fills_per_day": 8.2,
+   "win_rate": 0.54902,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 114,
+     "n_b": 138,
+     "effect": 1.143252,
+     "ci": [
+      0.994219,
+      2.59783
+     ],
+     "p": 0.036491,
+     "std_effect": 0.133877,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 115,
+     "n_b": 140,
+     "effect": 0.446712,
+     "ci": [
+      0.196823,
+      1.681934
+     ],
+     "p": 0.970757,
+     "std_effect": -0.805841,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 78,
+     "n_b": 177,
+     "effect": 153.645052,
+     "ci": [
+      -20.349664,
+      364.234036
+     ],
+     "p": 0.902274,
+     "std_effect": 0.159391,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 23,
+     "n_b": 41,
+     "effect": 55.726308,
+     "ci": [
+      -320.416308,
+      388.508551
+     ],
+     "p": 0.626593,
+     "std_effect": 0.102712,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 75,
+     "n_b": 180,
+     "effect": 0.097778,
+     "p": 0.098475,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 51,
+     "n_b": 204,
+     "effect": 0.147059,
+     "p": 0.045489,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.92054,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -137.227708,
+     "oos_trips": 213,
+     "oos_affected": 27
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.962019,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4.654493,
+     "oos_trips": 213,
+     "oos_affected": 10
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -45.934733,
+     "oos_trips": 213,
+     "oos_affected": 1
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -12.815876,
+     "oos_trips": 213,
+     "oos_affected": 1
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W032",
+   "n_fills": 6182,
+   "n_trips": 516,
+   "span_days": 900.2,
+   "fills_per_day": 6.9,
+   "win_rate": 0.319767,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 355,
+     "n_b": 159,
+     "effect": 1.00041,
+     "ci": [
+      0.756312,
+      1.379826
+     ],
+     "p": 0.435391,
+     "std_effect": 0.00041,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 351,
+     "n_b": 165,
+     "effect": 0.251442,
+     "ci": [
+      0.118606,
+      0.376059
+     ],
+     "p": 1.0,
+     "std_effect": -1.380544,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 146,
+     "n_b": 370,
+     "effect": -3.331351,
+     "ci": [
+      -33.020328,
+      30.198577
+     ],
+     "p": 0.430892,
+     "std_effect": -0.018908,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 30,
+     "n_b": 27,
+     "effect": 53.368637,
+     "ci": [
+      -6.385147,
+      126.100837
+     ],
+     "p": 0.932517,
+     "std_effect": 0.399815,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 110,
+     "n_b": 406,
+     "effect": 0.036677,
+     "p": 0.261185,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 120,
+     "n_b": 396,
+     "effect": 0.025758,
+     "p": 0.333667,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.082959,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3863.056593,
+     "oos_trips": 430,
+     "oos_affected": 154
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.071964,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3178.437997,
+     "oos_trips": 430,
+     "oos_affected": 124
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.070965,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 2672.630936,
+     "oos_trips": 430,
+     "oos_affected": 102
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.141429,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1896.030654,
+     "oos_trips": 430,
+     "oos_affected": 71
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W033",
+   "n_fills": 3773,
+   "n_trips": 83,
+   "span_days": 469.8,
+   "fills_per_day": 8.0,
+   "win_rate": 0.506024,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 36,
+     "n_b": 46,
+     "effect": 1.241118,
+     "ci": [
+      0.44512,
+      2.830127
+     ],
+     "p": 0.292427,
+     "std_effect": 0.216012,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 41,
+     "n_b": 42,
+     "effect": 0.296938,
+     "ci": [
+      0.043784,
+      0.823324
+     ],
+     "p": 0.974756,
+     "std_effect": -1.214233,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 6,
+     "n_b": 77,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 7,
+     "n_b": 5,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 12,
+     "n_b": 71,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 11,
+     "n_b": 72,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.206397,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1599.941201,
+     "oos_trips": 70,
+     "oos_affected": 22
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.21989,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1326.651928,
+     "oos_trips": 70,
+     "oos_affected": 20
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.253373,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1036.589703,
+     "oos_trips": 70,
+     "oos_affected": 19
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.414293,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -786.383145,
+     "oos_trips": 70,
+     "oos_affected": 10
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W034",
+   "n_fills": 9644,
+   "n_trips": 72,
+   "span_days": 564.3,
+   "fills_per_day": 17.1,
+   "win_rate": 0.680556,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 20,
+     "n_b": 51,
+     "effect": 0.849479,
+     "ci": [
+      0.345444,
+      2.278699
+     ],
+     "p": 0.565109,
+     "std_effect": -0.163132,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 23,
+     "n_b": 49,
+     "effect": 0.013944,
+     "ci": [
+      0.009017,
+      0.063287
+     ],
+     "p": 0.9995,
+     "std_effect": -4.272675,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 40,
+     "n_b": 32,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 2,
+     "n_b": 12,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 12,
+     "n_b": 60,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 10,
+     "n_b": 62,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2258.723533,
+     "oos_trips": 60,
+     "oos_affected": 7
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2151.953659,
+     "oos_trips": 60,
+     "oos_affected": 5
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -2029.218354,
+     "oos_trips": 60,
+     "oos_affected": 5
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1783.747743,
+     "oos_trips": 60,
+     "oos_affected": 5
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W035",
+   "n_fills": 6163,
+   "n_trips": 1107,
+   "span_days": 403.2,
+   "fills_per_day": 15.3,
+   "win_rate": 0.935863,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 65,
+     "n_b": 1041,
+     "effect": 0.841086,
+     "ci": [
+      0.592832,
+      1.427818
+     ],
+     "p": 0.817796,
+     "std_effect": -0.173062,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "FLAGGED",
+     "n_a": 71,
+     "n_b": 1036,
+     "effect": 18.798148,
+     "ci": [
+      6.713659,
+      31.893383
+     ],
+     "p": 0.00025,
+     "std_effect": 2.933758,
+     "bh_significant": true
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 259,
+     "n_b": 848,
+     "effect": 22.007504,
+     "ci": [
+      3.201408,
+      45.726599
+     ],
+     "p": 0.885029,
+     "std_effect": 0.079233,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 9,
+     "n_b": 494,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 250,
+     "n_b": 857,
+     "effect": -0.010511,
+     "p": 0.775556,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 28,
+     "n_b": 1079,
+     "effect": 0.044122,
+     "p": 0.269433,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.277861,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 31.2174,
+     "oos_trips": 923,
+     "oos_affected": 26
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.238881,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 96.609378,
+     "oos_trips": 923,
+     "oos_affected": 20
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.221389,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 129.476144,
+     "oos_trips": 923,
+     "oos_affected": 13
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 145.631354,
+     "oos_trips": 923,
+     "oos_affected": 8
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W036",
+   "n_fills": 3975,
+   "n_trips": 290,
+   "span_days": 1123.8,
+   "fills_per_day": 3.5,
+   "win_rate": 0.575862,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 122,
+     "n_b": 167,
+     "effect": 0.782053,
+     "ci": [
+      0.450373,
+      1.44934
+     ],
+     "p": 0.734566,
+     "std_effect": -0.245833,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 123,
+     "n_b": 167,
+     "effect": 0.449673,
+     "ci": [
+      0.227859,
+      0.790886
+     ],
+     "p": 0.997501,
+     "std_effect": -0.799234,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 51,
+     "n_b": 239,
+     "effect": 7.20618,
+     "ci": [
+      -80.843617,
+      105.540828
+     ],
+     "p": 0.52012,
+     "std_effect": 0.012878,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 10,
+     "n_b": 28,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 78,
+     "n_b": 212,
+     "effect": 0.068699,
+     "p": 0.188953,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 39,
+     "n_b": 251,
+     "effect": 0.161712,
+     "p": 0.047738,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.843578,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4144.419346,
+     "oos_trips": 242,
+     "oos_affected": 47
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.858571,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3837.699864,
+     "oos_trips": 242,
+     "oos_affected": 40
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.86057,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3539.37618,
+     "oos_trips": 242,
+     "oos_affected": 36
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.866067,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3415.684683,
+     "oos_trips": 242,
+     "oos_affected": 31
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W037",
+   "n_fills": 3928,
+   "n_trips": 78,
+   "span_days": 143.3,
+   "fills_per_day": 27.4,
+   "win_rate": 0.294872,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 54,
+     "n_b": 22,
+     "effect": 0.641676,
+     "ci": [
+      0.364842,
+      1.745333
+     ],
+     "p": 0.871532,
+     "std_effect": -0.443671,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 55,
+     "n_b": 23,
+     "effect": 1.138675,
+     "ci": [
+      0.573384,
+      1.445251
+     ],
+     "p": 0.448638,
+     "std_effect": 0.129865,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 14,
+     "n_b": 64,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 4,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 9,
+     "n_b": 69,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 9,
+     "n_b": 69,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.881559,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4222.879339,
+     "oos_trips": 65,
+     "oos_affected": 22
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.846077,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3275.021387,
+     "oos_trips": 65,
+     "oos_affected": 16
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.851574,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 2709.262846,
+     "oos_trips": 65,
+     "oos_affected": 12
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1366.565159,
+     "oos_trips": 65,
+     "oos_affected": 9
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W038",
+   "n_fills": 9959,
+   "n_trips": 465,
+   "span_days": 820.9,
+   "fills_per_day": 12.1,
+   "win_rate": 0.724731,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 98,
+     "n_b": 364,
+     "effect": 0.633809,
+     "ci": [
+      0.429028,
+      1.029093
+     ],
+     "p": 0.989253,
+     "std_effect": -0.456007,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 128,
+     "n_b": 337,
+     "effect": 1.484976,
+     "ci": [
+      0.968363,
+      4.856724
+     ],
+     "p": 0.056486,
+     "std_effect": 0.395398,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 126,
+     "n_b": 339,
+     "effect": 78.037332,
+     "ci": [
+      -479.804241,
+      597.934474
+     ],
+     "p": 0.605099,
+     "std_effect": 0.033162,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 9,
+     "n_b": 33,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 75,
+     "n_b": 390,
+     "effect": 0.021538,
+     "p": 0.39865,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 41,
+     "n_b": 424,
+     "effect": 0.126093,
+     "p": 0.062234,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.762619,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 244.259739,
+     "oos_trips": 388,
+     "oos_affected": 39
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.717141,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 33.813316,
+     "oos_trips": 388,
+     "oos_affected": 32
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.69965,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -142.685809,
+     "oos_trips": 388,
+     "oos_affected": 25
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.726637,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1147.324206,
+     "oos_trips": 388,
+     "oos_affected": 21
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W039",
+   "n_fills": 2725,
+   "n_trips": 94,
+   "span_days": 1011.3,
+   "fills_per_day": 2.7,
+   "win_rate": 0.382979,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 56,
+     "n_b": 37,
+     "effect": 0.539308,
+     "ci": [
+      0.261253,
+      1.395159
+     ],
+     "p": 0.928518,
+     "std_effect": -0.617468,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 58,
+     "n_b": 36,
+     "effect": 0.124866,
+     "ci": [
+      0.02805,
+      0.73932
+     ],
+     "p": 0.994251,
+     "std_effect": -2.080516,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 20,
+     "n_b": 74,
+     "effect": 213.574689,
+     "ci": [
+      -784.206321,
+      1288.091495
+     ],
+     "p": 0.511122,
+     "std_effect": 0.060881,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 14,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 18,
+     "n_b": 76,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 19,
+     "n_b": 75,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.37981,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 13791.999762,
+     "oos_trips": 79,
+     "oos_affected": 38
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.412794,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 10773.065333,
+     "oos_trips": 79,
+     "oos_affected": 32
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.415792,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 8969.406521,
+     "oos_trips": 79,
+     "oos_affected": 25
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.774613,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1287.326672,
+     "oos_trips": 79,
+     "oos_affected": 18
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W040",
+   "n_fills": 9977,
+   "n_trips": 498,
+   "span_days": 412.1,
+   "fills_per_day": 24.2,
+   "win_rate": 0.37751,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 336,
+     "n_b": 161,
+     "effect": 0.398282,
+     "ci": [
+      0.25246,
+      0.636438
+     ],
+     "p": 0.99975,
+     "std_effect": -0.920594,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 310,
+     "n_b": 188,
+     "effect": 0.254908,
+     "ci": [
+      0.161374,
+      0.421573
+     ],
+     "p": 1.0,
+     "std_effect": -1.366854,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 175,
+     "n_b": 323,
+     "effect": -78.6531,
+     "ci": [
+      -346.605848,
+      196.040954
+     ],
+     "p": 0.302924,
+     "std_effect": -0.048353,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 52,
+     "n_b": 57,
+     "effect": 325.271854,
+     "ci": [
+      -268.75428,
+      1051.731031
+     ],
+     "p": 0.810047,
+     "std_effect": 0.190139,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 75,
+     "n_b": 423,
+     "effect": -0.089267,
+     "p": 0.943764,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 115,
+     "n_b": 383,
+     "effect": 0.015984,
+     "p": 0.429893,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.97901,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -19477.284293,
+     "oos_trips": 415,
+     "oos_affected": 151
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.975012,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -13873.334521,
+     "oos_trips": 415,
+     "oos_affected": 134
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.971014,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -9398.325915,
+     "oos_trips": 415,
+     "oos_affected": 126
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.966517,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3587.113592,
+     "oos_trips": 415,
+     "oos_affected": 108
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W041",
+   "n_fills": 9993,
+   "n_trips": 160,
+   "span_days": 352.0,
+   "fills_per_day": 28.4,
+   "win_rate": 0.4375,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 92,
+     "n_b": 67,
+     "effect": 1.196442,
+     "ci": [
+      0.854094,
+      2.067515
+     ],
+     "p": 0.147713,
+     "std_effect": 0.179352,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 90,
+     "n_b": 70,
+     "effect": 1.43389,
+     "ci": [
+      0.848055,
+      2.099965
+     ],
+     "p": 0.127468,
+     "std_effect": 0.360391,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 49,
+     "n_b": 111,
+     "effect": 97.466115,
+     "ci": [
+      -856.163884,
+      956.136155
+     ],
+     "p": 0.564859,
+     "std_effect": 0.033538,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 7,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 5,
+     "n_b": 155,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 20,
+     "n_b": 140,
+     "effect": -0.071429,
+     "p": 0.789553,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.274363,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 2589.87906,
+     "oos_trips": 134,
+     "oos_affected": 26
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 240.356823,
+     "oos_trips": 134,
+     "oos_affected": 7
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -248.070046,
+     "oos_trips": 134,
+     "oos_affected": 2
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 0.0,
+     "oos_trips": 134,
+     "oos_affected": 0
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W042",
+   "n_fills": 6621,
+   "n_trips": 114,
+   "span_days": 269.7,
+   "fills_per_day": 24.5,
+   "win_rate": 0.394737,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 69,
+     "n_b": 44,
+     "effect": 1.624807,
+     "ci": [
+      0.321965,
+      7.079069
+     ],
+     "p": 0.217946,
+     "std_effect": 0.485389,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 69,
+     "n_b": 45,
+     "effect": 0.229105,
+     "ci": [
+      0.055735,
+      0.568958
+     ],
+     "p": 0.988503,
+     "std_effect": -1.473573,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 18,
+     "n_b": 96,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 5,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 14,
+     "n_b": 100,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 9,
+     "n_b": 105,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.655172,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -7732.491608,
+     "oos_trips": 95,
+     "oos_affected": 33
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.69915,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -10266.564766,
+     "oos_trips": 95,
+     "oos_affected": 27
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.72064,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -11721.0084,
+     "oos_trips": 95,
+     "oos_affected": 26
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.738131,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -13036.040307,
+     "oos_trips": 95,
+     "oos_affected": 22
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 2
+  },
+  {
+   "wid": "W043",
+   "n_fills": 1852,
+   "n_trips": 74,
+   "span_days": 165.4,
+   "fills_per_day": 11.2,
+   "win_rate": 0.594595,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 28,
+     "n_b": 45,
+     "effect": 0.889399,
+     "ci": [
+      0.355465,
+      2.390413
+     ],
+     "p": 0.645839,
+     "std_effect": -0.117209,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 30,
+     "n_b": 44,
+     "effect": 0.908198,
+     "ci": [
+      0.286234,
+      1.612684
+     ],
+     "p": 0.627593,
+     "std_effect": -0.096293,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 74,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 0,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 21,
+     "n_b": 53,
+     "effect": -0.100629,
+     "p": 0.855036,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 73,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 491.146809,
+     "oos_trips": 62,
+     "oos_affected": 9
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 425.829476,
+     "oos_trips": 62,
+     "oos_affected": 8
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 234.737681,
+     "oos_trips": 62,
+     "oos_affected": 6
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -120.638658,
+     "oos_trips": 62,
+     "oos_affected": 3
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W044",
+   "n_fills": 7214,
+   "n_trips": 188,
+   "span_days": 265.6,
+   "fills_per_day": 27.2,
+   "win_rate": 0.62766,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 72,
+     "n_b": 115,
+     "effect": 0.795727,
+     "ci": [
+      0.528366,
+      1.285228
+     ],
+     "p": 0.858285,
+     "std_effect": -0.228499,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 70,
+     "n_b": 118,
+     "effect": 0.271699,
+     "ci": [
+      0.141581,
+      1.267395
+     ],
+     "p": 0.988503,
+     "std_effect": -1.30306,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "FLAGGED",
+     "n_a": 51,
+     "n_b": 137,
+     "effect": -393.380588,
+     "ci": [
+      -721.407099,
+      -48.334022
+     ],
+     "p": 0.016246,
+     "std_effect": -0.342873,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 7,
+     "n_b": 25,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 39,
+     "n_b": 149,
+     "effect": -0.049217,
+     "p": 0.783054,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 36,
+     "n_b": 152,
+     "effect": 0.329678,
+     "p": 0.001,
+     "bh_significant": true
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.078461,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4000.51046,
+     "oos_trips": 157,
+     "oos_affected": 34
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.05947,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3878.315185,
+     "oos_trips": 157,
+     "oos_affected": 26
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.047976,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3675.082526,
+     "oos_trips": 157,
+     "oos_affected": 23
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.072464,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 2288.127953,
+     "oos_trips": 157,
+     "oos_affected": 15
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W045",
+   "n_fills": 6582,
+   "n_trips": 62,
+   "span_days": 7.6,
+   "fills_per_day": 869.0,
+   "win_rate": 0.064516,
+   "detectors": {
+    "size_after_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 55,
+     "n_b": 5,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "UNDERPOWERED",
+     "n_a": 58,
+     "n_b": 4,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 18,
+     "n_b": 44,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 2,
+     "n_b": 5,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 12,
+     "n_b": 50,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 35,
+     "n_b": 27,
+     "effect": 0.016931,
+     "p": 0.594351,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.909545,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 27786.654219,
+     "oos_trips": 52,
+     "oos_affected": 29
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 1.0,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 23660.151098,
+     "oos_trips": 52,
+     "oos_affected": 23
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 1.0,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 20412.222852,
+     "oos_trips": 52,
+     "oos_affected": 22
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 1.0,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 14533.730189,
+     "oos_trips": 52,
+     "oos_affected": 19
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W046",
+   "n_fills": 9976,
+   "n_trips": 221,
+   "span_days": 476.5,
+   "fills_per_day": 20.9,
+   "win_rate": 0.656109,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 67,
+     "n_b": 152,
+     "effect": 1.01155,
+     "ci": [
+      0.658102,
+      1.493943
+     ],
+     "p": 0.483629,
+     "std_effect": 0.011484,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 76,
+     "n_b": 145,
+     "effect": 1.166441,
+     "ci": [
+      0.434853,
+      2.574667
+     ],
+     "p": 0.35816,
+     "std_effect": 0.153957,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 72,
+     "n_b": 149,
+     "effect": -51.018856,
+     "ci": [
+      -419.012844,
+      249.925631
+     ],
+     "p": 0.373157,
+     "std_effect": -0.043346,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 3,
+     "n_b": 44,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 41,
+     "n_b": 180,
+     "effect": -0.122764,
+     "p": 0.95976,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 16,
+     "n_b": 205,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.182409,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1398.887303,
+     "oos_trips": 185,
+     "oos_affected": 17
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.366317,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 90.575779,
+     "oos_trips": 185,
+     "oos_affected": 10
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -17.182981,
+     "oos_trips": 185,
+     "oos_affected": 1
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 0.0,
+     "oos_trips": 185,
+     "oos_affected": 0
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W047",
+   "n_fills": 9985,
+   "n_trips": 1133,
+   "span_days": 229.5,
+   "fills_per_day": 43.5,
+   "win_rate": 0.466019,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 610,
+     "n_b": 521,
+     "effect": 0.994295,
+     "ci": [
+      0.913273,
+      1.099338
+     ],
+     "p": 0.549613,
+     "std_effect": -0.005721,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 605,
+     "n_b": 528,
+     "effect": 1.218313,
+     "ci": [
+      1.014197,
+      1.52394
+     ],
+     "p": 0.03974,
+     "std_effect": 0.197467,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 256,
+     "n_b": 877,
+     "effect": 7.845132,
+     "ci": [
+      -10.424803,
+      27.441379
+     ],
+     "p": 0.632342,
+     "std_effect": 0.037701,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 44,
+     "n_b": 185,
+     "effect": 5.443294,
+     "ci": [
+      -52.620165,
+      69.191339
+     ],
+     "p": 0.285179,
+     "std_effect": 0.017459,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 336,
+     "n_b": 797,
+     "effect": 0.112468,
+     "p": 0.00075,
+     "bh_significant": true
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 436,
+     "n_b": 697,
+     "effect": 0.034242,
+     "p": 0.141965,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.952524,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3862.432507,
+     "oos_trips": 945,
+     "oos_affected": 268
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.937531,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 2960.989152,
+     "oos_trips": 945,
+     "oos_affected": 177
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.912044,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 2322.180761,
+     "oos_trips": 945,
+     "oos_affected": 149
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.887056,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1495.546129,
+     "oos_trips": 945,
+     "oos_affected": 114
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W048",
+   "n_fills": 9996,
+   "n_trips": 170,
+   "span_days": 400.4,
+   "fills_per_day": 25.0,
+   "win_rate": 0.664706,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 58,
+     "n_b": 111,
+     "effect": 1.644599,
+     "ci": [
+      0.756598,
+      3.340558
+     ],
+     "p": 0.185954,
+     "std_effect": 0.497496,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 57,
+     "n_b": 113,
+     "effect": 1.271875,
+     "ci": [
+      0.701784,
+      2.122583
+     ],
+     "p": 0.166958,
+     "std_effect": 0.240492,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 41,
+     "n_b": 129,
+     "effect": 41.613155,
+     "ci": [
+      -241.276275,
+      357.625415
+     ],
+     "p": 0.564109,
+     "std_effect": 0.036488,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 3,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 51,
+     "n_b": 119,
+     "effect": 0.109244,
+     "p": 0.12147,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 16,
+     "n_b": 154,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.49975,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -139.866215,
+     "oos_trips": 142,
+     "oos_affected": 21
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -82.655242,
+     "oos_trips": 142,
+     "oos_affected": 2
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -18.930857,
+     "oos_trips": 142,
+     "oos_affected": 2
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 0.0,
+     "oos_trips": 142,
+     "oos_affected": 0
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W049",
+   "n_fills": 3150,
+   "n_trips": 146,
+   "span_days": 500.6,
+   "fills_per_day": 6.3,
+   "win_rate": 0.369863,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 93,
+     "n_b": 50,
+     "effect": 1.137256,
+     "ci": [
+      0.601532,
+      1.750816
+     ],
+     "p": 0.310672,
+     "std_effect": 0.128619,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 92,
+     "n_b": 54,
+     "effect": 0.356372,
+     "ci": [
+      0.109329,
+      0.835971
+     ],
+     "p": 0.99925,
+     "std_effect": -1.031779,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "FLAGGED",
+     "n_a": 25,
+     "n_b": 121,
+     "effect": -568.006417,
+     "ci": [
+      -1081.867319,
+      -127.788829
+     ],
+     "p": 0.030492,
+     "std_effect": -0.359471,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 3,
+     "n_b": 4,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 20,
+     "n_b": 126,
+     "effect": 0.196825,
+     "p": 0.075731,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 16,
+     "n_b": 130,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.592704,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 91.146596,
+     "oos_trips": 122,
+     "oos_affected": 25
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.590705,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -7.066019,
+     "oos_trips": 122,
+     "oos_affected": 18
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.591704,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -8.46142,
+     "oos_trips": 122,
+     "oos_affected": 15
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.588206,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -323.90293,
+     "oos_trips": 122,
+     "oos_affected": 13
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W050",
+   "n_fills": 9970,
+   "n_trips": 461,
+   "span_days": 1055.4,
+   "fills_per_day": 9.4,
+   "win_rate": 0.331887,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 286,
+     "n_b": 173,
+     "effect": 0.944987,
+     "ci": [
+      0.646676,
+      1.270266
+     ],
+     "p": 0.739815,
+     "std_effect": -0.056585,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 308,
+     "n_b": 153,
+     "effect": 0.377902,
+     "ci": [
+      0.138445,
+      0.671304
+     ],
+     "p": 1.0,
+     "std_effect": -0.973121,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 115,
+     "n_b": 346,
+     "effect": -57.868466,
+     "ci": [
+      -266.721743,
+      169.638384
+     ],
+     "p": 0.35866,
+     "std_effect": -0.036643,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 21,
+     "n_b": 34,
+     "effect": -171.955284,
+     "ci": [
+      -447.81023,
+      5.243581
+     ],
+     "p": 0.087728,
+     "std_effect": -0.281134,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 97,
+     "n_b": 364,
+     "effect": 0.028634,
+     "p": 0.338415,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 111,
+     "n_b": 350,
+     "effect": 0.081158,
+     "p": 0.069733,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.565717,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3249.150415,
+     "oos_trips": 385,
+     "oos_affected": 141
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.425287,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -176.688091,
+     "oos_trips": 385,
+     "oos_affected": 109
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.268866,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1187.897641,
+     "oos_trips": 385,
+     "oos_affected": 92
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.167416,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 3335.412322,
+     "oos_trips": 385,
+     "oos_affected": 71
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W051",
+   "n_fills": 9951,
+   "n_trips": 132,
+   "span_days": 907.6,
+   "fills_per_day": 11.0,
+   "win_rate": 0.462121,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 78,
+     "n_b": 53,
+     "effect": 1.139743,
+     "ci": [
+      0.716471,
+      1.913963
+     ],
+     "p": 0.188703,
+     "std_effect": 0.130803,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 71,
+     "n_b": 61,
+     "effect": 0.947959,
+     "ci": [
+      0.480086,
+      1.029539
+     ],
+     "p": 0.943514,
+     "std_effect": -0.053444,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 45,
+     "n_b": 87,
+     "effect": 43.183592,
+     "ci": [
+      -75.984969,
+      166.503689
+     ],
+     "p": 0.777806,
+     "std_effect": 0.137819,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 2,
+     "n_b": 4,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 31,
+     "n_b": 101,
+     "effect": 0.098052,
+     "p": 0.235191,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 13,
+     "n_b": 119,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.004498,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -95.406349,
+     "oos_trips": 110,
+     "oos_affected": 38
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.001499,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -32.469948,
+     "oos_trips": 110,
+     "oos_affected": 31
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "ACCEPTED",
+     "p": 0.001499,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 46.645783,
+     "oos_trips": 110,
+     "oos_affected": 18
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.001499,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -5.311041,
+     "oos_trips": 110,
+     "oos_affected": 11
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 3
+  },
+  {
+   "wid": "W052",
+   "n_fills": 9912,
+   "n_trips": 160,
+   "span_days": 215.7,
+   "fills_per_day": 45.9,
+   "win_rate": 0.31875,
+   "detectors": {
+    "size_after_loss": {
+     "status": "FLAGGED",
+     "n_a": 107,
+     "n_b": 52,
+     "effect": 1.510831,
+     "ci": [
+      1.015134,
+      2.149864
+     ],
+     "p": 0.018995,
+     "std_effect": 0.41266,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 109,
+     "n_b": 51,
+     "effect": 0.472253,
+     "ci": [
+      0.29225,
+      1.185278
+     ],
+     "p": 0.967008,
+     "std_effect": -0.750241,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 36,
+     "n_b": 124,
+     "effect": -1444.205726,
+     "ci": [
+      -3839.097728,
+      442.613375
+     ],
+     "p": 0.112222,
+     "std_effect": -0.220533,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 3,
+     "n_b": 24,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 34,
+     "n_b": 126,
+     "effect": -0.043417,
+     "p": 0.750812,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 36,
+     "n_b": 124,
+     "effect": 0.124552,
+     "p": 0.110972,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.163418,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 44250.757037,
+     "oos_trips": 134,
+     "oos_affected": 59
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.175412,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 27878.25274,
+     "oos_trips": 134,
+     "oos_affected": 46
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.178411,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 20672.042728,
+     "oos_trips": 134,
+     "oos_affected": 32
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.171914,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 11672.864974,
+     "oos_trips": 134,
+     "oos_affected": 25
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W053",
+   "n_fills": 2175,
+   "n_trips": 418,
+   "span_days": 980.6,
+   "fills_per_day": 2.2,
+   "win_rate": 0.717703,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 142,
+     "n_b": 275,
+     "effect": 0.956054,
+     "ci": [
+      0.709575,
+      1.288553
+     ],
+     "p": 0.617096,
+     "std_effect": -0.044941,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "FLAGGED",
+     "n_a": 118,
+     "n_b": 300,
+     "effect": 2.363224,
+     "ci": [
+      1.230301,
+      6.114177
+     ],
+     "p": 0.00175,
+     "std_effect": 0.860027,
+     "bh_significant": true
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 85,
+     "n_b": 333,
+     "effect": -35.391876,
+     "ci": [
+      -92.187023,
+      14.942264
+     ],
+     "p": 0.065234,
+     "std_effect": -0.184633,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 7,
+     "n_b": 19,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 92,
+     "n_b": 326,
+     "effect": -0.027474,
+     "p": 0.751562,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 42,
+     "n_b": 376,
+     "effect": 0.109676,
+     "p": 0.101975,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.848076,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -682.600708,
+     "oos_trips": 349,
+     "oos_affected": 38
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.852074,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -418.196038,
+     "oos_trips": 349,
+     "oos_affected": 27
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.841579,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -280.725065,
+     "oos_trips": 349,
+     "oos_affected": 22
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.849075,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -211.449824,
+     "oos_trips": 349,
+     "oos_affected": 14
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W054",
+   "n_fills": 7683,
+   "n_trips": 91,
+   "span_days": 629.7,
+   "fills_per_day": 12.2,
+   "win_rate": 0.615385,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 34,
+     "n_b": 53,
+     "effect": 2.434882,
+     "ci": [
+      0.618458,
+      7.997144
+     ],
+     "p": 0.099475,
+     "std_effect": 0.889898,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "FLAGGED",
+     "n_a": 35,
+     "n_b": 56,
+     "effect": 9.148084,
+     "ci": [
+      0.530936,
+      50.779339
+     ],
+     "p": 0.033742,
+     "std_effect": 2.213544,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 19,
+     "n_b": 72,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 3,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 12,
+     "n_b": 79,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 4,
+     "n_b": 87,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.841579,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -112577.112803,
+     "oos_trips": 76,
+     "oos_affected": 18
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.823588,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -95719.360759,
+     "oos_trips": 76,
+     "oos_affected": 13
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.828586,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -79624.032104,
+     "oos_trips": 76,
+     "oos_affected": 13
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.837081,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -47492.441666,
+     "oos_trips": 76,
+     "oos_affected": 11
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 4
+  },
+  {
+   "wid": "W055",
+   "n_fills": 9905,
+   "n_trips": 172,
+   "span_days": 58.9,
+   "fills_per_day": 168.0,
+   "win_rate": 0.965116,
+   "detectors": {
+    "size_after_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 7,
+     "n_b": 163,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "UNDERPOWERED",
+     "n_a": 6,
+     "n_b": 166,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 40,
+     "n_b": 132,
+     "effect": -520.328192,
+     "ci": [
+      -1268.974289,
+      97.40889
+     ],
+     "p": 0.073982,
+     "std_effect": -0.24076,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 9,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 43,
+     "n_b": 129,
+     "effect": 0.077519,
+     "p": 0.032492,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 2,
+     "n_b": 170,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -3517.014648,
+     "oos_trips": 144,
+     "oos_affected": 1
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -1733.284034,
+     "oos_trips": 144,
+     "oos_affected": 1
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 0.0,
+     "oos_trips": 144,
+     "oos_affected": 0
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 0.0,
+     "oos_trips": 144,
+     "oos_affected": 0
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W056",
+   "n_fills": 5765,
+   "n_trips": 111,
+   "span_days": 225.2,
+   "fills_per_day": 25.6,
+   "win_rate": 0.423423,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 63,
+     "n_b": 47,
+     "effect": 0.731345,
+     "ci": [
+      0.477189,
+      1.755595
+     ],
+     "p": 0.807298,
+     "std_effect": -0.312869,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 64,
+     "n_b": 47,
+     "effect": 0.746438,
+     "ci": [
+      0.166429,
+      1.928808
+     ],
+     "p": 0.657336,
+     "std_effect": -0.292443,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 38,
+     "n_b": 73,
+     "effect": -1583.664937,
+     "ci": [
+      -5224.478556,
+      988.379787
+     ],
+     "p": 0.152462,
+     "std_effect": -0.216876,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 8,
+     "n_b": 23,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 22,
+     "n_b": 89,
+     "effect": 0.131256,
+     "p": 0.185954,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 32,
+     "n_b": 79,
+     "effect": -0.063687,
+     "p": 0.804299,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.325337,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 78986.174361,
+     "oos_trips": 93,
+     "oos_affected": 33
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.306847,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 78206.206708,
+     "oos_trips": 93,
+     "oos_affected": 23
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.288356,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 77474.60205,
+     "oos_trips": 93,
+     "oos_affected": 20
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.296852,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 70995.132563,
+     "oos_trips": 93,
+     "oos_affected": 13
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W057",
+   "n_fills": 9931,
+   "n_trips": 185,
+   "span_days": 343.6,
+   "fills_per_day": 28.9,
+   "win_rate": 0.302703,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 144,
+     "n_b": 40,
+     "effect": 0.697859,
+     "ci": [
+      0.330597,
+      1.566079
+     ],
+     "p": 0.877031,
+     "std_effect": -0.359739,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 129,
+     "n_b": 56,
+     "effect": 0.188724,
+     "ci": [
+      0.127239,
+      0.244436
+     ],
+     "p": 1.0,
+     "std_effect": -1.667469,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 21,
+     "n_b": 164,
+     "effect": -429.132851,
+     "ci": [
+      -4510.985813,
+      3677.848916
+     ],
+     "p": 0.380155,
+     "std_effect": -0.072271,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 1,
+     "n_b": 3,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 39,
+     "n_b": 146,
+     "effect": 0.091149,
+     "p": 0.190202,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 23,
+     "n_b": 162,
+     "effect": 0.047772,
+     "p": 0.417646,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.608196,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4159.748221,
+     "oos_trips": 155,
+     "oos_affected": 30
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.53973,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -255.339086,
+     "oos_trips": 155,
+     "oos_affected": 18
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.205397,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 6415.970167,
+     "oos_trips": 155,
+     "oos_affected": 11
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 4562.748085,
+     "oos_trips": 155,
+     "oos_affected": 7
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W058",
+   "n_fills": 5633,
+   "n_trips": 204,
+   "span_days": 674.1,
+   "fills_per_day": 8.4,
+   "win_rate": 0.5,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 105,
+     "n_b": 96,
+     "effect": 1.002946,
+     "ci": [
+      0.800236,
+      1.272108
+     ],
+     "p": 0.302924,
+     "std_effect": 0.002942,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 102,
+     "n_b": 102,
+     "effect": 0.409597,
+     "ci": [
+      0.26579,
+      0.616013
+     ],
+     "p": 1.0,
+     "std_effect": -0.892581,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 22,
+     "n_b": 182,
+     "effect": 619.875321,
+     "ci": [
+      -1187.44607,
+      2895.300054
+     ],
+     "p": 0.75931,
+     "std_effect": 0.146195,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 2,
+     "n_b": 3,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "TESTED",
+     "n_a": 25,
+     "n_b": 179,
+     "effect": -0.022793,
+     "p": 0.666333,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "UNDERPOWERED",
+     "n_a": 7,
+     "n_b": 197,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.306847,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -4599.021723,
+     "oos_trips": 170,
+     "oos_affected": 64
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.358321,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 1816.191947,
+     "oos_trips": 170,
+     "oos_affected": 36
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.270365,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 174.744454,
+     "oos_trips": 170,
+     "oos_affected": 26
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.154923,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 307.793349,
+     "oos_trips": 170,
+     "oos_affected": 15
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  },
+  {
+   "wid": "W059",
+   "n_fills": 5985,
+   "n_trips": 65,
+   "span_days": 122.6,
+   "fills_per_day": 48.8,
+   "win_rate": 0.415385,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 39,
+     "n_b": 25,
+     "effect": 0.700651,
+     "ci": [
+      0.122024,
+      1.629938
+     ],
+     "p": 0.817046,
+     "std_effect": -0.355746,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "NOT_FLAGGED",
+     "n_a": 38,
+     "n_b": 27,
+     "effect": 0.383737,
+     "ci": [
+      0.046076,
+      1.753795
+     ],
+     "p": 0.859785,
+     "std_effect": -0.957798,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "UNDERPOWERED",
+     "n_a": 10,
+     "n_b": 55,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 3,
+     "n_b": 14,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 0,
+     "n_b": 65,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 32,
+     "n_b": 33,
+     "effect": -0.043561,
+     "p": 0.734316,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.842579,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -28148.409794,
+     "oos_trips": 55,
+     "oos_affected": 10
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -24010.011356,
+     "oos_trips": 55,
+     "oos_affected": 9
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -20082.529448,
+     "oos_trips": 55,
+     "oos_affected": 6
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "UNDERPOWERED",
+     "p": null,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": -14276.254138,
+     "oos_trips": 55,
+     "oos_affected": 4
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 1
+  },
+  {
+   "wid": "W060",
+   "n_fills": 9991,
+   "n_trips": 170,
+   "span_days": 72.2,
+   "fills_per_day": 138.4,
+   "win_rate": 0.564706,
+   "detectors": {
+    "size_after_loss": {
+     "status": "NOT_FLAGGED",
+     "n_a": 73,
+     "n_b": 96,
+     "effect": 1.484202,
+     "ci": [
+      0.62123,
+      2.080484
+     ],
+     "p": 0.162709,
+     "std_effect": 0.394878,
+     "bh_significant": false
+    },
+    "hold_asymmetry": {
+     "status": "FLAGGED",
+     "n_a": 74,
+     "n_b": 96,
+     "effect": 1.570892,
+     "ci": [
+      1.126539,
+      3.298954
+     ],
+     "p": 0.04124,
+     "std_effect": 0.451644,
+     "bh_significant": false
+    },
+    "overtrading_clusters": {
+     "status": "NOT_FLAGGED",
+     "n_a": 39,
+     "n_b": 131,
+     "effect": 1103.666408,
+     "ci": [
+      201.90435,
+      2306.374563
+     ],
+     "p": 0.929268,
+     "std_effect": 0.210931,
+     "bh_significant": false
+    },
+    "revenge_reentry": {
+     "status": "UNDERPOWERED",
+     "n_a": 5,
+     "n_b": 24,
+     "effect": null,
+     "ci": [
+      null,
+      null
+     ],
+     "p": null,
+     "std_effect": null,
+     "bh_significant": false
+    }
+   },
+   "blotter": {
+    "weekend_entry": {
+     "status": "UNDERPOWERED",
+     "n_a": 9,
+     "n_b": 161,
+     "effect": null,
+     "p": null,
+     "bh_significant": false
+    },
+    "entry_within_60m_of_loss": {
+     "status": "TESTED",
+     "n_a": 36,
+     "n_b": 134,
+     "effect": -0.094113,
+     "p": 0.884279,
+     "bh_significant": false
+    }
+   },
+   "court": [
+    {
+     "cap_multiple": 1.0,
+     "status": "REJECTED",
+     "p": 0.221889,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 24763.283184,
+     "oos_trips": 142,
+     "oos_affected": 40
+    },
+    {
+     "cap_multiple": 1.5,
+     "status": "REJECTED",
+     "p": 0.136932,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 23976.85015,
+     "oos_trips": 142,
+     "oos_affected": 30
+    },
+    {
+     "cap_multiple": 2.0,
+     "status": "REJECTED",
+     "p": 0.185907,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 18810.780847,
+     "oos_trips": 142,
+     "oos_affected": 26
+    },
+    {
+     "cap_multiple": 3.0,
+     "status": "REJECTED",
+     "p": 0.208896,
+     "alpha_used": 0.0125,
+     "trials": 4,
+     "oos_effect": 11689.361743,
+     "oos_trips": 142,
+     "oos_affected": 18
+    }
+   ],
+   "court_trials": 4,
+   "stratum": 5
+  }
+ ],
+ "n_perm": {
+  "wallet": 4000,
+  "pooled": 2000,
+  "court": 2000
+ },
+ "seconds": 96,
+ "provenance": "REAL_PLATFORM_PUBLIC: Hyperliquid on-chain fills via the public info API; ids are ordinal"
+}

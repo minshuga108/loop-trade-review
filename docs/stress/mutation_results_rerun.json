@@ -1,0 +1,109 @@
+{
+ "mutants": 10,
+ "applied": 10,
+ "killed": 10,
+ "kill_rate": 1.0,
+ "survivors": [],
+ "rows": [
+  {
+   "id": "M04",
+   "file": "engine/court.py",
+   "what": "split court: underpowered guard needs both shortfalls (or -> and)",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_split_court_underpowered_when_too_few_affected_even_with_enough_trips"
+   ],
+   "seconds": 71.8
+  },
+  {
+   "id": "M06",
+   "file": "engine/court.py",
+   "what": "off-by-one split: one trip is in both train and test",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_split_court_train_and_test_do_not_overlap"
+   ],
+   "seconds": 71.0
+  },
+  {
+   "id": "M07",
+   "file": "engine/court.py",
+   "what": "look-ahead: baseline from the whole history incl. test",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_split_court_cap_uses_the_train_window_only"
+   ],
+   "seconds": 64.9
+  },
+  {
+   "id": "M09",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward look-ahead guard skipped: baseline includes the judged chunk",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_walk_forward_cap_never_sees_the_chunk_it_judges"
+   ],
+   "seconds": 75.6
+  },
+  {
+   "id": "M11",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward permutation never counts a null at least as good (p collapses)",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_walk_forward_p_is_not_tiny_without_a_real_effect"
+   ],
+   "seconds": 82.8
+  },
+  {
+   "id": "M12",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward underpowered guard needs both shortfalls",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_walk_forward_underpowered_on_either_shortfall"
+   ],
+   "seconds": 78.8
+  },
+  {
+   "id": "M15",
+   "file": "engine/rulebook.py",
+   "what": "a REJECTED rule lands as ACCEPTED, so it can be armed",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_rejected_verdict_is_quarantined_and_cannot_be_armed"
+   ],
+   "seconds": 76.3
+  },
+  {
+   "id": "M16",
+   "file": "engine/rulebook.py",
+   "what": "rulebook proposal counter not incremented",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_http.py::test_rulebook_chain_and_ids_survive_threads - Asse..."
+   ],
+   "seconds": 66.1
+  },
+  {
+   "id": "M19",
+   "file": "engine/rulebook.py",
+   "what": "an UNDERPOWERED revision replaces the current version",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_rulebook_gate.py::test_revision_needs_an_accepted_court_verdict_and_revert_restores"
+   ],
+   "seconds": 89.8
+  },
+  {
+   "id": "M23",
+   "file": "engine/numberlock.py",
+   "what": "number-lock tolerance widened by 1",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mutation_guards.py::test_numberlock_refuses_a_near_miss[effect 1235-1234.0]"
+   ],
+   "seconds": 74.3
+  }
+ ]
+}

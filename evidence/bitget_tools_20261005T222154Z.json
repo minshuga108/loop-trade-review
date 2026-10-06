@@ -1,0 +1,735 @@
+{
+  "generated_at": "2026-10-05T22:18:03+00:00",
+  "rules": "public read-only calls only; no keys, no logins, no orders, no paper or dry-run orders",
+  "agent_hub_surface": {
+    "market": {
+      "operations": 17,
+      "public": 16,
+      "public_ops": [
+        "getCurrentFundingRate",
+        "getDiscountRate",
+        "getFundingRateHistory",
+        "getIndexPriceComponents",
+        "getInstruments",
+        "getKlineCandlestick",
+        "getKlineCandlestickHistory",
+        "getMarginLoan",
+        "getOpenInterest",
+        "getOpenInterestLimit",
+        "getOrderbook",
+        "getPositionTier",
+        "getProofOfReserves",
+        "getRecentPublicFills",
+        "getRiskReserve",
+        "getTickers"
+      ],
+      "writes": 0
+    },
+    "trade": {
+      "operations": 25,
+      "public": 0,
+      "public_ops": [],
+      "writes": 12
+    },
+    "account": {
+      "operations": 42,
+      "public": 0,
+      "public_ops": [],
+      "writes": 17
+    },
+    "funds": {
+      "operations": 4,
+      "public": 0,
+      "public_ops": [],
+      "writes": 0
+    },
+    "subaccount": {
+      "operations": 1,
+      "public": 0,
+      "public_ops": [],
+      "writes": 0
+    },
+    "loan": {
+      "operations": 12,
+      "public": 0,
+      "public_ops": [],
+      "writes": 3
+    },
+    "tax": {
+      "operations": 2,
+      "public": 0,
+      "public_ops": [],
+      "writes": 0
+    }
+  },
+  "mcp": {
+    "tools": [
+      "guide",
+      "do_query"
+    ],
+    "serverInfo": {
+      "name": "bitget-mcp-server",
+      "version": "4.0.5"
+    }
+  },
+  "bitget_signal": {
+    "tools": [
+      "crypto_market",
+      "defi_analytics",
+      "dex_market",
+      "sentiment_index",
+      "tradfi_news",
+      "crypto_price",
+      "social_trending",
+      "network_status",
+      "derivatives_sentiment",
+      "global_data",
+      "news_feed",
+      "cn_market",
+      "global_assets",
+      "crypto_derivatives",
+      "technical_analysis",
+      "backtest",
+      "macro_indicators",
+      "rates_yields",
+      "cross_asset"
+    ],
+    "serverInfo": {
+      "name": "market-data-mcp",
+      "version": "1.26.0"
+    }
+  },
+  "calls": [
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "market tickers RNVDAUSDT",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --read-only market --action tickers --category SPOT --symbol RNVDAUSDT",
+        "endpoint": "GET /api/v3/market/tickers"
+      },
+      "status": "exit 0",
+      "latency_ms": 3824,
+      "sample": "{\"endpoint\":\"GET /api/v3/market/tickers\",\"requestTime\":\"2026-10-05T22:18:07.422Z\",\"data\":[{\"category\":\"SPOT\",\"symbol\":\"RNVDAUSDT\",\"ts\":\"1791238687610\",\"lastPrice\":\"239.57\",\"openPrice24h\":\"234.74\",\"highPrice24h\":\"240.1\",\"lowPrice24h\":\"236.01\",\"ask1Price\":\"239.59\",\"bid1Price\":\"239.53\",\"bid1Size\":\"224\",\"ask1Size\":\"25\",\"price24hPcnt\":\"0.02058\",\"volume24h\":\"90998681.6547\",\"turnover24h\":\"21710661420.0643\",\"platformTurnover24h\":\"2280941.7074\"}]}",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:07+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "market tickers NVDAUSDT",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --read-only market --action tickers --category USDT-FUTURES --symbol NVDAUSDT",
+        "endpoint": "GET /api/v3/market/tickers"
+      },
+      "status": "exit 0",
+      "latency_ms": 2565,
+      "sample": "{\"endpoint\":\"GET /api/v3/market/tickers\",\"requestTime\":\"2026-10-05T22:18:10.676Z\",\"data\":[{\"category\":\"USDT-FUTURES\",\"symbol\":\"NVDAUSDT\",\"ts\":\"1791238691278\",\"lastPrice\":\"239.72\",\"openPrice24h\":\"235.21\",\"highPrice24h\":\"240.29\",\"lowPrice24h\":\"234.99\",\"ask1Price\":\"239.72\",\"bid1Price\":\"239.71\",\"bid1Size\":\"415.05\",\"ask1Size\":\"69.37\",\"price24hPcnt\":\"0.01917\",\"volume24h\":\"70146.2\",\"turnover24h\":\"16617788.0517\",\"indexPrice\":\"239.5716097377793874\",\"markPrice\":\"239.71\",\"fundingRate\":\"0.0001\",\"openInterest\":\"53629.159999999922\",\"deliveryStartTime\":\"\",\"deliveryTime\":\"\",\"deliveryStatus\":\"\"}]}",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:10+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "market orderbook RNVDAUSDT",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --read-only market --action orderbook --category SPOT --symbol RNVDAUSDT --limit 5",
+        "endpoint": "GET /api/v3/market/orderbook"
+      },
+      "status": "exit 0",
+      "latency_ms": 2537,
+      "sample": "{\"endpoint\":\"GET /api/v3/market/orderbook\",\"requestTime\":\"2026-10-05T22:18:13.809Z\",\"data\":{\"a\":[[239.62,0.9411],[239.64,0.6378],[239.68,87.36],[239.69,119.0399],[239.7,109.44]],\"b\":[[239.58,0.4765],[239.56,1.0597],[239.55,0.8008],[239.47,96.96],[239.43,105.6]],\"ts\":\"1791238694962\"}}",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:13+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "market candles NVDAUSDT 1D",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --read-only market --action candles --category USDT-FUTURES --symbol NVDAUSDT --interval 1D --limit 5",
+        "endpoint": "GET /api/v3/market/candles"
+      },
+      "status": "exit 0",
+      "latency_ms": 2687,
+      "sample": "{\"endpoint\":\"GET /api/v3/market/candles\",\"requestTime\":\"2026-10-05T22:18:17.107Z\",\"data\":[[\"1790870400000\",\"229.61\",\"238\",\"229.47\",\"235.71\",\"118683.87\",\"27779420.6652\"],[\"1790956800000\",\"235.71\",\"236.74\",\"233.9\",\"234.73\",\"19014.62\",\"4464799.3383\"],[\"1791043200000\",\"234.73\",\"235.27\",\"234.41\",\"235.02\",\"4643.9\",\"1090551.0748\"],[\"1791129600000\",\"235.02\",\"237.95\",\"234.97\",\"237.01\",\"51661.07\",\"12201194.0136\"],[\"1791216000000\",\"237.01\",\"240.29\",\"236.26\",\"239.72\",\"19713.74\",\"4705434.2765\"]]}",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:17+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "market fundingRate NVDAUSDT",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --read-only market --action fundingRate --symbol NVDAUSDT",
+        "endpoint": "GET /api/v3/market/current-fund-rate"
+      },
+      "status": "exit 0",
+      "latency_ms": 2737,
+      "sample": "{\"endpoint\":\"GET /api/v3/market/current-fund-rate\",\"requestTime\":\"2026-10-05T22:18:20.452Z\",\"data\":[{\"symbol\":\"NVDAUSDT\",\"fundingRate\":\"0.0001\",\"fundingRateInterval\":\"8\",\"nextUpdate\":\"1791244800000\",\"minFundingRate\":\"-0.01\",\"maxFundingRate\":\"0.01\",\"cashDividend\":\"\",\"cashDividendNextUpdate\":\"null\"}]}",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:20+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "market fundingRateHistory NVDAUSDT",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --read-only market --action fundingRateHistory --category USDT-FUTURES --symbol NVDAUSDT --limit 5",
+        "endpoint": "GET /api/v3/market/history-fund-rate"
+      },
+      "status": "exit 0",
+      "latency_ms": 2472,
+      "sample": "{\"endpoint\":\"GET /api/v3/market/history-fund-rate\",\"requestTime\":\"2026-10-05T22:18:23.522Z\",\"data\":{\"resultList\":[{\"symbol\":\"NVDAUSDT\",\"fundingRate\":\"0.000033\",\"fundingRateTimestamp\":\"1791216000000\"},{\"symbol\":\"NVDAUSDT\",\"fundingRate\":\"0\",\"fundingRateTimestamp\":\"1791187200000\"},{\"symbol\":\"NVDAUSDT\",\"fundingRate\":\"0\",\"fundingRateTimestamp\":\"1791158400000\"},{\"symbol\":\"NVDAUSDT\",\"fundingRate\":\"0\",\"fundingRateTimestamp\":\"1791129600000\"},{\"symbol\":\"NVDAUSDT\",\"fundingRate\":\"0\",\"fundingRateTimestamp\":\"1791100800000\"}]}}",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:23+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "account_overview (private read, no key)",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --read-only account_overview --coin USDT",
+        "endpoint": "(composite) account_overview"
+      },
+      "status": "exit 0",
+      "latency_ms": 2173,
+      "sample": "{\"endpoint\":\"(composite) account_overview\",\"requestTime\":\"2026-10-05T22:18:26.361Z\",\"data\":{\"assets\":{\"ok\":false,\"error\":\"Private endpoint requires API credentials.\"},\"settings\":{\"ok\":false,\"error\":\"Private endpoint requires API credentials.\"},\"fundingAssets\":{\"ok\":false,\"error\":\"Private endpoint requires API credentials.\"}}}",
+      "verdict": "needs key",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:26+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "discover --domain market",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --full discover --domain market",
+        "endpoint": "(introspection) discover"
+      },
+      "status": "exit 0",
+      "latency_ms": 2017,
+      "sample": "{\"endpoint\":\"(introspection) discover\",\"requestTime\":\"2026-10-05T22:18:28.984Z\",\"data\":{\"domain\":\"market\",\"tools\":[{\"name\":\"getCurrentFundingRate\",\"description\":\"[PUBLIC] Get Current Funding Rate — Get current funding rate.\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"getCurrentFundingRate\"]},{\"name\":\"getDiscountRate\",\"description\":\"[PUBLIC] Get Discount Rate — Query discount rate applied to margin loans.\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"getDiscountRate\"]},{\"name\":\"getFundingRateHistory\",\"description\":\"[PUBLIC] Get Funding Rate History — Query historical funding rate records. T... [3216 more chars]",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:29+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "discover --domain trade",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --full discover --domain trade",
+        "endpoint": "(introspection) discover"
+      },
+      "status": "exit 0",
+      "latency_ms": 2006,
+      "sample": "{\"endpoint\":\"(introspection) discover\",\"requestTime\":\"2026-10-05T22:18:31.592Z\",\"data\":{\"domain\":\"trade\",\"tools\":[{\"name\":\"cancelStrategyOrder\",\"description\":\"[WRITE] Cancel Strategy Order — Cancel strategy order\",\"isWrite\":true,\"riskLevel\":\"write\",\"fronts\":[\"cancelStrategyOrder\"]},{\"name\":\"historyStrategyOrders\",\"description\":\"History Strategy Orders — Get historical strategy orders\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"historyStrategyOrders\"]},{\"name\":\"modifyStrategyOrder\",\"description\":\"[WRITE] Modify Strategy Order — Modify strategy order\",\"isWrite\":true,\"riskLevel\":\"write\",\"front... [5260 more chars]",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:31+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "discover --domain account",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --full discover --domain account",
+        "endpoint": "(introspection) discover"
+      },
+      "status": "exit 0",
+      "latency_ms": 2144,
+      "sample": "{\"endpoint\":\"(introspection) discover\",\"requestTime\":\"2026-10-05T22:18:34.340Z\",\"data\":{\"domain\":\"account\",\"tools\":[{\"name\":\"adjustAccountMode\",\"description\":\"[WRITE] Adjust Account Mode — This endpoint supports the following account-mode switching scenarios. It supports switching between Basic Mode and\",\"isWrite\":true,\"riskLevel\":\"write\",\"fronts\":[\"adjustAccountMode\"]},{\"name\":\"createAgentSubAccount\",\"description\":\"[WRITE] Create Agent Sub-account — - This API is used for the parent account to create an Agent sub-account (broker/agent business). It only supports creating unified-account virtu... [8768 more chars]",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:34+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "discover --domain funds",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --full discover --domain funds",
+        "endpoint": "(introspection) discover"
+      },
+      "status": "exit 0",
+      "latency_ms": 2117,
+      "sample": "{\"endpoint\":\"(introspection) discover\",\"requestTime\":\"2026-10-05T22:18:37.052Z\",\"data\":{\"domain\":\"funds\",\"tools\":[{\"name\":\"transfer_funds\",\"description\":\"[VERB] Move funds by intent: action internal | mainToSub | subToMain. preflight reports max transferable without moving anything; transfers honor dryRun/readOnly.\",\"isWrite\":false,\"riskLevel\":\"write\",\"fronts\":[\"transfer\",\"mainSubAccountTransfer\",\"subMainAccountTransfer\",\"getMaxTransferable\"]},{\"name\":\"deposit\",\"description\":\"[VERB] Deposits by intent: address (get a deposit address) | records (deposit history) | setupAccount.\",\"isWrite\":false... [642 more chars]",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:37+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "discover --domain subaccount",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --full discover --domain subaccount",
+        "endpoint": "(introspection) discover"
+      },
+      "status": "exit 0",
+      "latency_ms": 2109,
+      "sample": "{\"endpoint\":\"(introspection) discover\",\"requestTime\":\"2026-10-05T22:18:39.768Z\",\"data\":{\"domain\":\"subaccount\",\"tools\":[{\"name\":\"subaccount\",\"description\":\"[VERB] Sub-accounts by intent: create | createAgent | list | freeze | assets | API keys (apiKeys/createApiKey/modifyApiKey/deleteApiKey) | depositAddress | depositRecords.\",\"isWrite\":false,\"riskLevel\":\"write\",\"fronts\":[\"createSubAccount\",\"createAgentSubAccount\",\"getSubAccountList\",\"freezeUnfreezeSubAccount\",\"getSubaccountUnifiedAssets\",\"getSubAccountApiKeys\",\"createSubAccountApiKey\",\"modifySubAccountApiKey\",\"deleteSubAccountApiKey\",\"getSubDe... [41 more chars]",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:39+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "discover --domain loan",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --full discover --domain loan",
+        "endpoint": "(introspection) discover"
+      },
+      "status": "exit 0",
+      "latency_ms": 2150,
+      "sample": "{\"endpoint\":\"(introspection) discover\",\"requestTime\":\"2026-10-05T22:18:42.530Z\",\"data\":{\"domain\":\"loan\",\"tools\":[{\"name\":\"borrowCoins\",\"description\":\"[WRITE] Borrow Coins\",\"isWrite\":true,\"riskLevel\":\"write\",\"fronts\":[\"borrowCoins\"]},{\"name\":\"getBorrowHistory\",\"description\":\"Get Borrow History\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"getBorrowHistory\"]},{\"name\":\"getBorrowOngoing\",\"description\":\"Get Borrow Ongoing\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"getBorrowOngoing\"]},{\"name\":\"getLoanCoins\",\"description\":\"Get Loan Coins\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"getLoanCoin... [1301 more chars]",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:42+00:00"
+    },
+    {
+      "path": "bgc",
+      "tool": "bgc",
+      "operation": "discover --domain tax",
+      "request": {
+        "argv": "npx -y @bitget-ai/bitget-agent-cli@3.0.0 --full discover --domain tax",
+        "endpoint": "(introspection) discover"
+      },
+      "status": "exit 0",
+      "latency_ms": 2070,
+      "sample": "{\"endpoint\":\"(introspection) discover\",\"requestTime\":\"2026-10-05T22:18:45.191Z\",\"data\":{\"domain\":\"tax\",\"tools\":[{\"name\":\"getUnifiedAccountTaxRecords\",\"description\":\"Get Unified Account Tax Records — Data query range: 366 days\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"getUnifiedAccountTaxRecords\"]},{\"name\":\"tax\",\"description\":\"[VERB] Tax records (read-only): records lists unified-account tax records.\",\"isWrite\":false,\"riskLevel\":\"read\",\"fronts\":[\"getUnifiedAccountTaxRecords\"]}]}}",
+      "verdict": "answers",
+      "note": "latency includes npx start-up (package cached after first run)",
+      "at": "2026-10-05T22:18:45+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "mcp",
+      "operation": "initialize",
+      "request": {
+        "url": "https://agent.bitget.com/mcp",
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "initialize",
+          "params": {
+            "protocolVersion": "2025-03-26",
+            "capabilities": {},
+            "clientInfo": {
+              "name": "loop-evidence-probe",
+              "version": "1"
+            }
+          },
+          "id": 1
+        }
+      },
+      "status": 200,
+      "latency_ms": 554,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"result\": {\"protocolVersion\": \"2025-03-26\", \"capabilities\": {\"logging\": {}, \"prompts\": {\"listChanged\": true}, \"resources\": {\"subscribe\": false, \"listChanged\": true}, \"tools\": {\"listChanged\": true}}, \"serverInfo\": {\"name\": \"bitget-mcp-server\", \"version\": \"4.0.5\"}}}",
+      "verdict": "answers",
+      "note": "",
+      "at": "2026-10-05T22:18:46+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "mcp",
+      "operation": "tools/list",
+      "request": {
+        "url": "https://agent.bitget.com/mcp",
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "tools/list",
+          "params": {},
+          "id": 2
+        }
+      },
+      "status": 200,
+      "latency_ms": 188,
+      "sample": "{\"tool_names\": [\"guide\", \"do_query\"]}",
+      "verdict": "answers",
+      "note": "",
+      "at": "2026-10-05T22:18:47+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "guide",
+      "operation": "guide equity",
+      "request": {
+        "url": "https://agent.bitget.com/mcp",
+        "tool": "guide",
+        "arguments": {
+          "category": "equity"
+        }
+      },
+      "status": 200,
+      "latency_ms": 223,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 3, \"result\": {\"content\": [{\"text\": \"{\\\"entries\\\":[{\\\"id\\\":\\\"equity_price_quote\\\",\\\"url_path\\\":\\\"equity/price/quote\\\",\\\"subcategory\\\":\\\"行情\\\",\\\"title\\\":\\\"股票基本信息 / 实时报价\\\",\\\"summary\\\":\\\"获取美股的实时报价与基本信息\\\",\\\"data_tier\\\":\\\"free\\\",\\\"params_summary\\\":[{\\\"name\\\":\\\"symbol\\\",\\\"required\\\":true,\\\"type\\\":\\\"string\\\"}],\\\"docs_url\\\":\\\"/docs/equity\\\"},{\\\"id\\\":\\\"equity_price_historical\\\",\\\"url_path\\\":\\\"equity/price/historical\\\",\\\"subcategory\\\":\\\"行情\\\",\\\"title\\\":\\\"股票历史K线\\\",\\\"summary\\\":\\\"获取美股历史K线（OHLCV）数据\\\",\\\"data_tier\\\":\\\"free\\\",\\\"params_summary\\\":[{\\\"name\\\":\\\"symbol\\\",\\\"required\\\":false,\\\"t... [20993 more chars]",
+      "verdict": "answers",
+      "note": "",
+      "at": "2026-10-05T22:18:48+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "do_query",
+      "operation": "equity_price_quote NVDA",
+      "request": {
+        "url": "https://agent.bitget.com/mcp",
+        "tool": "do_query",
+        "arguments": {
+          "entry_id": "equity_price_quote",
+          "params": {
+            "symbol": "NVDA"
+          }
+        }
+      },
+      "status": 200,
+      "latency_ms": 211,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 4, \"result\": {\"content\": [{\"text\": \"{\\\"success\\\":false,\\\"status_code\\\":503,\\\"data\\\":\\\"<html>\\\\r\\\\n<head><title>503 Service Temporarily Unavailable</title></head>\\\\r\\\\n<body>\\\\r\\\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\\\r\\\\n</body>\\\\r\\\\n</html>\\\\r\\\\n\\\",\\\"error\\\":null}\", \"type\": \"text\"}], \"isError\": false, \"structuredContent\": {\"success\": false, \"status_code\": 503, \"data\": \"<html>\\r\\n<head><title>503 Service Temporarily Unavailable</title></head>\\r\\n<body>\\r\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\r\\n</body>\\r\\n</html>\\r\\n\", ... [16 more chars]",
+      "verdict": "error",
+      "note": "tool returned success=false, upstream status_code 503",
+      "at": "2026-10-05T22:18:49+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "do_query",
+      "operation": "equity_calendar NVDA",
+      "request": {
+        "url": "https://agent.bitget.com/mcp",
+        "tool": "do_query",
+        "arguments": {
+          "entry_id": "equity_calendar",
+          "params": {
+            "symbol": "NVDA"
+          }
+        }
+      },
+      "status": 200,
+      "latency_ms": 196,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 5, \"result\": {\"content\": [{\"text\": \"{\\\"success\\\":false,\\\"status_code\\\":503,\\\"data\\\":\\\"<html>\\\\r\\\\n<head><title>503 Service Temporarily Unavailable</title></head>\\\\r\\\\n<body>\\\\r\\\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\\\r\\\\n</body>\\\\r\\\\n</html>\\\\r\\\\n\\\",\\\"error\\\":null}\", \"type\": \"text\"}], \"isError\": false, \"structuredContent\": {\"success\": false, \"status_code\": 503, \"data\": \"<html>\\r\\n<head><title>503 Service Temporarily Unavailable</title></head>\\r\\n<body>\\r\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\r\\n</body>\\r\\n</html>\\r\\n\", ... [16 more chars]",
+      "verdict": "error",
+      "note": "tool returned success=false, upstream status_code 503",
+      "at": "2026-10-05T22:18:50+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "do_query",
+      "operation": "equity_fundamental_metrics NVDA",
+      "request": {
+        "url": "https://agent.bitget.com/mcp",
+        "tool": "do_query",
+        "arguments": {
+          "entry_id": "equity_fundamental_metrics",
+          "params": {
+            "symbol": "NVDA"
+          }
+        }
+      },
+      "status": 200,
+      "latency_ms": 227,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 6, \"result\": {\"content\": [{\"text\": \"{\\\"success\\\":false,\\\"status_code\\\":503,\\\"data\\\":\\\"<html>\\\\r\\\\n<head><title>503 Service Temporarily Unavailable</title></head>\\\\r\\\\n<body>\\\\r\\\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\\\r\\\\n</body>\\\\r\\\\n</html>\\\\r\\\\n\\\",\\\"error\\\":null}\", \"type\": \"text\"}], \"isError\": false, \"structuredContent\": {\"success\": false, \"status_code\": 503, \"data\": \"<html>\\r\\n<head><title>503 Service Temporarily Unavailable</title></head>\\r\\n<body>\\r\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\r\\n</body>\\r\\n</html>\\r\\n\", ... [16 more chars]",
+      "verdict": "error",
+      "note": "tool returned success=false, upstream status_code 503",
+      "at": "2026-10-05T22:18:51+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "do_query",
+      "operation": "sentiment_market_fear_greed",
+      "request": {
+        "url": "https://agent.bitget.com/mcp",
+        "tool": "do_query",
+        "arguments": {
+          "entry_id": "sentiment_market_fear_greed",
+          "params": {}
+        }
+      },
+      "status": 200,
+      "latency_ms": 205,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 7, \"result\": {\"content\": [{\"text\": \"{\\\"success\\\":false,\\\"status_code\\\":503,\\\"data\\\":\\\"<html>\\\\r\\\\n<head><title>503 Service Temporarily Unavailable</title></head>\\\\r\\\\n<body>\\\\r\\\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\\\r\\\\n</body>\\\\r\\\\n</html>\\\\r\\\\n\\\",\\\"error\\\":null}\", \"type\": \"text\"}], \"isError\": false, \"structuredContent\": {\"success\": false, \"status_code\": 503, \"data\": \"<html>\\r\\n<head><title>503 Service Temporarily Unavailable</title></head>\\r\\n<body>\\r\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\r\\n</body>\\r\\n</html>\\r\\n\", ... [16 more chars]",
+      "verdict": "error",
+      "note": "tool returned success=false, upstream status_code 503",
+      "at": "2026-10-05T22:18:51+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "http",
+      "operation": "plain GET /mcp",
+      "request": {
+        "method": "GET",
+        "url": "https://agent.bitget.com/mcp"
+      },
+      "status": 400,
+      "latency_ms": 188,
+      "sample": "{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32600,\"message\":\"Bad Request: Missing session ID\"}}",
+      "verdict": "error",
+      "note": "",
+      "at": "2026-10-05T22:18:52+00:00"
+    },
+    {
+      "path": "bitget-mcp",
+      "tool": "http",
+      "operation": "REST mirror equity quote",
+      "request": {
+        "method": "GET",
+        "url": "https://agent.bitget.com/api/v1/equity/price/quote?symbol=NVDA"
+      },
+      "status": 503,
+      "latency_ms": 172,
+      "sample": "\"<html>\\r\\n<head><title>503 Service Temporarily Unavailable</title></head>\\r\\n<body>\\r\\n<center><h1>503 Service Temporarily Unavailable</h1></center>\\r\\n</body>\\r\\n</html>\\r\\n\"",
+      "verdict": "error",
+      "note": "",
+      "at": "2026-10-05T22:18:53+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "mcp",
+      "operation": "initialize",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "initialize",
+          "params": {
+            "protocolVersion": "2025-03-26",
+            "capabilities": {},
+            "clientInfo": {
+              "name": "loop-evidence-probe",
+              "version": "1"
+            }
+          },
+          "id": 1
+        }
+      },
+      "status": 200,
+      "latency_ms": 405,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"result\": {\"protocolVersion\": \"2025-03-26\", \"capabilities\": {\"experimental\": {}, \"prompts\": {\"listChanged\": false}, \"resources\": {\"subscribe\": false, \"listChanged\": false}, \"tools\": {\"listChanged\": false}}, \"serverInfo\": {\"name\": \"market-data-mcp\", \"version\": \"1.26.0\"}}}",
+      "verdict": "answers",
+      "note": "",
+      "at": "2026-10-05T22:18:54+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "mcp",
+      "operation": "tools/list",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "tools/list",
+          "params": {},
+          "id": 2
+        }
+      },
+      "status": 200,
+      "latency_ms": 189,
+      "sample": "{\"tool_names\": [\"crypto_market\", \"defi_analytics\", \"dex_market\", \"sentiment_index\", \"tradfi_news\", \"crypto_price\", \"social_trending\", \"network_status\", \"derivatives_sentiment\", \"global_data\", \"news_feed\", \"cn_market\", \"global_assets\", \"crypto_derivatives\", \"technical_analysis\", \"backtest\", \"macro_indicators\", \"rates_yields\", \"cross_asset\"]}",
+      "verdict": "answers",
+      "note": "",
+      "at": "2026-10-05T22:18:55+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "sentiment_index",
+      "operation": "sentiment-analyst: sentiment_index current",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "sentiment_index",
+        "arguments": {
+          "action": "current"
+        }
+      },
+      "status": 200,
+      "latency_ms": 30205,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 3, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"{\\\"alt_me_error\\\": \\\"\\\"}\"}], \"isError\": false}}",
+      "verdict": "error",
+      "note": "no data; 1 error field(s) in the answer (e.g. {'error': ''})",
+      "at": "2026-10-05T22:19:26+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "derivatives_sentiment",
+      "operation": "sentiment-analyst: long_short BTCUSDT 4h",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "derivatives_sentiment",
+        "arguments": {
+          "action": "long_short",
+          "symbol": "BTCUSDT",
+          "period": "4h"
+        }
+      },
+      "status": 200,
+      "latency_ms": 15192,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 4, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"{\\\"error\\\": \\\"\\\"}\"}], \"isError\": false}}",
+      "verdict": "error",
+      "note": "tool returned error ''",
+      "at": "2026-10-05T22:19:42+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "news_feed",
+      "operation": "news-briefing: news_feed latest",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "news_feed",
+        "arguments": {
+          "action": "latest",
+          "feeds": "cointelegraph,coindesk,decrypt,blockworks",
+          "limit": 5
+        }
+      },
+      "status": 200,
+      "latency_ms": 20236,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 5, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"[{\\\"feed\\\": \\\"cointelegraph\\\", \\\"error\\\": \\\"\\\", \\\"items\\\": []}, {\\\"feed\\\": \\\"coindesk\\\", \\\"error\\\": \\\"\\\", \\\"items\\\": []}, {\\\"feed\\\": \\\"decrypt\\\", \\\"error\\\": \\\"\\\", \\\"items\\\": []}, {\\\"feed\\\": \\\"blockworks\\\", \\\"error\\\": \\\"\\\", \\\"items\\\": []}]\"}], \"isError\": false}}",
+      "verdict": "error",
+      "note": "no data; 4 error field(s) in the answer (e.g. {'error': ''})",
+      "at": "2026-10-05T22:20:02+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "tradfi_news",
+      "operation": "news-briefing: tradfi_news news",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "tradfi_news",
+        "arguments": {
+          "action": "news",
+          "limit": 5
+        }
+      },
+      "status": 200,
+      "latency_ms": 15178,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 6, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"{\\\"error\\\": \\\"\\\"}\"}], \"isError\": false}}",
+      "verdict": "error",
+      "note": "tool returned error ''",
+      "at": "2026-10-05T22:20:18+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "rates_yields",
+      "operation": "macro-analyst: rates_yields rates_snapshot",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "rates_yields",
+        "arguments": {
+          "action": "rates_snapshot"
+        }
+      },
+      "status": 200,
+      "latency_ms": 20277,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 7, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"{\\\"fed_funds_target_upper\\\": {\\\"error\\\": \\\"\\\"}, \\\"fed_funds_target_lower\\\": {\\\"error\\\": \\\"\\\"}, \\\"t2y\\\": {\\\"error\\\": \\\"\\\"}, \\\"t10y\\\": {\\\"error\\\": \\\"\\\"}, \\\"t30y\\\": {\\\"error\\\": \\\"\\\"}, \\\"spread_10y2y\\\": {\\\"error\\\": \\\"\\\"}, \\\"breakeven_10y\\\": {\\\"error\\\": \\\"\\\"}, \\\"sofr\\\": {\\\"error\\\": \\\"\\\"}, \\\"mortgage_30y\\\": {\\\"error\\\": \\\"\\\"}, \\\"hy_spread\\\": {\\\"error\\\": \\\"\\\"}, \\\"ig_spread\\\": {\\\"error\\\": \\\"\\\"}, \\\"yield_curve_inverted\\\": false}\"}], \"isError\": false}}",
+      "verdict": "error",
+      "note": "no data; 11 error field(s) in the answer (e.g. {'error': ''})",
+      "at": "2026-10-05T22:20:39+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "macro_indicators",
+      "operation": "macro-analyst: macro_indicators cpi",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "macro_indicators",
+        "arguments": {
+          "action": "latest_release",
+          "indicator": "cpi"
+        }
+      },
+      "status": 200,
+      "latency_ms": 20206,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 8, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"{\\\"error\\\": \\\"\\\"}\"}], \"isError\": false}}",
+      "verdict": "error",
+      "note": "tool returned error ''",
+      "at": "2026-10-05T22:21:00+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "crypto_market",
+      "operation": "market-intel: crypto_market global",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "crypto_market",
+        "arguments": {
+          "action": "global"
+        }
+      },
+      "status": 200,
+      "latency_ms": 30181,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 9, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Error executing tool crypto_market: ConnectTimeout('')\"}], \"isError\": true}}",
+      "verdict": "error",
+      "note": "isError true: Error executing tool crypto_market: ConnectTimeout('')",
+      "at": "2026-10-05T22:21:31+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "defi_analytics",
+      "operation": "market-intel: defi_analytics stablecoins",
+      "request": {
+        "url": "https://datahub.noxiaohao.com/mcp",
+        "tool": "defi_analytics",
+        "arguments": {
+          "action": "stablecoins"
+        }
+      },
+      "status": 200,
+      "latency_ms": 20191,
+      "sample": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"{\\\"error\\\": \\\"\\\", \\\"url\\\": \\\"https://stablecoins.llama.fi/stablecoins\\\"}\"}], \"isError\": false}}",
+      "verdict": "error",
+      "note": "tool returned error ''",
+      "at": "2026-10-05T22:21:51+00:00"
+    },
+    {
+      "path": "bitget-signal",
+      "tool": "technical-analysis",
+      "operation": "RSI(14) on RNVDAUSDT 1day",
+      "request": {
+        "skill": "technical-analysis (bitget-signal 1.2.0, Template A)",
+        "candles": "GET https://api.bitget.com/api/v2/spot/market/candles?symbol=RNVDAUSDT&granularity=1day&limit=100",
+        "config": {
+          "RSI": {
+            "period": 14
+          }
+        }
+      },
+      "status": "local",
+      "latency_ms": 1529,
+      "sample": "{\"ok\": true, \"symbol\": \"RNVDAUSDT\", \"days\": 300, \"last_day\": \"2026-10-05\", \"rsi14_last\": 69.3}",
+      "verdict": "answers",
+      "note": "runs the skill's own MIT Python (kline_indicator_utils) on Bitget public candles; no server involved",
+      "at": "2026-10-05T22:21:54+00:00"
+    }
+  ],
+  "summary": {
+    "bgc": {
+      "calls": 14,
+      "answers": 13,
+      "verdicts": {
+        "answers": 13,
+        "needs key": 1
+      }
+    },
+    "bitget-mcp": {
+      "calls": 9,
+      "answers": 3,
+      "verdicts": {
+        "answers": 3,
+        "error": 6
+      }
+    },
+    "bitget-signal": {
+      "calls": 11,
+      "answers": 3,
+      "verdicts": {
+        "answers": 3,
+        "error": 8
+      }
+    }
+  },
+  "finished_at": "2026-10-05T22:21:54+00:00"
+}

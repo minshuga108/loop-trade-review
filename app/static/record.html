@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop public record</title>
+<style>
+:root{
+  --bg:#f5f3ee; --surface:#ffffff; --ink:#15212b; --muted:#5d6b76; --line:#d9d5ca;
+  --accent:#0f6b63; --accent-soft:#d7ece8; --warn:#9a5b00; --warn-soft:#f6e6c8; --bad:#a3322a; --bad-soft:#f5d9d6; --ok:#1f6b34; --ok-soft:#d8ecdc; --grey-soft:#e8e6df;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10181f; --surface:#17222b; --ink:#e8eef2; --muted:#9aa8b2; --line:#2b3a45;
+  --accent:#4cc3b5; --accent-soft:#143a37; --warn:#e3a94b; --warn-soft:#3a2d10; --bad:#ef7d74; --bad-soft:#3f1d1a; --ok:#6fcf8a; --ok-soft:#173523; --grey-soft:#23303a;
+}}
+:root[data-theme="dark"]{
+  --bg:#10181f; --surface:#17222b; --ink:#e8eef2; --muted:#9aa8b2; --line:#2b3a45;
+  --accent:#4cc3b5; --accent-soft:#143a37; --warn:#e3a94b; --warn-soft:#3a2d10; --bad:#ef7d74; --bad-soft:#3f1d1a; --ok:#6fcf8a; --ok-soft:#173523; --grey-soft:#23303a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif;padding-inline:16px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:18px 48px}
+header{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px}
+h1{font:600 22px/1.2 Georgia,"Times New Roman",serif;margin:0;letter-spacing:-.01em}
+.tag{color:var(--muted);font-size:13px}
+a{color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0;min-width:0}
+.card h2{font:600 15px/1.3 "Segoe UI",system-ui,sans-serif;margin:0 0 6px;letter-spacing:.01em;text-transform:uppercase;color:var(--muted)}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.num{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg)}
+.num b{display:block;font:600 24px/1.2 Georgia,serif;font-variant-numeric:tabular-nums}
+.num span{font-size:12px;color:var(--muted)}
+.badge{display:inline-flex;gap:6px;align-items:center;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:600}
+.b-ok{background:var(--ok-soft);color:var(--ok)} .b-warn{background:var(--warn-soft);color:var(--warn)} .b-bad{background:var(--bad-soft);color:var(--bad)} .b-grey{background:var(--grey-soft);color:var(--muted)}
+.honest{border-left:3px solid var(--accent);padding:6px 12px;background:var(--accent-soft);border-radius:0 8px 8px 0;font-size:13.5px;margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;overflow-wrap:normal;word-break:normal}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+code,.mono{font:12.5px/1.45 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+.btn{font:inherit;font-size:13.5px;font-weight:600;border:0;background:var(--accent);color:#fff;border-radius:8px;padding:7px 14px;cursor:pointer}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn{color:#06201d}}
+:root[data-theme="dark"] .btn{color:#06201d}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+.line{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg);margin:6px 0}
+mark{background:var(--bad-soft);color:var(--bad);font-weight:700;padding:0 1px;border-radius:3px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media(max-width:820px){.two{grid-template-columns:minmax(0,1fr)}}
+footer{color:var(--muted);font-size:12.5px;margin-top:20px}
+.err{color:var(--bad)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Loop public record</h1>
+  <span class="tag">Every Rule Gate decision and rule change, written before its outcome is known. <a href="/">Back to Loop</a></span>
+</header>
+
+<p class="honest">Paper only (SIM_PAPER). Each line is hashed together with the line before it, so changing any past line breaks every link after it. Once a day the root of that day's lines is sent to OpenTimestamps, which later puts it into a Bitcoin block. Session ids are stored only as a keyed hash.</p>
+
+<section class="card">
+  <h2>Counter</h2>
+  <div class="nums" id="nums"><div class="num"><b>…</b><span>loading</span></div></div>
+  <p class="tag" id="anchor"></p>
+</section>
+
+<section class="card">
+  <h2>Verify this log</h2>
+  <div class="row">
+    <button class="btn" id="verify">Verify this log</button>
+    <span id="vres" class="tag">The server walks every line and recomputes every hash. Your browser also re-hashes the lines shown below on its own.</span>
+  </div>
+  <div id="bres" class="tag"></div>
+</section>
+
+<section class="card">
+  <h2>What a one-character edit does</h2>
+  <p class="tag">This runs in your browser on a copy. The real log is not touched.</p>
+  <div class="row"><button class="btn" id="tamper">Change one character</button></div>
+  <div id="tout"></div>
+</section>
+
+<section class="card">
+  <h2>Latest 20 entries</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Seq</th><th>Time (UTC)</th><th>Kind</th><th>What</th><th>Hash</th><th>Prev</th></tr></thead>
+    <tbody id="rows"><tr><td colspan="6" class="tag">loading</td></tr></tbody>
+  </table></div>
+</section>
+
+<footer>Line format and limitations: RECORD_NOTES.md. Endpoints: <code>/api/record/entries</code>, <code>/api/record/verify</code>, <code>/api/record/counter</code>, <code>/api/record/day/YYYY-MM-DD</code>.</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const short = h => h ? h.slice(0, 10) + "…" : "";
+let ENTRIES = [];
+
+// SHA-256: WebCrypto when available (https/localhost), small pure-JS fallback otherwise.
+function sha256js(bytes){
+  const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+  let H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const l=bytes.length, n=((l+9+63)>>6)<<6, m=new Uint8Array(n); m.set(bytes); m[l]=0x80;
+  const dv=new DataView(m.buffer); dv.setUint32(n-4,l*8>>>0); dv.setUint32(n-8,Math.floor(l/0x20000000));
+  const w=new Uint32Array(64), r=(x,k)=>(x>>>k)|(x<<(32-k));
+  for(let o=0;o<n;o+=64){
+    for(let i=0;i<16;i++) w[i]=dv.getUint32(o+i*4);
+    for(let i=16;i<64;i++){const a=w[i-15],b=w[i-2];w[i]=(w[i-16]+(r(a,7)^r(a,18)^(a>>>3))+w[i-7]+(r(b,17)^r(b,19)^(b>>>10)))>>>0;}
+    let [a,b,c,d,e,f,g,h]=H;
+    for(let i=0;i<64;i++){
+      const t1=(h+(r(e,6)^r(e,11)^r(e,25))+((e&f)^(~e&g))+K[i]+w[i])>>>0, t2=((r(a,2)^r(a,13)^r(a,22))+((a&b)^(a&c)^(b&c)))>>>0;
+      h=g;g=f;f=e;e=(d+t1)>>>0;d=c;c=b;b=a;a=(t1+t2)>>>0;
+    }
+    H=H.map((x,i)=>(x+[a,b,c,d,e,f,g,h][i])>>>0);
+  }
+  return H.map(x=>x.toString(16).padStart(8,"0")).join("");
+}
+async function sha256hex(str){
+  const bytes = new TextEncoder().encode(str);
+  if (window.crypto && crypto.subtle){
+    const d = await crypto.subtle.digest("SHA-256", bytes);
+    return [...new Uint8Array(d)].map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+  return sha256js(bytes);
+}
+// The stored line starts with {"hash":"<64 hex>", ; the hashed body is the same bytes without that key.
+const bodyOf = line => line.replace(/^\{"hash":"[0-9a-f]{64}",/, "{");
+const storedHash = line => (line.match(/^\{"hash":"([0-9a-f]{64})"/) || [])[1];
+
+function what(e){
+  const p = e.payload || {};
+  if (e.kind === "gate_decision"){
+    const i = p.idea || {};
+    return `${esc(p.state)} · ${esc(i.side || "?")} ${esc(i.symbol || "?")} ${i.notional != null ? Number(i.notional).toLocaleString() : "?"} · trader ${esc(p.trader)}`;
+  }
+  if (e.kind === "rule_event") return `${esc(p.kind)} ${esc(p.rule_id)}${p.state ? " → " + esc(p.state) : ""} · trader ${esc(p.trader)}`;
+  if (e.kind === "outcome") return `outcome for decision #${esc(p.decision_seq)}${p.result ? ": " + esc(p.result) : ""}`;
+  return "";
+}
+
+async function loadCounter(){
+  const c = await (await fetch("/api/record/counter")).json();
+  const tiles = [["Days running", c.days_running], ["User decisions", c.user_decisions], ["User outcomes resolved", c.user_outcomes_resolved],
+                 ["Sandbox / judge / test clicks", c.decisions_logged - c.user_decisions], ["All outcomes resolved", c.outcomes_resolved], ["Rule changes", c.rule_events], ["Entries", c.entries]];
+  $("nums").innerHTML = tiles.map(([k, v]) => `<div class="num"><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("");
+  const a = c.last_anchor;
+  $("anchor").innerHTML = a
+    ? `Last anchor: ${esc(a.day)} root <code>${short(a.root)}</code> ` +
+      (a.bitcoin_blocks.length ? `<span class="badge b-ok">in Bitcoin block ${a.bitcoin_blocks.join(", ")}</span>` : `<span class="badge b-warn">pending at ${a.pending_calendars} calendar(s)</span>`) +
+      (a.matches_log ? "" : ` <span class="badge b-bad">root no longer matches the log for that day</span>`) + ` ${esc(a.proves)}`
+    : `<span class="badge b-grey">not anchored yet</span> No daily root has been sent to OpenTimestamps so far.`;
+}
+
+async function loadEntries(){
+  const r = await (await fetch("/api/record/entries?limit=20")).json();
+  ENTRIES = r.entries;
+  $("rows").innerHTML = ENTRIES.length ? ENTRIES.map(e => `<tr>
+      <td class="n">${e.seq}</td><td class="n">${new Date(e.ts_ms).toISOString().replace("T", " ").slice(0, 19)}</td>
+      <td>${esc(e.kind)}</td><td>${what(e)}</td>
+      <td><code title="${esc(e.hash)}">${short(e.hash)}</code></td><td><code title="${esc(e.prev_hash)}">${short(e.prev_hash)}</code></td></tr>`).join("")
+    : `<tr><td colspan="6" class="tag">No entries yet. The first gate check or rule change starts the record.</td></tr>`;
+  await browserCheck();
+}
+
+async function browserCheck(){
+  if (!ENTRIES.length){ $("bres").textContent = ""; return; }
+  let bad = null;
+  const asc = [...ENTRIES].reverse();
+  for (let i = 0; i < asc.length; i++){
+    const h = await sha256hex(bodyOf(asc[i].line));
+    if (h !== storedHash(asc[i].line) || (i > 0 && asc[i].prev_hash !== asc[i - 1].hash)){ bad = asc[i].seq; break; }
+  }
+  $("bres").innerHTML = bad == null
+    ? `<span class="badge b-ok">browser check</span> The ${asc.length} lines shown re-hash to their stored hashes and link to each other.`
+    : `<span class="badge b-bad">browser check failed</span> at seq ${bad}.`;
+}
+
+$("verify").onclick = async () => {
+  $("vres").textContent = "checking…";
+  try {
+    const v = await (await fetch("/api/record/verify")).json();
+    $("vres").innerHTML = v.intact
+      ? `<span class="badge b-ok">intact</span> ${v.entries} entries, head <code>${short(v.head)}</code>. ${esc(v.reason)}.`
+      : `<span class="badge b-bad">broken</span> first bad entry: seq ${esc(v.first_bad_seq)}. ${esc(v.reason)}.`;
+  } catch (e) { $("vres").innerHTML = `<span class="err">Could not reach the verifier.</span>`; }
+};
+
+$("tamper").onclick = async () => {
+  if (!ENTRIES.length){ $("tout").innerHTML = `<p class="tag">No entries to tamper with yet.</p>`; return; }
+  const target = ENTRIES[Math.min(1, ENTRIES.length - 1)];       // second newest, so a later line exists to break
+  const next = ENTRIES.find(e => e.seq === target.seq + 1);
+  const line = target.line, start = line.indexOf('"payload":') + 10;
+  let k = -1;
+  for (let i = start; i < line.length; i++) if (/[0-9]/.test(line[i])) { k = i; break; }
+  if (k < 0) for (let i = start; i < line.length; i++) if (/[a-z]/.test(line[i])) { k = i; break; }
+  const ch = line[k], nc = /[0-9]/.test(ch) ? String((+ch + 1) % 10) : (ch === "a" ? "b" : "a");
+  const edited = line.slice(0, k) + nc + line.slice(k + 1);
+  const newHash = await sha256hex(bodyOf(edited));
+  const cut = (s, i) => esc(s.slice(Math.max(0, i - 60), i)) + `<mark>${esc(s[i])}</mark>` + esc(s.slice(i + 1, i + 60));
+  $("tout").innerHTML = `
+    <div class="two">
+      <div><b>Original, seq ${target.seq}</b><div class="line mono">…${cut(line, k)}…</div></div>
+      <div><b>One character changed</b><div class="line mono">…${cut(edited, k)}…</div></div>
+    </div>
+    <table><tbody>
+      <tr><td>Hash stored in the line</td><td><code>${esc(target.hash)}</code></td></tr>
+      <tr><td>Hash of the edited line</td><td><code>${esc(newHash)}</code> <span class="badge b-bad">does not match</span></td></tr>
+      ${next ? `<tr><td>Seq ${next.seq} still says prev_hash</td><td><code>${esc(next.prev_hash)}</code></td></tr>` : ""}
+    </tbody></table>
+    <p class="honest">To hide the edit, a forger would have to rewrite the stored hash, then every later line's prev_hash and hash, and the day's Merkle root would change too, so it no longer matches the root already sent to OpenTimestamps. The verifier would report seq ${target.seq} as the first bad entry.</p>`;
+};
+
+loadCounter().catch(() => $("anchor").innerHTML = `<span class="err">Counter unavailable.</span>`);
+loadEntries().catch(() => $("rows").innerHTML = `<tr><td colspan="6" class="err">Entries unavailable.</td></tr>`);
+</script>
+</body>
+</html>

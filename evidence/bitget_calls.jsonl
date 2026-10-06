@@ -1,0 +1,136 @@
+{"at": "2026-10-05T22:06:30+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market tickers RNVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 3445}
+{"at": "2026-10-05T22:06:37+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market tickers NVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 5890}
+{"at": "2026-10-05T22:06:41+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market orderbook RNVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 3985}
+{"at": "2026-10-05T22:06:48+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market candles NVDAUSDT 1D", "ok": true, "status": "exit 0", "latency_ms": 6152}
+{"at": "2026-10-05T22:06:54+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market fundingRate NVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 5213}
+{"at": "2026-10-05T22:07:00+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market fundingRateHistory NVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 5340}
+{"at": "2026-10-05T22:07:04+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:account_overview (private read, no key)", "ok": false, "status": "exit 0", "latency_ms": 3814}
+{"at": "2026-10-05T22:07:10+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain market", "ok": true, "status": "exit 0", "latency_ms": 5032}
+{"at": "2026-10-05T22:07:16+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain trade", "ok": true, "status": "exit 0", "latency_ms": 5481}
+{"at": "2026-10-05T22:07:21+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain account", "ok": true, "status": "exit 0", "latency_ms": 4673}
+{"at": "2026-10-05T22:07:27+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain funds", "ok": true, "status": "exit 0", "latency_ms": 5029}
+{"at": "2026-10-05T22:07:31+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain subaccount", "ok": true, "status": "exit 0", "latency_ms": 3462}
+{"at": "2026-10-05T22:07:35+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain loan", "ok": true, "status": "exit 0", "latency_ms": 2970}
+{"at": "2026-10-05T22:07:38+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain tax", "ok": true, "status": "exit 0", "latency_ms": 2591}
+{"at": "2026-10-05T22:07:40+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "mcp:initialize", "ok": true, "status": "200", "latency_ms": 374}
+{"at": "2026-10-05T22:07:41+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "mcp:tools/list", "ok": true, "status": "200", "latency_ms": 196}
+{"at": "2026-10-05T22:07:41+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "guide:guide equity", "ok": true, "status": "200", "latency_ms": 240}
+{"at": "2026-10-05T22:07:42+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:equity_price_quote NVDA", "ok": false, "status": "200", "latency_ms": 205}
+{"at": "2026-10-05T22:07:43+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:equity_calendar NVDA", "ok": false, "status": "200", "latency_ms": 186}
+{"at": "2026-10-05T22:07:44+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:equity_fundamental_metrics NVDA", "ok": false, "status": "200", "latency_ms": 223}
+{"at": "2026-10-05T22:07:45+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:sentiment_market_fear_greed", "ok": false, "status": "200", "latency_ms": 194}
+{"at": "2026-10-05T22:07:46+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "http:plain GET /mcp", "ok": false, "status": "400", "latency_ms": 411}
+{"at": "2026-10-05T22:07:46+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "http:REST mirror equity quote", "ok": false, "status": "503", "latency_ms": 204}
+{"at": "2026-10-05T22:07:47+00:00", "origin": "probe", "source": "bitget-signal", "operation": "mcp:initialize", "ok": true, "status": "200", "latency_ms": 376}
+{"at": "2026-10-05T22:07:48+00:00", "origin": "probe", "source": "bitget-signal", "operation": "mcp:tools/list", "ok": true, "status": "200", "latency_ms": 190}
+{"at": "2026-10-05T22:08:19+00:00", "origin": "probe", "source": "bitget-signal", "operation": "sentiment_index:sentiment-analyst: sentiment_index current", "ok": false, "status": "200", "latency_ms": 30191}
+{"at": "2026-10-05T22:08:35+00:00", "origin": "probe", "source": "bitget-signal", "operation": "derivatives_sentiment:sentiment-analyst: long_short BTCUSDT 4h", "ok": false, "status": "200", "latency_ms": 15189}
+{"at": "2026-10-05T22:08:56+00:00", "origin": "probe", "source": "bitget-signal", "operation": "news_feed:news-briefing: news_feed latest", "ok": false, "status": "200", "latency_ms": 20228}
+{"at": "2026-10-05T22:09:12+00:00", "origin": "probe", "source": "bitget-signal", "operation": "tradfi_news:news-briefing: tradfi_news news", "ok": false, "status": "200", "latency_ms": 15189}
+{"at": "2026-10-05T22:09:32+00:00", "origin": "probe", "source": "bitget-signal", "operation": "rates_yields:macro-analyst: rates_yields rates_snapshot", "ok": false, "status": "200", "latency_ms": 20274}
+{"at": "2026-10-05T22:09:53+00:00", "origin": "probe", "source": "bitget-signal", "operation": "macro_indicators:macro-analyst: macro_indicators cpi", "ok": false, "status": "200", "latency_ms": 20190}
+{"at": "2026-10-05T22:10:24+00:00", "origin": "probe", "source": "bitget-signal", "operation": "crypto_market:market-intel: crypto_market global", "ok": false, "status": "200", "latency_ms": 30197}
+{"at": "2026-10-05T22:10:45+00:00", "origin": "probe", "source": "bitget-signal", "operation": "defi_analytics:market-intel: defi_analytics stablecoins", "ok": false, "status": "200", "latency_ms": 20185}
+{"at": "2026-10-05T22:10:46+00:00", "origin": "probe", "source": "bitget-signal", "operation": "technical-analysis candles RNVDAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 274}
+{"at": "2026-10-05T22:10:47+00:00", "origin": "probe", "source": "bitget-signal", "operation": "technical-analysis:RSI+MACD on RNVDAUSDT 1day", "ok": true, "status": "local", "latency_ms": 1451}
+{"at": "2026-10-05T22:17:32+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RNVDAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 294}
+{"at": "2026-10-05T22:17:35+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RTSLAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 190}
+{"at": "2026-10-05T22:17:35+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RAAPLUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 175}
+{"at": "2026-10-05T22:17:36+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RMSTRUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 305}
+{"at": "2026-10-05T22:17:36+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RSPYUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 161}
+{"at": "2026-10-05T22:17:37+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RQQQUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 175}
+{"at": "2026-10-05T22:17:37+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles BTCUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 194}
+{"at": "2026-10-05T22:17:38+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles ETHUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 191}
+{"at": "2026-10-05T22:17:38+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory NVDAUSDT", "ok": true, "status": "200/00000", "latency_ms": 184}
+{"at": "2026-10-05T22:17:38+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory TSLAUSDT", "ok": true, "status": "200/00000", "latency_ms": 174}
+{"at": "2026-10-05T22:17:39+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory AAPLUSDT", "ok": true, "status": "200/00000", "latency_ms": 162}
+{"at": "2026-10-05T22:17:39+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory MSTRUSDT", "ok": true, "status": "200/00000", "latency_ms": 180}
+{"at": "2026-10-05T22:17:40+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory SPYUSDT", "ok": true, "status": "200/00000", "latency_ms": 174}
+{"at": "2026-10-05T22:17:40+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory QQQUSDT", "ok": true, "status": "200/00000", "latency_ms": 203}
+{"at": "2026-10-05T22:17:41+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory BTCUSDT", "ok": true, "status": "200/00000", "latency_ms": 161}
+{"at": "2026-10-05T22:17:41+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory ETHUSDT", "ok": true, "status": "200/00000", "latency_ms": 157}
+{"at": "2026-10-05T22:17:42+00:00", "origin": "product", "source": "bitget-mcp", "operation": "initialize", "ok": true, "status": "200", "latency_ms": 343}
+{"at": "2026-10-05T22:17:42+00:00", "origin": "product", "source": "bitget-mcp", "operation": "notifications/initialized", "ok": true, "status": "202", "latency_ms": 471}
+{"at": "2026-10-05T22:17:42+00:00", "origin": "product", "source": "bitget-mcp", "operation": "do_query equity_calendar NVDA", "ok": false, "status": "200", "latency_ms": 191}
+{"at": "2026-10-05T22:17:43+00:00", "origin": "product", "source": "bitget-signal", "operation": "initialize", "ok": true, "status": "200", "latency_ms": 308}
+{"at": "2026-10-05T22:17:43+00:00", "origin": "product", "source": "bitget-signal", "operation": "notifications/initialized", "ok": true, "status": "202", "latency_ms": 179}
+{"at": "2026-10-05T22:17:51+00:00", "origin": "product", "source": "bitget-signal", "operation": "sentiment_index current", "ok": false, "status": "ReadTimeout", "latency_ms": 8006}
+{"at": "2026-10-05T22:18:07+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market tickers RNVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 3824}
+{"at": "2026-10-05T22:18:10+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market tickers NVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 2565}
+{"at": "2026-10-05T22:18:13+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market orderbook RNVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 2537}
+{"at": "2026-10-05T22:18:17+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market candles NVDAUSDT 1D", "ok": true, "status": "exit 0", "latency_ms": 2687}
+{"at": "2026-10-05T22:18:20+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market fundingRate NVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 2737}
+{"at": "2026-10-05T22:18:23+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:market fundingRateHistory NVDAUSDT", "ok": true, "status": "exit 0", "latency_ms": 2472}
+{"at": "2026-10-05T22:18:26+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:account_overview (private read, no key)", "ok": false, "status": "exit 0", "latency_ms": 2173}
+{"at": "2026-10-05T22:18:29+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain market", "ok": true, "status": "exit 0", "latency_ms": 2017}
+{"at": "2026-10-05T22:18:31+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain trade", "ok": true, "status": "exit 0", "latency_ms": 2006}
+{"at": "2026-10-05T22:18:34+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain account", "ok": true, "status": "exit 0", "latency_ms": 2144}
+{"at": "2026-10-05T22:18:37+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain funds", "ok": true, "status": "exit 0", "latency_ms": 2117}
+{"at": "2026-10-05T22:18:39+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain subaccount", "ok": true, "status": "exit 0", "latency_ms": 2109}
+{"at": "2026-10-05T22:18:42+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain loan", "ok": true, "status": "exit 0", "latency_ms": 2150}
+{"at": "2026-10-05T22:18:45+00:00", "origin": "probe", "source": "bgc", "operation": "bgc:discover --domain tax", "ok": true, "status": "exit 0", "latency_ms": 2070}
+{"at": "2026-10-05T22:18:46+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "mcp:initialize", "ok": true, "status": "200", "latency_ms": 554}
+{"at": "2026-10-05T22:18:47+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "mcp:tools/list", "ok": true, "status": "200", "latency_ms": 188}
+{"at": "2026-10-05T22:18:48+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "guide:guide equity", "ok": true, "status": "200", "latency_ms": 223}
+{"at": "2026-10-05T22:18:49+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:equity_price_quote NVDA", "ok": false, "status": "200", "latency_ms": 211}
+{"at": "2026-10-05T22:18:50+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:equity_calendar NVDA", "ok": false, "status": "200", "latency_ms": 196}
+{"at": "2026-10-05T22:18:51+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:equity_fundamental_metrics NVDA", "ok": false, "status": "200", "latency_ms": 227}
+{"at": "2026-10-05T22:18:51+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "do_query:sentiment_market_fear_greed", "ok": false, "status": "200", "latency_ms": 205}
+{"at": "2026-10-05T22:18:52+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "http:plain GET /mcp", "ok": false, "status": "400", "latency_ms": 188}
+{"at": "2026-10-05T22:18:53+00:00", "origin": "probe", "source": "bitget-mcp", "operation": "http:REST mirror equity quote", "ok": false, "status": "503", "latency_ms": 172}
+{"at": "2026-10-05T22:18:54+00:00", "origin": "probe", "source": "bitget-signal", "operation": "mcp:initialize", "ok": true, "status": "200", "latency_ms": 405}
+{"at": "2026-10-05T22:18:55+00:00", "origin": "probe", "source": "bitget-signal", "operation": "mcp:tools/list", "ok": true, "status": "200", "latency_ms": 189}
+{"at": "2026-10-05T22:19:26+00:00", "origin": "probe", "source": "bitget-signal", "operation": "sentiment_index:sentiment-analyst: sentiment_index current", "ok": false, "status": "200", "latency_ms": 30205}
+{"at": "2026-10-05T22:19:42+00:00", "origin": "probe", "source": "bitget-signal", "operation": "derivatives_sentiment:sentiment-analyst: long_short BTCUSDT 4h", "ok": false, "status": "200", "latency_ms": 15192}
+{"at": "2026-10-05T22:20:02+00:00", "origin": "probe", "source": "bitget-signal", "operation": "news_feed:news-briefing: news_feed latest", "ok": false, "status": "200", "latency_ms": 20236}
+{"at": "2026-10-05T22:20:18+00:00", "origin": "probe", "source": "bitget-signal", "operation": "tradfi_news:news-briefing: tradfi_news news", "ok": false, "status": "200", "latency_ms": 15178}
+{"at": "2026-10-05T22:20:39+00:00", "origin": "probe", "source": "bitget-signal", "operation": "rates_yields:macro-analyst: rates_yields rates_snapshot", "ok": false, "status": "200", "latency_ms": 20277}
+{"at": "2026-10-05T22:21:00+00:00", "origin": "probe", "source": "bitget-signal", "operation": "macro_indicators:macro-analyst: macro_indicators cpi", "ok": false, "status": "200", "latency_ms": 20206}
+{"at": "2026-10-05T22:21:31+00:00", "origin": "probe", "source": "bitget-signal", "operation": "crypto_market:market-intel: crypto_market global", "ok": false, "status": "200", "latency_ms": 30181}
+{"at": "2026-10-05T22:21:51+00:00", "origin": "probe", "source": "bitget-signal", "operation": "defi_analytics:market-intel: defi_analytics stablecoins", "ok": false, "status": "200", "latency_ms": 20191}
+{"at": "2026-10-05T22:21:53+00:00", "origin": "probe", "source": "bitget-signal", "operation": "technical-analysis candles RNVDAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 427}
+{"at": "2026-10-05T22:21:54+00:00", "origin": "probe", "source": "bitget-signal", "operation": "technical-analysis:RSI(14) on RNVDAUSDT 1day", "ok": true, "status": "local", "latency_ms": 1529}
+{"at": "2026-10-05T23:16:09+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RNVDAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 795}
+{"at": "2026-10-05T23:16:12+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RTSLAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 248}
+{"at": "2026-10-05T23:16:12+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RAAPLUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 278}
+{"at": "2026-10-05T23:16:13+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RMSTRUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 528}
+{"at": "2026-10-05T23:16:14+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RSPYUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 233}
+{"at": "2026-10-05T23:16:14+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RQQQUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 214}
+{"at": "2026-10-05T23:16:15+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles BTCUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 258}
+{"at": "2026-10-05T23:16:15+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles ETHUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 188}
+{"at": "2026-10-05T23:16:16+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory NVDAUSDT", "ok": true, "status": "200/00000", "latency_ms": 229}
+{"at": "2026-10-05T23:16:16+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory TSLAUSDT", "ok": true, "status": "200/00000", "latency_ms": 199}
+{"at": "2026-10-05T23:16:17+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory AAPLUSDT", "ok": true, "status": "200/00000", "latency_ms": 189}
+{"at": "2026-10-05T23:16:17+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory MSTRUSDT", "ok": true, "status": "200/00000", "latency_ms": 162}
+{"at": "2026-10-05T23:16:18+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory SPYUSDT", "ok": true, "status": "200/00000", "latency_ms": 162}
+{"at": "2026-10-05T23:16:18+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory QQQUSDT", "ok": true, "status": "200/00000", "latency_ms": 184}
+{"at": "2026-10-05T23:16:19+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory BTCUSDT", "ok": true, "status": "200/00000", "latency_ms": 178}
+{"at": "2026-10-05T23:16:19+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory ETHUSDT", "ok": true, "status": "200/00000", "latency_ms": 178}
+{"at": "2026-10-05T23:16:20+00:00", "origin": "product", "source": "bitget-mcp", "operation": "initialize", "ok": true, "status": "200", "latency_ms": 355}
+{"at": "2026-10-05T23:16:20+00:00", "origin": "product", "source": "bitget-mcp", "operation": "notifications/initialized", "ok": true, "status": "202", "latency_ms": 203}
+{"at": "2026-10-05T23:16:20+00:00", "origin": "product", "source": "bitget-mcp", "operation": "do_query equity_calendar NVDA", "ok": false, "status": "200", "latency_ms": 423}
+{"at": "2026-10-05T23:16:21+00:00", "origin": "product", "source": "bitget-signal", "operation": "initialize", "ok": true, "status": "200", "latency_ms": 440}
+{"at": "2026-10-05T23:16:21+00:00", "origin": "product", "source": "bitget-signal", "operation": "notifications/initialized", "ok": true, "status": "202", "latency_ms": 174}
+{"at": "2026-10-05T23:16:29+00:00", "origin": "product", "source": "bitget-signal", "operation": "sentiment_index current", "ok": false, "status": "ReadTimeout", "latency_ms": 8006}
+{"at": "2026-10-06T06:22:43+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RNVDAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 524}
+{"at": "2026-10-06T06:22:46+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RTSLAUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 302}
+{"at": "2026-10-06T06:22:47+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RAAPLUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 244}
+{"at": "2026-10-06T06:22:47+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RMSTRUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 251}
+{"at": "2026-10-06T06:22:48+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RSPYUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 194}
+{"at": "2026-10-06T06:22:48+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles RQQQUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 216}
+{"at": "2026-10-06T06:22:49+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles BTCUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 256}
+{"at": "2026-10-06T06:22:50+00:00", "origin": "product", "source": "bitget-signal", "operation": "technical-analysis candles ETHUSDT 1day", "ok": true, "status": "200/00000", "latency_ms": 522}
+{"at": "2026-10-06T06:22:50+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory NVDAUSDT", "ok": true, "status": "200/00000", "latency_ms": 190}
+{"at": "2026-10-06T06:22:51+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory TSLAUSDT", "ok": true, "status": "200/00000", "latency_ms": 188}
+{"at": "2026-10-06T06:22:51+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory AAPLUSDT", "ok": true, "status": "200/00000", "latency_ms": 205}
+{"at": "2026-10-06T06:22:52+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory MSTRUSDT", "ok": true, "status": "200/00000", "latency_ms": 191}
+{"at": "2026-10-06T06:22:52+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory SPYUSDT", "ok": true, "status": "200/00000", "latency_ms": 195}
+{"at": "2026-10-06T06:22:53+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory QQQUSDT", "ok": true, "status": "200/00000", "latency_ms": 192}
+{"at": "2026-10-06T06:22:53+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory BTCUSDT", "ok": true, "status": "200/00000", "latency_ms": 220}
+{"at": "2026-10-06T06:22:54+00:00", "origin": "product", "source": "agenthub", "operation": "market getFundingRateHistory ETHUSDT", "ok": true, "status": "200/00000", "latency_ms": 183}
+{"at": "2026-10-06T06:22:54+00:00", "origin": "product", "source": "bitget-mcp", "operation": "initialize", "ok": true, "status": "200", "latency_ms": 499}
+{"at": "2026-10-06T06:22:55+00:00", "origin": "product", "source": "bitget-mcp", "operation": "notifications/initialized", "ok": true, "status": "202", "latency_ms": 197}
+{"at": "2026-10-06T06:22:55+00:00", "origin": "product", "source": "bitget-mcp", "operation": "do_query equity_calendar NVDA", "ok": false, "status": "200", "latency_ms": 451}
+{"at": "2026-10-06T06:22:56+00:00", "origin": "product", "source": "bitget-signal", "operation": "initialize", "ok": true, "status": "200", "latency_ms": 549}
+{"at": "2026-10-06T06:22:56+00:00", "origin": "product", "source": "bitget-signal", "operation": "notifications/initialized", "ok": true, "status": "202", "latency_ms": 188}
+{"at": "2026-10-06T06:23:04+00:00", "origin": "product", "source": "bitget-signal", "operation": "sentiment_index current", "ok": false, "status": "ReadTimeout", "latency_ms": 8009}

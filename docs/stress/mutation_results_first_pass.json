@@ -1,0 +1,252 @@
+{
+ "mutants": 25,
+ "applied": 25,
+ "killed": 17,
+ "kill_rate": 0.68,
+ "survivors": [
+  "M04",
+  "M06",
+  "M07",
+  "M09",
+  "M11",
+  "M12",
+  "M15",
+  "M23"
+ ],
+ "rows": [
+  {
+   "id": "M01",
+   "file": "engine/court.py",
+   "what": "baseline taken from AFTER-loss trips (the habit inflates its own yardstick)",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_app.py::test_toggle_has_both_effects_and_unknown_trader_404"
+   ],
+   "seconds": 6.0
+  },
+  {
+   "id": "M02",
+   "file": "engine/court.py",
+   "what": "split court: no Bonferroni over the trial ledger",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_engine.py::test_trial_ledger_deflates_the_threshold - Asser..."
+   ],
+   "seconds": 13.3
+  },
+  {
+   "id": "M03",
+   "file": "engine/court.py",
+   "what": "split court: acceptance comparison flipped",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_engine.py::test_court_accepts_costly_leak_rejects_costless_habit_and_null"
+   ],
+   "seconds": 13.5
+  },
+  {
+   "id": "M04",
+   "file": "engine/court.py",
+   "what": "split court: underpowered guard needs both shortfalls (or -> and)",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 86.0
+  },
+  {
+   "id": "M05",
+   "file": "engine/court.py",
+   "what": "trial-count ledger never increments",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_app.py::test_review_numbers_are_computed_and_honest_on_a_real_wallet"
+   ],
+   "seconds": 5.2
+  },
+  {
+   "id": "M06",
+   "file": "engine/court.py",
+   "what": "off-by-one split: one trip is in both train and test",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 92.3
+  },
+  {
+   "id": "M07",
+   "file": "engine/court.py",
+   "what": "look-ahead: baseline from the whole history incl. test",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 82.5
+  },
+  {
+   "id": "M08",
+   "file": "engine/court.py",
+   "what": "effect sign flipped",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_app.py::test_planted_trader_shows_the_accept_path - Asserti..."
+   ],
+   "seconds": 7.0
+  },
+  {
+   "id": "M09",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward look-ahead guard skipped: baseline includes the judged chunk",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 75.9
+  },
+  {
+   "id": "M10",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward: no Bonferroni over the trial ledger",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_mcp.py::test_rule_court_is_a_throwaway_sandbox_and_counts_trials"
+   ],
+   "seconds": 62.7
+  },
+  {
+   "id": "M11",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward permutation never counts a null at least as good (p collapses)",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 75.1
+  },
+  {
+   "id": "M12",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward underpowered guard needs both shortfalls",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 77.0
+  },
+  {
+   "id": "M13",
+   "file": "engine/walkforward.py",
+   "what": "walk-forward applies the cap to every trip, not only after a loss",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_app.py::test_planted_trader_shows_the_accept_path - Asserti..."
+   ],
+   "seconds": 7.4
+  },
+  {
+   "id": "M14",
+   "file": "engine/rulebook.py",
+   "what": "human-approval check dropped",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_rulebook_gate.py::test_nothing_arms_without_owner_approval_and_only_accepted_rules_arm"
+   ],
+   "seconds": 65.4
+  },
+  {
+   "id": "M15",
+   "file": "engine/rulebook.py",
+   "what": "a REJECTED rule lands as ACCEPTED, so it can be armed",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 602.9
+  },
+  {
+   "id": "M16",
+   "file": "engine/rulebook.py",
+   "what": "rulebook proposal counter not incremented",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_http.py::test_rate_limit_per_ip_returns_429_with_retry_after"
+   ],
+   "seconds": 60.8
+  },
+  {
+   "id": "M17",
+   "file": "engine/rulebook.py",
+   "what": "a rule pending retirement stops guarding orders",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_rulebook_gate.py::test_retirement_is_proposed_then_confirmed_and_rule_keeps_guarding_meanwhile"
+   ],
+   "seconds": 64.1
+  },
+  {
+   "id": "M18",
+   "file": "engine/rulebook.py",
+   "what": "hash-chain verification always says intact",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_rulebook_gate.py::test_hash_chain_detects_tampering - asser..."
+   ],
+   "seconds": 82.1
+  },
+  {
+   "id": "M19",
+   "file": "engine/rulebook.py",
+   "what": "an UNDERPOWERED revision replaces the current version",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_http.py::test_rate_limit_per_ip_returns_429_with_retry_after"
+   ],
+   "seconds": 77.9
+  },
+  {
+   "id": "M20",
+   "file": "engine/gate.py",
+   "what": "gate cap comparison flipped",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_app_rulebook.py::test_full_loop_on_the_planted_trader_propose_arm_gate_retire"
+   ],
+   "seconds": 7.2
+  },
+  {
+   "id": "M21",
+   "file": "engine/gate.py",
+   "what": "REVIEW_NEEDED on one evidence item instead of two",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_rulebook_gate.py::test_review_needed_needs_two_independent_evidence_items"
+   ],
+   "seconds": 92.4
+  },
+  {
+   "id": "M22",
+   "file": "engine/gate.py",
+   "what": "'20k' read as 20",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_app_rulebook.py::test_full_loop_on_the_planted_trader_propose_arm_gate_retire"
+   ],
+   "seconds": 6.8
+  },
+  {
+   "id": "M23",
+   "file": "engine/numberlock.py",
+   "what": "number-lock tolerance widened by 1",
+   "result": "SURVIVED",
+   "killed_by": [],
+   "seconds": 82.0
+  },
+  {
+   "id": "M24",
+   "file": "engine/numberlock.py",
+   "what": "number-lock lets every numeral through",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_chat_report.py::test_numberlock_accepts_facts_and_refuses_invented_numbers"
+   ],
+   "seconds": 8.8
+  },
+  {
+   "id": "M25",
+   "file": "app/static/index.html",
+   "what": "HTML escaping removed from the first screen",
+   "result": "KILLED",
+   "killed_by": [
+    "FAILED tests/test_browser.py::test_xss_payloads_never_become_markup - assert ..."
+   ],
+   "seconds": 16.1
+  }
+ ]
+}

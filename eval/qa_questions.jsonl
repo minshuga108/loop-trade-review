@@ -1,0 +1,150 @@
+{"id": "q001", "lang": "en", "split": "dev", "text": "how much did fees cost me", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "total_fees"}}, "tags": ["fees", "audit-M2"]}
+{"id": "q002", "lang": "en", "split": "heldout", "text": "what did I pay in fees in total?", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "total_fees"}}, "tags": ["fees"]}
+{"id": "q003", "lang": "en", "split": "dev", "text": "fees as a share of my gross profit", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "fee_share"}}, "tags": ["fees"]}
+{"id": "q004", "lang": "en", "split": "heldout", "text": "how much of my profit went to fees", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "fee_share"}}, "tags": ["fees"]}
+{"id": "q005", "lang": "en", "split": "dev", "text": "how many trades have I made", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count"}}, "tags": ["count"]}
+{"id": "q006", "lang": "en", "split": "heldout", "text": "how many trades did I make on Tuesdays", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [1]}}}, "tags": ["count", "weekday", "audit-M1"]}
+{"id": "q007", "lang": "en", "split": "dev", "text": "my biggest loss", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade"}}, "tags": ["extreme"]}
+{"id": "q008", "lang": "en", "split": "heldout", "text": "what was my worst trade", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade"}}, "tags": ["extreme"]}
+{"id": "q009", "lang": "en", "split": "dev", "text": "my best trade?", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "best_trade"}}, "tags": ["extreme"]}
+{"id": "q010", "lang": "en", "split": "heldout", "text": "what's my win rate", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate"}}, "tags": ["winrate"]}
+{"id": "q011", "lang": "en", "split": "dev", "text": "win rate on BTC", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"symbol": "BTC"}}}, "tags": ["winrate", "symbol"]}
+{"id": "q012", "lang": "en", "split": "heldout", "text": "net pnl", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl"}}, "tags": ["pnl"]}
+{"id": "q013", "lang": "en", "split": "dev", "text": "average pnl per trade", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "avg_pnl"}}, "tags": ["pnl"]}
+{"id": "q014", "lang": "en", "split": "heldout", "text": "what is my expectancy", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "expectancy"}}, "tags": ["pnl"]}
+{"id": "q015", "lang": "en", "split": "dev", "text": "profit factor", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "profit_factor"}}, "tags": ["ratio"]}
+{"id": "q016", "lang": "en", "split": "heldout", "text": "max drawdown", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "max_drawdown"}}, "tags": ["drawdown"]}
+{"id": "q017", "lang": "en", "split": "dev", "text": "longest winning streak", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_streak"}}, "tags": ["streak"]}
+{"id": "q018", "lang": "en", "split": "heldout", "text": "longest losing streak", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "loss_streak"}}, "tags": ["streak"]}
+{"id": "q019", "lang": "en", "split": "dev", "text": "how many trades per day do I do", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trades_per_day"}}, "tags": ["count"]}
+{"id": "q020", "lang": "en", "split": "heldout", "text": "which day was I busiest", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "busiest_day"}}, "tags": ["day"]}
+{"id": "q021", "lang": "en", "split": "dev", "text": "what was my best day", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "best_day"}}, "tags": ["day"]}
+{"id": "q022", "lang": "en", "split": "heldout", "text": "my worst day?", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_day"}}, "tags": ["day"]}
+{"id": "q023", "lang": "en", "split": "dev", "text": "pnl by weekday", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "weekday"}}, "tags": ["groupby"]}
+{"id": "q024", "lang": "en", "split": "heldout", "text": "pnl by hour of day", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "hour"}}, "tags": ["groupby"]}
+{"id": "q025", "lang": "en", "split": "dev", "text": "pnl by symbol", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "symbol"}}, "tags": ["groupby"]}
+{"id": "q026", "lang": "en", "split": "heldout", "text": "which coin made me the most money", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "symbol"}}, "tags": ["groupby"]}
+{"id": "q027", "lang": "en", "split": "dev", "text": "longs vs shorts pnl", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "side"}}, "tags": ["groupby"]}
+{"id": "q028", "lang": "en", "split": "heldout", "text": "pnl after a loss vs after a win", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "after_loss"}}, "tags": ["groupby", "after_loss"]}
+{"id": "q029", "lang": "en", "split": "dev", "text": "do I size up after a loss?", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "median_size", "group_by": "after_loss"}}, "tags": ["groupby", "after_loss"]}
+{"id": "q030", "lang": "en", "split": "heldout", "text": "size after a loss versus after a win", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "median_size", "group_by": "after_loss"}}, "tags": ["groupby", "after_loss"]}
+{"id": "q031", "lang": "en", "split": "dev", "text": "median position size", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "median_size"}}, "tags": ["size"]}
+{"id": "q032", "lang": "en", "split": "heldout", "text": "average hold time", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "avg_hold"}}, "tags": ["hold"]}
+{"id": "q033", "lang": "en", "split": "dev", "text": "median hold time", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "median_hold"}}, "tags": ["hold"]}
+{"id": "q034", "lang": "en", "split": "heldout", "text": "how long since my last trade", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "time_since_last"}}, "tags": ["time"]}
+{"id": "q035", "lang": "en", "split": "dev", "text": "when did I last trade", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "time_since_last"}}, "tags": ["time"]}
+{"id": "q036", "lang": "en", "split": "heldout", "text": "net pnl without my single best trade", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "exclude_best": true}}, "tags": ["exclude_best", "audit-M3"]}
+{"id": "q037", "lang": "en", "split": "dev", "text": "win rate excluding my best trade", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "exclude_best": true}}, "tags": ["exclude_best"]}
+{"id": "q038", "lang": "en", "split": "heldout", "text": "how did my last third compare with my first third", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "compare": "first_vs_last_third"}}, "tags": ["compare"]}
+{"id": "q039", "lang": "en", "split": "dev", "text": "am I getting better? compare my recent trades with my early ones", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "compare": "first_vs_last_third"}}, "tags": ["compare"]}
+{"id": "q040", "lang": "en", "split": "heldout", "text": "pnl last week", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "period": {"kind": "last_7d"}}}, "tags": ["period"]}
+{"id": "q041", "lang": "en", "split": "dev", "text": "how many trades in the last 30 days", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "period": {"kind": "last_30d"}}}, "tags": ["period"]}
+{"id": "q042", "lang": "en", "split": "heldout", "text": "win rate over my last 50 trades", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "period": {"kind": "last_n", "n": 50}}}, "tags": ["period"]}
+{"id": "q043", "lang": "en", "split": "dev", "text": "how many wins", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "wins"}}, "tags": ["count"]}
+{"id": "q044", "lang": "en", "split": "heldout", "text": "how many losing trades", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "losses"}}, "tags": ["count"]}
+{"id": "q045", "lang": "en", "split": "dev", "text": "my 3 biggest losses", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade", "top_n": 3}}, "tags": ["extreme", "top_n"]}
+{"id": "q046", "lang": "en", "split": "heldout", "text": "top 5 trades", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "best_trade", "top_n": 5}}, "tags": ["extreme", "top_n"]}
+{"id": "q047", "lang": "en", "split": "dev", "text": "how many trades on weekends", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [5, 6]}}}, "tags": ["count", "weekday"]}
+{"id": "q048", "lang": "en", "split": "heldout", "text": "pnl on Fridays", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "filters": {"weekdays": [4]}}}, "tags": ["pnl", "weekday"]}
+{"id": "q049", "lang": "en", "split": "dev", "text": "how many shorts did I take", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"side": "sell"}}}, "tags": ["count", "side"]}
+{"id": "q050", "lang": "en", "split": "heldout", "text": "win rate on longs", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"side": "buy"}}}, "tags": ["winrate", "side"]}
+{"id": "q051", "lang": "en", "split": "dev", "text": "how many ETH trades", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"symbol": "ETH"}}}, "tags": ["count", "symbol"]}
+{"id": "q052", "lang": "en", "split": "heldout", "text": "total fees on BTC", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "total_fees", "filters": {"symbol": "BTC"}}}, "tags": ["fees", "symbol"]}
+{"id": "q053", "lang": "en", "split": "dev", "text": "average hold time of my losers", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "avg_hold", "filters": {"outcome": "loss"}}}, "tags": ["hold", "outcome"]}
+{"id": "q054", "lang": "en", "split": "heldout", "text": "do I hold losers longer than winners", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "median_hold", "group_by": "outcome"}}, "tags": ["hold", "groupby"]}
+{"id": "q055", "lang": "en", "split": "dev", "text": "how many active days", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "active_days"}}, "tags": ["count"]}
+{"id": "q056", "lang": "en", "split": "heldout", "text": "how many trades did I take after a loss", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"after_loss": true}}}, "tags": ["count", "after_loss"]}
+{"id": "q057", "lang": "en", "split": "dev", "text": "win rate after a loss", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"after_loss": true}}}, "tags": ["winrate", "after_loss"]}
+{"id": "q058", "lang": "en", "split": "heldout", "text": "net result in the most recent third", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "period": {"kind": "last_third"}}}, "tags": ["period"]}
+{"id": "q059", "lang": "zh", "split": "dev", "text": "手续费一共花了多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "total_fees"}}, "tags": ["fees"]}
+{"id": "q060", "lang": "zh", "split": "heldout", "text": "手续费占毛利润的比例", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "fee_share"}}, "tags": ["fees"]}
+{"id": "q061", "lang": "zh", "split": "dev", "text": "我一共做了多少笔交易", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count"}}, "tags": ["count"]}
+{"id": "q062", "lang": "zh", "split": "heldout", "text": "周二做了几笔", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [1]}}}, "tags": ["count", "weekday"]}
+{"id": "q063", "lang": "zh", "split": "dev", "text": "我最大的亏损是哪一笔", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade"}}, "tags": ["extreme"]}
+{"id": "q064", "lang": "zh", "split": "heldout", "text": "最好的一笔交易", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "best_trade"}}, "tags": ["extreme"]}
+{"id": "q065", "lang": "zh", "split": "dev", "text": "胜率多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate"}}, "tags": ["winrate"]}
+{"id": "q066", "lang": "zh", "split": "heldout", "text": "净盈亏是多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl"}}, "tags": ["pnl"]}
+{"id": "q067", "lang": "zh", "split": "dev", "text": "平均每笔盈亏", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "avg_pnl"}}, "tags": ["pnl"]}
+{"id": "q068", "lang": "zh", "split": "heldout", "text": "最大回撤", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "max_drawdown"}}, "tags": ["drawdown"]}
+{"id": "q069", "lang": "zh", "split": "dev", "text": "最长连胜", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_streak"}}, "tags": ["streak"]}
+{"id": "q070", "lang": "zh", "split": "heldout", "text": "最长连亏多少笔", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "loss_streak"}}, "tags": ["streak"]}
+{"id": "q071", "lang": "zh", "split": "dev", "text": "平均每天交易几笔", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trades_per_day"}}, "tags": ["count"]}
+{"id": "q072", "lang": "zh", "split": "heldout", "text": "哪天交易最多", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "busiest_day"}}, "tags": ["day"]}
+{"id": "q073", "lang": "zh", "split": "dev", "text": "最赚钱的一天", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "best_day"}}, "tags": ["day"]}
+{"id": "q074", "lang": "zh", "split": "heldout", "text": "亏得最多的一天", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_day"}}, "tags": ["day"]}
+{"id": "q075", "lang": "zh", "split": "dev", "text": "按星期几看盈亏", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "weekday"}}, "tags": ["groupby"]}
+{"id": "q076", "lang": "zh", "split": "heldout", "text": "几点钟亏得最多", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "hour"}}, "tags": ["groupby"]}
+{"id": "q077", "lang": "zh", "split": "dev", "text": "按品种看盈亏", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "symbol"}}, "tags": ["groupby"]}
+{"id": "q078", "lang": "zh", "split": "heldout", "text": "多单和空单哪个赚", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "side"}}, "tags": ["groupby"]}
+{"id": "q079", "lang": "zh", "split": "dev", "text": "亏损之后仓位会变大吗", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "median_size", "group_by": "after_loss"}}, "tags": ["groupby", "after_loss"]}
+{"id": "q080", "lang": "zh", "split": "heldout", "text": "中位仓位是多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "median_size"}}, "tags": ["size"]}
+{"id": "q081", "lang": "zh", "split": "dev", "text": "平均持仓时间", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "avg_hold"}}, "tags": ["hold"]}
+{"id": "q082", "lang": "zh", "split": "heldout", "text": "上次交易是什么时候", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "time_since_last"}}, "tags": ["time"]}
+{"id": "q083", "lang": "zh", "split": "dev", "text": "去掉最好的一笔之后净盈亏是多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "exclude_best": true}}, "tags": ["exclude_best"]}
+{"id": "q084", "lang": "zh", "split": "heldout", "text": "最近三分之一和最早三分之一比怎么样", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "compare": "first_vs_last_third"}}, "tags": ["compare"]}
+{"id": "q085", "lang": "zh", "split": "dev", "text": "上周盈亏", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "period": {"kind": "last_7d"}}}, "tags": ["period"]}
+{"id": "q086", "lang": "zh", "split": "heldout", "text": "最近30天做了多少笔", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "period": {"kind": "last_30d"}}}, "tags": ["period"]}
+{"id": "q087", "lang": "zh", "split": "dev", "text": "最大的三笔亏损", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade", "top_n": 3}}, "tags": ["extreme", "top_n"]}
+{"id": "q088", "lang": "zh", "split": "heldout", "text": "周末做了多少笔", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [5, 6]}}}, "tags": ["count", "weekday"]}
+{"id": "q089", "lang": "zh", "split": "dev", "text": "空单胜率", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"side": "sell"}}}, "tags": ["winrate", "side"]}
+{"id": "q090", "lang": "zh", "split": "heldout", "text": "BTC 做了几笔", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"symbol": "BTC"}}}, "tags": ["count", "symbol", "mixed"]}
+{"id": "q091", "lang": "zh", "split": "dev", "text": "亏损单平均拿多久", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "avg_hold", "filters": {"outcome": "loss"}}}, "tags": ["hold", "outcome"]}
+{"id": "q092", "lang": "zh", "split": "heldout", "text": "亏损后的胜率", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"after_loss": true}}}, "tags": ["winrate", "after_loss"]}
+{"id": "q093", "lang": "zh", "split": "dev", "text": "手續費總共多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "total_fees"}}, "tags": ["fees", "traditional"]}
+{"id": "q094", "lang": "zh", "split": "heldout", "text": "勝率是多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate"}}, "tags": ["winrate", "traditional"]}
+{"id": "q095", "lang": "zh", "split": "dev", "text": "最大虧損是哪一筆", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade"}}, "tags": ["extreme", "traditional"]}
+{"id": "q096", "lang": "zh", "split": "heldout", "text": "按星期幾看盈虧", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "weekday"}}, "tags": ["groupby", "traditional"]}
+{"id": "q097", "lang": "zh", "split": "dev", "text": "週二做了幾筆", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [1]}}}, "tags": ["count", "weekday", "traditional"]}
+{"id": "q098", "lang": "zh", "split": "heldout", "text": "最長連虧", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "loss_streak"}}, "tags": ["streak", "traditional"]}
+{"id": "q099", "lang": "zh", "split": "dev", "text": "最大回撤是多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "max_drawdown"}}, "tags": ["drawdown", "traditional"]}
+{"id": "q100", "lang": "zh", "split": "heldout", "text": "去掉最好的一筆之後勝率多少", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "exclude_best": true}}, "tags": ["exclude_best", "traditional"]}
+{"id": "q101", "lang": "en", "split": "dev", "text": "how mcuh did fees cost me", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "total_fees"}}, "tags": ["fees", "typo"]}
+{"id": "q102", "lang": "en", "split": "heldout", "text": "wat is my winrate", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate"}}, "tags": ["winrate", "typo"]}
+{"id": "q103", "lang": "en", "split": "dev", "text": "bigest loss", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade"}}, "tags": ["extreme", "typo"]}
+{"id": "q104", "lang": "en", "split": "heldout", "text": "hw many trades on tuesdays", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [1]}}}, "tags": ["count", "weekday", "typo"]}
+{"id": "q105", "lang": "en", "split": "dev", "text": "avg hold tiem", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "avg_hold"}}, "tags": ["hold", "typo"]}
+{"id": "q106", "lang": "en", "split": "heldout", "text": "profit factr", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "profit_factor"}}, "tags": ["ratio", "typo"]}
+{"id": "q107", "lang": "en", "split": "dev", "text": "longest loosing streak", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "loss_streak"}}, "tags": ["streak", "typo"]}
+{"id": "q108", "lang": "en", "split": "heldout", "text": "fees kitna laga total", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "total_fees"}}, "tags": ["fees", "hinglish"]}
+{"id": "q109", "lang": "en", "split": "dev", "text": "kitne trades kiye maine", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "trade_count"}}, "tags": ["count", "hinglish"]}
+{"id": "q110", "lang": "en", "split": "heldout", "text": "sabse bada loss kaunsa tha", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "worst_trade"}}, "tags": ["extreme", "hinglish"]}
+{"id": "q111", "lang": "en", "split": "dev", "text": "mera win rate kya hai", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "win_rate"}}, "tags": ["winrate", "hinglish"]}
+{"id": "q112", "lang": "en", "split": "heldout", "text": "net pnl w/o my best trade", "previous": null, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "exclude_best": true}}, "tags": ["exclude_best", "shorthand"]}
+{"id": "q113", "lang": "en", "split": "dev", "text": "and without my best trade?", "previous": {"metric": "net_pnl"}, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "exclude_best": true}}, "tags": ["followup", "exclude_best", "audit-M3"]}
+{"id": "q114", "lang": "en", "split": "heldout", "text": "what about Tuesdays", "previous": {"metric": "trade_count"}, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [1]}}}, "tags": ["followup", "weekday"]}
+{"id": "q115", "lang": "en", "split": "dev", "text": "only BTC", "previous": {"metric": "win_rate"}, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"symbol": "BTC"}}}, "tags": ["followup", "symbol"]}
+{"id": "q116", "lang": "en", "split": "heldout", "text": "last week", "previous": {"metric": "net_pnl"}, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "period": {"kind": "last_7d"}}}, "tags": ["followup", "period"]}
+{"id": "q117", "lang": "en", "split": "dev", "text": "and for shorts?", "previous": {"metric": "win_rate", "filters": {"symbol": "BTC"}}, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"symbol": "BTC", "side": "sell"}}}, "tags": ["followup", "side"]}
+{"id": "q118", "lang": "zh", "split": "heldout", "text": "那周二呢", "previous": {"metric": "trade_count"}, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [1]}}}, "tags": ["followup", "weekday"]}
+{"id": "q119", "lang": "en", "split": "dev", "text": "and by symbol?", "previous": {"metric": "net_pnl", "group_by": "weekday"}, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "symbol"}}, "tags": ["followup", "groupby"]}
+{"id": "q120", "lang": "en", "split": "heldout", "text": "and the win rate?", "previous": {"metric": "net_pnl", "filters": {"weekdays": [1]}}, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "filters": {"weekdays": [1]}}}, "tags": ["followup", "metric_swap"]}
+{"id": "q121", "lang": "en", "split": "dev", "text": "and on ETH only", "previous": {"metric": "total_fees"}, "expected": {"kind": "plan", "plan": {"metric": "total_fees", "filters": {"symbol": "ETH"}}}, "tags": ["followup", "symbol"]}
+{"id": "q122", "lang": "en", "split": "heldout", "text": "ok now with it back in", "previous": {"metric": "win_rate", "exclude_best": true}, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "exclude_best": false}}, "tags": ["followup", "exclude_best", "hard"]}
+{"id": "q123", "lang": "en", "split": "dev", "text": "and for winners?", "previous": {"metric": "median_hold"}, "expected": {"kind": "plan", "plan": {"metric": "median_hold", "filters": {"outcome": "win"}}}, "tags": ["followup", "outcome"]}
+{"id": "q124", "lang": "en", "split": "heldout", "text": "and the whole history?", "previous": {"metric": "net_pnl", "period": {"kind": "last_7d"}}, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "period": {"kind": "all"}}}, "tags": ["followup", "period"]}
+{"id": "q125", "lang": "zh", "split": "dev", "text": "去掉最好的一笔呢", "previous": {"metric": "avg_pnl"}, "expected": {"kind": "plan", "plan": {"metric": "avg_pnl", "exclude_best": true}}, "tags": ["followup", "exclude_best"]}
+{"id": "q126", "lang": "zh", "split": "heldout", "text": "只看空单", "previous": {"metric": "net_pnl"}, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "filters": {"side": "sell"}}}, "tags": ["followup", "side"]}
+{"id": "q127", "lang": "en", "split": "dev", "text": "what about weekends", "previous": {"metric": "trade_count", "filters": {"weekdays": [1]}}, "expected": {"kind": "plan", "plan": {"metric": "trade_count", "filters": {"weekdays": [5, 6]}}}, "tags": ["followup", "weekday"]}
+{"id": "q128", "lang": "en", "split": "heldout", "text": "top 3 symbols", "previous": {"metric": "net_pnl"}, "expected": {"kind": "plan", "plan": {"metric": "net_pnl", "group_by": "symbol", "top_n": 3}}, "tags": ["followup", "groupby", "top_n"]}
+{"id": "q129", "lang": "en", "split": "dev", "text": "and the best?", "previous": {"metric": "worst_trade"}, "expected": {"kind": "plan", "plan": {"metric": "best_trade"}}, "tags": ["followup", "metric_swap"]}
+{"id": "q130", "lang": "zh", "split": "heldout", "text": "最近三十天呢", "previous": {"metric": "win_rate"}, "expected": {"kind": "plan", "plan": {"metric": "win_rate", "period": {"kind": "last_30d"}}}, "tags": ["followup", "period"]}
+{"id": "q131", "lang": "en", "split": "dev", "text": "what was my MAE on that trade", "previous": {"metric": "worst_trade"}, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "mae_mfe"]}
+{"id": "q132", "lang": "en", "split": "heldout", "text": "show me MFE for my losers", "previous": null, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "mae_mfe"]}
+{"id": "q133", "lang": "en", "split": "dev", "text": "why did the price move against me", "previous": null, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "market"]}
+{"id": "q134", "lang": "en", "split": "heldout", "text": "should I buy BTC now", "previous": null, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "advice"]}
+{"id": "q135", "lang": "en", "split": "dev", "text": "what was my intent before the trade", "previous": null, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "intent"]}
+{"id": "q136", "lang": "zh", "split": "heldout", "text": "我的 MAE 是多少", "previous": null, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "mae_mfe", "mixed"]}
+{"id": "q137", "lang": "zh", "split": "dev", "text": "为什么价格会跌", "previous": null, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "market"]}
+{"id": "q138", "lang": "en", "split": "heldout", "text": "what was the funding I paid", "previous": null, "expected": {"kind": "unsupported"}, "tags": ["unsupported", "funding"]}
+{"id": "q139", "lang": "en", "split": "dev", "text": "my best", "previous": null, "expected": {"kind": "clarify"}, "tags": ["clarify"]}
+{"id": "q140", "lang": "en", "split": "heldout", "text": "how long", "previous": null, "expected": {"kind": "clarify"}, "tags": ["clarify"]}
+{"id": "q141", "lang": "en", "split": "dev", "text": "BTC", "previous": null, "expected": {"kind": "clarify"}, "tags": ["clarify", "symbol"]}
+{"id": "q142", "lang": "en", "split": "heldout", "text": "the biggest", "previous": null, "expected": {"kind": "clarify"}, "tags": ["clarify"]}
+{"id": "q143", "lang": "zh", "split": "dev", "text": "最好的", "previous": null, "expected": {"kind": "clarify"}, "tags": ["clarify"]}
+{"id": "q144", "lang": "en", "split": "heldout", "text": "tuesdays", "previous": null, "expected": {"kind": "clarify"}, "tags": ["clarify", "weekday"]}
+{"id": "q145", "lang": "en", "split": "dev", "text": "what is my biggest costly habit?", "previous": null, "expected": {"kind": "none"}, "tags": ["none", "habit"]}
+{"id": "q146", "lang": "en", "split": "heldout", "text": "what if I had kept the halt rule?", "previous": null, "expected": {"kind": "none"}, "tags": ["none", "rule"]}
+{"id": "q147", "lang": "en", "split": "dev", "text": "show my weekly review", "previous": null, "expected": {"kind": "none"}, "tags": ["none", "report"]}
+{"id": "q148", "lang": "en", "split": "heldout", "text": "hello", "previous": null, "expected": {"kind": "none"}, "tags": ["none", "greeting"]}
+{"id": "q149", "lang": "zh", "split": "dev", "text": "我最大的坏习惯是什么？", "previous": null, "expected": {"kind": "none"}, "tags": ["none", "habit"]}
+{"id": "q150", "lang": "en", "split": "heldout", "text": "place an order for 3 BTC", "previous": null, "expected": {"kind": "none"}, "tags": ["none", "order_request"]}

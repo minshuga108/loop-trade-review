@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+shot_*.png
+server.log
+suite_run.log
+data/snapshots/
+.claude/
+data/
+deploy_data/raw/

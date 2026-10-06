@@ -1,0 +1,1473 @@
+{
+  "crosscheck": {
+    "court": [
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.0,
+        "p_ok": true,
+        "ref_effect": -14611.780495215793,
+        "ref_p": 0.8735312646873531,
+        "ref_status": "REJECTED",
+        "shipped_effect": -14611.78,
+        "shipped_p": 0.8728,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "A"
+      },
+      {
+        "agree": true,
+        "multiple": 1.5,
+        "ref_effect": -8826.62758799584,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": -8826.63,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "A"
+      },
+      {
+        "agree": true,
+        "multiple": 2.0,
+        "ref_effect": -3090.75586326045,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": -3090.76,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "A"
+      },
+      {
+        "agree": true,
+        "multiple": 3.0,
+        "ref_effect": 33.34596179239201,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": 33.35,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "A"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.0,
+        "p_ok": true,
+        "ref_effect": 54.47674443873859,
+        "ref_p": 0.07141928580714192,
+        "ref_status": "REJECTED",
+        "shipped_effect": 54.48,
+        "shipped_p": 0.0706,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "B"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.5,
+        "p_ok": true,
+        "ref_effect": -630.4978205406858,
+        "ref_p": 0.08578914210857891,
+        "ref_status": "REJECTED",
+        "shipped_effect": -630.5,
+        "shipped_p": 0.0846,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "B"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 2.0,
+        "p_ok": true,
+        "ref_effect": -1003.3716993963633,
+        "ref_p": 0.10368896311036889,
+        "ref_status": "REJECTED",
+        "shipped_effect": -1003.37,
+        "shipped_p": 0.1039,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "B"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 3.0,
+        "p_ok": true,
+        "ref_effect": -1118.3133293735423,
+        "ref_p": 0.13772862271377287,
+        "ref_status": "REJECTED",
+        "shipped_effect": -1118.31,
+        "shipped_p": 0.1419,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "B"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.0,
+        "p_ok": true,
+        "ref_effect": 6763.03353460564,
+        "ref_p": 0.24871751282487176,
+        "ref_status": "REJECTED",
+        "shipped_effect": 6763.03,
+        "shipped_p": 0.2378,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "C"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.5,
+        "p_ok": true,
+        "ref_effect": 5539.226010101452,
+        "ref_p": 0.25206747932520673,
+        "ref_status": "REJECTED",
+        "shipped_effect": 5539.23,
+        "shipped_p": 0.2478,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "C"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 2.0,
+        "p_ok": true,
+        "ref_effect": 5358.050268591998,
+        "ref_p": 0.27313726862731375,
+        "ref_status": "REJECTED",
+        "shipped_effect": 5358.05,
+        "shipped_p": 0.2751,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "C"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 3.0,
+        "p_ok": true,
+        "ref_effect": 5432.509660599398,
+        "ref_p": 0.25839741602583977,
+        "ref_status": "REJECTED",
+        "shipped_effect": 5432.51,
+        "shipped_p": 0.2532,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "C"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.0,
+        "p_ok": true,
+        "ref_effect": 5479.2086762989675,
+        "ref_p": 0.004989950100498995,
+        "ref_status": "ACCEPTED",
+        "shipped_effect": 5479.21,
+        "shipped_p": 0.0047,
+        "shipped_status": "ACCEPTED",
+        "status_agrees": true,
+        "trader": "D"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.5,
+        "p_ok": true,
+        "ref_effect": 4804.144679290016,
+        "ref_p": 0.0059899401005989944,
+        "ref_status": "ACCEPTED",
+        "shipped_effect": 4804.14,
+        "shipped_p": 0.0073,
+        "shipped_status": "ACCEPTED",
+        "status_agrees": true,
+        "trader": "D"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 2.0,
+        "p_ok": true,
+        "ref_effect": 2208.099387687281,
+        "ref_p": 0.017659823401765983,
+        "ref_status": "REJECTED",
+        "shipped_effect": 2208.1,
+        "shipped_p": 0.0153,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "D"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 3.0,
+        "p_ok": true,
+        "ref_effect": -612.4466661254191,
+        "ref_p": 0.06008939910600894,
+        "ref_status": "REJECTED",
+        "shipped_effect": -612.45,
+        "shipped_p": 0.0566,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "D"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.0,
+        "p_ok": true,
+        "ref_effect": -57748.74510839847,
+        "ref_p": 0.8756812431875681,
+        "ref_status": "REJECTED",
+        "shipped_effect": -57748.75,
+        "shipped_p": 0.8741,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "E"
+      },
+      {
+        "agree": true,
+        "effect_ok": true,
+        "multiple": 1.5,
+        "p_ok": true,
+        "ref_effect": -23705.683689689973,
+        "ref_p": 0.8323816761832382,
+        "ref_status": "REJECTED",
+        "shipped_effect": -23705.68,
+        "shipped_p": 0.8408,
+        "shipped_status": "REJECTED",
+        "status_agrees": true,
+        "trader": "E"
+      },
+      {
+        "agree": true,
+        "multiple": 2.0,
+        "ref_effect": 474.2576931303663,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": 474.26,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "E"
+      },
+      {
+        "agree": true,
+        "multiple": 3.0,
+        "ref_effect": 0.0,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": 0.0,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "E"
+      },
+      {
+        "agree": true,
+        "multiple": 1.0,
+        "ref_effect": 0.0,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": 0.0,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "G"
+      },
+      {
+        "agree": true,
+        "multiple": 1.5,
+        "ref_effect": 0.0,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": 0.0,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "G"
+      },
+      {
+        "agree": true,
+        "multiple": 2.0,
+        "ref_effect": 0.0,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": 0.0,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "G"
+      },
+      {
+        "agree": true,
+        "multiple": 3.0,
+        "ref_effect": 0.0,
+        "ref_p": null,
+        "ref_status": "UNDERPOWERED",
+        "shipped_effect": 0.0,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "G"
+      }
+    ],
+    "dependence": [
+      {
+        "arch_circular_b5": [
+          -8345.095867915361,
+          66.89882057736358
+        ],
+        "arch_circular_b5_width_ratio": 1.0071920928928002,
+        "arch_iid": [
+          -8307.327641001466,
+          44.59921371824238
+        ],
+        "arch_stationary_b10": [
+          -8323.353751227716,
+          44.59921371824238
+        ],
+        "arch_stationary_b10_width_ratio": 1.0019188518416196,
+        "arch_stationary_b5": [
+          -8345.09586791536,
+          44.59921371824238
+        ],
+        "arch_stationary_b5_width_ratio": 1.0045220974238478,
+        "effect": -2759.399015779333,
+        "n": 76,
+        "ours_vs_arch_iid_ok": true,
+        "shipped_ci": [
+          -8307.33,
+          44.6
+        ],
+        "shipped_effect": -2759.4,
+        "trader": "A",
+        "zero_in_iid_ci": true,
+        "zero_in_stationary_b5_ci": true
+      },
+      {
+        "arch_circular_b5": [
+          -3299.055592130453,
+          4898.942929658797
+        ],
+        "arch_circular_b5_width_ratio": 0.9715397923471277,
+        "arch_iid": [
+          -3400.60486626485,
+          5037.545157404107
+        ],
+        "arch_stationary_b10": [
+          -2625.2523366360097,
+          4513.173630990871
+        ],
+        "arch_stationary_b10_width_ratio": 0.8459704968036408,
+        "arch_stationary_b5": [
+          -2922.665953692327,
+          4588.871638995309
+        ],
+        "arch_stationary_b5_width_ratio": 0.8901877273594118,
+        "effect": 1286.7429040468003,
+        "n": 111,
+        "ours_vs_arch_iid_ok": true,
+        "shipped_ci": [
+          -3499.0,
+          4804.61
+        ],
+        "shipped_effect": 1286.74,
+        "trader": "B",
+        "zero_in_iid_ci": true,
+        "zero_in_stationary_b5_ci": true
+      },
+      {
+        "arch_circular_b5": [
+          -9636.996776788157,
+          14363.97334263145
+        ],
+        "arch_circular_b5_width_ratio": 0.9897569448747587,
+        "arch_iid": [
+          -10259.261778451226,
+          13990.09584788665
+        ],
+        "arch_stationary_b10": [
+          -11264.563956165484,
+          15920.77422350952
+        ],
+        "arch_stationary_b10_width_ratio": 1.1210745702454517,
+        "arch_stationary_b5": [
+          -10265.123193993017,
+          14716.141634364256
+        ],
+        "arch_stationary_b5_width_ratio": 1.0301825398139393,
+        "effect": 2351.3570713640165,
+        "n": 273,
+        "ours_vs_arch_iid_ok": true,
+        "shipped_ci": [
+          -10353.83,
+          13409.91
+        ],
+        "shipped_effect": 2351.36,
+        "trader": "C",
+        "zero_in_iid_ci": true,
+        "zero_in_stationary_b5_ci": true
+      },
+      {
+        "arch_circular_b5": [
+          -11183.946109368942,
+          5720.31419705551
+        ],
+        "arch_circular_b5_width_ratio": 1.0770718272690065,
+        "arch_iid": [
+          -10058.734016539656,
+          5635.911297214791
+        ],
+        "arch_stationary_b10": [
+          -9961.32686885841,
+          5163.497681617289
+        ],
+        "arch_stationary_b10_width_ratio": 0.9636933010025164,
+        "arch_stationary_b5": [
+          -10345.917052660412,
+          5406.793566605322
+        ],
+        "arch_stationary_b5_width_ratio": 1.0036996889289622,
+        "effect": -1963.9291903754183,
+        "n": 318,
+        "ours_vs_arch_iid_ok": true,
+        "shipped_ci": [
+          -9514.07,
+          5943.61
+        ],
+        "shipped_effect": -1963.93,
+        "trader": "D",
+        "zero_in_iid_ci": true,
+        "zero_in_stationary_b5_ci": true
+      },
+      {
+        "arch_circular_b5": [
+          -75417.33022319585,
+          6751.66258756694
+        ],
+        "arch_circular_b5_width_ratio": 0.9970550511552859,
+        "arch_iid": [
+          -75686.82404185955,
+          6724.866983178366
+        ],
+        "arch_stationary_b10": [
+          -75298.42640161629,
+          7097.909930850124
+        ],
+        "arch_stationary_b10_width_ratio": 0.9998136830784501,
+        "arch_stationary_b5": [
+          -75874.4771929239,
+          6928.260962428407
+        ],
+        "arch_stationary_b5_width_ratio": 1.0047450443674988,
+        "effect": -22100.72937084933,
+        "n": 223,
+        "ours_vs_arch_iid_ok": true,
+        "shipped_ci": [
+          -75850.52,
+          6805.77
+        ],
+        "shipped_effect": -22100.73,
+        "trader": "E",
+        "zero_in_iid_ci": true,
+        "zero_in_stationary_b5_ci": true
+      },
+      {
+        "arch_circular_b5": [
+          -0.5495144216294705,
+          0.0
+        ],
+        "arch_circular_b5_width_ratio": 1.0,
+        "arch_iid": [
+          -0.5495144216294705,
+          0.0
+        ],
+        "arch_stationary_b10": [
+          -0.5495144216294705,
+          0.0
+        ],
+        "arch_stationary_b10_width_ratio": 1.0,
+        "arch_stationary_b5": [
+          -0.5495144216294705,
+          0.0
+        ],
+        "arch_stationary_b5_width_ratio": 1.0,
+        "effect": -0.1831714738764902,
+        "n": 66,
+        "ours_vs_arch_iid_ok": true,
+        "shipped_ci": [
+          -0.55,
+          0.0
+        ],
+        "shipped_effect": -0.18,
+        "trader": "G",
+        "zero_in_iid_ci": true,
+        "zero_in_stationary_b5_ci": true
+      }
+    ],
+    "detectors": [
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.006014639047094452,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "size_after_loss",
+        "n_a": 28,
+        "n_b": 48,
+        "p_ok": true,
+        "p_tol_3se": 0.024648901765170025,
+        "scipy_ci_bca": [
+          0.8055895611105982,
+          1.32397999882683
+        ],
+        "scipy_ci_percentile": [
+          0.7535830797456676,
+          1.2450440397200158
+        ],
+        "scipy_p": 0.4297142571435714,
+        "shipped_ci": [
+          0.754,
+          1.248
+        ],
+        "shipped_p": 0.4331,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "A"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.05037678545835117,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "hold_asymmetry",
+        "n_a": 29,
+        "n_b": 54,
+        "p_ok": true,
+        "p_tol_3se": 0.024032670854962405,
+        "scipy_ci_bca": [
+          0.29295198270335954,
+          3.3601296847306887
+        ],
+        "scipy_ci_percentile": [
+          0.30907333301833106,
+          3.533432868562708
+        ],
+        "scipy_p": 0.63758406039849,
+        "shipped_ci": [
+          0.282,
+          3.371
+        ],
+        "shipped_p": 0.6281,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "A"
+      },
+      {
+        "agree": true,
+        "detector": "overtrading_clusters",
+        "n_a": 9,
+        "n_b": 74,
+        "note": "UNDERPOWERED in both",
+        "shipped_ci": null,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "A"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.0971666019131655,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "size_after_loss",
+        "n_a": 90,
+        "n_b": 21,
+        "p_ok": true,
+        "p_tol_3se": 0.007745733517835704,
+        "scipy_ci_bca": [
+          0.9092384935356115,
+          16.954614004050526
+        ],
+        "scipy_ci_percentile": [
+          0.9921838536640099,
+          20.19602774537185
+        ],
+        "scipy_p": 0.03149921251968701,
+        "shipped_ci": [
+          0.993,
+          22.062
+        ],
+        "shipped_p": 0.0242,
+        "shipped_status": "SUGGESTIVE",
+        "trader": "B"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.018971817290496504,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "hold_asymmetry",
+        "n_a": 83,
+        "n_b": 29,
+        "p_ok": true,
+        "p_tol_3se": 0.0,
+        "scipy_ci_bca": [
+          0.08711213573878747,
+          0.38793863435844117
+        ],
+        "scipy_ci_percentile": [
+          0.10015438427991248,
+          0.4405422240951191
+        ],
+        "scipy_p": 1.0,
+        "shipped_ci": [
+          0.101,
+          0.447
+        ],
+        "shipped_p": 1.0,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "B"
+      },
+      {
+        "agree": true,
+        "detector": "overtrading_clusters",
+        "n_a": 0,
+        "n_b": 0,
+        "note": "UNDERPOWERED in both",
+        "shipped_ci": null,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "B"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.0001983922673601609,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "size_after_loss",
+        "n_a": 183,
+        "n_b": 90,
+        "p_ok": true,
+        "p_tol_3se": 0.012866862960812053,
+        "scipy_ci_bca": [
+          0.9661599242349652,
+          2.2545441926246923
+        ],
+        "scipy_ci_percentile": [
+          0.8012376145889346,
+          1.998938473076528
+        ],
+        "scipy_p": 0.06307342316442088,
+        "shipped_ci": [
+          0.801,
+          1.999
+        ],
+        "shipped_p": 0.073,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "C"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.017860489097136584,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "hold_asymmetry",
+        "n_a": 168,
+        "n_b": 107,
+        "p_ok": true,
+        "p_tol_3se": 0.0,
+        "scipy_ci_bca": [
+          0.14761221421336856,
+          0.3487317978929499
+        ],
+        "scipy_ci_percentile": [
+          0.14839140935789075,
+          0.35043462455112884
+        ],
+        "scipy_p": 1.0,
+        "shipped_ci": [
+          0.152,
+          0.354
+        ],
+        "shipped_p": 1.0,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "C"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.023736692439078468,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "overtrading_clusters",
+        "n_a": 81,
+        "n_b": 194,
+        "p_ok": true,
+        "p_tol_3se": 0.024855081227952748,
+        "scipy_ci_bca": [
+          -193.8029893483012,
+          214.33675698612439
+        ],
+        "scipy_ci_percentile": [
+          -199.97723122775227,
+          206.6148488470981
+        ],
+        "scipy_p": 0.48068798280043,
+        "shipped_ci": [
+          -196.741,
+          216.266
+        ],
+        "shipped_p": 0.4801,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "C"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.025736654758036957,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "size_after_loss",
+        "n_a": 128,
+        "n_b": 190,
+        "p_ok": true,
+        "p_tol_3se": 0.015690773467370966,
+        "scipy_ci_bca": [
+          0.6676943862883938,
+          1.1570157367041523
+        ],
+        "scipy_ci_percentile": [
+          0.6500050003168741,
+          1.1160717753463731
+        ],
+        "scipy_p": 0.8897277568060799,
+        "shipped_ci": [
+          0.662,
+          1.116
+        ],
+        "shipped_p": 0.8878,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "D"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.013547493015618913,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "hold_asymmetry",
+        "n_a": 122,
+        "n_b": 197,
+        "p_ok": true,
+        "p_tol_3se": 0.006724313138292334,
+        "scipy_ci_bca": [
+          0.20664786687038356,
+          1.2025017664879885
+        ],
+        "scipy_ci_percentile": [
+          0.23022911697920775,
+          1.3116505493013244
+        ],
+        "scipy_p": 0.9822254443638909,
+        "shipped_ci": [
+          0.229,
+          1.297
+        ],
+        "shipped_p": 0.9813,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "D"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.015676933394882988,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "overtrading_clusters",
+        "n_a": 73,
+        "n_b": 246,
+        "p_ok": true,
+        "p_tol_3se": 0.011369619367840287,
+        "scipy_ci_bca": [
+          -722.1719509557407,
+          44.24477841467633
+        ],
+        "scipy_ci_percentile": [
+          -671.2356794196205,
+          74.84904810733514
+        ],
+        "scipy_p": 0.056148596285092875,
+        "shipped_ci": [
+          -682.932,
+          77.447
+        ],
+        "shipped_p": 0.0552,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "D"
+      },
+      {
+        "agree": false,
+        "ci_endpoint_gap_rel_width": 0.45730295387979975,
+        "ci_noise_study": {
+          "our_procedure_20000_draws": [
+            0.7500002740628073,
+            1.3332986352584129
+          ],
+          "seeds": 40,
+          "share_of_1500_draw_runs_within_tolerance": 0.8,
+          "upper_endpoint_range_1500_draws": [
+            1.3331150118345751,
+            1.5999259676548117
+          ]
+        },
+        "ci_ok": false,
+        "decision_agrees": true,
+        "detector": "size_after_loss",
+        "n_a": 129,
+        "n_b": 94,
+        "p_ok": true,
+        "p_tol_3se": 0.022953324041527966,
+        "scipy_ci_bca": [
+          0.5000794243187493,
+          1.0599668575088623
+        ],
+        "scipy_ci_percentile": [
+          0.7500002740628073,
+          1.3332693353614382
+        ],
+        "scipy_p": 0.6935826604334892,
+        "shipped_ci": [
+          0.75,
+          1.6
+        ],
+        "shipped_p": 0.6926,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "E"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.05258271853123403,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "hold_asymmetry",
+        "n_a": 127,
+        "n_b": 97,
+        "p_ok": true,
+        "p_tol_3se": 0.0,
+        "scipy_ci_bca": [
+          0.24553697778291073,
+          0.5882111784240678
+        ],
+        "scipy_ci_percentile": [
+          0.215295133386095,
+          0.5158014384563715
+        ],
+        "scipy_p": 1.0,
+        "shipped_ci": [
+          0.224,
+          0.5
+        ],
+        "shipped_p": 1.0,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "E"
+      },
+      {
+        "agree": true,
+        "ci_endpoint_gap_rel_width": 0.007501823732392837,
+        "ci_ok": true,
+        "decision_agrees": true,
+        "detector": "overtrading_clusters",
+        "n_a": 29,
+        "n_b": 195,
+        "p_ok": true,
+        "p_tol_3se": 0.02271255336281775,
+        "scipy_ci_bca": [
+          -1908.417641650843,
+          7168.476699869431
+        ],
+        "scipy_ci_percentile": [
+          -2585.679422093432,
+          5032.849863802867
+        ],
+        "scipy_p": 0.706782330441739,
+        "shipped_ci": [
+          -2557.704,
+          4975.697
+        ],
+        "shipped_p": 0.7036,
+        "shipped_status": "NOT_FLAGGED",
+        "trader": "E"
+      },
+      {
+        "agree": true,
+        "detector": "size_after_loss",
+        "n_a": 55,
+        "n_b": 11,
+        "note": "UNDERPOWERED in both",
+        "shipped_ci": null,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "G"
+      },
+      {
+        "agree": true,
+        "detector": "hold_asymmetry",
+        "n_a": 56,
+        "n_b": 11,
+        "note": "UNDERPOWERED in both",
+        "shipped_ci": null,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "G"
+      },
+      {
+        "agree": true,
+        "detector": "overtrading_clusters",
+        "n_a": 0,
+        "n_b": 0,
+        "note": "UNDERPOWERED in both",
+        "shipped_ci": null,
+        "shipped_p": null,
+        "shipped_status": "UNDERPOWERED",
+        "trader": "G"
+      }
+    ],
+    "holm_random": {
+      "max_abs_diff": 0.0,
+      "vectors": 3000
+    },
+    "holm_shipped": [
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "size_after_loss",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "A"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "hold_asymmetry",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "A"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "size_after_loss",
+        "ours": 0.0968,
+        "statsmodels": 0.0968,
+        "trader": "B"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "hold_asymmetry",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "B"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "size_after_loss",
+        "ours": 0.292,
+        "statsmodels": 0.292,
+        "trader": "C"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "hold_asymmetry",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "C"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "overtrading_clusters",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "C"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "size_after_loss",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "D"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "hold_asymmetry",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "D"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "overtrading_clusters",
+        "ours": 0.2208,
+        "statsmodels": 0.2208,
+        "trader": "D"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "size_after_loss",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "E"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "hold_asymmetry",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "E"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "overtrading_clusters",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "E"
+      }
+    ],
+    "reference_draws": {
+      "bootstrap": 9999,
+      "court_permutations": 100000,
+      "permutations": 40000
+    },
+    "summary": {
+      "ci_zero_status_changes": 0,
+      "court_agree": 24,
+      "court_compared": 24,
+      "court_pvalues_agree": 15,
+      "court_pvalues_compared": 15,
+      "dependence_traders": 6,
+      "detector_cis_agree": 12,
+      "detector_pvalues_agree": 13,
+      "detector_pvalues_compared": 13,
+      "detector_underpowered_agree": 5,
+      "detector_underpowered_total": 5,
+      "holm_shipped_agree": 13,
+      "holm_shipped_compared": 13,
+      "holm_shipped_max_abs_diff": 0.0,
+      "labels_identical": 6,
+      "ours_vs_arch_iid_agree": 6,
+      "stationary_b5_width_ratio_max": 1.0301825398139393,
+      "stationary_b5_width_ratio_min": 0.8901877273594118,
+      "traders": 6
+    },
+    "tolerances": {
+      "ci": "10% of reference CI width",
+      "court_effect_usd": 0.01,
+      "holm": "5e-4 shipped, 1e-12 random",
+      "p": "3 combined MC standard errors + 1e-4"
+    },
+    "tools": {
+      "arch": "8.0.0",
+      "scipy": "1.18.1",
+      "statsmodels": "0.15.0"
+    },
+    "traders": {
+      "A": {
+        "after_loss_labels_identical": true,
+        "n_trips": 83
+      },
+      "B": {
+        "after_loss_labels_identical": true,
+        "n_trips": 112
+      },
+      "C": {
+        "after_loss_labels_identical": true,
+        "n_trips": 275
+      },
+      "D": {
+        "after_loss_labels_identical": true,
+        "n_trips": 319
+      },
+      "E": {
+        "after_loss_labels_identical": true,
+        "n_trips": 224
+      },
+      "G": {
+        "after_loss_labels_identical": true,
+        "n_trips": 67
+      }
+    }
+  },
+  "detector_power": {
+    "cells": [
+      {
+        "ci": [
+          0.0017673865655472645,
+          0.0544875247609346
+        ],
+        "flagged": 0.01,
+        "scenario": "no_size_habit",
+        "size_mult": 1.0,
+        "trips": 60
+      },
+      {
+        "ci": [
+          0.0017673865655472645,
+          0.0544875247609346
+        ],
+        "flagged": 0.01,
+        "scenario": "no_size_habit",
+        "size_mult": 1.0,
+        "trips": 150
+      },
+      {
+        "ci": [
+          0.0,
+          0.03699480747600191
+        ],
+        "flagged": 0.0,
+        "scenario": "no_size_habit",
+        "size_mult": 1.0,
+        "trips": 300
+      },
+      {
+        "ci": [
+          0.0,
+          0.03699480747600191
+        ],
+        "flagged": 0.0,
+        "scenario": "no_size_habit",
+        "size_mult": 1.0,
+        "trips": 600
+      },
+      {
+        "ci": [
+          0.3093997461136028,
+          0.4979992153815976
+        ],
+        "flagged": 0.4,
+        "scenario": "size_up_1.25x",
+        "size_mult": 1.25,
+        "trips": 60
+      },
+      {
+        "ci": [
+          0.44264685393523856,
+          0.6343935614666815
+        ],
+        "flagged": 0.54,
+        "scenario": "size_up_1.25x",
+        "size_mult": 1.25,
+        "trips": 150
+      },
+      {
+        "ci": [
+          0.3942183009238615,
+          0.5865215952256586
+        ],
+        "flagged": 0.49,
+        "scenario": "size_up_1.25x",
+        "size_mult": 1.25,
+        "trips": 300
+      },
+      {
+        "ci": [
+          0.45244427031643447,
+          0.6438562489359654
+        ],
+        "flagged": 0.55,
+        "scenario": "size_up_1.25x",
+        "size_mult": 1.25,
+        "trips": 600
+      },
+      {
+        "ci": [
+          0.8018773199709163,
+          0.9300066263473222
+        ],
+        "flagged": 0.88,
+        "scenario": "size_up_1.5x",
+        "size_mult": 1.5,
+        "trips": 60
+      },
+      {
+        "ci": [
+          0.9299868370580063,
+          0.9944981477650318
+        ],
+        "flagged": 0.98,
+        "scenario": "size_up_1.5x",
+        "size_mult": 1.5,
+        "trips": 150
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_1.5x",
+        "size_mult": 1.5,
+        "trips": 300
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_1.5x",
+        "size_mult": 1.5,
+        "trips": 600
+      },
+      {
+        "ci": [
+          0.9455124752390653,
+          0.9982326134344526
+        ],
+        "flagged": 0.99,
+        "scenario": "size_up_2x",
+        "size_mult": 2.0,
+        "trips": 60
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_2x",
+        "size_mult": 2.0,
+        "trips": 150
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_2x",
+        "size_mult": 2.0,
+        "trips": 300
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_2x",
+        "size_mult": 2.0,
+        "trips": 600
+      },
+      {
+        "ci": [
+          0.9455124752390653,
+          0.9982326134344526
+        ],
+        "flagged": 0.99,
+        "scenario": "size_up_3x",
+        "size_mult": 3.0,
+        "trips": 60
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_3x",
+        "size_mult": 3.0,
+        "trips": 150
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_3x",
+        "size_mult": 3.0,
+        "trips": 300
+      },
+      {
+        "ci": [
+          0.9630051925239981,
+          0.9999999999999999
+        ],
+        "flagged": 1.0,
+        "scenario": "size_up_3x",
+        "size_mult": 3.0,
+        "trips": 600
+      }
+    ],
+    "detector": "size_after_loss (raw FLAGGED: p<0.05 and ratio>=1.25, before Holm)",
+    "n_perm": 300,
+    "sims_per_cell": 100
+  },
+  "pbo": {
+    "blocks": 16,
+    "mults": [
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "planted": {
+      "costless_habit": {
+        "mean_dsr": 0.587932212769031,
+        "mean_p_oos_best_not_positive": 0.42817663817663815,
+        "mean_pbo": 0.4704014504014503,
+        "mean_psr0": 0.6421580956254052,
+        "mean_trial_corr": 0.9409559178434002,
+        "share_dsr_above_0.95": 0.11666666666666667,
+        "sims": 60,
+        "trips": 300
+      },
+      "costly_leak": {
+        "mean_dsr": 0.9877144867564706,
+        "mean_p_oos_best_not_positive": 0.0056993006993007,
+        "mean_pbo": 0.005911680911680911,
+        "mean_psr0": 0.9958607542775203,
+        "mean_trial_corr": 0.9404915868992212,
+        "share_dsr_above_0.95": 0.9333333333333333,
+        "sims": 60,
+        "trips": 300
+      },
+      "null": {
+        "mean_dsr": 0.6554492558033465,
+        "mean_p_oos_best_not_positive": 0.5526754726754727,
+        "mean_pbo": 0.4321367521367521,
+        "mean_psr0": 0.7966910928128664,
+        "mean_trial_corr": 0.7093942068247691,
+        "share_dsr_above_0.95": 0.11666666666666667,
+        "sims": 60,
+        "trips": 300
+      }
+    },
+    "real": {
+      "A": {
+        "best_cap": 3.0,
+        "court_accepted": 0,
+        "dsr": NaN,
+        "p_oos_best_not_positive": 1.0,
+        "pbo": 0.7701631701631702,
+        "psr0": NaN,
+        "rows": 76,
+        "sr0_deflation": 0.06272560604121054,
+        "sr_best_per_trip": 0.0,
+        "trial_corr": 0.9983896005142512
+      },
+      "B": {
+        "best_cap": 1.5,
+        "court_accepted": 0,
+        "dsr": 0.6022625456818325,
+        "p_oos_best_not_positive": 0.39432789432789433,
+        "pbo": 0.37404817404817403,
+        "psr0": 0.6945981741766434,
+        "rows": 111,
+        "sr0_deflation": 0.02718469317170435,
+        "sr_best_per_trip": 0.05540236814572598,
+        "trial_corr": 0.9291004004524931
+      },
+      "C": {
+        "best_cap": 3.0,
+        "court_accepted": 0,
+        "dsr": 0.8109239349354488,
+        "p_oos_best_not_positive": 0.38733488733488736,
+        "pbo": 0.6934731934731935,
+        "psr0": 0.9172431893746362,
+        "rows": 273,
+        "sr0_deflation": 0.026909441415551044,
+        "sr_best_per_trip": 0.0738281694274443,
+        "trial_corr": 0.8896641949923447
+      },
+      "D": {
+        "best_cap": 1.0,
+        "court_accepted": 2,
+        "dsr": 0.362045915917452,
+        "p_oos_best_not_positive": 0.7421134421134421,
+        "pbo": 0.8675990675990676,
+        "psr0": 0.5187179873388853,
+        "rows": 318,
+        "sr0_deflation": 0.022407426721374708,
+        "sr_best_per_trip": 0.002629751012039585,
+        "trial_corr": 0.8233760293310647
+      },
+      "E": {
+        "best_cap": 2.0,
+        "court_accepted": 0,
+        "dsr": 0.5422183195052741,
+        "p_oos_best_not_positive": 0.5916083916083916,
+        "pbo": 0.7576534576534577,
+        "psr0": 0.9824067754986379,
+        "rows": 223,
+        "sr0_deflation": 0.08671637929663271,
+        "sr_best_per_trip": 0.09131296643783339,
+        "trial_corr": 0.2069258616950621
+      },
+      "G": {
+        "best_cap": 1.0,
+        "court_accepted": 0,
+        "dsr": 0.5836749734768405,
+        "p_oos_best_not_positive": 0.33076923076923076,
+        "pbo": 0.33076923076923076,
+        "psr0": 0.8520436270274991,
+        "rows": 66,
+        "sr0_deflation": 0.11491083269774953,
+        "sr_best_per_trip": 0.14402717184700392,
+        "trial_corr": 0.5965019311606223
+      }
+    }
+  },
+  "properties": {
+    "failed": 0,
+    "hypothesis": "6.168.5",
+    "passed": 9,
+    "properties": [
+      "round trips conserve net pnl (with an unfinished tail)",
+      "dedupe idempotent, order-free and duplicate-proof",
+      "trips unchanged by replayed fills",
+      "after-loss label ignores every later trip",
+      "court cap uses only earlier chunks",
+      "Holm bounded, monotone, no worse than Bonferroni",
+      "Holm: adding a test never helps the others",
+      "Holm permutation-equivariant",
+      "Holm equals statsmodels"
+    ]
+  },
+  "scalars": {
+    "block_width": "0.89x to 1.03x",
+    "ci_agree": "12 of 13",
+    "ci_finding": "wallet E size_after_loss: our shipped CI is [0.75, 1.6] and scipy's is [0.75, 1.33]. Re-running our own procedure with 40 other seeds, 80% landed within tolerance (upper endpoint ranged 1.33 to 1.6), and with 20,000 draws our procedure gives [0.75, 1.33], matching scipy. The p-value is unaffected",
+    "court_agree": "24 of 24",
+    "d_finding": "wallet D is the one real wallet where the court accepted rules (1.0x (held-out $5,479), 1.5x (held-out $4,804)); the independent re-implementation reproduces both verdicts. But the same cap rules priced on ALL of D's history give $-1,964 at 1.5x with a 95% interval of [-10,059, 5,636] (it contains zero), the CSCV probability of backtest overfitting over D's four caps is 0.87, and the deflated Sharpe of the best cap is 0.36",
+    "detector_falseflag_300": "0%",
+    "detector_power_125_300": "49%",
+    "detector_power_15_300": "100%",
+    "detector_power_300": "100%",
+    "detector_power_600": "100%",
+    "dsr_costly": "0.99",
+    "dsr_null": "0.66",
+    "holm_agree": "13 of 13",
+    "holm_random_maxdiff": "0e+00",
+    "p_agree": "13 of 13",
+    "pbo_costly": "0.01",
+    "pbo_null": "0.43",
+    "props_passed": "9",
+    "real_accepted_wallets": "D",
+    "tools": "scipy 1.18.1, statsmodels 0.15.0, arch 8.0.0, hypothesis 6.168.5"
+  },
+  "seconds_run_validation": 0,
+  "tables": {
+    "crosscheck_court": "| Trader | Cap | Our status | Reference status | Our p (1,500 perms) | Reference p (100,000) | Our held-out effect | Reference effect |\n|---|---|---|---|---|---|---|---|\n| A | 1.0x | REJECTED | REJECTED | 0.8728 | 0.8735 | -14611.78 | -14611.78 |\n| A | 1.5x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | -8826.63 | -8826.63 |\n| A | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | -3090.76 | -3090.76 |\n| A | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 33.35 | 33.35 |\n| B | 1.0x | REJECTED | REJECTED | 0.0706 | 0.0714 | 54.48 | 54.48 |\n| B | 1.5x | REJECTED | REJECTED | 0.0846 | 0.0858 | -630.50 | -630.50 |\n| B | 2.0x | REJECTED | REJECTED | 0.1039 | 0.1037 | -1003.37 | -1003.37 |\n| B | 3.0x | REJECTED | REJECTED | 0.1419 | 0.1377 | -1118.31 | -1118.31 |\n| C | 1.0x | REJECTED | REJECTED | 0.2378 | 0.2487 | 6763.03 | 6763.03 |\n| C | 1.5x | REJECTED | REJECTED | 0.2478 | 0.2521 | 5539.23 | 5539.23 |\n| C | 2.0x | REJECTED | REJECTED | 0.2751 | 0.2731 | 5358.05 | 5358.05 |\n| C | 3.0x | REJECTED | REJECTED | 0.2532 | 0.2584 | 5432.51 | 5432.51 |\n| D | 1.0x | ACCEPTED | ACCEPTED | 0.0047 | 0.0050 | 5479.21 | 5479.21 |\n| D | 1.5x | ACCEPTED | ACCEPTED | 0.0073 | 0.0060 | 4804.14 | 4804.14 |\n| D | 2.0x | REJECTED | REJECTED | 0.0153 | 0.0177 | 2208.10 | 2208.10 |\n| D | 3.0x | REJECTED | REJECTED | 0.0566 | 0.0601 | -612.45 | -612.45 |\n| E | 1.0x | REJECTED | REJECTED | 0.8741 | 0.8757 | -57748.75 | -57748.75 |\n| E | 1.5x | REJECTED | REJECTED | 0.8408 | 0.8324 | -23705.68 | -23705.68 |\n| E | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 474.26 | 474.26 |\n| E | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 1.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 1.5x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |",
+    "crosscheck_dependence": "| Trader | Rule | Effect | Our iid CI (800 draws) | arch iid CI | arch stationary (mean block 5) | width vs iid | arch circular block 5 | width vs iid |\n|---|---|---|---|---|---|---|---|---|\n| A | cap 1.5x | -2,759 | [-8,307, 45] | [-8,307, 45] | [-8,345, 45] | 1.00x | [-8,345, 67] | 1.01x |\n| B | cap 1.5x | 1,287 | [-3,499, 4,805] | [-3,401, 5,038] | [-2,923, 4,589] | 0.89x | [-3,299, 4,899] | 0.97x |\n| C | cap 1.5x | 2,351 | [-10,354, 13,410] | [-10,259, 13,990] | [-10,265, 14,716] | 1.03x | [-9,637, 14,364] | 0.99x |\n| D | cap 1.5x | -1,964 | [-9,514, 5,944] | [-10,059, 5,636] | [-10,346, 5,407] | 1.00x | [-11,184, 5,720] | 1.08x |\n| E | cap 1.5x | -22,101 | [-75,851, 6,806] | [-75,687, 6,725] | [-75,874, 6,928] | 1.00x | [-75,417, 6,752] | 1.00x |\n| G | cap 1.5x | -0 | [-1, 0] | [-1, 0] | [-1, 0] | 1.00x | [-1, 0] | 1.00x |",
+    "crosscheck_detectors": "| Trader | Test | n (flagged group / other) | Our p | scipy p | Our 95% CI | scipy 95% CI (percentile) | scipy BCa | p ok | CI ok |\n|---|---|---|---|---|---|---|---|---|---|\n| A | size_after_loss | 28/48 | 0.4331 | 0.4297 | [0.754, 1.25] | [0.754, 1.25] | [0.806, 1.32] | yes | yes |\n| A | hold_asymmetry | 29/54 | 0.6281 | 0.6376 | [0.282, 3.37] | [0.309, 3.53] | [0.293, 3.36] | yes | yes |\n| A | overtrading_clusters | 9/74 | underpowered | underpowered | | | | yes | |\n| B | size_after_loss | 90/21 | 0.0242 | 0.0315 | [0.993, 22.1] | [0.992, 20.2] | [0.909, 17] | yes | yes |\n| B | hold_asymmetry | 83/29 | 1.0000 | 1.0000 | [0.101, 0.447] | [0.1, 0.441] | [0.0871, 0.388] | yes | yes |\n| B | overtrading_clusters | 0/0 | underpowered | underpowered | | | | yes | |\n| C | size_after_loss | 183/90 | 0.0730 | 0.0631 | [0.801, 2] | [0.801, 2] | [0.966, 2.25] | yes | yes |\n| C | hold_asymmetry | 168/107 | 1.0000 | 1.0000 | [0.152, 0.354] | [0.148, 0.35] | [0.148, 0.349] | yes | yes |\n| C | overtrading_clusters | 81/194 | 0.4801 | 0.4807 | [-197, 216] | [-200, 207] | [-194, 214] | yes | yes |\n| D | size_after_loss | 128/190 | 0.8878 | 0.8897 | [0.662, 1.12] | [0.65, 1.12] | [0.668, 1.16] | yes | yes |\n| D | hold_asymmetry | 122/197 | 0.9813 | 0.9822 | [0.229, 1.3] | [0.23, 1.31] | [0.207, 1.2] | yes | yes |\n| D | overtrading_clusters | 73/246 | 0.0552 | 0.0561 | [-683, 77.4] | [-671, 74.8] | [-722, 44.2] | yes | yes |\n| E | size_after_loss | 129/94 | 0.6926 | 0.6936 | [0.75, 1.6] | [0.75, 1.33] | [0.5, 1.06] | yes | NO |\n| E | hold_asymmetry | 127/97 | 1.0000 | 1.0000 | [0.224, 0.5] | [0.215, 0.516] | [0.246, 0.588] | yes | yes |\n| E | overtrading_clusters | 29/195 | 0.7036 | 0.7068 | [-2.56e+03, 4.98e+03] | [-2.59e+03, 5.03e+03] | [-1.91e+03, 7.17e+03] | yes | yes |\n| G | size_after_loss | 55/11 | underpowered | underpowered | | | | yes | |\n| G | hold_asymmetry | 56/11 | underpowered | underpowered | | | | yes | |\n| G | overtrading_clusters | 0/0 | underpowered | underpowered | | | | yes | |",
+    "crosscheck_summary": "| Quantity | Reference implementation | Compared | Agree | Tolerance (declared before running) |\n|---|---|---|---|---|\n| Detector p-values (permutation) | scipy.stats.permutation_test, 40,000 resamples | 13 | 13 | 3 combined Monte-Carlo SE + 1e-4 |\n| Detector 95% CIs (bootstrap) | scipy.stats.bootstrap, 9,999 resamples | 13 | 12 | endpoints within 10% of the reference CI width |\n| UNDERPOWERED gating | independent group counts | 5 | 5 | same decision |\n| Holm adjusted p (shipped, per trader) | statsmodels multipletests(holm) | 13 | 13 | 5e-4 (max observed 0.0e+00) |\n| Holm on random p-vectors | statsmodels multipletests(holm) | 3,000 | 3,000 | 1e-12 (max observed 0.0e+00) |\n| Court walk-forward verdicts (effect, p, status) | our re-implementation from the docs, 100,000 permutations | 24 | 24 | effect within $0.01; p within 3 combined SE |\n| After-loss labels | independent searchsorted implementation | 6 traders | 6 | identical arrays |\n| All-history CI of the 1.5x rule | arch IIDBootstrap, 5,000 resamples | 6 | 6 | endpoints within 10% of width |",
+    "pbo_planted": "| Planted trader (300 trips, 60 sims) | Mean PBO | Mean P(best rule loses out of sample) | Mean DSR | Mean PSR(0) | Share DSR > 0.95 | Mean correlation between rules |\n|---|---|---|---|---|---|---|\n| No leak | 0.43 | 0.55 | 0.66 | 0.80 | 12% | 0.71 |\n| Costless habit | 0.47 | 0.43 | 0.59 | 0.64 | 12% | 0.94 |\n| Costly leak | 0.01 | 0.01 | 0.99 | 1.00 | 93% | 0.94 |",
+    "pbo_real": "| Wallet | Trips used | PBO | P(best rule loses OOS) | In-sample best cap | PSR(0) | DSR (4 trials) | Court accepted |\n|---|---|---|---|---|---|---|---|\n| A | 76 | 0.77 | 1.00 | 3.0x | n/a | n/a | 0 |\n| B | 111 | 0.37 | 0.39 | 1.5x | 0.69 | 0.60 | 0 |\n| C | 273 | 0.69 | 0.39 | 3.0x | 0.92 | 0.81 | 0 |\n| D | 318 | 0.87 | 0.74 | 1.0x | 0.52 | 0.36 | 2 |\n| E | 223 | 0.76 | 0.59 | 2.0x | 0.98 | 0.54 | 0 |\n| G | 66 | 0.33 | 0.33 | 1.0x | 0.85 | 0.58 | 0 |",
+    "power_court": "| Planted trader | 60 trips | 150 trips | 300 trips | 600 trips |\n|---|---|---|---|---|\n| No leak (court wrongly accepts) | 0% [0%, 4%] | 1% [0%, 5%] | 1% [0%, 5%] | 1% [0%, 5%] |\n| Costless habit, 3x size up (court wrongly accepts) | 0% [0%, 4%] | 1% [0%, 5%] | 0% [0%, 4%] | 3% [1%, 8%] |\n| Costly leak (court correctly accepts = power) | 1% [0%, 5%] | 19% [13%, 28%] | 53% [43%, 62%] | 88% [80%, 93%] |",
+    "power_detector": "| Planted trader | 60 trips | 150 trips | 300 trips | 600 trips |\n|---|---|---|---|---|\n| No size habit (false flag) | 1% [0%, 5%] | 1% [0%, 5%] | 0% [0%, 4%] | 0% [0%, 4%] |\n| Sizes up 1.25x after a loss (power) | 40% [31%, 50%] | 54% [44%, 63%] | 49% [39%, 59%] | 55% [45%, 64%] |\n| Sizes up 1.5x after a loss (power) | 88% [80%, 93%] | 98% [93%, 99%] | 100% [96%, 100%] | 100% [96%, 100%] |\n| Sizes up 2x after a loss (power) | 99% [95%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] |\n| Sizes up 3x after a loss (power) | 99% [95%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] |"
+  }
+}

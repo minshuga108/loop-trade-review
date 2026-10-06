@@ -1,0 +1,12 @@
+null            n=  60 accepts  0.0% [0.0%, 3.7%] underpowered 97.0%
+null            n= 150 accepts  1.0% [0.2%, 5.4%] underpowered 49.0%
+null            n= 300 accepts  1.0% [0.2%, 5.4%] underpowered  3.0%
+null            n= 600 accepts  1.0% [0.2%, 5.4%] underpowered  0.0%
+costless_habit  n=  60 accepts  0.0% [0.0%, 3.7%] underpowered  0.0%
+costless_habit  n= 150 accepts  1.0% [0.2%, 5.4%] underpowered  0.0%
+costless_habit  n= 300 accepts  0.0% [0.0%, 3.7%] underpowered  0.0%
+costless_habit  n= 600 accepts  3.0% [1.0%, 8.5%] underpowered  0.0%
+costly_leak     n=  60 accepts  1.0% [0.2%, 5.4%] underpowered  0.0%
+costly_leak     n= 150 accepts 19.0% [12.5%, 27.8%] underpowered  0.0%
+costly_leak     n= 300 accepts 53.0% [43.3%, 62.5%] underpowered  0.0%
+costly_leak     n= 600 accepts 88.0% [80.2%, 93.0%] underpowered  0.0%
