@@ -61,21 +61,48 @@ def main() -> int:
         for pr in problems[:50]:
             print(" -", pr)
         return 1
-    if TARGET.exists():
-        shutil.rmtree(TARGET)
-    TARGET.mkdir(parents=True)
+    import os, stat
+    def _onerror(func, p, exc_info):
+        try:
+            os.chmod(p, stat.S_IWRITE)
+            func(p)
+        except Exception:
+            pass
+
+    has_git = (TARGET / ".git").exists()
+    if has_git:
+        for item in TARGET.iterdir():
+            if item.name == ".git":
+                continue
+            if item.is_dir():
+                shutil.rmtree(item, onerror=_onerror)
+            else:
+                try:
+                    os.chmod(item, stat.S_IWRITE)
+                    item.unlink()
+                except Exception:
+                    pass
+    else:
+        if TARGET.exists():
+            shutil.rmtree(TARGET, onerror=_onerror)
+        TARGET.mkdir(parents=True)
+
     for f in files:
         dst = TARGET / f
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / f, dst)
+
     env = {"GIT_AUTHOR_NAME": "Loop", "GIT_AUTHOR_EMAIL": "loop@local", "GIT_COMMITTER_NAME": "Loop", "GIT_COMMITTER_EMAIL": "loop@local"}
-    import os
     e = {**os.environ, **env}
-    subprocess.run(["git", "init", "-q", "-b", "main"], cwd=TARGET, check=True, env=e)
+    if not has_git:
+        subprocess.run(["git", "init", "-q", "-b", "main"], cwd=TARGET, check=True, env=e)
     subprocess.run(["git", "add", "-A"], cwd=TARGET, check=True, env=e)
-    subprocess.run(["git", "commit", "-q", "-m", "Loop: trade review that tests its own rules (Bitget AI Hackathon S2, Review & Self-Evolution)"], cwd=TARGET, check=True, env=e)
+    status = subprocess.run(["git", "status", "--porcelain"], cwd=TARGET, capture_output=True, text=True).stdout.strip()
+    if status:
+        msg = sys.argv[2] if len(sys.argv) > 2 else "fix: resolve doc scalars, finalize statistical cross-validation suite"
+        subprocess.run(["git", "commit", "-q", "-m", msg], cwd=TARGET, check=True, env=e)
     n = subprocess.run(["git", "rev-list", "--count", "HEAD"], cwd=TARGET, capture_output=True, text=True).stdout.strip()
-    print(f"Release folder ready: {TARGET}\n  files: {len(files)}  commits: {n} (fresh history)\n  scan: no address-like or key-like strings, no forbidden folders.\n  next: create an empty public GitHub repo, then in that folder: git remote add origin <url> && git push -u origin main")
+    print(f"Release folder ready: {TARGET}\n  files: {len(files)}  commits: {n}\n  scan: no address-like or key-like strings, no forbidden folders.")
     return 0
 
 

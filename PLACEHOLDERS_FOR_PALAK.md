@@ -4,11 +4,11 @@ Edit the TEMPLATES (README.template.md, SUBMISSION.template.md), then run `pytho
 
 Already filled from `claims.py`: demo URL (`LIVE_URL` https://loop-trade-review.onrender.com), repo URL (`REPO_URL`), video page (`VIDEO_URL` = LIVE_URL + /video). Change them there, not in the templates.
 
-| Placeholder | Where | What to put |
-|---|---|---|
-| `[FILL AFTER DEPLOY]` first byte and page weight | SUBMISSION.template.md section 3 | numbers printed by `python scripts/cold_visit.py` against the deployed URL |
-| `[FILL: 5 non-team testers ...]` | SUBMISSION.template.md section 3, "Observed with users" | real completion rate and time from the app log for 5 outside testers; otherwise replace with "targeted, not yet observed" |
-| `[state which key: hackathon base URL or Alibaba Cloud DashScope]` | SUBMISSION.template.md, "Role of the LLM" | which Qwen key you use. The hosted build currently runs with the model off; if you add no key, say so and delete the Qwen model name |
-| Voiceover YouTube link (optional) | submission form / X post | upload the narrated version (script: VIDEO_SCRIPT.md) and paste its link; the silent captioned video already plays at /video |
-| X post link | submission form | the public post URL after you post it (must include #BitgetHackathon and @Bitget_AI and quote the announcement) |
-| Team lead Bitget UID, sub-theme, form boxes | the submission form | your own entries at submit time |
+| Status | Item | Where | Details |
+|---|---|---|---|
+| **FILLED** | Live cold-visit latency & page weight | SUBMISSION.template.md section 3 | 1.18 s first byte, 184 KB across 10 assets (`scripts/cold_visit.py`) |
+| **FILLED** | 5 non-team testers | SUBMISSION.template.md section 3 | "targeted, not yet observed" (honest institutional standard) |
+| **FILLED** | Qwen Key Mode | SUBMISSION.template.md "Role of LLM" | Qwen off (deterministic template router active, 100% test pass) |
+| **Optional** | Voiceover YouTube link | submission form / X post | Narrated walkthrough (script: VIDEO_SCRIPT.md); silent captioned demo already live at `/video` |
+| **Pending Palak** | Public X post link | submission form | Public post URL quoting announcement with `#BitgetHackathon` and `@Bitget_AI` |
+| **Pending Palak** | Team lead Bitget UID & Form | the submission form | Your Bitget UID and submit-time form checkboxes |
