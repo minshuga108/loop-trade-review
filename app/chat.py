@@ -155,6 +155,11 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
     from . import market_data
     if market_data.is_market_question(message):
         return market_data.chat_answer(message, lang)
+    from . import best_common
+    if best_common.ASKED.search(message):
+        out = best_common.answer(service._load(tid)[3], lang)
+        out["chips"] = CHIPS_ZH if zh else CHIPS_EN
+        return out
     if BLOCKED_Q.search(message):
         return _gate_log(tid, sid, lang)
     if THESIS.search(message):
@@ -369,10 +374,11 @@ def _thesis_answer(tid: str, sid: str, lang: str) -> dict:
 _COMPUTE_EN = {"habit": "habit detectors (tested within this trader, corrected for several tests)", "falsify": "habit detectors and rule court counts",
                "rule": "rule replay on trades the rule never saw", "court": "rule court counts", "report": "weekly report build and snapshot diff",
                "diff": "report snapshot diff", "gate": "Rule Gate check against your armed rules", "checklist": "rulebook checklist",
-               "source": "provenance label of the loaded record", "gate_log": "public record scan (gate decisions)"}
+               "source": "provenance label of the loaded record", "gate_log": "public record scan (gate decisions)",
+               "best_common": "top-10 trades by net P&L counted by symbol, side, weekday and opening hour (UTC) against all trades; descriptive, no test"}
 _COMPUTE_ZH = {"habit": "习惯检测（只在这位交易者自己的数据里检验，并校正多重检验）", "falsify": "习惯检测与规则法庭计数", "rule": "规则在未见交易上的回放", "court": "规则法庭计数",
                "report": "周报生成与快照对比", "diff": "报告快照对比", "gate": "按你已启用的规则做闸门检查", "checklist": "规则手册清单", "source": "已载入记录的来源标签",
-               "gate_log": "公开记录中的闸门决定扫描"}
+               "gate_log": "公开记录中的闸门决定扫描", "best_common": "按净盈亏取最好 10 笔，与全部交易对比品种、方向、星期和开仓小时（UTC）的构成；只是描述，没有检验"}
 _PROV_EN = {"REAL_PLATFORM_PUBLIC": "real public data", "REAL_OWN": "your own data as imported", "SIM_PLANTED": "simulated", "SIM_PAPER": "paper", "REPLAY_NATIVE": "recorded Bitget book"}
 _PROV_ZH = {"REAL_PLATFORM_PUBLIC": "真实公开数据", "REAL_OWN": "你自己导入的数据", "SIM_PLANTED": "模拟数据", "SIM_PAPER": "纸面交易", "REPLAY_NATIVE": "录制的 Bitget 订单簿"}
 

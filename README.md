@@ -52,7 +52,7 @@ python scripts/render_docs.py --check                  # this README matches its
 ```
 python -m venv .venv && .venv/Scripts/pip install -r requirements.txt
 .venv/Scripts/python -m uvicorn app.main:app --port 8000
-.venv/Scripts/python -m pytest -q          # 1233 tests collected
+.venv/Scripts/python -m pytest -q          # 1253 tests collected
 python scripts/render_docs.py --check   # fails if a doc differs from its template or from numbers computed now
 ```
 

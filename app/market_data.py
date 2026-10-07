@@ -262,12 +262,19 @@ def gate_context(symbol: str | None) -> dict:
 # ------------------------------------------------------------------ chat
 _MARKET = re.compile(r"(funding|open interest|\boi\b|spread|volatil|long.?short|资金费|持仓量|未平仓|点差|价差|波动|多空比)", re.I)
 _OWN = re.compile(r"\b(my|mine|i paid|did i|i lost)\b|我的|我付|我交易", re.I)
-_COIN = re.compile(r"(?<![A-Za-z])(BTC|ETH|SOL|XRP|DOGE|BNB|ADA|AVAX|LINK|HYPE|SUI|LTC|TRX|TON|NVDA|TSLA|AAPL|MSTR|SPY|QQQ)(?![A-Za-z])", re.I)       # not \b: a CJK character is a word character, so "BTC现在" has no boundary
+_COIN = re.compile(r"(?<![A-Za-z])r?(BTC|ETH|SOL|XRP|DOGE|BNB|ADA|AVAX|LINK|HYPE|SUI|LTC|TRX|TON|NVDA|TSLA|AAPL|MSTR|SPY|QQQ)(?![A-Za-z])", re.I)       # not \b: a CJK character is a word character, so "BTC现在" has no boundary
+
+
+_NOW = re.compile(r"(doing now|right now|currently|at the moment|how(?:'s| is| are) |\bprice\b|\bnow\b|现在怎么样|现在多少|现在如何|行情|价格|多少钱)", re.I)
+_HIST = re.compile(r"(largest|biggest|worst|best|loss|losses|lost|\btrades?\b|history|last (week|month)|最大|最差|最好|亏|赚|交易|历史)", re.I)
 
 
 def is_market_question(message: str) -> bool:
-    """A live market quantity AND a coin, and not a question about the trader's own record."""
-    return bool(_MARKET.search(message) and _COIN.search(message) and not _OWN.search(message))
+    """A live market quantity AND a coin, and not a question about the trader's own record.
+    A plain "now / price / how is BTC" question with a coin also counts, unless it asks about past trades."""
+    if not _COIN.search(message) or _OWN.search(message):
+        return False
+    return bool(_MARKET.search(message) or (_NOW.search(message) and not _HIST.search(message)))
 
 
 def chat_answer(message: str, lang: str) -> dict:
@@ -285,6 +292,9 @@ def chat_answer(message: str, lang: str) -> dict:
         want.append("candles")
     if re.search(r"long.?short|多空比", m):
         want.append("long_short")
+    general = not want
+    if general:
+        want = ["ticker", "funding"]
     results = {k: get(k, sym) for k in want}
     lines, facts, used = [], {}, []
     for k, r in results.items():
@@ -301,6 +311,14 @@ def chat_answer(message: str, lang: str) -> dict:
             lines.append(f"{sym} 未平仓合约量 {d['size']:,.2f} 张。" if zh else f"{sym} open interest is {d['size']:,.2f} contracts.")
         elif k == "ticker":
             sp = spread_bps(d)
+            if general:
+                facts["last_price"] = d["lastPr"]
+                lines.append(f"{sym} 永续最新价 {d['lastPr']:g}" if zh else f"{sym} perp last price {d['lastPr']:g}")
+                if d.get("change24h") is not None:
+                    facts["change_24h_pct"] = round(d["change24h"] * 100, 2)
+                    lines[-1] += (f"，24 小时涨跌 {d['change24h'] * 100:+.2f}%。" if zh else f", {d['change24h'] * 100:+.2f}% over 24 hours.")
+                else:
+                    lines[-1] += "。" if zh else "."
             facts["spread_bps"] = sp
             lines.append(f"{sym} 永续买卖价差 {sp} 个基点（买 {d['bidPr']:g}，卖 {d['askPr']:g}）。" if zh else
                          f"{sym} perp spread now is {sp} bps (bid {d['bidPr']:g}, ask {d['askPr']:g}).")
@@ -330,7 +348,7 @@ def chat_answer(message: str, lang: str) -> dict:
                 "Live Bitget market data is not available right now, so I will not give a number. Try again shortly.")
         shown = []
     from engine.numberlock import NumberLockError, verify
-    stamp_digits = tuple(float(i) for i in range(0, 11))
+    stamp_digits = tuple(float(i) for i in range(0, 11)) + (24.0,)
     try:
         # the fetch timestamp and latency are quoted too; they are not market claims, so strip them before the lock
         body = re.sub(r"\d{4}-\d{2}-\d{2}T[\d:+]+|\d+ (ms|毫秒)", "", text)
