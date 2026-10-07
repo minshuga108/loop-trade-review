@@ -53,7 +53,7 @@ LABEL = "Public Hyperliquid wallet, hand-picked, illustrative. Not a Bitget user
 LABEL_BITGET = ("Real Bitget futures export (website CSV) published publicly by its owner (GPL-3.0 data, a trading bot's account, not the owner's). "
                 "This export format omits opening fees, so net results overstate by them.")
 LABEL_JOURNAL = ("Real Bitget futures positions from a public MPL-2.0 journal, pseudonymised; 53 verified trades, "
-                 "below the 150 where tests have decent power; consent pending")
+                 "below the 150 where tests have decent power; used under its MPL-2.0 licence, author not contacted")
 LABEL_IMPORT = "Your own import, parsed in this session only and not stored."
 LABEL_PLANTED = "SIMULATED trader, built on purpose with a costly habit to show what an accepted rule looks like. Not a real person."
 

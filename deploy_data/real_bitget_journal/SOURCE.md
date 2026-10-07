@@ -9,4 +9,4 @@
 - Modification: only the 53 rows that carry real exchange fields (pnl, fees, funding, timestamps) are kept,
   and only the fields needed to compute round trips. Free-text notes (entry reasons, reviews/remarks),
   the summary row and the 47 hand-typed rows are removed.
-- Consent: email to the author pending. Shown as an optional demo (LOOP_ENABLE_JOURNAL=1), off by default.
+- Consent: the author has not been contacted. The file is used under its MPL-2.0 licence (attribution kept, modifications stated above). Shown as an optional demo (LOOP_ENABLE_JOURNAL=1), off by default.

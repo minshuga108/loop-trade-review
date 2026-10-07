@@ -330,7 +330,7 @@ ZH_PATTERNS.unshift(
   [/^No Bitget skill answered at (.*)\.$/, "没有 Bitget 技能在 $1 作出回答。"],
   [/^Daily RSI\(14\) on (\S+) was ([\d.]+) on the trade day: (overbought zone \(above 70\)|oversold zone \(below 30\)|neutral zone)(; that daily candle was still open when fetched)?\.?( context, not evidence)?$/,
     (m, sym, v, z, open, ctx) => `${sym} 的日线 RSI(14) 在交易当天是 ${v}：` + ({ "neutral zone": "中性区", "overbought zone (above 70)": "超买区（高于 70）", "oversold zone (below 30)": "超卖区（低于 30）" })[z] + (open ? "；当时那根日线还没收盘" : "") + "。" + (ctx ? "背景信息，不是证据" : "")],
-  [/^Real Bitget futures positions from a public MPL-2\.0 journal, pseudonymised; (\d+) verified trades, below the (\d+) where tests have decent power; consent pending$/, "来自公开 MPL-2.0 日志的真实 Bitget 合约仓位，已做化名处理；$1 笔已核验交易，低于检验力较足的 $2 笔；授权待确认"],
+  [/^Real Bitget futures positions from a public MPL-2\.0 journal, pseudonymised; (\d+) verified trades, below the (\d+) where tests have decent power; used under its MPL-2.0 licence, author not contacted$/, "来自公开 MPL-2.0 日志的真实 Bitget 合约仓位，已做化名处理；$1 笔已核验交易，低于检验力较足的 $2 笔；按其 MPL-2.0 许可使用，未联系作者"],
   [/^closed positions, (\d+) round trips$/, "已平仓位，$1 个完整交易"],
   [/^(\d+) of (\d+)$/, "$1 / $2"],
   [/^Replay: the thesis is rebuilt from the first 70% of this trader's own history and scored on the held-back last 30%\. Deterministic demo, not live\.$/, "回放：论点由这位交易者自己历史的前 70% 重建，并在留出的最后 30% 上评分。这是确定性的演示，不是实时的。"],
