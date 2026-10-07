@@ -358,7 +358,7 @@ function drawChart(t) {
   $("#rk").addEventListener("change", (e) => { ruleKey = e.target.value; select(current); });
 }
 function render(r, t) {
-  $("#strip").innerHTML = `<span class="chip prov"><span class="dot" aria-hidden="true"></span>${esc(PROV[r.trader.provenance] || r.trader.provenance)}</span><span class="chip">${r.ledger.fills ? r.ledger.fills.toLocaleString() + " fills → " + r.ledger.orders.toLocaleString() + " orders → " : "simulated, "}${num(r.ledger.round_trips)} round trips</span><span class="chip">${esc(r.trader.label)}</span>`;
+  $("#strip").innerHTML = `<span class="chip prov"><span class="dot" aria-hidden="true"></span>${esc(PROV[r.trader.provenance] || r.trader.provenance)}</span><span class="chip">${r.ledger.fills ? r.ledger.fills.toLocaleString() + " fills → " + r.ledger.orders.toLocaleString() + " orders → " : (r.trader.provenance === "SIM_PLANTED" ? "simulated, " : "closed positions, ")}${num(r.ledger.round_trips)} round trips</span><span class="chip">${esc(r.trader.label)}</span>`;
   const f = r.findings.map((x) => `<tr><td>${esc(detName[x.detector] || x.detector)}</td><td>${badge(x.status)}</td>
       <td class="n">${x.ratio == null ? "–" : x.ratio.toFixed(2) + "×"}</td><td class="n">${x.ci ? "[" + x.ci[0].toFixed(2) + ", " + x.ci[1].toFixed(2) + "]" : "–"}</td>
       <td class="n">${x.p == null ? "–" : x.p.toFixed(3)}</td><td class="n">${x.p_adj == null ? "–" : x.p_adj.toFixed(3)}</td><td class="n">${num(x.n_a)} / ${num(x.n_b)}</td></tr>`).join("");

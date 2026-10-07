@@ -262,7 +262,7 @@ def gate_context(symbol: str | None) -> dict:
 # ------------------------------------------------------------------ chat
 _MARKET = re.compile(r"(funding|open interest|\boi\b|spread|volatil|long.?short|资金费|持仓量|未平仓|点差|价差|波动|多空比)", re.I)
 _OWN = re.compile(r"\b(my|mine|i paid|did i|i lost)\b|我的|我付|我交易", re.I)
-_COIN = re.compile(r"\b(BTC|ETH|SOL|XRP|DOGE|BNB|ADA|AVAX|LINK|HYPE|SUI|LTC|TRX|TON|NVDA|TSLA|AAPL|MSTR|SPY|QQQ)\b", re.I)
+_COIN = re.compile(r"(?<![A-Za-z])(BTC|ETH|SOL|XRP|DOGE|BNB|ADA|AVAX|LINK|HYPE|SUI|LTC|TRX|TON|NVDA|TSLA|AAPL|MSTR|SPY|QQQ)(?![A-Za-z])", re.I)       # not \b: a CJK character is a word character, so "BTC现在" has no boundary
 
 
 def is_market_question(message: str) -> bool:

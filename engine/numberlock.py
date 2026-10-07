@@ -15,6 +15,11 @@ SCALE = re.compile(r"(?:[eE]([-+]?\d{1,3})(?![\w.])|([kKmMbB])(?![A-Za-z])|(千|
 _MULT = {"k": 1e3, "m": 1e6, "b": 1e9, "千": 1e3, "万": 1e4, "亿": 1e8}
 
 
+# Fixed policy constants quoted by provenance labels (service.LABEL_JOURNAL: "below the 150 where tests have decent
+# power"). They are thresholds, not computed results, so label text may carry them.
+LABEL_CONSTANTS = (150.0,)
+
+
 class NumberLockError(ValueError):
     pass
 

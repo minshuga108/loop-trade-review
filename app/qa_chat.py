@@ -186,7 +186,8 @@ def answer_qa(trader_id: str, message: str, sid: str = "default", previous_plan:
                 steps.append({"name": f"Qwen planner timed out after {QWEN_TIMEOUT_S:g} s: deterministic answer used", "ms": round((time.perf_counter() - t1) * 1000, 1)})
                 llm_note = f"Qwen was slow (over {QWEN_TIMEOUT_S:g} s), so the deterministic parser answered"
             else:
-                steps.append({"name": "Qwen planner (schema-validated)", "ms": round((time.perf_counter() - t1) * 1000, 1)})
+                steps.append({"name": (f"Qwen planner ({llm.model_name()}, schema-validated)" if raw is not None else
+                                       f"Qwen planner ({llm.model_name()}) returned nothing usable: deterministic answer used"), "ms": round((time.perf_counter() - t1) * 1000, 1)})
             if pr.kind == "none" and (raw is None or (isinstance(raw, dict) and raw.get(NOT_DATA))):
                 return None
             if raw is not None and not (isinstance(raw, dict) and raw.get(NOT_DATA)):

@@ -188,10 +188,16 @@ def render(facts: dict) -> dict:
     else:
         en.append("Rule to arm: none. The court accepted no cap on this history, so nothing is recommended.")
         zh.append("建议启用的规则：无。法庭没有通过任何上限，所以不推荐。")
-    en.append(f"What would change this: confirmed if at least {ch['trips_needed']} more trips (with at least {ch['min_new_after_loss']} after a loss) show the same after-loss sizing and the cap would still have saved money; "
-              f"killed if the sizing pattern disappears or the cap would not have saved money.")
-    zh.append(f"什么会改变这个结论：再来至少 {ch['trips_needed']} 笔交易（其中至少 {ch['min_new_after_loss']} 笔在亏损之后）仍显示同样的亏损后仓位，且上限仍能省钱，则被证实；"
-              f"如果这个仓位模式消失，或上限没有省钱，则被推翻。")
+    if ch["trips_needed"] > 0:
+        en.append(f"What would change this: confirmed if at least {ch['trips_needed']} more trips (with at least {ch['min_new_after_loss']} after a loss) show the same after-loss sizing and the cap would still have saved money; "
+                  f"killed if the sizing pattern disappears or the cap would not have saved money.")
+        zh.append(f"什么会改变这个结论：再来至少 {ch['trips_needed']} 笔交易（其中至少 {ch['min_new_after_loss']} 笔在亏损之后）仍显示同样的亏损后仓位，且上限仍能省钱，则被证实；"
+                  f"如果这个仓位模式消失，或上限没有省钱，则被推翻。")
+    else:       # enough unseen trades already; what is missing is trades after a loss that the cap touches (never print "at least 0 more")
+        en.append(f"What would change this: confirmed if at least {ch['min_new_after_loss']} more trips after a loss show the same after-loss sizing and the cap would still have saved money; "
+                  f"killed if the sizing pattern disappears or the cap would not have saved money.")
+        zh.append(f"什么会改变这个结论：再来至少 {ch['min_new_after_loss']} 笔亏损之后的交易仍显示同样的亏损后仓位，且上限仍能省钱，则被证实；"
+                  f"如果这个仓位模式消失，或上限没有省钱，则被推翻。")
     return {"en": en, "zh": zh}
 
 

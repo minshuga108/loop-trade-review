@@ -21,6 +21,16 @@
       revenge: ["报复性再进场：标记子组", "它在亏损之后的窗口内再次进场。"], open: "回到发现列表", lang: "EN",
       err: "无法加载这笔交易。", cap: "价格随时间：折线 = 已存蜡烛收盘价，圆点 = 这笔交易的成交（实心 = 开仓，空心 = 平仓）。" },
   };
+  // server notes are English; the 中文 view maps the fixed sentences (numbers and symbols are carried through)
+  const noteZh = (s) => {
+    if (lang !== "zh" || !s) return s || "";
+    let m;
+    if (s.startsWith("This trader has no fill records (simulated")) return "这位交易者没有成交记录（只有模拟的完整交易），所以无法逐笔回放。";
+    if (s.startsWith("This trader has no fill records: the real journal")) return "这位交易者没有成交记录：真实日志给出的是每个已平仓位（进场、离场、结果），而不是逐笔成交，所以无法逐笔回放。";
+    if ((m = s.match(/^No candles for (.*) are stored offline/))) return "离线没有存储 " + m[1] + " 的K线，所以不画价格路径，也不计算最大不利/有利波动。不联网获取，也不猜测。";
+    if (s.startsWith("MAE and MFE are approximate")) return "最大不利/有利波动是近似值：取自K线的最高价和最低价，可能包含交易时间窗口之外的价格。";
+    return s;
+  };
   const nf = (x, d = 2) => (x == null || x !== x ? "–" : Number(x).toLocaleString("en-US", { maximumFractionDigits: d }));
   const sg = (x) => (x == null ? "–" : (x >= 0 ? "+" : "-") + nf(Math.abs(x)));
   const ut = (ms) => (ms == null ? "–" : new Date(ms).toISOString().slice(0, 16).replace("T", " "));
@@ -31,7 +41,7 @@
     const candle = (j.candles ? j.candles.rows.map((c) => [c[0], c[4]]) : []);
     const dots = j.fills.map((f) => [f.t_ms, f.price, f.is_open]);
     const pts = candle.concat(dots.map((d) => [d[0], d[1]]));
-    if (pts.length < 1) return `<p class="tag">${esc(j.candles_note || "")}</p>`;
+    if (pts.length < 1) return `<p class="tag">${esc(noteZh(j.candles_note))}</p>`;
     let x0 = Math.min(...pts.map((p) => p[0])), x1 = Math.max(...pts.map((p) => p[0])), y0 = Math.min(...pts.map((p) => p[1])), y1 = Math.max(...pts.map((p) => p[1]));
     if (x1 === x0) { x0 -= 6e4; x1 += 6e4; }
     if (y1 === y0) { y0 *= 0.999; y1 *= 1.001; }
@@ -40,7 +50,7 @@
     const ds = dots.map((d) => `<circle cx="${X(d[0]).toFixed(1)}" cy="${Y(d[1]).toFixed(1)}" r="6" fill="${d[2] ? "var(--ink)" : "var(--surface)"}" stroke="var(--ink)" stroke-width="2"><title>${d[2] ? L.op : L.cl} ${nf(d[1], 6)} ${ut(d[0])}</title></circle>`).join("");
     const ticks = [y0, (y0 + y1) / 2, y1].map((v) => `<text x="${pl - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${nf(v, 4)}</text><line x1="${pl}" x2="${W - pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/>`).join("");
     const xt = `<text x="${pl}" y="${H - 8}" font-size="11" fill="var(--muted)">${ut(x0)}</text><text x="${W - pr}" y="${H - 8}" text-anchor="end" font-size="11" fill="var(--muted)">${ut(x1)}</text>`;
-    return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(L.cap)}">${ticks}${xt}${line}${ds}</svg><p class="tag">${esc(L.cap)}</p><p class="tag">${esc(j.candles_note || "")}</p>` +
+    return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(L.cap)}">${ticks}${xt}${line}${ds}</svg><p class="tag">${esc(L.cap)}</p><p class="tag">${esc(noteZh(j.candles_note))}</p>` +
       (j.mae_frac != null ? `<p class="tag">MAE ${(100 * j.mae_frac).toFixed(2)}% · MFE ${(100 * j.mfe_frac).toFixed(2)}%</p>` : "");
   }
 
@@ -55,7 +65,7 @@
     const tags = t.tags.filter((g) => T.en[g]);
     const fnd = tags.length ? "<ul class=\"find\">" + tags.map((g) => `<li><b>${esc(L[g][0])}</b><br><span class="tag">${esc(L[g][1])}</span><br><a href="/#cards">${esc(L.open)}</a></li>`).join("") + "</ul>" : `<p class="tag">${esc(L.none)}</p>`;
     const rows = j.fills.map((f) => `<tr><td class="n">${ut(f.t_ms)}</td><td>${esc(f.side)}</td><td>${f.is_open ? L.op : L.cl}</td><td class="n">${nf(f.price, 6)}</td><td class="n">${nf(f.size, 4)}</td><td class="n">${nf(f.notional)}</td><td class="n">${nf(f.fee, 4)}</td><td class="n ${f.realized_pnl > 0 ? "pos" : f.realized_pnl < 0 ? "neg" : ""}">${sg(f.realized_pnl)}</td></tr>`).join("");
-    $("#main").innerHTML = `<h1>${esc(L.title)} ${esc(t.symbol)} <span class="tag">#${idx} · ${esc(t.provenance)}</span></h1>
+    $("#main").innerHTML = `<h1>${esc(L.title)} ${esc(t.symbol)} <span class="tag">#${idx} · ${esc(lang === "zh" ? ({ REAL_PLATFORM_PUBLIC: "真实公开数据", SIM_PLANTED: "模拟数据", REAL_OWN: "你自己的数据" }[t.provenance] || t.provenance) : t.provenance)}</span></h1>
       <section class="card" aria-label="facts"><div class="facts">
         <div class="fact"><span>${L.net}</span><b class="${t.net_pnl > 0 ? "pos" : t.net_pnl < 0 ? "neg" : ""}">${sg(t.net_pnl)}</b></div>
         <div class="fact"><span>${L.fees}</span><b>${fees == null ? "–" : nf(fees, 4)}</b></div>
@@ -66,7 +76,7 @@
         <div class="fact"><span>${L.closed}</span><b style="font-size:14px">${ut(t.t_close_ms)}</b></div></div></section>
       <section class="card"><h2>${L.chart}</h2>${chart(j, L)}</section>
       <section class="card"><h2>${L.find}</h2>${fnd}</section>
-      <section class="card scroll"><h2>${L.fills}</h2>${j.fills.length ? `<table><thead><tr><th scope="col">${L.time}</th><th scope="col">${L.side}</th><th scope="col"></th><th class="n" scope="col">${L.price}</th><th class="n" scope="col">${L.qty}</th><th class="n" scope="col">USD</th><th class="n" scope="col">${L.fee}</th><th class="n" scope="col">${L.real}</th></tr></thead><tbody>${rows}</tbody></table>` : `<p class="tag">${esc(j.fills_note || "")}</p>`}</section>`;
+      <section class="card scroll"><h2>${L.fills}</h2>${j.fills.length ? `<table><thead><tr><th scope="col">${L.time}</th><th scope="col">${L.side}</th><th scope="col"></th><th class="n" scope="col">${L.price}</th><th class="n" scope="col">${L.qty}</th><th class="n" scope="col">USD</th><th class="n" scope="col">${L.fee}</th><th class="n" scope="col">${L.real}</th></tr></thead><tbody>${rows}</tbody></table>` : `<p class="tag">${esc(noteZh(j.fills_note))}</p>`}</section>`;
   }
 
   async function load() {

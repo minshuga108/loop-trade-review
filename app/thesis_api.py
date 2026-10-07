@@ -51,7 +51,7 @@ def build(tid: str, sid: str = "default", day: str | None = None) -> dict:
         frozen, rec_err = [], f"record unavailable ({type(e).__name__})"
     key = T.key_of(facts)
     d = T.diff(frozen[0]["key"], key, len(frozen) + 1) if frozen else []
-    return {"trader": tid, "label": review["trader"]["label"], "provenance": review["trader"]["provenance"], "date": day,
+    return {"trader": tid, "label": review["trader"]["label"], "label_zh": review["trader"].get("label_zh") or review["trader"]["label"], "provenance": review["trader"]["provenance"], "date": day,
             "facts": facts, "text": T.render(facts), "hash": h, "key": key,
             "frozen": [{k: v for k, v in f.items() if k not in ("key", "prediction")} for f in frozen],
             "next_version": len(frozen) + 1, "diff": d, "record_error": rec_err, "read_only": True,
@@ -110,7 +110,8 @@ def score(tid: str, sid: str = "default", mode: str = "auto") -> dict:
                     "summary": T.score_lines(sc, "forward"), "live": True}
     (facts, pred), head, tail, _ = _replay_prediction(tid)
     base = {"trader": tid, "mode": "replay", "live": False, "head_trips": len(head), "tail_trips": len(tail),
-            "note": "Replay: the thesis is rebuilt from the first 70% of this trader's own history and scored on the held-back last 30%. Deterministic demo, not live."}
+            "note": "Replay: the thesis is rebuilt from the first 70% of this trader's own history and scored on the held-back last 30%. Deterministic demo, not live.",
+            "note_zh": "回放：论点由这位交易者自己历史的前 70% 重建，并在留出的最后 30% 上评分。这是确定性的演示，不是实时的。"}
     if pred is None:
         sc = {"n_new": len(tail), "n_new_after_loss": 0, "n_touched": 0, "effect": 0, "size_ratio_new": None, "size_ratio_frozen": None,
               "testable": False, "habit": "NOT_TESTABLE", "rule": "NOT_TESTABLE"}

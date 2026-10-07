@@ -11,7 +11,7 @@ from __future__ import annotations
 import re
 
 from engine import report
-from engine.numberlock import NumberLockError, verify
+from engine.numberlock import LABEL_CONSTANTS, NumberLockError, verify
 
 from . import llm, qa_chat, router, service
 
@@ -29,7 +29,19 @@ BLOCKED_Q = re.compile(r"(what|which|how many|anything|did|has|have).{0,40}\b(ga
 THESIS = re.compile(r"(\bmy (trading )?thesis\b|\bthesis\b.{0,20}\b(me|my|trader)\b|who am i as a trader|我的(交易)?论点|交易论点|我的论点)", re.I)
 IS_ADVICE = re.compile(r"(is (this|that|it) (financial |investment |trading )?advice|financial advice\?|投资建议吗|是建议吗|算建议吗)", re.I)
 ADVICE = re.compile(r"(should i (buy|sell|long|short|hold|trade)|do you think i should|what should i (buy|sell|trade)|is (it|this) a good (buy|time|trade)|该买|该卖|要不要买|要不要卖|买入还是|值得买)", re.I)
-FALSIFY = re.compile(r"(luck|lucky|by chance|disprove|prove (it )?wrong|could (this|that) be wrong|what would make (this|it|that) wrong|how sure|is it real|运气|会不会是|什么情况下.{0,4}错|可靠吗|真的吗|怎么才算错)", re.I)
+FALSIFY = re.compile(r"(luck|lucky|by chance|disprove|prove (it )?wrong|could (this|that) be wrong|what would make (this|it|that) wrong|how sure|is it real|运气|会不会是|什么情况下.{0,4}错|可靠吗|真的吗|怎么才算错|什么会让.{0,10}(错|不成立|站不住)|(什么|哪些).{0,6}(会|能|可能)?(让|使|导致).{0,10}(出错|错误|不成立)|(结论|发现|判断).{0,6}(可能)?(出错|错误|不成立)吗)", re.I)
+_SAL_LOSS = re.compile(r"\b(los(s|ses|ing|t)|streaks?|in a row|red)\b|亏|连败")
+_SAL_BIG = re.compile(r"\b(bigger|larger|heavier|increas\w*|rais\w*|up ?siz\w*|size[sd]? up|scal\w* up|doubl\w*|more)\b|加大|放大|加仓|变大|更大|翻倍|多下")
+_SAL_SIZE = re.compile(r"\b(bet\w*|siz\w*|stake\w*|position\w*|risk\w*|notional|big)\b|仓|大小|金额|下注")
+_SAL_AFTER = re.compile(r"\b(after\w*|follow\w*|then|next|later|following)\b|之后|以后|后来|接着")
+
+
+def SIZE_AFTER_LOSS(text: str) -> bool:
+    """A question about betting bigger after losses or a losing streak: it is about size after a loss, even when the word streak appears."""
+    t = text.lower()
+    return bool(_SAL_LOSS.search(t) and _SAL_BIG.search(t) and _SAL_SIZE.search(t) and _SAL_AFTER.search(t))
+
+
 DIFF = re.compile(r"(since (last|the last|my last)|what changed|changed since|compared (to|with) (last|before)|和上次|与上次|有什么变化|变化)", re.I)
 NEXT_EN = {"habit": ["What would make this wrong?", "What if I had kept rule 2?", "Check an order idea: Buy $20k rNVDA"],
            "rule": ["Which rules were tested?", "Show my checklist", "What would make this wrong?"],
@@ -144,7 +156,8 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
     if THESIS.search(message):
         return _thesis_answer(tid, sid, lang)
     prev_plan = next((h.get("plan") for h in reversed(history or []) if h.get("plan")), None)
-    if not FALSIFY.search(message) and not DIFF.search(message) and not GATE_SHAPE.search(message) and not ROUTER_FIRST.search(message):
+    sal = SIZE_AFTER_LOSS(message)
+    if not sal and not FALSIFY.search(message) and not DIFF.search(message) and not GATE_SHAPE.search(message) and not ROUTER_FIRST.search(message):
         # the model is only for a sentence neither the typed QA parser nor the intent router can place; a routable one never waits on it
         q = qa_chat.answer_qa(tid, message, sid, previous_plan=prev_plan, allow_llm=router.route_ex(message, prev)[0] == "help")
         if q is not None:
@@ -153,16 +166,21 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
     forced = None
     if FALSIFY.search(message):
         forced = "falsify"
+    elif sal:
+        forced = "habit"      # "did my losing streaks make me bet bigger": the size-after-loss test, not the longest-streak count
     elif DIFF.search(message):
         forced = "diff"
     intent, flags = router.route_ex(message, prev)
     if forced and not ({"injection", "order_request"} & set(flags)):
         intent = forced
     llm_note = llm.label()
+    qwen_step = None
     if intent == "help" and llm.enabled() and not qa_chat.timed_out():     # unclear sentence: Qwen may pick an intent, nothing more; one slow call is enough
         picked = qa_chat.with_deadline(lambda: llm.parse_intent(message, sid=sid, timeout=QWEN_TIMEOUT_S), QWEN_TIMEOUT_S + 0.4)
         if picked:
             intent = picked
+            qwen_step = {"name": (f"Qwen planner ({llm.model_name()}) mapped the question to the intent '{picked}'; it wrote no numbers" if not zh else
+                                  f"Qwen 规划器（{llm.model_name()}）把问题归到意图“{LABEL_ZH.get(picked, picked)}”；它不写任何数字"), "ms": 0.1}
     if flags and ("injection" in flags or "order_request" in flags):
         text = ("我只复盘你的交易记录，不能下单，也不能在聊天里更改规则。要启用规则请点“Arm”，我只检查想法，不执行。" if zh else
                 "I review your record. I can't place orders or change rules from chat. To arm a rule use the Arm button; I only check ideas, I never execute them.")
@@ -181,7 +199,8 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
                 shown.append({"fact": k, "value": f[k]})
 
     if intent == "habit":
-        flagged = [x for x in review["findings"] if x["status"] == "FLAGGED"]
+        fnds = [x for x in review["findings"] if x["detector"] == "size_after_loss"] if SIZE_AFTER_LOSS(message) else review["findings"]
+        flagged = [x for x in fnds if x["status"] == "FLAGGED"]
         if flagged:
             x = flagged[0]
             d = x["detector"]
@@ -194,15 +213,15 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
                 text = (f"The clearest pattern is {name}: {x['ratio']}x, range {x['ci'][0]} to {x['ci'][1]}, p={x['p']} "
                         f"(groups of {x['n_a']} and {x['n_b']} trades). I tested {review['court']['tested']} rules on unseen trades and {review['court']['accepted']} passed. "
                         f"It is a pattern in the data, not a judgement of you.")
-        elif any(x["status"] == "SUGGESTIVE" for x in review["findings"]):
-            x = next(x for x in review["findings"] if x["status"] == "SUGGESTIVE")
+        elif any(x["status"] == "SUGGESTIVE" for x in fnds):
+            x = next(x for x in fnds if x["status"] == "SUGGESTIVE")
             d = x["detector"]
             name = (report.DETECTOR_ZH if zh else report.DETECTOR_EN)[d]
             use(f"{d}.ratio", f"{d}.p", f"{d}.p_adj")
             text = (f"最接近的模式是“{name}”：{x['ratio']}倍，p={x['p']}，但校正多重检验后 p={x['p_adj']}，所以不能说它已被证实。" if zh else
                     f"The closest pattern is {name}: {x['ratio']}x, p={x['p']}, but after correcting for the several habit tests run the adjusted p is {x['p_adj']}, so I do not call it proven.")
         else:
-            under = any(x["status"] == "UNDERPOWERED" for x in review["findings"])
+            under = any(x["status"] == "UNDERPOWERED" for x in fnds)
             text = (("目前没有哪个习惯通过检验" + ("，有些检查样本还不够。" if under else "。")) if zh else
                     ("No habit passes the test right now" + (", and some checks do not have enough trades yet." if under else ".")))
     elif intent == "rule":
@@ -265,7 +284,7 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
         states = {"CHECKS_PASSED": ("检查通过", "checks passed"), "CHECKS_PASSED_WITH_NOTES": ("通过，但有提示", "passed with notes"),
                   "REVIEW_NEEDED": ("需要复核", "review needed"), "COULD_NOT_CHECK": ("无法检查", "could not check"), "BLOCKED_BY_YOUR_RULES": ("被你自己的规则拦下", "blocked by your own rules")}[g["state"]]
         size = f"{idea['notional']:,.0f} USDT" if idea.get("notional") else ("?" if not zh else "未读到")
-        head = (f"我把这个想法读作：{idea.get('side') or '?'} {idea.get('symbol') or '?'}，约 {size}。结果：{states[0]}。" if zh else
+        head = (f"我把这个想法读作：{ {'buy': '买', 'sell': '卖'}.get(idea.get('side'), '?') } {idea.get('symbol') or '?'}，约 {size}。结果：{states[0]}。" if zh else
                 f"I read this idea as {idea.get('side') or '?'} {idea.get('symbol') or '?'}, about {size}. Result: {states[1]}.")
         parts = [head] + ([gate_zh(x) for x in g["reasons"]] if zh else g["reasons"])
         cl = g.get("check_line") or {}
@@ -306,13 +325,13 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
                 "number_lock": "passed", "llm": llm_note, "chips": CHIPS_ZH if zh else CHIPS_EN}
     elif intent == "source":
         tr = review["trader"]
-        text = (f"这是{tr['label']}（来源标签 {tr['provenance']}）。页面上每个数字都是加载时由成交记录计算的。" if zh else
+        text = (f"这是{tr.get('label_zh') or tr['label']}（来源标签 {tr['provenance']}）。页面上每个数字都是加载时由成交记录计算的。" if zh else
                 f"{tr['label']} Provenance label: {tr['provenance']}. Every number on this page is computed from fills when it loads.")
     else:
         text = ("我没能读懂这个问题。我可以回答：最大的习惯是什么、某条规则如果执行会怎样、规则法庭的结果、周报，以及数据来源。" if zh else
                 "I could not parse that as a question about your record, so I computed nothing. I can answer: what the biggest habit is, what a rule would have changed, what the rule court did, a weekly review, and where the data comes from.")
     try:
-        verify(text, _facts_list(f), allow=tuple(float(i) for i in range(0, 11)))
+        verify(text, _facts_list(f), allow=tuple(float(i) for i in range(0, 11)) + (LABEL_CONSTANTS if intent == "source" else ()))
         lock = "passed"
     except NumberLockError as e:       # a number without a fact: refuse, fall back to the plain line
         text, lock = ("这个回答包含无法由计算结果支持的数字，已被拒绝。" if zh else "That answer had a number I could not back with a computed fact, so I refused it."), f"refused: {e}"
@@ -320,6 +339,7 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
             "llm": llm_note, "record_seq": gate_seq, "book_line": gate_cl, "chips": CHIPS_ZH if zh else CHIPS_EN,
             "steps": [{"name": "读取问题" if zh else "read question", "ms": 0.1},
                       {"name": f"载入 {review['summary']['n_trips']} 个完整交易" if zh else f"loaded {review['summary']['n_trips']} round trips", "ms": round((_t.perf_counter() - t0) * 1000, 1)},
+                      *([qwen_step] if qwen_step else []),
                       {"name": f"数字锁：每个数字都有依据（{"通过" if lock == "passed" else lock}）" if zh else f"number-lock: every number backed ({lock})", "ms": 0.1}]}
 
 

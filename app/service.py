@@ -175,6 +175,20 @@ def _prov(meta, fills) -> str:
     return "SIM_PLANTED" if meta["file"] is None else fills[0].provenance.value
 
 
+LABEL_ZH = {
+    LABEL: "公开的 Hyperliquid 钱包，人工挑选，仅作示例。不是 Bitget 用户，也不是所有者的账户。",
+    LABEL_BITGET: "真实的 Bitget 合约导出文件（网站 CSV），由其所有者公开发布（GPL-3.0 数据，一个交易机器人的账户，不是本项目所有者的账户）。这种导出格式不含开仓手续费，所以净结果比实际偏高。",
+    LABEL_JOURNAL: "来自公开 MPL-2.0 日志的真实 Bitget 合约仓位，已做化名处理；53 笔已核验交易，低于检验力较足的 150 笔；授权待确认",
+    LABEL_IMPORT: "你自己导入的数据，只在本次会话中解析，不会保存。",
+    LABEL_PLANTED: "模拟交易者：特意设置了一个有代价的习惯，用来展示被接受的规则是什么样。不是真人。",
+}
+
+
+def label_zh(label: str) -> str:
+    """Chinese text for one of the fixed provenance labels (unknown text is returned unchanged, never guessed)."""
+    return LABEL_ZH.get(label, label)
+
+
 def _label(meta) -> str:
     if meta.get("role") == "real_bitget":
         return LABEL_BITGET
@@ -288,7 +302,7 @@ def _review_uncached(tid: str) -> dict:
     headline["plain"] = _plain(headline["finding"], headline["suggestive"], headline["priced"], headline["court"])
     return json_safe({
         "headline": headline,
-        "trader": {"id": tid, "role": meta["role"], "blurb": meta["blurb"], "label": _label(meta), "provenance": _prov(meta, fills)},
+        "trader": {"id": tid, "role": meta["role"], "blurb": meta["blurb"], "label": _label(meta), "label_zh": label_zh(_label(meta)), "provenance": _prov(meta, fills)},
         "summary": summary,
         "winrate": winrate_card,
         "fee_drag": fee_card,

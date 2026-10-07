@@ -90,7 +90,7 @@ const ZH_PATTERNS = [
   [/^Bitget context \(not evidence\)$/, "Bitget 背景信息（不是证据）"],
   [/^Bitget context$/, "Bitget 背景信息"],
   [/^Read: (\S+) (\S+) (.*?); last trade (was a loss|was not a loss)\.$/, (m, a, b, c, d) => "读到：" + (a === "buy" ? "买入" : a === "sell" ? "卖出" : a) + " " + b + " " + c.replace("(no size found)", "（没读到大小）") + "；上一笔" + (d === "was a loss" ? "是亏损" : "不是亏损") + "。"],
-  [/^(\S+) (REAL_\w+|SIM_\w+|REPLAY_\w+); book (\d+) s old(.*)$/, "$1 $2；订单簿是 $3 秒前的$4"],
+  [/^(\S+) (REAL_\w+|SIM_\w+|REPLAY_\w+); book (\d+) s old(.*)$/, (m, a1, a2, a3, a4) => `${a1} ${a2}；订单簿是 ${a3} 秒前的` + (a4.replace(/^[.\s]+/, "") ? "。" + zhParts(a4.replace(/^[.\s]+/, "")) : "")],
   [/^This checks an idea against your own rules\. It does not place, preview or route any order\.$/, "这里只是对照你自己的规则检查一个想法，不会下单、预览或路由任何订单。"],
   [/^I could not read an order size, so size rules were not checked\.$/, "我没读到下单大小，所以没有检查大小规则。"],
   [/^I could not read a symbol or an order size from that, so nothing was checked\. Try: (.*)$/, "我没读到品种或下单大小，所以什么都没检查。试试：$1"],
@@ -104,7 +104,7 @@ const ZH_PATTERNS = [
   [/^not enough trades yet: (.*)$/, "交易还不够：$1"],
   [/^Every number on this page is computed from fills when you load it.*$/, "页面上每个数字都是加载时由成交记录计算的，没有手填的。被标出的习惯是数据里的模式，不是对人的评价。规则在它没学过的交易上测试；“样本不足”意味着诚实的答案是“交易还不够”。"],
   [/^Rule court: (\d+) rules proposed, (\d+) tested, (\d+) accepted$/, "规则法庭：提出 $1 条，测试 $2 条，通过 $3 条"],
-  [/^Rule court: (\d+) proposed, (\d+) tested, (\d+) accepted on unseen trades\. (.*)$/, (m, a, b, c, d) => "规则法庭：提出 " + a + " 条，测试 " + b + " 条，在没见过的交易上通过 " + c + " 条。" + (TAIL[d] || d)],
+  [/^Rule court: (\d+) proposed, (\d+) tested, (\d+) accepted on unseen trades\. (.*)$/, (m, a, b, c, d) => "规则法庭：提出 " + a + " 条，测试 " + b + " 条，在没见过的交易上通过 " + c + " 条。" + (TAIL[d] || zhCore(d.trim()) || d)],
   [/^A rule that passed is waiting for you to arm it, below\.$/, "有一条通过的规则在下方等你启用。"], [/^No rule has earned arming yet\.$/, "目前没有规则值得启用。"],
   [/^: ([\d.]+)x, range ([\d.]+) to ([\d.]+) \(p=([\d.]+)\)\. Capping size at 1\.5x your median would have changed$/, "：$1 倍，范围 $2 到 $3（p=$4）。把开仓大小限制在你中位数的 1.5 倍，会让结果变化"],
   [/^over this whole history \(range (.*) to (.*)\) and$/, "（整段历史，范围 $1 到 $2），在规则没见过的交易上变化"],
@@ -125,7 +125,7 @@ const ZH_PATTERNS = [
   [/^held-out effect is not positive$/, "未见交易上的效果不是正的"],
   [/^(\d+) fills → (\d+) orders → (\d+) round trips$/, "$1 笔成交 → $2 笔订单 → $3 个完整交易"],
   [/^simulated, (\d+) round trips$/, "模拟数据，$1 个完整交易"],
-  [/^(\d+) rules proposed so far \(every proposal counts\) · event log (.*) · (\d+) events$/, "目前已提出 $1 条规则（每个提案都计数）· 事件日志 $2 · $3 个事件"],
+  [/^(\d+) rules proposed so far \(every proposal counts\) · event log (.*) · (\d+) events$/, (m, n1, lg, n3) => `目前已提出 ${n1} 条规则（每个提案都计数）· 事件日志 ${lg.replace("intact (hash-chained)", "完整（哈希链）").replace("BROKEN", "已损坏")} · ${n3} 个事件`],
   [/^Public Hyperliquid wallet, hand-picked, illustrative\. Not a Bitget user and not the owner's account\.$/, "公开的 Hyperliquid 钱包，人工挑选，仅作示意。不是 Bitget 用户，也不是所有者的账户。"],
   [/^SIMULATED trader, built on purpose with a costly habit to show what an accepted rule looks like\. Not a real person\.$/, "模拟交易者：特意设置了一个有代价的习惯，用来展示通过的规则长什么样。不是真人。"],
   [/^Wallet ([A-Z])$/, "钱包 $1"], [/^ · control$/, " · 对照组"], [/^(.*) · (\d+) trips$/, (m, a, n) => (BLURB[a] || a) + " · " + n + " 笔交易"],
@@ -133,7 +133,7 @@ const ZH_PATTERNS = [
   [/^Suggestive size pattern, not proven$/, "有提示但未证实的仓位模式"], [/^Long, steady history$/, "长期、稳定的历史"], [/^No size or hold habit found$/, "没发现仓位或持仓习惯"],
   [/^SIMULATED trader built to have a costly habit: shows the court's accept path$/, "模拟交易者：特意设置有代价的习惯，用来展示法庭的“通过”路径"],
   [/^Interpreted as: (.*)$/, "理解为：$1"], [/^Numbers locked: every number comes from a computed fact$/, "数字已锁定：每个数字都来自计算出的事实"],
-  [/^Language model: (.*)$/, "语言模型：$1"], [/^on the trades it was built from \((\d+) trips skipped\)$/, "在用来建立规则的交易上（跳过 $1 笔）"],
+  [/^Language model: (.*)$/, (m, x) => "语言模型：" + (zhCore(x.trim()) || x)], [/^on the trades it was built from \((\d+) trips skipped\)$/, "在用来建立规则的交易上（跳过 $1 笔）"],
   [/^from \((\d+) trips skipped\)$/, "（跳过 $1 笔）"],
 ];
 const BLURB = {
@@ -283,3 +283,52 @@ Object.assign(ZH_EXACT, {
   "Daily runs (frozen predictions)": "每日运行（冻结的预测）",
   "Chasing a big prior move": "大幅波动之后顺势追单", "Trading stock perps outside US cash-session hours": "美股常规交易时段之外交易股票永续", "Adding at a worse price (averaging down)": "在更差的价格上加仓（摊平）",
 });
+// CRIT27 (appended): English that stayed in 中文 on the gate, rulebook, proof, trade and thesis views. Numbers are carried through, never changed.
+function zhParts(t) {
+  return t.split(/(?<=[.;])\s+/).map((x) => { const z = zhCore(x.trim()); return z === null ? x : z; }).join(" ");
+}
+const _RB_STATE_ZH = { ACCEPTED: "通过", QUARANTINED: "已隔离（未通过）", UNDERPOWERED: "样本不足", REJECTED: "未通过" };
+function rbReasonZh(r) {
+  let m;
+  if ((m = r.match(/^out-of-sample effect is positive and p=([\d.]+) is below the trial-adjusted threshold ([\d.]+)$/))) return `未见交易上的效果为正，p=${m[1]} 低于按尝试次数校正后的阈值 ${m[2]}`;
+  if (r === "out-of-sample effect is not positive") return "未见交易上的效果不是正的";
+  const z = zhCore(r); return z === null ? r : z;
+}
+Object.assign(ZH_EXACT, {
+  "REAL_PLATFORM_PUBLIC": "真实公开数据（REAL_PLATFORM_PUBLIC）", "SIM_PLANTED": "模拟数据（SIM_PLANTED）", "SIM_PAPER": "模拟盘（SIM_PAPER）",
+  "REPLAY": "回放（REPLAY）", "SANDBOX": "沙盒（SANDBOX）", "REPLAY_NATIVE": "录制的 Bitget 订单簿（REPLAY_NATIVE）", "REAL_OWN": "你自己的数据（REAL_OWN）",
+  "SANDBOX · SIM_PAPER": "沙盒 · 模拟盘", "WOULD_PASS": "会通过", "WOULD_NOT_PASS": "不会通过", "context, not evidence": "背景信息，不是证据",
+  "no recent book for that symbol, or no order size was read": "没有该品种的最新订单簿，或没有读到下单金额",
+  "No Bitget skill has been asked yet (the background pass has not run).": "还没有向 Bitget 技能发起过查询（后台轮询尚未运行）。",
+  "Real Bitget futures positions from a public journal (53 verified trades, underpowered)": "来自公开日志的真实 Bitget 合约仓位（53 笔已核验交易，样本偏少）",
+  "Demo video": "演示视频", "Watch the 3-minute demo video": "观看 3 分钟演示视频", "(silent, captioned, with transcript).": "（无声，带字幕和文字稿）。",
+  "Development set: the router was written against it.": "开发集：路由器就是对着它写的。",
+  "Written by the router's own author: shares its vocabulary, so it flatters it.": "由路由器作者本人撰写：用词相同，所以分数偏高。",
+  "A different author. Blind on its first scoring only; the router was then fixed using its misses.": "另一位作者。只有第一次评分是盲测；之后路由器根据它的失误做了修正。",
+  "A second different author. Blind on its first scoring only; targeted Chinese patterns were added afterwards.": "第二位不同的作者。只有第一次评分是盲测；之后针对性地加入了中文句式。",
+  "A set is blind only on its first scoring. Once the router was changed using a set's misses it is labelled tuned and its score is not an estimate for new questions.": "一组题只有在第一次评分时才是盲测。路由器一旦根据某组题的失误改过，这组题就标为“已调优”，它的分数不再是对新问题的估计。",
+  "For the first two situations \"Accepted\" is the wrong-acceptance rate (lower is better); for the third it is power (higher is better). Power is low on short histories.": "前两种情形里“通过”是误通过率（越低越好）；第三种里它是检验力（越高越好）。历史较短时检验力很低。",
+  "Read the \"nothing there\" rows as wrong acceptance and the \"real leak\" rows as power. On these simulated traders a plain p-value test finds a real leak more often than the court does, so the court pays for its caution in power; the check that only asks whether the cap would have saved money accepts about half of everything. Nobody else's method is run or named here.": "“没有问题”那几行看作误通过率，“真实亏损”那几行看作检验力。在这些模拟交易者上，普通的 p 值检验比法庭更常发现真实的亏损，所以法庭的谨慎是用检验力换来的；只问“设上限是否省钱”的检查会通过大约一半的情形。这里没有运行也没有点名别人的方法。",
+});
+ZH_PATTERNS.unshift(
+  [/^(\d+) simulated traders per cell, per-rule bar ([\d.]+)%\. Source: (.*)\.$/, "每个格子 $1 个模拟交易者，每条规则的门槛 $2%。来源：$3。"],
+  [/^(\d+) public wallets\. REAL_PLATFORM_PUBLIC: Hyperliquid on-chain fills via the public info API; ids are ordinal$/, "$1 个公开钱包。REAL_PLATFORM_PUBLIC：通过公开 info 接口取得的 Hyperliquid 链上成交；编号只是顺序编号"],
+  [/^(\d+) wallet\(s\) with any accepted rule; about ([\d.]+) expected by chance at most if no wallet leaked\.$/, "$1 个钱包有被接受的规则；如果没有钱包存在亏损，按运气最多预期约 $2 个。"],
+  [/^Planted traders from engine\/suite\.py \(stationary cells, (\d+) trips, same seeds as scripts\/run_suite\.py\)\. Naive checks use the whole history with no held-out data and no trial correction\. Court numbers are copied from (.*) \(cap rule, walk-forward court, threshold (.*) per rule\)\.$/, "engine/suite.py 里的植入型交易者（平稳场景，$1 笔交易，种子与 scripts/run_suite.py 相同）。朴素检查使用全部历史，没有留出数据，也没有试验次数校正。法庭的数字抄自 $2（上限规则、滚动前向法庭、每条规则阈值 $3）。"],
+  [/^stationary (\d+)% (null|costless habit|costly leak)$/, (m, k, w) => `平稳 ${k}% ` + ({ "null": "没有问题", "costless habit": "无代价的习惯", "costly leak": "有代价的亏损" })[w]],
+  [/^#(\d+) · (REAL_\w+|SIM_\w+|REPLAY_\w+)$/, (m, n, t) => `#${n} · ` + (ZH_EXACT[t] || t)],
+  [/^(ACCEPTED|QUARANTINED|UNDERPOWERED): (.*)$/, (m, st, r) => `${_RB_STATE_ZH[st]}：` + rbReasonZh(r.replace(/ · evidence ([0-9a-f]+)$/, " · 证据 $1"))],
+  [/^(out-of-sample .*) · evidence ([0-9a-f]+)$/, (m, r, h) => rbReasonZh(r) + " · 证据 " + h],
+  [/^v(\d+) · cap opening size at ([\d.]+)x your median after a loss$/, "v$1 · 亏损后开仓大小上限为你中位数的 $2 倍"],
+  [/^out-of-sample effect is positive and p=([\d.]+) is below the trial-adjusted threshold ([\d.]+)$/, "未见交易上的效果为正，p=$1 低于按尝试次数校正后的阈值 $2"],
+  [/^No Bitget skill answered at (.*)\.$/, "没有 Bitget 技能在 $1 作出回答。"],
+  [/^Daily RSI\(14\) on (\S+) was ([\d.]+) on the trade day: (overbought zone \(above 70\)|oversold zone \(below 30\)|neutral zone)(; that daily candle was still open when fetched)?\.?( context, not evidence)?$/,
+    (m, sym, v, z, open, ctx) => `${sym} 的日线 RSI(14) 在交易当天是 ${v}：` + ({ "neutral zone": "中性区", "overbought zone (above 70)": "超买区（高于 70）", "oversold zone (below 30)": "超卖区（低于 30）" })[z] + (open ? "；当时那根日线还没收盘" : "") + "。" + (ctx ? "背景信息，不是证据" : "")],
+  [/^Real Bitget futures positions from a public MPL-2\.0 journal, pseudonymised; (\d+) verified trades, below the (\d+) where tests have decent power; consent pending$/, "来自公开 MPL-2.0 日志的真实 Bitget 合约仓位，已做化名处理；$1 笔已核验交易，低于检验力较足的 $2 笔；授权待确认"],
+  [/^closed positions, (\d+) round trips$/, "已平仓位，$1 个完整交易"],
+  [/^(\d+) of (\d+)$/, "$1 / $2"],
+  [/^Replay: the thesis is rebuilt from the first 70% of this trader's own history and scored on the held-back last 30%\. Deterministic demo, not live\.$/, "回放：论点由这位交易者自己历史的前 70% 重建，并在留出的最后 30% 上评分。这是确定性的演示，不是实时的。"],
+  [/^Qwen \((.*)\) may translate an unclear question into a QueryPlan; it writes no numbers$/, "Qwen（$1）可能把不清楚的问题翻译成查询计划；它不写任何数字"],
+  [/^Qwen \((.*)\) reads unclear questions$/, "Qwen（$1）负责读懂不清楚的问题"],
+  [/^Qwen planner \((.*), schema-validated\)$/, "Qwen 规划器（$1，已按固定格式校验）"],
+);

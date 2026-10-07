@@ -169,7 +169,7 @@ async function strip() {
     const bp = s.bitget_public;
     out.push(`<span class="chip"><b>Bitget public endpoints reached: ${bp.endpoints_reached} of ${bp.endpoints_total}</b></span>`);
     out.push(`<span class="chip">book cache: ${bp.symbols_cached} of ${bp.watchlist.length} symbols · refresher ${esc(bp.refresher)}</span>`);
-    s.data.forEach((d) => out.push(`<span class="chip">${esc(d.provenance)}: ${d.shipped} of ${d.expected} shipped</span>`));
+    s.data.forEach((d) => out.push(`<span class="chip">${esc(d.provenance)}: ${d.shipped} of ${d.expected} shipped${d.aliases.length ? " (" + esc(d.aliases.join(", ")) + ")" : ""}</span>`));
     const lm = s.tools.find((t) => t.name === "Language model");
     if (lm) out.push(`<span class="chip">language model: ${esc(lm.status)}</span>`);
     sourcesCard(s);

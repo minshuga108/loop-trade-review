@@ -77,11 +77,12 @@ function similarBlock(s) {
   if (!s) return "";
   const z = GZH(), usd = (v) => (v >= 0 ? "+" : "-") + "$" + Math.abs(Math.round(v)).toLocaleString("en-US");
   const fl = s.filters, bandTxt = fl.size_band.kind === "idea_size_0.5x_to_2x" ? (z ? "金额在这笔想法的 0.5 到 2 倍" : "size 0.5x to 2x of this idea") : fl.size_band.kind === "above_1.5x_median" ? (z ? "金额高于中位数的 1.5 倍" : "size above 1.5x your median") : (z ? "任意金额" : "any size");
-  const head = z ? `相似的过往交易（${fl.symbol || "任意品种"}、${fl.side === "buy" ? "做多" : fl.side === "sell" ? "做空" : "任意方向"}、${bandTxt}${fl.after_loss ? "、亏损之后" : ""}）` :
-    `Similar past trades (${fl.symbol || "any symbol"}, ${fl.side || "any side"}, ${bandTxt}${fl.after_loss ? ", after a loss" : ""})`;
-  if (!s.n) return `<div class="chk"><b>${esc(head)}</b><small>${z ? "你的记录里没有匹配的交易。" : "None of your past round trips match."}</small></div>`;
+  const head = z ? `相似的过往交易（${fl.symbol || "任意品种"}、${fl.side === "buy" ? "做多" : fl.side === "sell" ? "做空" : "任意方向"}、${bandTxt}${fl.after_loss ? "、亏损之后" : ""}${fl.closed_market ? "、休市时" : ""}）` :
+    `Similar past trades (${fl.symbol || "any symbol"}, ${fl.side || "any side"}, ${bandTxt}${fl.after_loss ? ", after a loss" : ""}${fl.closed_market ? ", in a closed market" : ""})`;
+  const nt = (s.notes || []).map((x) => `<small class="gnote">${esc(z ? x.zh : x.en)}</small>`).join("");
+  if (!s.n) return `<div class="chk"><b>${esc(head)}</b>${nt}<small>${z ? "你的记录里没有匹配的交易。" : "None of your past round trips match."}</small></div>`;
   const rows = s.rows.map((r) => `<li><a href="/trade/${encodeURIComponent(current)}/${r.index}">${esc(new Date(r.t_open_ms).toISOString().slice(0, 10))} ${esc(r.symbol)} ${esc(r.side)} $${Math.round(r.notional).toLocaleString("en-US")}</a>: <b>${esc(usd(r.net_pnl))}</b></li>`).join("");
-  return `<details class="chk" open><summary><b>${esc(head)}</b>: ${s.n} ${z ? "笔，合计" : "trades, net"} ${esc(usd(s.net_total))}, ${s.wins} ${z ? "笔盈利" : "won"}</summary><ul>${rows}</ul><small>${esc(z ? "这些是你自己记录里的事实，不是预测，也不是建议。" : s.label)}</small></details>`;
+  return `<details class="chk" open><summary><b>${esc(head)}</b>: ${s.n} ${z ? "笔，合计" : "trades, net"} ${esc(usd(s.net_total))}, ${s.wins} ${z ? "笔盈利" : "won"}</summary>${nt}<ul>${rows}</ul><small>${esc(z ? "这些是你自己记录里的事实，不是预测，也不是建议。" : s.label)}</small></details>`;
 }
 
 function wireBook() {

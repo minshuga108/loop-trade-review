@@ -12,7 +12,7 @@ from statistics import NormalDist
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .numberlock import verify
+from .numberlock import LABEL_CONSTANTS, verify
 
 SNAP = Path(__file__).resolve().parents[1] / "data" / "snapshots"
 DETECTOR_EN = {"size_after_loss": "opening size after a loss", "hold_asymmetry": "holding losers longer than winners",
@@ -81,8 +81,9 @@ def build(review: dict, previous: dict | None = None, lang: str = "en") -> dict:
     flagged = [x for x in review["findings"] if x["status"] == "FLAGGED"]
     lines: list[str] = []
     zh = lang == "zh"
-    lines.append(f"# {'复盘报告' if zh else 'Weekly review'}: wallet {review['trader']['id']}")
-    lines.append(f"_{review['trader']['label']} ({review['trader']['provenance']})_")
+    lines.append(f"# {'复盘报告：钱包' if zh else 'Weekly review: wallet'} {review['trader']['id']}")
+    _tr = review["trader"]
+    lines.append(f"_{(_tr.get('label_zh') or _tr['label']) if zh else _tr['label']} ({_tr['provenance']})_")
     lines.append("")
     lines.append(f"## 1. {'发生了什么' if zh else 'What happened'}")
     if zh:
@@ -168,7 +169,7 @@ def build(review: dict, previous: dict | None = None, lang: str = "en") -> dict:
     import re
     checked = re.sub(r"\d{4}-\d{2}-\d{2}", "", text)          # dates are not claims
     prev_vals = list((previous or {}).get("facts", {}).values())          # old values quoted in the diff are facts too
-    verify(checked, list(f.values()) + prev_vals, allow=tuple(float(i) for i in range(0, 11)) + (30.0, 10.0, 1.5, 2.0, 3.0))
+    verify(checked, list(f.values()) + prev_vals, allow=tuple(float(i) for i in range(0, 11)) + (30.0, 10.0, 1.5, 2.0, 3.0) + LABEL_CONSTANTS)
     return {"markdown": text, "facts": f, "lang": lang}
 
 

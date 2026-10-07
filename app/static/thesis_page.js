@@ -11,8 +11,8 @@ fetch("/api/thesis/"+encodeURIComponent(id),{headers:H}).then(r=>r.ok?r.json():P
    (t.diff.length?`<ul>${t.diff.map(d=>`<li class="d">${both(d.en,d.zh)}</li>`).join("")}</ul>`:"")+
    `<p class="tag">${both("Thesis hash","论点哈希")} <code>${E(t.hash)}</code> · ${E(t.date)}</p>`+
    (t.frozen.length?`<p class="tag">${both("Frozen versions in the public record","公开记录中的冻结版本")}: ${t.frozen.map(f=>`v${f.version} <code>${E(f.hash.slice(0,16))}</code> (#${f.seq}, ${E(f.date)})`).join(" · ")}</p>`:"")+
-   `<p class="tag">${E(t.label)}</p>`;
+   `<p class="tag">${both(t.label,t.label_zh||t.label)}</p>`;
 }).catch(e=>{document.getElementById("body").textContent="Not available ("+e+")"});
 fetch("/api/thesis/"+encodeURIComponent(id)+"/score",{headers:H}).then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>{
-  document.getElementById("sc").innerHTML=`<p>${both(j.summary.en,j.summary.zh)}</p>`+(j.note?`<p class="tag">${E(j.note)}</p>`:"");
+  document.getElementById("sc").innerHTML=`<p>${both(j.summary.en,j.summary.zh)}</p>`+(j.note?`<p class="tag">${both(j.note,j.note_zh||j.note)}</p>`:"");
 }).catch(()=>{});

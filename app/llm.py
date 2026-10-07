@@ -45,6 +45,10 @@ def enabled() -> bool:
     return bool(os.environ.get("QWEN_API_KEY"))
 
 
+def model_name() -> str:
+    return os.environ.get("QWEN_MODEL", DEFAULT_MODEL)
+
+
 def label() -> str:
     return f"Qwen ({os.environ.get('QWEN_MODEL', DEFAULT_MODEL)}) reads unclear questions" if enabled() else "off (template path)"
 

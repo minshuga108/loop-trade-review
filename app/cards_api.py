@@ -73,7 +73,7 @@ def trips(tid: str, finding: str | None = Query(None, pattern="^(size_after_loss
 def trip(tid: str, index: int):
     meta, fills, orders, ts = _load(tid)
     try:
-        return _clean(replay.trip_detail(ts, fills, index))
+        return _clean(replay.trip_detail(ts, fills, index, journal=meta.get("role") == "real_journal"))
     except IndexError:
         raise HTTPException(404, "no trip with that index")
 

@@ -55,8 +55,20 @@ def sources() -> dict:
                     "age_s": round(now - last) if last else None, "symbols": sorted(hits)})
     refresher = "off (LOOP_NO_REFRESH is set)" if os.environ.get("LOOP_NO_REFRESH") else (
         "on, every %d s" % costs.REFRESH_S if costs._started else "not started")
+    def _shipped(t):
+        f = str(t["file"])
+        if f.startswith("journal:"):
+            return service.SHIPPED_JOURNAL.exists()
+        if f.startswith("bitget_csv:"):
+            return (service.SHIPPED_BITGET / f.split(":", 1)[1]).exists()
+        return (service.SHIPPED / f"wallet_{t['id']}.csv").exists() or (service.SAMPLES / f).exists()
     wallets = [t for t in service.TRADERS if t["file"]]
-    present = [t["id"] for t in wallets if (service.SHIPPED / f"wallet_{t['id']}.csv").exists() or (service.SAMPLES / t["file"]).exists()]
+    hl = [t for t in wallets if not str(t["file"]).startswith(("bitget_csv:", "journal:"))]
+    bg = [t for t in wallets if str(t["file"]).startswith("bitget_csv:")]
+    jr = [t for t in wallets if str(t["file"]).startswith("journal:")]
+    def _grp(name, ts):
+        ids = [t["id"] for t in ts if _shipped(t)]
+        return {"name": name, "provenance": "REAL_PLATFORM_PUBLIC", "shipped": len(ids), "expected": len(ts), "aliases": ids}
     return {
         "now": _iso(now),
         "bitget_public": {
@@ -71,8 +83,9 @@ def sources() -> dict:
             "note": "Read from the refresher's cache. A failed call leaves no snapshot, so 'not reached' can mean failed or not tried yet.",
         },
         "data": [
-            {"name": "Public Hyperliquid wallets, hand-picked, illustrative (aliases only, addresses withheld)",
-             "provenance": "REAL_PLATFORM_PUBLIC", "shipped": len(present), "expected": len(wallets), "aliases": present},
+            _grp("Public Hyperliquid wallets, hand-picked, illustrative (aliases only, addresses withheld)", hl),
+            *([_grp("Real Bitget futures export (public, a trading bot's account)", bg)] if bg else []),
+            *([_grp("Real Bitget journal (public, 53 verified trades)", jr)] if jr else []),
             {"name": "Simulated trader with a planted costly habit", "provenance": "SIM_PLANTED", "shipped": 1, "expected": 1, "aliases": ["F"]},
         ],
         "tools": [

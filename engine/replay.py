@@ -59,6 +59,11 @@ def trip_rows(trips: list[RoundTrip]) -> list[dict]:
              "hold_ms": t.hold_ms, "tags": tg[i], "provenance": t.provenance.value} for i, t in enumerate(ts)]
 
 
+NO_FILLS_SIM = "This trader has no fill records (simulated round trips only), so there is nothing to replay fill by fill."
+NO_FILLS_JOURNAL = ("This trader has no fill records: the real journal gives each closed position (entry, exit, result), not its individual fills, "
+                    "so there is nothing to replay fill by fill.")
+
+
 def candles_dir() -> Path:
     env = os.environ.get("LOOP_CANDLES_DIR")
     return Path(env) if env else Path(__file__).resolve().parents[1] / "data" / "candles"
@@ -74,7 +79,7 @@ def load_candles(symbol: str) -> tuple[list[list[float]], str | None]:
     return sorted([[float(x) for x in r[:5]] for r in d.get("rows", [])], key=lambda r: r[0]), str(d.get("interval_ms"))
 
 
-def trip_detail(trips: list[RoundTrip], fills: list[Fill], index: int) -> dict:
+def trip_detail(trips: list[RoundTrip], fills: list[Fill], index: int, journal: bool = False) -> dict:
     ts = ordered(trips)
     if not 0 <= index < len(ts):
         raise IndexError("no trip with that index")
@@ -83,7 +88,7 @@ def trip_detail(trips: list[RoundTrip], fills: list[Fill], index: int) -> dict:
     fl = [{"t_ms": f.t_ms, "side": f.side, "is_open": f.is_open, "price": f.price, "size": f.size,
            "notional": round(f.price * f.size, 2), "fee": f.fee, "realized_pnl": f.realized_pnl} for f in (seg or [])]
     out = {"index": index, "trip": trip_rows(trips)[index], "fills": fl,
-           "fills_note": None if seg else "This trader has no fill records (simulated round trips only), so there is nothing to replay fill by fill."}
+           "fills_note": None if seg else (NO_FILLS_JOURNAL if journal else NO_FILLS_SIM)}
     rows, interval = load_candles(t.symbol)
     inside = [r for r in rows if t.t_open_ms - (int(interval or 0)) < r[0] <= t.t_close_ms]
     if not inside:

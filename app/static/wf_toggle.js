@@ -12,9 +12,9 @@
       const j = await r.json(); if (!r.ok) { out.textContent = String(j.detail || "error"); return; }
       const a = j.in_sample, w = j.walk_forward;
       const row = (lab, x, extra) => `<tr><td>${lab}</td><td class="n">${usd(x.effect)}</td><td class="n">${x.n_affected} / ${x.n_trips}</td><td class="n">${pf(x.p)}</td><td class="n">${x.alpha}</td><td>${extra}</td></tr>`;
-      out.innerHTML = `<table><caption class="vh">In-sample versus walk-forward</caption><thead><tr><th>${both("View", "视角")}</th><th>${both("Effect", "效果")}</th><th>${both("Trades touched", "涉及的交易")}</th><th>p</th><th>${both("Bar", "门槛")}</th><th>${both("Result", "结果")}</th></tr></thead><tbody>` +
+      out.innerHTML = `<div class="scroll"><table><caption class="vh">In-sample versus walk-forward</caption><thead><tr><th>${both("View", "视角")}</th><th>${both("Effect", "效果")}</th><th>${both("Trades touched", "涉及的交易")}</th><th>p</th><th>${both("Bar", "门槛")}</th><th>${both("Result", "结果")}</th></tr></thead><tbody>` +
         row(both("In-sample: all trades, including those that surfaced the habit (labelled optimistic)", "样本内：全部交易，包括发现习惯的那些（标注为偏乐观）"), a, E(a.verdict)) +
-        row(both(`Walk-forward: unseen trades only, ${j.trials} rules counted`, `滚动前向：只用没见过的交易，已计入 ${j.trials} 条规则`), w, E(w.verdict)) + `</tbody></table>` +
+        row(both(`Walk-forward: unseen trades only, ${j.trials} rules counted`, `滚动前向：只用没见过的交易，已计入 ${j.trials} 条规则`), w, E(w.verdict)) + `</tbody></table></div>` +
         `<p class="tag">${j.in_sample_flatters ? both("In-sample flatters this rule: it looks better on the trades that surfaced the habit than on unseen ones.", "样本内高估了这条规则：在发现习惯的交易上比在没见过的交易上好看。") : both("Here in-sample does not look better than the unseen result.", "这里样本内并不比未见交易的结果更好。")}</p>`;
     } catch (e) { out.textContent = "Could not reach the server."; }
   }
