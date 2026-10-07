@@ -26,6 +26,7 @@ ORDER_NOW = re.compile(r"(put (the|that|this) trade on|place (the|an?|my) ?(orde
 ROUTER_FIRST = re.compile(r"(leak|costly habit|bad habit|worst habit|biggest habit|mistake|repeat(ing)? (the )?same|wrong with my|stopped for the day|stop trading for the day|halt|cut (the )?size|half (the )?size|size in half|cap(ped)? (my )?size|if i (had|would have|'d)|what if i|up if i|\u70e7\u94b1|\u6f0f\u94b1|\u4e8f\u94b1\u7684\u95ee\u9898|\u574f\u4e60\u60ef|\u4e00\u4e8f\u5c31|\u6536\u624b|\u51cf\u534a|\u89c4\u5219|\u6bdb\u75c5)", re.I)
 GATE_SHAPE = re.compile(r"(\b(going|go|thinking about (going|buying|selling|shorting)) (long|short)\b|sanity.?check|\u60f3.*(\u505a\u591a|\u505a\u7a7a|\u4e70|\u5356)|(\u505a\u591a|\u505a\u7a7a).{0,6}(U|\u7f8e\u5143|\u4e07|\u5343|\d)|\u5e2e\u6211\u770b\u770b|\b(check|can i|could i|may i|is it ok|ok to|should i size)\b.*\b(buy|sell|long|short|add|size)\b|^\s*(buy|sell|long|short)\s|\b(buy|sell|long|short)\s+\$?\d|检查.*(买|卖|多|空)|能不能(买|卖)|可以(买|卖)|(买入?|卖出?|做多|做空|开多|开空)\s*\$?\d[\d,.]*\s*[万千kKmM]?\s*(个|枚)?\s*[A-Za-z]{2,10})", re.I)
 BLOCKED_Q = re.compile(r"(what|which|how many|anything|did|has|have).{0,40}\b(gate|rule gate)\b.{0,30}\b(block|blocked|stop|stopped|catch|caught|refuse|refused|reject|rejected)\b|\b(gate|rule gate)\b.{0,20}\b(blocked|stopped|caught|refused)\b|(闸门|门).{0,6}(拦|挡)|拦下了什么|拦截了什么|拦住了什么", re.I)
+THESIS = re.compile(r"(\bmy (trading )?thesis\b|\bthesis\b.{0,20}\b(me|my|trader)\b|who am i as a trader|我的(交易)?论点|交易论点|我的论点)", re.I)
 IS_ADVICE = re.compile(r"(is (this|that|it) (financial |investment |trading )?advice|financial advice\?|投资建议吗|是建议吗|算建议吗)", re.I)
 ADVICE = re.compile(r"(should i (buy|sell|long|short|hold|trade)|do you think i should|what should i (buy|sell|trade)|is (it|this) a good (buy|time|trade)|该买|该卖|要不要买|要不要卖|买入还是|值得买)", re.I)
 FALSIFY = re.compile(r"(luck|lucky|by chance|disprove|prove (it )?wrong|could (this|that) be wrong|what would make (this|it|that) wrong|how sure|is it real|运气|会不会是|什么情况下.{0,4}错|可靠吗|真的吗|怎么才算错)", re.I)
@@ -135,8 +136,13 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
     if IS_ADVICE.search(message):
         text = ("不是。Loop 只复盘你自己过去的交易，并按你自己的规则检查想法；它不会告诉你该买还是该卖。" if zh else "No. Loop reviews your own past trades and checks ideas against your own rules. It does not tell you what to buy or sell.")
         return {"intent": "help", "lang": lang, "kind": "text", "text": text, "facts": [], "number_lock": "passed", "llm": llm.label(), "interpreted": "is this advice (answered)", "next": (NEXT_ZH if zh else NEXT_EN)["checklist"]}
+    from . import market_data
+    if market_data.is_market_question(message):
+        return market_data.chat_answer(message, lang)
     if BLOCKED_Q.search(message):
         return _gate_log(tid, sid, lang)
+    if THESIS.search(message):
+        return _thesis_answer(tid, sid, lang)
     prev_plan = next((h.get("plan") for h in reversed(history or []) if h.get("plan")), None)
     if not FALSIFY.search(message) and not DIFF.search(message) and not GATE_SHAPE.search(message) and not ROUTER_FIRST.search(message):
         # the model is only for a sentence neither the typed QA parser nor the intent router can place; a routable one never waits on it
@@ -317,6 +323,24 @@ def _answer(tid: str, message: str, history: list[dict] | None = None, sid: str 
                       {"name": f"数字锁：每个数字都有依据（{"通过" if lock == "passed" else lock}）" if zh else f"number-lock: every number backed ({lock})", "ms": 0.1}]}
 
 
+def _thesis_answer(tid: str, sid: str, lang: str) -> dict:
+    """'my thesis': the engine-assembled thesis text, number-locked against the thesis facts. Hash and link travel as fields, not prose."""
+    from engine import thesis as _th
+    from . import thesis_api
+    zh = lang == "zh"
+    t = thesis_api.build(tid, sid)
+    text = " ".join(t["text"]["zh" if zh else "en"])
+    shown = [{"fact": f"thesis.{k}", "value": v} for k, v in t["facts"]["habit"].items() if isinstance(v, (int, float)) and not isinstance(v, bool)][:4]
+    try:
+        verify(text, _th.numeric_facts(t["facts"]), allow=tuple(float(i) for i in range(0, 11)))
+        lock = "passed"
+    except NumberLockError:
+        text, lock = ("这个回答包含无法由计算结果支持的数字，已被拒绝。" if zh else "That answer had a number I could not back with a computed fact, so I refused it."), "refused"
+    return {"intent": "thesis", "lang": lang, "kind": "text", "text": text, "facts": shown, "number_lock": lock, "llm": llm.label(),
+            "thesis_hash": t["hash"], "link": f"/thesis/{tid}", "interpreted": "你的交易论点" if zh else "your trading thesis",
+            "next": CHIPS_ZH if zh else CHIPS_EN, "chips": CHIPS_ZH if zh else CHIPS_EN}
+
+
 # ---------------------------------------------------------------- receipt, gate log, verdict banner
 _COMPUTE_EN = {"habit": "habit detectors (tested within this trader, corrected for several tests)", "falsify": "habit detectors and rule court counts",
                "rule": "rule replay on trades the rule never saw", "court": "rule court counts", "report": "weekly report build and snapshot diff",
@@ -366,6 +390,10 @@ def receipt(out: dict, tid: str) -> dict:
     bl = out.get("book_line") or {}
     if intent == "gate" and bl.get("available") and bl.get("cost_bps") is not None:
         sources.append(("Bitget 公开订单簿（缓存 " if zh else "Bitget public order book (cached ") + f"{bl.get('cache_age_s')}" + (" 秒）" if zh else " s)"))
+    if intent == "market":
+        for pth in out.get("market_sources") or []:
+            sources.append(("Bitget 公开接口 " if zh else "Bitget public endpoint ") + pth + " (REAL_PLATFORM_PUBLIC)")
+        comps, rows = [("实时公开数据，没有使用你的记录" if zh else "live public data; your record was not used")], None
     seq = out.get("record_seq")
     if seq:
         ledger = {"seq": seq, "note": ("已写入公开记录，序号 " if zh else "written to the public record as entry #") + str(seq)}

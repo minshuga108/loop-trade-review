@@ -362,6 +362,7 @@ function render(r, t) {
   <section class="hero" aria-label="The finding and the rule chart">
     ${findingHtml(r, t)}
     <figure class="chartcard" id="hero-chart"></figure>
+    <section class="thesis" id="thesis-card" aria-label="Your trading thesis"></section>
     <section class="ask" id="ask" aria-labelledby="ask-h">
       <div class="askbar">
         <p class="eyebrow" id="ask-h"><span class="no">03</span><span>Ask about this trader</span><span class="fill"></span><span>English or 中文</span></p>
@@ -423,6 +424,7 @@ function render(r, t) {
   $("#act-court").addEventListener("click", () => { $("#rbm").value = "1.5"; $("#rbcard").scrollIntoView({ block: "start" }); $("#rbgo").click(); flash($("#rbcard")); });
   renderLog();
   wireBook();
+  if (window.loadThesis) loadThesis(r.trader.id);
 }
 function flash(el) { if (!el) return; el.classList.add("hl"); setTimeout(() => el.classList.remove("hl"), 1800); }
 

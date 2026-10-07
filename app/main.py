@@ -60,6 +60,8 @@ from .cards_api import router as cards_router; app.include_router(cards_router) 
 
 from . import home_api  # noqa: E402
 app.include_router(home_api.router)
+from . import thesis_api  # noqa: E402
+app.include_router(thesis_api.router)
 
 
 @app.get("/")

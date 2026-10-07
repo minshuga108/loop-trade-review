@@ -468,6 +468,14 @@ def gate_check(sid: str, tid: str, text: str, after_loss: bool | None = None) ->
             "note": "This checks an idea against your own rules. It does not place, preview or route any order."}
     from engine import bitget_context
     out["context"] = bitget_context.context_for(idea.symbol, time.strftime("%Y-%m-%d", time.gmtime()))
+    try:
+        from . import market_data
+        mc = market_data.gate_context(idea.symbol)
+        out["market_context"] = mc
+        if mc.get("available") and not out["context"].get("available"):
+            out["context"] = mc                      # same labelled-context slot the card already renders
+    except Exception:
+        pass
     versions = {rid: rb.entries[rid].current["version"] for rid, _ in rb.active_rules()}
     entry = record_api.log_gate_decision(sid, tid, out, versions, origin=record_api.classify_origin(sid, tid, tid in _DYN))
     out["record_seq"] = (entry or {}).get("seq")

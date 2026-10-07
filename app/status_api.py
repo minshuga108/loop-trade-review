@@ -86,6 +86,17 @@ def _market(now: float) -> dict:
                 f"{len(answering)} of {len(st['sources'])} tool paths answering, last pass {round(age)} s ago", lp)
 
 
+def _market_public(now: float) -> list[dict]:
+    from . import market_data as md
+    out = []
+    for e in md.probe_status()["endpoints"]:
+        state = "live" if e["tier"] in ("answering", "changed an answer") else "off"
+        detail = (f"{e['tier']}: {e['attempted']} tried, {e['reachable']} reached, {e['answering']} answered, {e['changed_answer']} changed an answer; "
+                  f"{md.PROVENANCE}; GET {e['path']}")
+        out.append(_src("mkt_" + e["id"], "Bitget public " + e["name"].lower(), state, detail, now))
+    return out
+
+
 def _importers(now: float) -> list[dict]:
     from adapters import bitget_uta
     from . import importer
@@ -131,7 +142,7 @@ def _chain(now: float) -> dict:
 def sources() -> dict:
     def build():
         now = time.time()
-        rows = [_book(now), _market(now), *_importers(now), _mcp(now), _qwen(now), _chain(now)]
+        rows = [_book(now), _market(now), *_market_public(now), *_importers(now), _mcp(now), _qwen(now), _chain(now)]
         return {"generated_at": _iso(now), "cache_ttl_s": 30, "sources": rows,
                 "note": "Read from caches and in-process self-checks. No network call is made when this loads."}
     return cached("sources", 30, build)
@@ -277,10 +288,15 @@ def skills() -> dict:
                         "freshness": "live" if (last.get("ok") and age is not None and age <= STALE_CALL_S) else "stale"})
         out.sort(key=lambda r: (str(r["origin"]), str(r["source"]), str(r["operation"])))
         return {"generated_at": _iso(now), "calls": out, "log_rows": len(rows), "stale_after_s": STALE_CALL_S,
-                "dry_run_ticket": DRY_RUN_TICKET,
+                "dry_run_ticket": DRY_RUN_TICKET, "public_market_probes": _public_probes(),
                 "note": "Read from the existing call log. 'live' = the last call answered within 3 hours; 'stale' = older or failed. "
                         "Nothing here was fetched when you opened the page."}
     return cached("skills", 30, build)
+
+
+def _public_probes() -> dict:
+    from . import market_data as md
+    return md.probe_status()
 
 
 DRY_RUN_TICKET = {

@@ -1,0 +1,1 @@
+Real public responses from https://api.bitget.com/api/v2/mix/market/* for BTCUSDT USDT-FUTURES, fetched 2026-10-07 (no key). Used only as recorded fixtures; tests never touch the network.

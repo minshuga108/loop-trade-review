@@ -24,7 +24,7 @@ def test_sources_strip_covers_every_source_without_secrets(monkeypatch):
     monkeypatch.setenv("QWEN_API_KEY", "sk-secret-value-123")
     d = client.get("/api/status/sources").json()
     ids = {s["id"] for s in d["sources"]}
-    assert ids == {"book", "market", "uta", "csv", "mcp", "qwen", "chain"}
+    assert {"book", "market", "uta", "csv", "mcp", "qwen", "chain"} <= ids and all(i.startswith("mkt_") for i in ids - {"book", "market", "uta", "csv", "mcp", "qwen", "chain"})
     assert all(s["state"] in ("live", "stale", "off", "broken") and s["checked_at"] for s in d["sources"])
     assert "sk-secret-value-123" not in json.dumps(d)
     assert next(s for s in d["sources"] if s["id"] == "qwen")["state"] == "live"

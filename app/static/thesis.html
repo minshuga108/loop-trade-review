@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop trading thesis</title>
+<style>
+:root{--bg:#f5f3ee;--surface:#fff;--ink:#15212b;--muted:#5d6b76;--line:#d9d5ca;--accent:#0f6b63;--warn:#9a5b00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10181f;--surface:#17222b;--ink:#e8eef2;--muted:#9aa8b2;--line:#2b3a45;--accent:#4cc3b5;--warn:#e3a94b}}
+:root[data-theme="dark"]{--bg:#10181f;--surface:#17222b;--ink:#e8eef2;--muted:#9aa8b2;--line:#2b3a45;--accent:#4cc3b5;--warn:#e3a94b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,sans-serif;padding-inline:16px}
+.wrap{max-width:820px;margin:0 auto;padding-block:18px 48px}h1{font:600 22px/1.2 Georgia,serif;margin:0 0 4px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.tag{color:var(--muted);font-size:13px}a{color:var(--accent)}code{font-size:12px;word-break:break-all}li{margin:6px 0}.d{color:var(--warn)}
+[data-l]{display:inline}html[lang="zh-CN"] [data-l="en"]{display:none}html:not([lang="zh-CN"]) [data-l="zh"]{display:none}
+button{font:inherit;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+</style>
+</head>
+<body><div class="wrap">
+<p class="tag"><a href="/record">Public record</a> · <a href="/">Loop</a> · <button type="button" id="lb">中文</button></p>
+<h1><span data-l="en">Your trading thesis</span><span data-l="zh">你的交易论点</span> <span id="who"></span></h1>
+<p class="tag"><span data-l="en">Read-only. Assembled only from engine facts; underpowered cases say so. Freeze it from the main page.</span><span data-l="zh">只读。只由引擎事实组成；样本不足会直接说明。请在首页冻结。</span></p>
+<div class="card" id="body">Loading…</div>
+<div class="card" id="score"><span class="tag"><span data-l="en">Replay score (held-back tail of this trader's own history, deterministic, not live)</span><span data-l="zh">回放打分（用这位交易者自己历史中留出的末段，确定性，不是实时）</span></span><div id="sc"></div></div>
+</div>
+<script src="/static/thesis_page.js"></script></body></html>
