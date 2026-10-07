@@ -332,3 +332,29 @@ ZH_PATTERNS.unshift(
   [/^Qwen \((.*)\) reads unclear questions$/, "Qwen（$1）负责读懂不清楚的问题"],
   [/^Qwen planner \((.*), schema-validated\)$/, "Qwen 规划器（$1，已按固定格式校验）"],
 );
+// Gemini-audit follow-up (appended): starter chips, /cockpit, /evidence, /selftest and /wrong phrases. The source-status names are keyed without a colon
+// because strip.js now puts each name in its own element. No number or statistic is translated here, only wording.
+Object.assign(ZH_EXACT, {
+  "New trader": "新交易者", "Review": "复盘", "Rules": "规则", "What would make this wrong": "什么情况会让结论出错", "What did the gate block": "闸门拦下了什么", "What did the gate block?": "闸门拦下了什么？",
+  "Where does this data come from?": "这些数据从哪里来？", "How many trades are in this record?": "这份记录里有多少笔交易？", "What is my win rate?": "我的胜率是多少？",
+  "Is this financial advice?": "这是投资建议吗？", "What changed since my last review?": "自上次复盘以来有什么变化？", "What is my worst day?": "我最差的一天是哪天？", "Which rules were tested?": "测试过哪些规则？",
+  "Did the court throw out any rules?": "法庭否决过规则吗？", "Show my checklist": "给我看我的清单",
+  "How much did I pay in fees?": "我付了多少手续费？", "What share of my profit went to fees?": "我的利润有多大比例被手续费吃掉？", "What is my average loss?": "我的平均亏损是多少？",
+  "What is my profit factor?": "我的盈亏比（利润因子）是多少？", "What would make this wrong?": "什么情况会让这个结论出错？", "How sure are you about that?": "你对此有多大把握？",
+  "Could this just be luck?": "这会不会只是运气？",
+  "Selftest": "自测", "Run it now": "立即运行", "Frozen first run": "冻结的首次运行", "What to try": "可以先试这些", "Open the first screen": "打开首页",
+  "No run yet on this server since it started.": "本服务器启动以来还没有运行过。", "What this runs": "这里运行什么", "Judge cockpit": "评审驾驶舱",
+  "Open the app": "打开应用", "Theme": "主题", "Histories": "示例交易历史",
+  "Bitget tool evidence": "Bitget 工具证据", "Read-only. No key.": "只读，无需密钥。", "What the product calls": "产品调用了什么", "Last answer": "最近一次回答", "Detail": "详情",
+  "Last reached": "最近连通", "Symbols": "品种", "Bitget endpoint": "Bitget 接口", "reached": "已连通", "down": "不可用", "not scored yet": "尚未评分",
+  "Sources and tools that answered": "有回答的数据源和工具", "Loop public record": "Loop 公开记录", "Back to Loop": "返回 Loop", "Verify this log": "校验这份日志",
+  "Days running": "已运行天数", "Rule changes": "规则变更", "Entries": "记录条数", "User decisions": "用户决定", "Counter": "计数", "Your browser cannot play this video. Read the transcript below, or": "你的浏览器无法播放此视频。请阅读下面的文字稿，或",
+  "download it": "下载视频", "habit": "习惯", "help": "帮助", "report": "报告", "gate": "闸门", "court": "法庭", "source": "来源", "checklist": "清单", "rule": "规则", "cap": "封顶规则", "halt": "停手规则",
+  "wrong acceptance: nothing was there": "错误通过：其实什么都没有", "real leak not accepted (missed or underpowered)": "真实漏损未被通过（漏掉或样本不足）",
+  "faded leak not retired by the decay check": "已消退的漏损没有被衰减检查退役",
+});
+ZH_PATTERNS.unshift(
+  [/^Check an order idea: (.*)$/, "检查一个下单想法：$1"],
+  [/^(\d+) trials, (\d+) wallet\(s\) with any accepted rule, per-rule bar ([\d.]+)\.$/, "$1 次尝试，$2 个钱包有被接受的规则，每条规则的门槛 $3。"],
+  [/^(\d+) of (\d+) symbols$/, "$1 / $2 个品种"],
+);

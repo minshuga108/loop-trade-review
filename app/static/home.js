@@ -23,7 +23,7 @@ const CHIP_GROUPS = [
   ["What did the gate block", ["What did the gate block?", "Check an order idea: Buy $20k rNVDA", "Check an order idea: buy 100 DOGE"]],
 ];
 const CHIPS = CHIP_GROUPS.flatMap((g) => g[1]);
-const chipsHtml = () => CHIP_GROUPS.map(([g, qs]) => `<div class="chipgroup"><span class="cg-l">${esc(g)}</span>` + qs.map((c) => `<button type="button">${esc(c)}</button>`).join("") + "</div>").join("");
+const chipsHtml = () => CHIP_GROUPS.map(([g, qs]) => `<div class="chipgroup"><span class="cg-l">${esc(g)}</span>` + qs.map((c) => `<button type="button" data-q="${esc(c)}">${esc(c)}</button>`).join("") + "</div>").join("");
 let traders = [], current = null, showRule = true, ruleKey = "cap";
 let SID = "s" + Math.random().toString(36).slice(2, 10);
 try { SID = localStorage.getItem("sid") || SID; localStorage.setItem("sid", SID); } catch (e) {}
@@ -421,7 +421,7 @@ function render(r, t) {
   if (_fid) { const el = document.getElementById(_fid); if (el && el.closest("#main")) el.focus({ preventScroll: true }); }
   drawChart(t);
   $("#chips").innerHTML = chipsHtml();
-  $("#chips").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) ask(b.textContent); });
+  $("#chips").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) ask(b.dataset.q || b.textContent); });
   $("#chatlog").addEventListener("click", (e) => {
     const b = e.target.closest("button[data-q]"); if (b) return ask(b.dataset.q);
     const f = e.target.closest("button[data-fb]"); if (f) return sendFeedback(+f.dataset.i, f.dataset.fb);

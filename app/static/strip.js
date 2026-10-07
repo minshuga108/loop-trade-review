@@ -13,7 +13,7 @@
     let h = "";
     if (src && src.sources) {
       h += `<div class="row"><span class="lab">Sources</span>` + src.sources.map((s) =>
-        `<span class="sx ${esc(s.state)}" title="${esc(s.detail)}"><i class="dot"></i>${esc(/^Qwen/.test(s.name) ? "Qwen" : s.name)}: <span class="st">${esc(/^Qwen/.test(s.name) ? (s.state === "live" ? "on" : "off") : s.state)}</span>` +
+        `<span class="sx ${esc(s.state)}" title="${esc(s.detail)}"><i class="dot"></i><span class="nm">${esc(/^Qwen/.test(s.name) ? "Qwen" : s.name)}</span>: <span class="st">${esc(/^Qwen/.test(s.name) ? (s.state === "live" ? "on" : "off") : s.state)}</span>` +
         `<time datetime="${esc(s.checked_at)}">${esc(hhmm(s.checked_at))}</time></span>`).join("") + `</div>`;
     }
     if (rec && rec.decisions_total != null) {
