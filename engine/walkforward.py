@@ -14,7 +14,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from .court import Court, Rule, Verdict, _baseline, _effect, price_rule
+from .court import BASELINE_TRIPS, Court, Rule, Verdict, _baseline, _dependence_verdict, _effect, dependence_review, price_rule
+from .dependence import block_permute
 from .detectors import after_loss_labels
 from .schema import RoundTrip
 
@@ -30,7 +31,7 @@ def judge_wf(court: Court, trips: list[RoundTrip], rule: Rule, folds: int = 5) -
     chunks = []
     for j in range(1, folds + 1):
         lo, hi = edges[j], edges[j + 1]
-        base = _baseline(ts[:lo])
+        base = _baseline(ts[:lo], BASELINE_TRIPS)      # rolling yardstick: a drifting size level moves the cap with it
         idx = [i for i in range(lo, hi) if lab_all[i] >= 0]
         if not idx:
             continue
@@ -46,11 +47,15 @@ def judge_wf(court: Court, trips: list[RoundTrip], rule: Rule, folds: int = 5) -
                        train, test, float("nan"), court.trials, alpha)
     g = np.random.default_rng(court.seed)
     ge = 0
+    dep, habit = dependence_review(ts, court.seed)
     sh = [c[2].copy() for c in chunks]
     for _ in range(court.n_perm):
         tot = 0.0
         for k, (nt, pn, af, cap) in enumerate(chunks):
-            g.shuffle(sh[k])
+            if dep.block > 1:
+                sh[k] = block_permute(chunks[k][2], dep.block, g)       # serial dependence: shuffle blocks of labels, not single labels
+            else:
+                g.shuffle(sh[k])
             tot += _effect(nt, pn, sh[k], cap)
         if tot >= obs - 1e-9:
             ge += 1
@@ -61,4 +66,5 @@ def judge_wf(court: Court, trips: list[RoundTrip], rule: Rule, folds: int = 5) -
         status, reason = "REJECTED", "out-of-sample effect is not positive"
     else:
         status, reason = "REJECTED", f"out-of-sample effect is positive but p={p:.4f} does not clear the trial-adjusted threshold {alpha:.4f}"
-    return Verdict(rule, status, reason, train, test, p, court.trials, alpha)
+    status, reason, notes = _dependence_verdict(dep, habit, status, reason, n_aff, n_test, court.min_affected)
+    return Verdict(rule, status, reason, train, test, p, court.trials, alpha, notes)

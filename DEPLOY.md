@@ -118,3 +118,8 @@ It prints pass/fail for first byte (1.5 s), first-screen weight (under 1 MB), no
 - Demo video: `deploy_data/media/loop_demo.webm` (about 16 MB; no ffmpeg here to re-encode) is served at `/media/loop_demo.webm` with Range support, and the `/video` page plays it with a transcript.
 
 Do not redeploy during the judging window except for logged hotfixes.
+
+## Daily runs board (/runs)
+
+- `python scripts/freeze_daily.py` freezes one prediction per shipped trader (thesis hash and cap-rule claim from `engine/thesis.py`, plus a BTCUSDT order-book cost estimate from the cached Bitget book) and appends it to `data/runs/runs.jsonl`. Each entry carries the hash of the one before it; the file is only ever appended to. `python scripts/score_runs.py` scores entries older than 24 h into `data/runs/scores.jsonl` (rule and cost use live data, reproduce is a replay; anything not yet knowable stays pending).
+- Render's free disk is ephemeral, so `data/runs/` is lost on redeploy. Ship the chain: after freezing, copy `data/runs/runs.jsonl` to `deploy_data/runs_seed.jsonl` (and `scores.jsonl` to `deploy_data/runs_scores_seed.jsonl`) and commit. `/api/runs` merges the seed with the live file, skipping live entries already in the seed by hash, and verifies every link; a break is shown as "CHAIN BROKEN", never repaired. Freeze from the seed's tip so the live file continues it.

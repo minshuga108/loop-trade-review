@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop: daily runs</title>
+<link rel="stylesheet" href="/static/home.css">
+<link rel="stylesheet" href="/static/strip.css">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body data-page="runs">
+<div class="pg">
+  <header class="top">
+    <h1>Daily runs</h1>
+    <span class="tools"><a href="/">Back to the review</a><button type="button" id="themebtn" aria-label="Switch light or dark theme">&#9681; Dark</button><button type="button" id="langbtn">中文</button></span>
+  </header>
+  <p class="tag">One prediction per trader per day, frozen in a hash chain that is only ever appended to. Scored after 24 hours; misses stay on the board.</p>
+  <div id="main" aria-live="polite"><p class="tag">Loading…</p></div>
+  <footer>Every row is read from the chain when you load it. <a href="/wrong">What we got wrong</a> · <a href="/proof">Proof</a></footer>
+</div>
+<script src="/static/i18n.js"></script>
+<script src="/static/runs.js"></script>
+</body>
+</html>

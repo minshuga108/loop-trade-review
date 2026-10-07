@@ -121,6 +121,14 @@ def _real_acceptance() -> str:
             f"and accepted none on the other {rest}; the remaining proposals were rejected or underpowered")
 
 
+def _d3_cells() -> list:
+    return json.loads((ROOT / "detectors3_results.json").read_text(encoding="utf-8"))["cells"]
+
+
+def _d3(detector: str, scenario: str) -> str:
+    return _pct(next(c["flagged"] for c in _d3_cells() if c["detector"] == detector and c["scenario"] == scenario))
+
+
 def _tests_collected() -> str:
     import subprocess
     import sys
@@ -181,6 +189,16 @@ CLAIMS: dict[str, dict] = {
     "evidence.signal": {"desc": "what bitget-signal calls are logged", "cmd": "evidence/bitget_calls.jsonl", "fn": _signal_ta},
     "wallets.text": {"desc": "wallet composition", "cmd": "GET /api/traders", "fn": _wallets_text},
     "court.real_acceptance": {"desc": "rules accepted on real wallets", "cmd": "GET /api/review/{A..E,G}", "fn": _real_acceptance},
+    "d3.power_chase": {"desc": "chase_after_move flags a planted costly chaser (candle price source), 300 trips", "cmd": "python scripts/measure_detectors3.py",
+                       "fn": lambda: _d3("chase_after_move[candles]", "habit_costly")},
+    "d3.power_chase_own": {"desc": "chase_after_move flags a planted costly chaser (own fill prices as the series), 300 trips", "cmd": "python scripts/measure_detectors3.py",
+                           "fn": lambda: _d3("chase_after_move[own_fills]", "habit_costly")},
+    "d3.power_offhours": {"desc": "off_hours_trading flags a planted costly off-hours trader, 300 trips", "cmd": "python scripts/measure_detectors3.py",
+                          "fn": lambda: _d3("off_hours_trading", "habit_costly")},
+    "d3.power_avgdown": {"desc": "averaging_down flags a planted costly averager, 250 trips", "cmd": "python scripts/measure_detectors3.py",
+                         "fn": lambda: _d3("averaging_down", "habit_costly")},
+    "d3.falseflag_max": {"desc": "highest false-flag rate of the three new detectors on costless/absent planted habits (before Holm)", "cmd": "python scripts/measure_detectors3.py",
+                         "fn": lambda: _pct(max(c["flagged"] for c in _d3_cells() if c["scenario"] == "habit_costless" or "no_habit" in c["detector"]))},
     "habit.tests": {"desc": "habit tests run on every trader", "cmd": "GET /api/review/A (findings)", "fn": _habit_tests},
     "wallets.real": {"desc": "real public wallets in the demo", "cmd": "GET /api/traders", "fn": _wallets},
     "mcp.tools": {"desc": "read-only MCP tools", "cmd": "POST /mcp tools/list", "fn": _mcp_tools},
@@ -222,6 +240,30 @@ for _k, _d in _VAL_SCALARS.items():
     CLAIMS[f"validation.{_k}"] = {"desc": _d, "cmd": "python scripts/run_validation.py", "fn": (lambda k=_k: _vr()["scalars"][k])}
 for _k in ("crosscheck_summary", "crosscheck_detectors", "crosscheck_court", "crosscheck_dependence", "power_court", "power_detector", "pbo_planted", "pbo_real"):
     CLAIMS[f"validation.table.{_k}"] = {"desc": f"validation table {_k}", "cmd": "python scripts/run_validation.py", "fn": (lambda k=_k: _vr()["tables"][k])}
+
+
+def _rr() -> dict:
+    p = ROOT / "robustness_results.json"
+    if not p.exists():
+        raise FileNotFoundError("run scripts/robustness_suite.py first")
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+_ROB = {"sims": "simulated traders per stress cell", "trips": "round trips per simulated trader", "worst_any": "highest family-wise false-flag rate (after Holm) under any stress",
+        "worst_court": "highest court wrong-acceptance rate under any stress", "worst_detector": "highest single-detector false-flag rate (after Holm) under any stress",
+        "baseline_any": "family-wise false-flag rate, no stress", "baseline_court": "court wrong acceptance, no stress",
+        "failures": "cells whose 95% interval lies wholly above 5% (our own failures)", "n_failures": "number of such cells",
+        "ac_court": "court wrong acceptance under autocorrelated returns (current court)", "all_court": "court wrong acceptance under all four stresses (current court)",
+        "all_any": "family-wise false-flag rate under all four stresses (current detectors)",
+        "dep_power": "court acceptance of a REAL costly leak under autocorrelated returns (does the dependence guard cost power)",
+        "dep_power_trips": "trips in that power cell", "dep_power_detected": "share of those traders where dependence was detected",
+        "before_table": "robustness table of the first version (single-label permutation, expanding baseline), frozen",
+        "before_worst_any": "first version: highest family-wise false-flag rate", "before_worst_court": "first version: highest court wrong acceptance",
+        "before_ac_court": "first version: court wrong acceptance under autocorrelated returns", "before_all_court": "first version: court wrong acceptance under all four",
+        "before_all_any": "first version: family-wise flag rate under all four", "before_n_failures": "first version: number of failing cells"}
+for _k, _d in _ROB.items():
+    CLAIMS[f"robustness.{_k}"] = {"desc": _d, "cmd": "python scripts/robustness_suite.py", "fn": (lambda k=_k: _rr()["scalars"][k])}
+CLAIMS["robustness.table"] = {"desc": "robustness table", "cmd": "python scripts/robustness_suite.py", "fn": lambda: _rr()["table"]}
 
 
 def values() -> dict[str, str]:

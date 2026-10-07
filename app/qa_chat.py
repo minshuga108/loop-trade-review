@@ -98,6 +98,48 @@ def qwen_plan(text: str, previous_plan: dict | None = None, client: httpx.Client
         return None
 
 
+PHRASE_SYSTEM = ("Rewrite the given sentence about a trader's own record in plainer words, same language. Keep every number exactly as written, "
+                 "add no new number, no advice, no claim. Reply with the sentence only.")
+
+
+def qwen_phrase(text: str, lang: str, sid: str = "default") -> str | None:
+    """Optional rephrase of the already-computed headline. The caller discards it unless it passes the number-lock."""
+    if not planner_enabled() or not llm.budget_ok(sid):
+        return None
+    base = os.environ.get("QWEN_BASE_URL", DEFAULT_BASE).rstrip("/")
+    body = {"model": os.environ.get("QWEN_MODEL", DEFAULT_MODEL), "temperature": 0,
+            "messages": [{"role": "system", "content": PHRASE_SYSTEM}, {"role": "user", "content": text[:600]}]}
+    try:
+        r = httpx.Client(timeout=QWEN_TIMEOUT_S).post(f"{base}/chat/completions", json=body, headers={"Authorization": f"Bearer {os.environ['QWEN_API_KEY']}"})
+        r.raise_for_status()
+        out = str(r.json()["choices"][0]["message"]["content"]).strip()
+        return out or None
+    except Exception:
+        return None
+
+
+def phrase_locked(out: dict, lang: str, sid: str = "default", phraser=None) -> str:
+    """Let the model phrase the headline only when every numeral still matches a computed fact. Returns 'qwen' or 'template'."""
+    if out.get("number_lock") != "passed" or not out.get("facts") or not (phraser or planner_enabled()):
+        return "template"
+    use = phraser or (lambda t, l: qwen_phrase(t, l, sid))
+    new = with_deadline(lambda: use(out["text"], lang), QWEN_TIMEOUT_S + 0.3)
+    if not new or timed_out():
+        return "template"
+    from engine.numberlock import NumberLockError, verify
+    try:
+        verify(re.sub(r"\d{4}-\d{2}-\d{2}|\b\d{2}:00\b", "", new), [f["value"] for f in out["facts"]], allow=(0.0, 1.0, 95.0))
+    except NumberLockError:
+        return "template"
+    out["text_template"], out["text"] = out["text"], new
+    return "qwen"
+
+
+def tool_trace(plan, res, lock: str, phrased: str, lang: str) -> list[dict]:
+    """The typed tool call behind an answer: tool name, its inputs, rows used, and the number-lock verdict."""
+    return [{"tool": plan.metric, "inputs": plan.compact(), "rows": res.n, "number_lock": lock.split(":")[0], "phrased_by": phrased}]
+
+
 def _base(lang: str, tid: str, meta, fills) -> dict:
     return {"intent": "qa", "lang": lang, "kind": "text", "trader": tid, "provenance": service._prov(meta, fills), "label": service._label(meta),
             "paper_only": True, "llm": planner_label()}
@@ -118,7 +160,7 @@ def _cannot(lang: str, tid: str, reason: str, meta, fills, steps) -> dict:
 
 
 def answer_qa(trader_id: str, message: str, sid: str = "default", previous_plan: dict | None = None,
-              planner: Callable[[str, dict | None], object] | None = None, now_ms: int | None = None, allow_llm: bool = True) -> dict | None:
+              planner: Callable[[str, dict | None], object] | None = None, now_ms: int | None = None, allow_llm: bool = True, planner_phraser=None) -> dict | None:
     """One data question -> number-locked answer dict, or None when the message is not a data question."""
     t0 = time.perf_counter()
     _TL.timed_out = False
@@ -181,6 +223,10 @@ def answer_qa(trader_id: str, message: str, sid: str = "default", previous_plan:
     res = qa.execute(pr.plan, trips, fills, now_ms=now_ms)
     steps.append({"name": f"loaded {len(trips)} round trips, computed {pr.plan.metric} on {res.n}", "ms": round((time.perf_counter() - t2) * 1000, 1)})
     out = qa.render(res, lang)
+    phrased = phrase_locked(out, lang, sid, planner_phraser) if allow_llm else "template"
+    if phrased == "qwen":
+        steps.append({"name": "Qwen phrased the headline; every number re-checked by the number-lock", "ms": 0.1})
     steps.append({"name": f"number-lock: every number backed ({out['number_lock'].split(':')[0]})", "ms": 0.1})
     return {**base, **out, "chips": out["next"], "plan": pr.plan.compact(), "followup": pr.followup, "steps": steps,
+            "tool_trace": tool_trace(pr.plan, res, out["number_lock"], phrased, lang),
             "flags": (["followup"] if pr.followup else []) + [f"caveat:{c}" for c in res.caveats]}

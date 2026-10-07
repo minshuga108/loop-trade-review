@@ -55,6 +55,7 @@ from .evidence_api import router as evidence_router  # noqa: E402
 app.include_router(evidence_router)
 app.include_router(mcp_server.router)
 from .status_api import router as status_router; app.include_router(status_router)  # noqa: E402,E702
+from .trade_page import router as trade_router; app.include_router(trade_router)  # noqa: E402,E702
 from .cards_api import router as cards_router; app.include_router(cards_router)  # noqa: E402,E702  (before /api/report/{tid})
 
 
@@ -62,6 +63,10 @@ from . import home_api  # noqa: E402
 app.include_router(home_api.router)
 from . import thesis_api  # noqa: E402
 app.include_router(thesis_api.router)
+from . import validation_note  # noqa: E402
+app.include_router(validation_note.router())
+from . import runs_api  # noqa: E402
+app.include_router(runs_api.router)
 
 
 @app.get("/")
@@ -128,9 +133,11 @@ def traders(x_session: str = Header(default="default")):
 @app.get("/api/review/{tid}")
 def review(tid: str):
     try:
-        return service.review(tid)
+        rv = service.review(tid)
     except StopIteration:
         raise HTTPException(404, "unknown trader")
+    note = validation_note.note_for(tid, rv["headline"]["priced"].get("all_history_effect"))
+    return {**rv, "validation_note": note} if note else rv
 
 
 @app.get("/api/toggle/{tid}")
@@ -186,6 +193,7 @@ class RuleRef(BaseModel):
 class GateIn(BaseModel):
     text: str
     after_loss: bool | None = None
+    scenario: list[str] | None = Field(default=None, max_length=4)
 
 
 @app.get("/api/rulebook/{tid}")
@@ -194,6 +202,25 @@ def rulebook(tid: str, x_session: str = Header(default="default")):
         return service.rulebook_view(x_session, tid)
     except StopIteration:
         raise HTTPException(404, "unknown trader")
+
+
+@app.get("/api/rulebook/{tid}/walkforward")
+def rb_walkforward(tid: str, multiple: float = 1.5, x_session: str = Header(default="default")):
+    if not (0.5 <= multiple <= 10):
+        raise HTTPException(400, "multiple must be between 0.5 and 10")
+    try:
+        return service.walkforward_view(x_session, tid, multiple)
+    except StopIteration:
+        raise HTTPException(404, "unknown trader")
+
+
+@app.get("/api/cohort_card")
+def cohort_card():
+    from . import cohort_card as cc
+    d = cc.facts()
+    if d is None:
+        raise HTTPException(404, "cohort results not available")
+    return d
 
 
 @app.post("/api/rulebook/{tid}/propose")
@@ -223,7 +250,7 @@ def gate(tid: str, body: GateIn, x_session: str = Header(default="default")):
     if len(body.text) > 300:
         raise HTTPException(400, "text too long")
     try:
-        return service.gate_check(x_session, tid, body.text, body.after_loss)
+        return service.gate_check(x_session, tid, body.text, body.after_loss, **({"scenario": body.scenario} if body.scenario else {}))
     except StopIteration:
         raise HTTPException(404, "unknown trader")
 

@@ -6,7 +6,7 @@ Bitget AI Base Camp Hackathon S2 · Track 3 (AI Trading Desk) · sub-theme **Rev
 
 Live demo: `https://loop-trade-review.onrender.com` (no login, no key) · 3-minute walkthrough: `https://loop-trade-review.onrender.com/video` · Judge cockpit: `https://loop-trade-review.onrender.com/cockpit`
 
-> **Read this before judging.** Loop reviews a trader's past fills. It places no orders and has no write access. Its demo histories are 5 public Hyperliquid wallets plus 1 Bitget futures export (a trading bot's account, not a human trader), hand-picked and illustrative (plus one clearly labelled simulated trader, F). Wallet G is a real Bitget export but a trading bot's account, so we still have no human Bitget trader to show. The importers for Bitget's own formats (UTA v3 API and the website CSV export) are tested on real Bitget rows, but we do not yet have a real Bitget trader's history to show. On the 6 real wallets the court accepted at least one rule on 1 (wallet D had 2 of 4 proposed rules accepted: cap at 1.0x median after a loss (held-out effect +$5,479), cap at 1.5x median after a loss (held-out effect +$4,804)) and accepted none on the other 5; the remaining proposals were rejected or underpowered. Everything else tested on real wallets was not accepted, and that is the honest result. On 100 simulated traders per cell the court wrongly accepted a rule for a trader with no leak 1% of the time at 600 trips, and caught a real costly leak 53% of the time at 300 trips. Everything we got wrong is listed in [LOSSES.md](LOSSES.md).
+> **Read this before judging.** Loop reviews a trader's past fills. It places no orders and has no write access. Its demo histories are 5 public Hyperliquid wallets plus 1 Bitget futures export (a trading bot's account, not a human trader), hand-picked and illustrative (plus one clearly labelled simulated trader, F). Wallet G is a real Bitget export but a trading bot's account, so we still have no human Bitget trader to show. The importers for Bitget's own formats (UTA v3 API and the website CSV export) are tested on real Bitget rows, but we do not yet have a real Bitget trader's history to show. On the 6 real wallets the court accepted at least one rule on 1 (wallet D had 2 of 4 proposed rules accepted: cap at 1.0x median after a loss (held-out effect +$7,498), cap at 1.5x median after a loss (held-out effect +$6,303)) and accepted none on the other 5; the remaining proposals were rejected or underpowered. Everything else tested on real wallets was not accepted, and that is the honest result. On 300 simulated traders per cell the court wrongly accepted a rule for a trader with no leak 1% of the time at 600 trips on independent simulated data (stress results, including serially dependent returns, are in VALIDATION 4b), and caught a real costly leak 55% of the time at 300 trips. Everything we got wrong is listed in [LOSSES.md](LOSSES.md).
 
 ## What a judge can check in two minutes
 
@@ -45,14 +45,14 @@ python scripts/render_docs.py --check                  # this README matches its
 - Paper fills are conservative and calibrated against recorded books, not equal to live trading.
 - The chat router: 165 of 200 (82.5%) on a second independent set at first scoring; it was tuned on afterwards (175 of 200 (87.5%), no longer blind).
 - The chat's blind-set score was written by the router's author; read the caveat in LOSSES.md.
-- Independent validation ([VALIDATION.md](VALIDATION.md), dev-only tooling): our permutation p-values agree with scipy on 13 of 13 tests, Holm with statsmodels on 13 of 13, and our court verdicts with a re-implementation on 24 of 24; one bootstrap CI upper endpoint is noisier than we show (listed as a finding). The habit detector flags a planted 1.5x size-up after a loss 100% of the time at 300 trips but a 1.25x one only 49% of the time. On the one real wallet where the court accepted rules (D), the PBO and deflated-Sharpe views do not confirm it; the page says so.
+- Independent validation ([VALIDATION.md](VALIDATION.md), dev-only tooling): our permutation p-values agree with scipy on 13 of 13 tests, Holm with statsmodels on 19 of 19, and our court verdicts with a re-implementation on 24 of 24; one bootstrap CI upper endpoint is noisier than we show (listed as a finding). The habit detector flags a planted 1.5x size-up after a loss 100% of the time at 300 trips but a 1.25x one only 46% of the time. On the one real wallet where the court accepted rules (D), the PBO and deflated-Sharpe views do not confirm it; the page says so.
 
 ## Run it
 
 ```
 python -m venv .venv && .venv/Scripts/pip install -r requirements.txt
 .venv/Scripts/python -m uvicorn app.main:app --port 8000
-.venv/Scripts/python -m pytest -q          # 1151 tests collected
+.venv/Scripts/python -m pytest -q          # 1185 tests collected
 python scripts/render_docs.py --check   # fails if a doc differs from its template or from numbers computed now
 ```
 

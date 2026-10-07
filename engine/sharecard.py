@@ -13,7 +13,8 @@ from xml.sax.saxutils import escape
 W, H = 1200, 630
 PAPER, INK, MUTED, ACCENT = "#f4f1e8", "#16191d", "#5b5f63", "#b9d531"
 DET = {"size_after_loss": "Opening size after a loss", "hold_asymmetry": "Holding losers longer than winners",
-       "overtrading_clusters": "Trading more on the busiest days", "revenge_reentry": "Re-entering soon after a loss"}
+       "overtrading_clusters": "Trading more on the busiest days", "revenge_reentry": "Re-entering soon after a loss",
+       "chase_after_move": "Chasing a big prior move", "off_hours_trading": "Trading outside US cash-session hours", "averaging_down": "Averaging down"}
 
 
 def _usd(x: float) -> str:

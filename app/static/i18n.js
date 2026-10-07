@@ -272,3 +272,14 @@ Object.assign(ZH_EXACT, {
   "Source": "来源", "Call": "调用", "Status": "状态", "Timing": "耗时", "Answered": "已回答", "State": "状态",
   "Loading the skills panel…": "正在加载技能面板…", "Loading…": "加载中…",
 });
+// /runs board (appended; exact phrases only)
+Object.assign(ZH_EXACT, {
+  "Loop: daily runs": "Loop：每日运行", "Daily runs": "每日运行",
+  "One prediction per trader per day, frozen in a hash chain that is only ever appended to. Scored after 24 hours; misses stay on the board.": "每位交易者每天一条预测，冻结在只增不改的哈希链里。24 小时后评分；失误会一直留在榜上。",
+  "Every row is read from the chain when you load it.": "每一行都是在你打开页面时从链上读取的。",
+  "Frozen": "冻结时间", "Prediction": "预测", "Hash": "哈希", "pending": "待定", "scored": "已评分", "missed": "失误",
+  "No runs have been frozen yet.": "还没有冻结任何运行。", "The runs could not be loaded. Nothing on this page is guessed.": "无法加载运行记录。本页没有任何猜测。",
+  "rule and cost use live data; reproduce is a replay of the engine on the frozen day.": "rule 和 cost 使用实时数据；reproduce 是在冻结当天对引擎的重放。",
+  "Daily runs (frozen predictions)": "每日运行（冻结的预测）",
+  "Chasing a big prior move": "大幅波动之后顺势追单", "Trading stock perps outside US cash-session hours": "美股常规交易时段之外交易股票永续", "Adding at a worse price (averaging down)": "在更差的价格上加仓（摊平）",
+});

@@ -16,9 +16,12 @@ from .numberlock import verify
 
 SNAP = Path(__file__).resolve().parents[1] / "data" / "snapshots"
 DETECTOR_EN = {"size_after_loss": "opening size after a loss", "hold_asymmetry": "holding losers longer than winners",
-               "overtrading_clusters": "trading more on your busiest days", "revenge_reentry": "re-entering the same symbol soon after a loss"}
+               "overtrading_clusters": "trading more on your busiest days", "revenge_reentry": "re-entering the same symbol soon after a loss",
+               "chase_after_move": "entering in the direction of a big prior move", "off_hours_trading": "trading stock perps outside US cash-session hours",
+               "averaging_down": "adding to a position at a worse price"}
 DETECTOR_ZH = {"size_after_loss": "亏损后加大开仓", "hold_asymmetry": "亏损单比盈利单拿得更久",
-               "overtrading_clusters": "最忙的那几天交易过多", "revenge_reentry": "亏损后很快在同一品种再次进场"}
+               "overtrading_clusters": "最忙的那几天交易过多", "revenge_reentry": "亏损后很快在同一品种再次进场",
+               "chase_after_move": "大幅波动之后顺势追单", "off_hours_trading": "美股常规交易时段之外交易股票永续", "averaging_down": "在更差的价格上加仓摊平"}
 
 
 def _day(ms: int) -> str:

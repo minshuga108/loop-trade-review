@@ -59,7 +59,7 @@ def log_gate_decision(sid: str, tid: str, result: dict, rule_versions: dict | No
             "idea": {"side": idea.get("side"), "symbol": idea.get("symbol"), "notional": idea.get("notional")},
             "state": result.get("state"), "broken_rules": result.get("broken_rules", []),
             "evidence": result.get("evidence", []), "last_trade_was_loss": result.get("last_trade_was_loss"),
-            "rule_versions": rule_versions or {}, "paper_only": True, "origin": origin or classify_origin(sid, tid),
+            "rule_versions": rule_versions or {}, "scenario": result.get("scenario") or [], "paper_only": True, "origin": origin or classify_origin(sid, tid),
         })
     except Exception as e:                       # never let the record break the gate
         return {"error": f"{type(e).__name__}: {e}"}

@@ -401,7 +401,14 @@ def receipt(out: dict, tid: str) -> dict:
         ledger = {"seq": None, "note": ("只读问题不写入公开记录" if zh else "a read-only question is not written to the public record")}
     return {"sources": sources, "computations": comps, "rows": rows, "ledger": ledger,
             "trace": [x.get("name") for x in (out.get("steps") or [])], "number_lock": out.get("number_lock"),
-            "facts": len(out.get("facts") or []), "intent": intent, "trader": tid}
+            "facts": len(out.get("facts") or []), "intent": intent, "trader": tid,
+            "tool_trace": out.get("tool_trace") or _fixed_tool_trace(out, intent)}
+
+
+def _fixed_tool_trace(out: dict, intent) -> list[dict]:
+    """Non-QA answers run one fixed engine function; name it, with no inputs invented."""
+    c = (_COMPUTE_ZH if out.get("lang") == "zh" else _COMPUTE_EN).get(intent)
+    return [{"tool": intent, "inputs": {}, "rows": None, "number_lock": str(out.get("number_lock") or "").split(":")[0], "phrased_by": "template", "what": c}] if c else []
 
 
 def _gate_log(tid: str, sid: str, lang: str) -> dict:

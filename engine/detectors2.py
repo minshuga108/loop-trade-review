@@ -17,6 +17,7 @@ from dataclasses import dataclass, field
 import numpy as np
 
 from .detectors import MIN_PER_GROUP, Finding
+from .dependence import assess
 from .ledger import EPS
 from .schema import Fill, RoundTrip
 from .stats import perm_p_greater
@@ -47,7 +48,8 @@ def _gap_finding(name: str, pnl: np.ndarray, labels: np.ndarray, detail: str, wh
         return Finding(name, "UNDERPOWERED", n_a, n_b, float("nan"), (float("nan"),) * 2, float("nan"),
                        f"needs at least {MIN_PER_GROUP} trips in each group ({why_underpowered}: has {n_a} and {n_b})",
                        extra)
-    obs, p = perm_p_greater(pnl, labels, _mean_gap, n_perm, seed)
+    dep = assess(pnl)                  # serial dependence in per-trip pnl: block-permute the labels, block length from the data
+    obs, p = perm_p_greater(pnl, labels, _mean_gap, n_perm, seed, block=dep.block)
     effect = -obs   # mean(labelled) - mean(other), dollars per trip; negative = labelled trips earn less
     g = np.random.default_rng(seed)
     a, b = pnl[labels], pnl[~labels]
@@ -56,7 +58,9 @@ def _gap_finding(name: str, pnl: np.ndarray, labels: np.ndarray, detail: str, wh
     sd = float(np.std(pnl, ddof=1)) if len(pnl) > 1 else 0.0
     floor = EFFECT_FLOOR_SD * sd
     flagged = p < ALPHA and obs >= floor and obs > 0
-    extra = dict(extra, effect_floor=floor, mean_labelled=float(np.mean(a)), mean_other=float(np.mean(b)))
+    extra = dict(extra, block_length=dep.block, effective_n=dep.ess, effect_floor=floor, mean_labelled=float(np.mean(a)), mean_other=float(np.mean(b)))
+    if dep.detected:
+        detail += f" Per-trip pnl is serially dependent (lag-1 autocorrelation {dep.rho1:.2f}), so the p-value comes from a block permutation (block length {dep.block}), not single-trip shuffling."
     return Finding(name, "FLAGGED" if flagged else "NOT_FLAGGED", n_a, n_b, effect, ci, p, detail, extra)
 
 

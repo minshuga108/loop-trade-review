@@ -1,0 +1,436 @@
+{
+  "sims_per_cell": 300,
+  "trips": 300,
+  "n_perm": 300,
+  "holm_family": [
+    "size_after_loss",
+    "hold_asymmetry",
+    "overtrading_clusters",
+    "revenge_reentry"
+  ],
+  "nominal": 0.05,
+  "court": "judge_wf, 1.5x cap, 4-proposal ledger",
+  "provenance": "SIM_PLANTED, planted_trader skeleton; no size-up habit planted, so every flag is false",
+  "cells": [
+    {
+      "stress": "baseline_null",
+      "label": "none (reference)",
+      "sims": 300,
+      "trips": 300,
+      "detectors": {
+        "size_after_loss": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "hold_asymmetry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "overtrading_clusters": {
+          "flagged_raw": 0.04,
+          "flagged_raw_ci": [
+            0.02302709213793877,
+            0.06860486345997804
+          ],
+          "flagged_after_holm": 0.01,
+          "flagged_after_holm_ci": [
+            0.0034065567627181124,
+            0.028984004635062833
+          ]
+        },
+        "revenge_reentry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        }
+      },
+      "any_detector_after_holm": 0.01,
+      "any_detector_after_holm_ci": [
+        0.0034065567627181124,
+        0.028984004635062833
+      ],
+      "court_wrong_acceptance": 0.006666666666666667,
+      "court_wrong_acceptance_ci": [
+        0.0018301100329710784,
+        0.023978074231461442
+      ],
+      "court_underpowered": 0.016666666666666666
+    },
+    {
+      "stress": "size_drift",
+      "label": "persistent size drift (about 4.5x over the history)",
+      "sims": 300,
+      "trips": 300,
+      "detectors": {
+        "size_after_loss": {
+          "flagged_raw": 0.0033333333333333335,
+          "flagged_raw_ci": [
+            0.0005886425761407379,
+            0.018637164554943353
+          ],
+          "flagged_after_holm": 0.0033333333333333335,
+          "flagged_after_holm_ci": [
+            0.0005886425761407379,
+            0.018637164554943353
+          ]
+        },
+        "hold_asymmetry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "overtrading_clusters": {
+          "flagged_raw": 0.04,
+          "flagged_raw_ci": [
+            0.02302709213793877,
+            0.06860486345997804
+          ],
+          "flagged_after_holm": 0.016666666666666666,
+          "flagged_after_holm_ci": [
+            0.0071393720427721935,
+            0.038415943621705605
+          ]
+        },
+        "revenge_reentry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        }
+      },
+      "any_detector_after_holm": 0.02,
+      "any_detector_after_holm_ci": [
+        0.009197506067771085,
+        0.042940186730055147
+      ],
+      "court_wrong_acceptance": 0.01,
+      "court_wrong_acceptance_ci": [
+        0.0034065567627181124,
+        0.028984004635062833
+      ],
+      "court_underpowered": 0.0
+    },
+    {
+      "stress": "regime_shift",
+      "label": "regime shift at the midpoint (3x size, 3x volatility)",
+      "sims": 300,
+      "trips": 300,
+      "detectors": {
+        "size_after_loss": {
+          "flagged_raw": 0.05,
+          "flagged_raw_ci": [
+            0.030531367290852585,
+            0.08084771970710952
+          ],
+          "flagged_after_holm": 0.016666666666666666,
+          "flagged_after_holm_ci": [
+            0.0071393720427721935,
+            0.038415943621705605
+          ]
+        },
+        "hold_asymmetry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "overtrading_clusters": {
+          "flagged_raw": 0.04,
+          "flagged_raw_ci": [
+            0.02302709213793877,
+            0.06860486345997804
+          ],
+          "flagged_after_holm": 0.016666666666666666,
+          "flagged_after_holm_ci": [
+            0.0071393720427721935,
+            0.038415943621705605
+          ]
+        },
+        "revenge_reentry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        }
+      },
+      "any_detector_after_holm": 0.03333333333333333,
+      "any_detector_after_holm_ci": [
+        0.018204749873650852,
+        0.0602624514575691
+      ],
+      "court_wrong_acceptance": 0.0033333333333333335,
+      "court_wrong_acceptance_ci": [
+        0.0005886425761407379,
+        0.018637164554943353
+      ],
+      "court_underpowered": 0.0
+    },
+    {
+      "stress": "autocorrelated_losses",
+      "label": "autocorrelated returns (AR(1), rho 0.6)",
+      "sims": 300,
+      "trips": 300,
+      "detectors": {
+        "size_after_loss": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "hold_asymmetry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "overtrading_clusters": {
+          "flagged_raw": 0.07,
+          "flagged_raw_ci": [
+            0.04623659396060609,
+            0.10463675583744661
+          ],
+          "flagged_after_holm": 0.03333333333333333,
+          "flagged_after_holm_ci": [
+            0.018204749873650852,
+            0.0602624514575691
+          ]
+        },
+        "revenge_reentry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        }
+      },
+      "any_detector_after_holm": 0.03333333333333333,
+      "any_detector_after_holm_ci": [
+        0.018204749873650852,
+        0.0602624514575691
+      ],
+      "court_wrong_acceptance": 0.49,
+      "court_wrong_acceptance_ci": [
+        0.43391603364256914,
+        0.5463368349573855
+      ],
+      "court_underpowered": 0.03666666666666667
+    },
+    {
+      "stress": "fat_tails",
+      "label": "fat tails (Student t, 2 degrees of freedom)",
+      "sims": 300,
+      "trips": 300,
+      "detectors": {
+        "size_after_loss": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "hold_asymmetry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "overtrading_clusters": {
+          "flagged_raw": 0.03333333333333333,
+          "flagged_raw_ci": [
+            0.018204749873650852,
+            0.0602624514575691
+          ],
+          "flagged_after_holm": 0.0033333333333333335,
+          "flagged_after_holm_ci": [
+            0.0005886425761407379,
+            0.018637164554943353
+          ]
+        },
+        "revenge_reentry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        }
+      },
+      "any_detector_after_holm": 0.0033333333333333335,
+      "any_detector_after_holm_ci": [
+        0.0005886425761407379,
+        0.018637164554943353
+      ],
+      "court_wrong_acceptance": 0.01,
+      "court_wrong_acceptance_ci": [
+        0.0034065567627181124,
+        0.028984004635062833
+      ],
+      "court_underpowered": 0.02
+    },
+    {
+      "stress": "all_four",
+      "label": "all four together",
+      "sims": 300,
+      "trips": 300,
+      "detectors": {
+        "size_after_loss": {
+          "flagged_raw": 0.14666666666666667,
+          "flagged_raw_ci": [
+            0.11110461424509804,
+            0.19116340961996847
+          ],
+          "flagged_after_holm": 0.056666666666666664,
+          "flagged_after_holm_ci": [
+            0.03567717591318777,
+            0.08886666535147117
+          ]
+        },
+        "hold_asymmetry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        },
+        "overtrading_clusters": {
+          "flagged_raw": 0.08333333333333333,
+          "flagged_raw_ci": [
+            0.05708047735632001,
+            0.12012238097512637
+          ],
+          "flagged_after_holm": 0.03666666666666667,
+          "flagged_after_holm_ci": [
+            0.02059509146818067,
+            0.06445448699638771
+          ]
+        },
+        "revenge_reentry": {
+          "flagged_raw": 0.0,
+          "flagged_raw_ci": [
+            0.0,
+            0.012643429997735661
+          ],
+          "flagged_after_holm": 0.0,
+          "flagged_after_holm_ci": [
+            0.0,
+            0.012643429997735661
+          ]
+        }
+      },
+      "any_detector_after_holm": 0.09333333333333334,
+      "any_detector_after_holm_ci": [
+        0.06536379092760147,
+        0.13158619880389022
+      ],
+      "court_wrong_acceptance": 0.9266666666666666,
+      "court_wrong_acceptance_ci": [
+        0.8914679042010732,
+        0.9510763688675256
+      ],
+      "court_underpowered": 0.0
+    }
+  ],
+  "table": "| Stress (truth: no size-up habit) | size after loss | hold asymmetry | overtrading | revenge re-entry | any, after Holm | court wrongly accepts |\n|---|---|---|---|---|---|---|\n| none (reference) | 0.0% [0.0%, 1.3%] | 0.0% [0.0%, 1.3%] | 1.0% [0.3%, 2.9%] | 0.0% [0.0%, 1.3%] | 1.0% [0.3%, 2.9%] | 0.7% [0.2%, 2.4%] |\n| persistent size drift (about 4.5x over the history) | 0.3% [0.1%, 1.9%] | 0.0% [0.0%, 1.3%] | 1.7% [0.7%, 3.8%] | 0.0% [0.0%, 1.3%] | 2.0% [0.9%, 4.3%] | 1.0% [0.3%, 2.9%] |\n| regime shift at the midpoint (3x size, 3x volatility) | 1.7% [0.7%, 3.8%] | 0.0% [0.0%, 1.3%] | 1.7% [0.7%, 3.8%] | 0.0% [0.0%, 1.3%] | 3.3% [1.8%, 6.0%] | 0.3% [0.1%, 1.9%] |\n| autocorrelated returns (AR(1), rho 0.6) | 0.0% [0.0%, 1.3%] | 0.0% [0.0%, 1.3%] | 3.3% [1.8%, 6.0%] | 0.0% [0.0%, 1.3%] | 3.3% [1.8%, 6.0%] | 49.0% [43.4%, 54.6%] |\n| fat tails (Student t, 2 degrees of freedom) | 0.0% [0.0%, 1.3%] | 0.0% [0.0%, 1.3%] | 0.3% [0.1%, 1.9%] | 0.0% [0.0%, 1.3%] | 0.3% [0.1%, 1.9%] | 1.0% [0.3%, 2.9%] |\n| all four together | 5.7% [3.6%, 8.9%] | 0.0% [0.0%, 1.3%] | 3.7% [2.1%, 6.4%] | 0.0% [0.0%, 1.3%] | 9.3% [6.5%, 13.2%] | 92.7% [89.1%, 95.1%] |",
+  "failures": [
+    "court under autocorrelated losses (49.0%)",
+    "family-wise flag under all four (9.3%)",
+    "court under all four (92.7%)"
+  ],
+  "scalars": {
+    "sims": "300",
+    "trips": "300",
+    "worst_any": "9.3% under all four",
+    "worst_court": "92.7% under all four",
+    "worst_detector": "size_after_loss 5.7% under all four",
+    "baseline_any": "1.0%",
+    "baseline_court": "0.7%",
+    "failures": "court under autocorrelated losses (49.0%); family-wise flag under all four (9.3%); court under all four (92.7%)",
+    "n_failures": "3"
+  },
+  "seconds": 899
+}

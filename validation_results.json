@@ -109,11 +109,11 @@
         "effect_ok": true,
         "multiple": 1.0,
         "p_ok": true,
-        "ref_effect": 6763.03353460564,
-        "ref_p": 0.24871751282487176,
+        "ref_effect": 6764.304003205729,
+        "ref_p": 0.19329033548322583,
         "ref_status": "REJECTED",
-        "shipped_effect": 6763.03,
-        "shipped_p": 0.2378,
+        "shipped_effect": 6764.3,
+        "shipped_p": 0.1945,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "C"
@@ -123,11 +123,11 @@
         "effect_ok": true,
         "multiple": 1.5,
         "p_ok": true,
-        "ref_effect": 5539.226010101452,
-        "ref_p": 0.25206747932520673,
+        "ref_effect": 5591.6460632360795,
+        "ref_p": 0.20693965301734912,
         "ref_status": "REJECTED",
-        "shipped_effect": 5539.23,
-        "shipped_p": 0.2478,
+        "shipped_effect": 5591.65,
+        "shipped_p": 0.2165,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "C"
@@ -137,11 +137,11 @@
         "effect_ok": true,
         "multiple": 2.0,
         "p_ok": true,
-        "ref_effect": 5358.050268591998,
-        "ref_p": 0.27313726862731375,
+        "ref_effect": 5001.261459530545,
+        "ref_p": 0.2449377531123444,
         "ref_status": "REJECTED",
-        "shipped_effect": 5358.05,
-        "shipped_p": 0.2751,
+        "shipped_effect": 5001.26,
+        "shipped_p": 0.2492,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "C"
@@ -151,11 +151,11 @@
         "effect_ok": true,
         "multiple": 3.0,
         "p_ok": true,
-        "ref_effect": 5432.509660599398,
-        "ref_p": 0.25839741602583977,
+        "ref_effect": 5425.159928928897,
+        "ref_p": 0.1728413579321034,
         "ref_status": "REJECTED",
-        "shipped_effect": 5432.51,
-        "shipped_p": 0.2532,
+        "shipped_effect": 5425.16,
+        "shipped_p": 0.1739,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "C"
@@ -165,11 +165,11 @@
         "effect_ok": true,
         "multiple": 1.0,
         "p_ok": true,
-        "ref_effect": 5479.2086762989675,
-        "ref_p": 0.004989950100498995,
+        "ref_effect": 7498.260874874306,
+        "ref_p": 0.0017899821001789982,
         "ref_status": "ACCEPTED",
-        "shipped_effect": 5479.21,
-        "shipped_p": 0.0047,
+        "shipped_effect": 7498.26,
+        "shipped_p": 0.002,
         "shipped_status": "ACCEPTED",
         "status_agrees": true,
         "trader": "D"
@@ -179,11 +179,11 @@
         "effect_ok": true,
         "multiple": 1.5,
         "p_ok": true,
-        "ref_effect": 4804.144679290016,
-        "ref_p": 0.0059899401005989944,
+        "ref_effect": 6303.2359446834935,
+        "ref_p": 0.003069969300306997,
         "ref_status": "ACCEPTED",
-        "shipped_effect": 4804.14,
-        "shipped_p": 0.0073,
+        "shipped_effect": 6303.24,
+        "shipped_p": 0.0027,
         "shipped_status": "ACCEPTED",
         "status_agrees": true,
         "trader": "D"
@@ -193,11 +193,11 @@
         "effect_ok": true,
         "multiple": 2.0,
         "p_ok": true,
-        "ref_effect": 2208.099387687281,
-        "ref_p": 0.017659823401765983,
+        "ref_effect": 2830.11786847312,
+        "ref_p": 0.01782982170178298,
         "ref_status": "REJECTED",
-        "shipped_effect": 2208.1,
-        "shipped_p": 0.0153,
+        "shipped_effect": 2830.12,
+        "shipped_p": 0.0167,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "D"
@@ -207,11 +207,11 @@
         "effect_ok": true,
         "multiple": 3.0,
         "p_ok": true,
-        "ref_effect": -612.4466661254191,
-        "ref_p": 0.06008939910600894,
+        "ref_effect": -239.22488458453924,
+        "ref_p": 0.0979890201097989,
         "ref_status": "REJECTED",
-        "shipped_effect": -612.45,
-        "shipped_p": 0.0566,
+        "shipped_effect": -239.22,
+        "shipped_p": 0.0939,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "D"
@@ -221,11 +221,11 @@
         "effect_ok": true,
         "multiple": 1.0,
         "p_ok": true,
-        "ref_effect": -57748.74510839847,
-        "ref_p": 0.8756812431875681,
+        "ref_effect": -60706.6626445515,
+        "ref_p": 0.8801411985880141,
         "ref_status": "REJECTED",
-        "shipped_effect": -57748.75,
-        "shipped_p": 0.8741,
+        "shipped_effect": -60706.66,
+        "shipped_p": 0.8767,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "E"
@@ -235,11 +235,11 @@
         "effect_ok": true,
         "multiple": 1.5,
         "p_ok": true,
-        "ref_effect": -23705.683689689973,
-        "ref_p": 0.8323816761832382,
+        "ref_effect": -28476.024326513892,
+        "ref_p": 0.8568014319856802,
         "ref_status": "REJECTED",
-        "shipped_effect": -23705.68,
-        "shipped_p": 0.8408,
+        "shipped_effect": -28476.02,
+        "shipped_p": 0.8701,
         "shipped_status": "REJECTED",
         "status_agrees": true,
         "trader": "E"
@@ -247,10 +247,10 @@
       {
         "agree": true,
         "multiple": 2.0,
-        "ref_effect": 474.2576931303663,
+        "ref_effect": -5274.846645198029,
         "ref_p": null,
         "ref_status": "UNDERPOWERED",
-        "shipped_effect": 474.26,
+        "shipped_effect": -5274.85,
         "shipped_p": null,
         "shipped_status": "UNDERPOWERED",
         "trader": "E"
@@ -507,9 +507,21 @@
     ],
     "detectors": [
       {
-        "agree": true,
-        "ci_endpoint_gap_rel_width": 0.006014639047094452,
-        "ci_ok": true,
+        "agree": false,
+        "ci_endpoint_gap_rel_width": 0.12859222864801303,
+        "ci_noise_study": {
+          "our_procedure_20000_draws": [
+            0.7602200125909896,
+            1.1967486165651378
+          ],
+          "seeds": 40,
+          "share_of_1500_draw_runs_within_tolerance": 0.4,
+          "upper_endpoint_range_1500_draws": [
+            1.1527983723512847,
+            1.2118180933005194
+          ]
+        },
+        "ci_ok": false,
         "decision_agrees": true,
         "detector": "size_after_loss",
         "n_a": 28,
@@ -517,17 +529,17 @@
         "p_ok": true,
         "p_tol_3se": 0.024648901765170025,
         "scipy_ci_bca": [
-          0.8055895611105982,
-          1.32397999882683
+          0.844643539735528,
+          1.2565794836818214
         ],
         "scipy_ci_percentile": [
-          0.7535830797456676,
-          1.2450440397200158
+          0.7574431916272499,
+          1.1557773259241808
         ],
         "scipy_p": 0.4297142571435714,
         "shipped_ci": [
-          0.754,
-          1.248
+          0.776,
+          1.207
         ],
         "shipped_p": 0.4331,
         "shipped_status": "NOT_FLAGGED",
@@ -573,28 +585,28 @@
       },
       {
         "agree": true,
-        "ci_endpoint_gap_rel_width": 0.0971666019131655,
+        "ci_endpoint_gap_rel_width": 0.035831246143177974,
         "ci_ok": true,
         "decision_agrees": true,
         "detector": "size_after_loss",
         "n_a": 90,
         "n_b": 21,
         "p_ok": true,
-        "p_tol_3se": 0.007745733517835704,
+        "p_tol_3se": 0.005372479031441076,
         "scipy_ci_bca": [
-          0.9092384935356115,
-          16.954614004050526
+          0.8712696239253308,
+          24.708695858584182
         ],
         "scipy_ci_percentile": [
-          0.9921838536640099,
-          20.19602774537185
+          0.8806111403984366,
+          25.42552514474705
         ],
-        "scipy_p": 0.03149921251968701,
+        "scipy_p": 0.014824629384265393,
         "shipped_ci": [
-          0.993,
-          22.062
+          0.893,
+          26.305
         ],
-        "shipped_p": 0.0242,
+        "shipped_p": 0.0115,
         "shipped_status": "SUGGESTIVE",
         "trader": "B"
       },
@@ -638,28 +650,28 @@
       },
       {
         "agree": true,
-        "ci_endpoint_gap_rel_width": 0.0001983922673601609,
+        "ci_endpoint_gap_rel_width": 0.012711987970705775,
         "ci_ok": true,
         "decision_agrees": true,
         "detector": "size_after_loss",
         "n_a": 183,
         "n_b": 90,
         "p_ok": true,
-        "p_tol_3se": 0.012866862960812053,
+        "p_tol_3se": 0.018056738557550286,
         "scipy_ci_bca": [
-          0.9661599242349652,
-          2.2545441926246923
+          0.7170796075989874,
+          1.6152516643659154
         ],
         "scipy_ci_percentile": [
-          0.8012376145889346,
-          1.998938473076528
+          0.8496430208513697,
+          2.001549464211284
         ],
-        "scipy_p": 0.06307342316442088,
+        "scipy_p": 0.14727131821704456,
         "shipped_ci": [
-          0.801,
-          1.999
+          0.835,
+          1.998
         ],
-        "shipped_p": 0.073,
+        "shipped_p": 0.157,
         "shipped_status": "NOT_FLAGGED",
         "trader": "C"
       },
@@ -719,28 +731,29 @@
       },
       {
         "agree": true,
-        "ci_endpoint_gap_rel_width": 0.025736654758036957,
+        "block_length": 3,
+        "ci_endpoint_gap_rel_width": 0.08121654110731419,
         "ci_ok": true,
         "decision_agrees": true,
         "detector": "size_after_loss",
         "n_a": 128,
         "n_b": 190,
         "p_ok": true,
-        "p_tol_3se": 0.015690773467370966,
+        "p_tol_3se": 0.014095967055506423,
         "scipy_ci_bca": [
-          0.6676943862883938,
-          1.1570157367041523
+          0.8368683196156942,
+          1.052542881421409
         ],
         "scipy_ci_percentile": [
-          0.6500050003168741,
-          1.1160717753463731
+          0.8139652670925612,
+          1.0230212002139212
         ],
-        "scipy_p": 0.8897277568060799,
+        "scipy_p": 0.9175541222938853,
         "shipped_ci": [
-          0.662,
-          1.116
+          0.824,
+          1.04
         ],
-        "shipped_p": 0.8878,
+        "shipped_p": 0.9205,
         "shipped_status": "NOT_FLAGGED",
         "trader": "D"
       },
@@ -799,41 +812,30 @@
         "trader": "D"
       },
       {
-        "agree": false,
-        "ci_endpoint_gap_rel_width": 0.45730295387979975,
-        "ci_noise_study": {
-          "our_procedure_20000_draws": [
-            0.7500002740628073,
-            1.3332986352584129
-          ],
-          "seeds": 40,
-          "share_of_1500_draw_runs_within_tolerance": 0.8,
-          "upper_endpoint_range_1500_draws": [
-            1.3331150118345751,
-            1.5999259676548117
-          ]
-        },
-        "ci_ok": false,
+        "agree": true,
+        "block_length": 13,
+        "ci_endpoint_gap_rel_width": 0.0011786462336859911,
+        "ci_ok": true,
         "decision_agrees": true,
         "detector": "size_after_loss",
         "n_a": 129,
         "n_b": 94,
         "p_ok": true,
-        "p_tol_3se": 0.022953324041527966,
+        "p_tol_3se": 0.01888272761047703,
         "scipy_ci_bca": [
-          0.5000794243187493,
-          1.0599668575088623
+          0.971693881782586,
+          1.0000510188656766
         ],
         "scipy_ci_percentile": [
-          0.7500002740628073,
-          1.3332693353614382
+          0.8267958466484451,
+          1.0000058783951469
         ],
-        "scipy_p": 0.6935826604334892,
+        "scipy_p": 0.8440577971101445,
         "shipped_ci": [
-          0.75,
-          1.6
+          0.827,
+          1.0
         ],
-        "shipped_p": 0.6926,
+        "shipped_p": 0.8433,
         "shipped_status": "NOT_FLAGGED",
         "trader": "E"
       },
@@ -949,9 +951,25 @@
       {
         "abs_diff": 0.0,
         "agree": true,
+        "detector": "off_hours_trading",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "A"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "averaging_down",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "A"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
         "detector": "size_after_loss",
-        "ours": 0.0968,
-        "statsmodels": 0.0968,
+        "ours": 0.0805,
+        "statsmodels": 0.0805,
         "trader": "B"
       },
       {
@@ -965,9 +983,17 @@
       {
         "abs_diff": 0.0,
         "agree": true,
+        "detector": "averaging_down",
+        "ours": 0.9552,
+        "statsmodels": 0.9552,
+        "trader": "B"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
         "detector": "size_after_loss",
-        "ours": 0.292,
-        "statsmodels": 0.292,
+        "ours": 0.785,
+        "statsmodels": 0.785,
         "trader": "C"
       },
       {
@@ -989,6 +1015,14 @@
       {
         "abs_diff": 0.0,
         "agree": true,
+        "detector": "averaging_down",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "C"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
         "detector": "size_after_loss",
         "ours": 1.0,
         "statsmodels": 1.0,
@@ -1003,11 +1037,19 @@
         "trader": "D"
       },
       {
-        "abs_diff": 0.0,
+        "abs_diff": 5.551115123125783e-17,
         "agree": true,
         "detector": "overtrading_clusters",
-        "ours": 0.2208,
-        "statsmodels": 0.2208,
+        "ours": 0.3864,
+        "statsmodels": 0.38639999999999997,
+        "trader": "D"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "averaging_down",
+        "ours": 0.8412,
+        "statsmodels": 0.8412,
         "trader": "D"
       },
       {
@@ -1030,6 +1072,14 @@
         "abs_diff": 0.0,
         "agree": true,
         "detector": "overtrading_clusters",
+        "ours": 1.0,
+        "statsmodels": 1.0,
+        "trader": "E"
+      },
+      {
+        "abs_diff": 0.0,
+        "agree": true,
+        "detector": "averaging_down",
         "ours": 1.0,
         "statsmodels": 1.0,
         "trader": "E"
@@ -1052,9 +1102,9 @@
       "detector_pvalues_compared": 13,
       "detector_underpowered_agree": 5,
       "detector_underpowered_total": 5,
-      "holm_shipped_agree": 13,
-      "holm_shipped_compared": 13,
-      "holm_shipped_max_abs_diff": 0.0,
+      "holm_shipped_agree": 19,
+      "holm_shipped_compared": 19,
+      "holm_shipped_max_abs_diff": 5.551115123125783e-17,
       "labels_identical": 6,
       "ours_vs_arch_iid_agree": 6,
       "stationary_b5_width_ratio_max": 1.0301825398139393,
@@ -1075,26 +1125,86 @@
     "traders": {
       "A": {
         "after_loss_labels_identical": true,
+        "dependence": {
+          "block_length_arch": 0.8014775790605335,
+          "block_length_ours": 1.0,
+          "detected": false,
+          "ess": 82.39533958691285,
+          "lb_p": 0.7627586678486543,
+          "lb_p_agree": true,
+          "lb_p_statsmodels": 0.7627586678486543,
+          "rho1": -0.0365042770024413
+        },
         "n_trips": 83
       },
       "B": {
         "after_loss_labels_identical": true,
+        "dependence": {
+          "block_length_arch": 1.8408159837791036,
+          "block_length_ours": 1.8408159837791034,
+          "detected": false,
+          "ess": 92.74959672142943,
+          "lb_p": 0.3705510625091051,
+          "lb_p_agree": true,
+          "lb_p_statsmodels": 0.3705510625091042,
+          "rho1": 0.15444772519335073
+        },
         "n_trips": 112
       },
       "C": {
         "after_loss_labels_identical": true,
+        "dependence": {
+          "block_length_arch": 4.3503085699267325,
+          "block_length_ours": 3.0127544742235215,
+          "detected": true,
+          "ess": 176.60591536033144,
+          "lb_p": 0.0025610026568129007,
+          "lb_p_agree": true,
+          "lb_p_statsmodels": 0.0025610026568129046,
+          "rho1": 0.2302896416008815
+        },
         "n_trips": 275
       },
       "D": {
         "after_loss_labels_identical": true,
+        "dependence": {
+          "block_length_arch": 2.5920315222359642,
+          "block_length_ours": 2.5920315222359642,
+          "detected": false,
+          "ess": 244.35710994096925,
+          "lb_p": 0.1167899472387035,
+          "lb_p_agree": true,
+          "lb_p_statsmodels": 0.1167899472387035,
+          "rho1": 0.1524430759160457
+        },
         "n_trips": 319
       },
       "E": {
         "after_loss_labels_identical": true,
+        "dependence": {
+          "block_length_arch": 0.3791657432897814,
+          "block_length_ours": 1.0,
+          "detected": false,
+          "ess": 214.3922813730512,
+          "lb_p": 0.6067701062255377,
+          "lb_p_agree": true,
+          "lb_p_statsmodels": 0.6067701062255377,
+          "rho1": 0.007923516212420462
+        },
         "n_trips": 224
       },
       "G": {
         "after_loss_labels_identical": true,
+        "dependence": {
+          "block_length_arch": 19.633617339039063,
+          "block_length_ours": 16.75,
+          "detected": false,
+          "ess": 67.0,
+          "lb_p": 0.049365461373532316,
+          "lb_p_agree": true,
+          "lb_p_statsmodels": 0.04936546137353231,
+          "rho1": -0.046330893183184445
+        },
         "n_trips": 67
       }
     }
@@ -1103,10 +1213,10 @@
     "cells": [
       {
         "ci": [
-          0.0017673865655472645,
-          0.0544875247609346
+          0.015663050551848016,
+          0.09837217232607373
         ],
-        "flagged": 0.01,
+        "flagged": 0.04,
         "scenario": "no_size_habit",
         "size_mult": 1.0,
         "trips": 60
@@ -1143,60 +1253,60 @@
       },
       {
         "ci": [
-          0.3093997461136028,
-          0.4979992153815976
+          0.2909744920013438,
+          0.47790426179289663
         ],
-        "flagged": 0.4,
+        "flagged": 0.38,
         "scenario": "size_up_1.25x",
         "size_mult": 1.25,
         "trips": 60
       },
       {
         "ci": [
-          0.44264685393523856,
-          0.6343935614666815
+          0.38464384320080547,
+          0.5768359490982345
         ],
-        "flagged": 0.54,
+        "flagged": 0.48,
         "scenario": "size_up_1.25x",
         "size_mult": 1.25,
         "trips": 150
       },
       {
         "ci": [
-          0.3942183009238615,
-          0.5865215952256586
+          0.36560643853331865,
+          0.5573531460647615
         ],
-        "flagged": 0.49,
+        "flagged": 0.46,
         "scenario": "size_up_1.25x",
         "size_mult": 1.25,
         "trips": 300
       },
       {
         "ci": [
-          0.45244427031643447,
-          0.6438562489359654
+          0.4134784047743415,
+          0.6057816990761385
         ],
-        "flagged": 0.55,
+        "flagged": 0.51,
         "scenario": "size_up_1.25x",
         "size_mult": 1.25,
         "trips": 600
       },
       {
         "ci": [
-          0.8018773199709163,
-          0.9300066263473222
+          0.8377362530335634,
+          0.9519280048361151
         ],
-        "flagged": 0.88,
+        "flagged": 0.91,
         "scenario": "size_up_1.5x",
         "size_mult": 1.5,
         "trips": 60
       },
       {
         "ci": [
-          0.9299868370580063,
-          0.9944981477650318
+          0.9455124752390653,
+          0.9982326134344526
         ],
-        "flagged": 0.98,
+        "flagged": 0.99,
         "scenario": "size_up_1.5x",
         "size_mult": 1.5,
         "trips": 150
@@ -1440,17 +1550,17 @@
   "scalars": {
     "block_width": "0.89x to 1.03x",
     "ci_agree": "12 of 13",
-    "ci_finding": "wallet E size_after_loss: our shipped CI is [0.75, 1.6] and scipy's is [0.75, 1.33]. Re-running our own procedure with 40 other seeds, 80% landed within tolerance (upper endpoint ranged 1.33 to 1.6), and with 20,000 draws our procedure gives [0.75, 1.33], matching scipy. The p-value is unaffected",
+    "ci_finding": "wallet A size_after_loss: our shipped CI is [0.776, 1.21] and scipy's is [0.757, 1.16]. Re-running our own procedure with 40 other seeds, 40% landed within tolerance (upper endpoint ranged 1.15 to 1.21), and with 20,000 draws our procedure gives [0.76, 1.2], matching scipy. The p-value is unaffected",
     "court_agree": "24 of 24",
-    "d_finding": "wallet D is the one real wallet where the court accepted rules (1.0x (held-out $5,479), 1.5x (held-out $4,804)); the independent re-implementation reproduces both verdicts. But the same cap rules priced on ALL of D's history give $-1,964 at 1.5x with a 95% interval of [-10,059, 5,636] (it contains zero), the CSCV probability of backtest overfitting over D's four caps is 0.87, and the deflated Sharpe of the best cap is 0.36",
+    "d_finding": "wallet D is the one real wallet where the court accepted rules (1.0x (held-out $7,498), 1.5x (held-out $6,303)); the independent re-implementation reproduces both verdicts. But the same cap rules priced on ALL of D's history give $-1,964 at 1.5x with a 95% interval of [-10,059, 5,636] (it contains zero), the CSCV probability of backtest overfitting over D's four caps is 0.87, and the deflated Sharpe of the best cap is 0.36",
     "detector_falseflag_300": "0%",
-    "detector_power_125_300": "49%",
+    "detector_power_125_300": "46%",
     "detector_power_15_300": "100%",
     "detector_power_300": "100%",
     "detector_power_600": "100%",
     "dsr_costly": "0.99",
     "dsr_null": "0.66",
-    "holm_agree": "13 of 13",
+    "holm_agree": "19 of 19",
     "holm_random_maxdiff": "0e+00",
     "p_agree": "13 of 13",
     "pbo_costly": "0.01",
@@ -1459,15 +1569,15 @@
     "real_accepted_wallets": "D",
     "tools": "scipy 1.18.1, statsmodels 0.15.0, arch 8.0.0, hypothesis 6.168.5"
   },
-  "seconds_run_validation": 0,
+  "seconds_run_validation": 360,
   "tables": {
-    "crosscheck_court": "| Trader | Cap | Our status | Reference status | Our p (1,500 perms) | Reference p (100,000) | Our held-out effect | Reference effect |\n|---|---|---|---|---|---|---|---|\n| A | 1.0x | REJECTED | REJECTED | 0.8728 | 0.8735 | -14611.78 | -14611.78 |\n| A | 1.5x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | -8826.63 | -8826.63 |\n| A | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | -3090.76 | -3090.76 |\n| A | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 33.35 | 33.35 |\n| B | 1.0x | REJECTED | REJECTED | 0.0706 | 0.0714 | 54.48 | 54.48 |\n| B | 1.5x | REJECTED | REJECTED | 0.0846 | 0.0858 | -630.50 | -630.50 |\n| B | 2.0x | REJECTED | REJECTED | 0.1039 | 0.1037 | -1003.37 | -1003.37 |\n| B | 3.0x | REJECTED | REJECTED | 0.1419 | 0.1377 | -1118.31 | -1118.31 |\n| C | 1.0x | REJECTED | REJECTED | 0.2378 | 0.2487 | 6763.03 | 6763.03 |\n| C | 1.5x | REJECTED | REJECTED | 0.2478 | 0.2521 | 5539.23 | 5539.23 |\n| C | 2.0x | REJECTED | REJECTED | 0.2751 | 0.2731 | 5358.05 | 5358.05 |\n| C | 3.0x | REJECTED | REJECTED | 0.2532 | 0.2584 | 5432.51 | 5432.51 |\n| D | 1.0x | ACCEPTED | ACCEPTED | 0.0047 | 0.0050 | 5479.21 | 5479.21 |\n| D | 1.5x | ACCEPTED | ACCEPTED | 0.0073 | 0.0060 | 4804.14 | 4804.14 |\n| D | 2.0x | REJECTED | REJECTED | 0.0153 | 0.0177 | 2208.10 | 2208.10 |\n| D | 3.0x | REJECTED | REJECTED | 0.0566 | 0.0601 | -612.45 | -612.45 |\n| E | 1.0x | REJECTED | REJECTED | 0.8741 | 0.8757 | -57748.75 | -57748.75 |\n| E | 1.5x | REJECTED | REJECTED | 0.8408 | 0.8324 | -23705.68 | -23705.68 |\n| E | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 474.26 | 474.26 |\n| E | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 1.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 1.5x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |",
+    "crosscheck_court": "| Trader | Cap | Our status | Reference status | Our p (1,500 perms) | Reference p (100,000) | Our held-out effect | Reference effect |\n|---|---|---|---|---|---|---|---|\n| A | 1.0x | REJECTED | REJECTED | 0.8728 | 0.8735 | -14611.78 | -14611.78 |\n| A | 1.5x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | -8826.63 | -8826.63 |\n| A | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | -3090.76 | -3090.76 |\n| A | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 33.35 | 33.35 |\n| B | 1.0x | REJECTED | REJECTED | 0.0706 | 0.0714 | 54.48 | 54.48 |\n| B | 1.5x | REJECTED | REJECTED | 0.0846 | 0.0858 | -630.50 | -630.50 |\n| B | 2.0x | REJECTED | REJECTED | 0.1039 | 0.1037 | -1003.37 | -1003.37 |\n| B | 3.0x | REJECTED | REJECTED | 0.1419 | 0.1377 | -1118.31 | -1118.31 |\n| C | 1.0x | REJECTED | REJECTED | 0.1945 | 0.1933 | 6764.30 | 6764.30 |\n| C | 1.5x | REJECTED | REJECTED | 0.2165 | 0.2069 | 5591.65 | 5591.65 |\n| C | 2.0x | REJECTED | REJECTED | 0.2492 | 0.2449 | 5001.26 | 5001.26 |\n| C | 3.0x | REJECTED | REJECTED | 0.1739 | 0.1728 | 5425.16 | 5425.16 |\n| D | 1.0x | ACCEPTED | ACCEPTED | 0.0020 | 0.0018 | 7498.26 | 7498.26 |\n| D | 1.5x | ACCEPTED | ACCEPTED | 0.0027 | 0.0031 | 6303.24 | 6303.24 |\n| D | 2.0x | REJECTED | REJECTED | 0.0167 | 0.0178 | 2830.12 | 2830.12 |\n| D | 3.0x | REJECTED | REJECTED | 0.0939 | 0.0980 | -239.22 | -239.22 |\n| E | 1.0x | REJECTED | REJECTED | 0.8767 | 0.8801 | -60706.66 | -60706.66 |\n| E | 1.5x | REJECTED | REJECTED | 0.8701 | 0.8568 | -28476.02 | -28476.02 |\n| E | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | -5274.85 | -5274.85 |\n| E | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 1.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 1.5x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 2.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |\n| G | 3.0x | UNDERPOWERED | UNDERPOWERED | n/a | n/a | 0.00 | 0.00 |",
     "crosscheck_dependence": "| Trader | Rule | Effect | Our iid CI (800 draws) | arch iid CI | arch stationary (mean block 5) | width vs iid | arch circular block 5 | width vs iid |\n|---|---|---|---|---|---|---|---|---|\n| A | cap 1.5x | -2,759 | [-8,307, 45] | [-8,307, 45] | [-8,345, 45] | 1.00x | [-8,345, 67] | 1.01x |\n| B | cap 1.5x | 1,287 | [-3,499, 4,805] | [-3,401, 5,038] | [-2,923, 4,589] | 0.89x | [-3,299, 4,899] | 0.97x |\n| C | cap 1.5x | 2,351 | [-10,354, 13,410] | [-10,259, 13,990] | [-10,265, 14,716] | 1.03x | [-9,637, 14,364] | 0.99x |\n| D | cap 1.5x | -1,964 | [-9,514, 5,944] | [-10,059, 5,636] | [-10,346, 5,407] | 1.00x | [-11,184, 5,720] | 1.08x |\n| E | cap 1.5x | -22,101 | [-75,851, 6,806] | [-75,687, 6,725] | [-75,874, 6,928] | 1.00x | [-75,417, 6,752] | 1.00x |\n| G | cap 1.5x | -0 | [-1, 0] | [-1, 0] | [-1, 0] | 1.00x | [-1, 0] | 1.00x |",
-    "crosscheck_detectors": "| Trader | Test | n (flagged group / other) | Our p | scipy p | Our 95% CI | scipy 95% CI (percentile) | scipy BCa | p ok | CI ok |\n|---|---|---|---|---|---|---|---|---|---|\n| A | size_after_loss | 28/48 | 0.4331 | 0.4297 | [0.754, 1.25] | [0.754, 1.25] | [0.806, 1.32] | yes | yes |\n| A | hold_asymmetry | 29/54 | 0.6281 | 0.6376 | [0.282, 3.37] | [0.309, 3.53] | [0.293, 3.36] | yes | yes |\n| A | overtrading_clusters | 9/74 | underpowered | underpowered | | | | yes | |\n| B | size_after_loss | 90/21 | 0.0242 | 0.0315 | [0.993, 22.1] | [0.992, 20.2] | [0.909, 17] | yes | yes |\n| B | hold_asymmetry | 83/29 | 1.0000 | 1.0000 | [0.101, 0.447] | [0.1, 0.441] | [0.0871, 0.388] | yes | yes |\n| B | overtrading_clusters | 0/0 | underpowered | underpowered | | | | yes | |\n| C | size_after_loss | 183/90 | 0.0730 | 0.0631 | [0.801, 2] | [0.801, 2] | [0.966, 2.25] | yes | yes |\n| C | hold_asymmetry | 168/107 | 1.0000 | 1.0000 | [0.152, 0.354] | [0.148, 0.35] | [0.148, 0.349] | yes | yes |\n| C | overtrading_clusters | 81/194 | 0.4801 | 0.4807 | [-197, 216] | [-200, 207] | [-194, 214] | yes | yes |\n| D | size_after_loss | 128/190 | 0.8878 | 0.8897 | [0.662, 1.12] | [0.65, 1.12] | [0.668, 1.16] | yes | yes |\n| D | hold_asymmetry | 122/197 | 0.9813 | 0.9822 | [0.229, 1.3] | [0.23, 1.31] | [0.207, 1.2] | yes | yes |\n| D | overtrading_clusters | 73/246 | 0.0552 | 0.0561 | [-683, 77.4] | [-671, 74.8] | [-722, 44.2] | yes | yes |\n| E | size_after_loss | 129/94 | 0.6926 | 0.6936 | [0.75, 1.6] | [0.75, 1.33] | [0.5, 1.06] | yes | NO |\n| E | hold_asymmetry | 127/97 | 1.0000 | 1.0000 | [0.224, 0.5] | [0.215, 0.516] | [0.246, 0.588] | yes | yes |\n| E | overtrading_clusters | 29/195 | 0.7036 | 0.7068 | [-2.56e+03, 4.98e+03] | [-2.59e+03, 5.03e+03] | [-1.91e+03, 7.17e+03] | yes | yes |\n| G | size_after_loss | 55/11 | underpowered | underpowered | | | | yes | |\n| G | hold_asymmetry | 56/11 | underpowered | underpowered | | | | yes | |\n| G | overtrading_clusters | 0/0 | underpowered | underpowered | | | | yes | |",
-    "crosscheck_summary": "| Quantity | Reference implementation | Compared | Agree | Tolerance (declared before running) |\n|---|---|---|---|---|\n| Detector p-values (permutation) | scipy.stats.permutation_test, 40,000 resamples | 13 | 13 | 3 combined Monte-Carlo SE + 1e-4 |\n| Detector 95% CIs (bootstrap) | scipy.stats.bootstrap, 9,999 resamples | 13 | 12 | endpoints within 10% of the reference CI width |\n| UNDERPOWERED gating | independent group counts | 5 | 5 | same decision |\n| Holm adjusted p (shipped, per trader) | statsmodels multipletests(holm) | 13 | 13 | 5e-4 (max observed 0.0e+00) |\n| Holm on random p-vectors | statsmodels multipletests(holm) | 3,000 | 3,000 | 1e-12 (max observed 0.0e+00) |\n| Court walk-forward verdicts (effect, p, status) | our re-implementation from the docs, 100,000 permutations | 24 | 24 | effect within $0.01; p within 3 combined SE |\n| After-loss labels | independent searchsorted implementation | 6 traders | 6 | identical arrays |\n| All-history CI of the 1.5x rule | arch IIDBootstrap, 5,000 resamples | 6 | 6 | endpoints within 10% of width |",
+    "crosscheck_detectors": "| Trader | Test | n (flagged group / other) | Our p | scipy p | Our 95% CI | scipy 95% CI (percentile) | scipy BCa | p ok | CI ok |\n|---|---|---|---|---|---|---|---|---|---|\n| A | size_after_loss | 28/48 | 0.4331 | 0.4297 | [0.776, 1.21] | [0.757, 1.16] | [0.845, 1.26] | yes | NO |\n| A | hold_asymmetry | 29/54 | 0.6281 | 0.6376 | [0.282, 3.37] | [0.309, 3.53] | [0.293, 3.36] | yes | yes |\n| A | overtrading_clusters | 9/74 | underpowered | underpowered | | | | yes | |\n| B | size_after_loss | 90/21 | 0.0115 | 0.0148 | [0.893, 26.3] | [0.881, 25.4] | [0.871, 24.7] | yes | yes |\n| B | hold_asymmetry | 83/29 | 1.0000 | 1.0000 | [0.101, 0.447] | [0.1, 0.441] | [0.0871, 0.388] | yes | yes |\n| B | overtrading_clusters | 0/0 | underpowered | underpowered | | | | yes | |\n| C | size_after_loss | 183/90 | 0.1570 | 0.1473 | [0.835, 2] | [0.85, 2] | [0.717, 1.62] | yes | yes |\n| C | hold_asymmetry | 168/107 | 1.0000 | 1.0000 | [0.152, 0.354] | [0.148, 0.35] | [0.148, 0.349] | yes | yes |\n| C | overtrading_clusters | 81/194 | 0.4801 | 0.4807 | [-197, 216] | [-200, 207] | [-194, 214] | yes | yes |\n| D | size_after_loss | 128/190 | 0.9205 | 0.9176 | [0.824, 1.04] | [0.814, 1.02] | [0.837, 1.05] | yes | yes |\n| D | hold_asymmetry | 122/197 | 0.9813 | 0.9822 | [0.229, 1.3] | [0.23, 1.31] | [0.207, 1.2] | yes | yes |\n| D | overtrading_clusters | 73/246 | 0.0552 | 0.0561 | [-683, 77.4] | [-671, 74.8] | [-722, 44.2] | yes | yes |\n| E | size_after_loss | 129/94 | 0.8433 | 0.8441 | [0.827, 1] | [0.827, 1] | [0.972, 1] | yes | yes |\n| E | hold_asymmetry | 127/97 | 1.0000 | 1.0000 | [0.224, 0.5] | [0.215, 0.516] | [0.246, 0.588] | yes | yes |\n| E | overtrading_clusters | 29/195 | 0.7036 | 0.7068 | [-2.56e+03, 4.98e+03] | [-2.59e+03, 5.03e+03] | [-1.91e+03, 7.17e+03] | yes | yes |\n| G | size_after_loss | 55/11 | underpowered | underpowered | | | | yes | |\n| G | hold_asymmetry | 56/11 | underpowered | underpowered | | | | yes | |\n| G | overtrading_clusters | 0/0 | underpowered | underpowered | | | | yes | |",
+    "crosscheck_summary": "| Quantity | Reference implementation | Compared | Agree | Tolerance (declared before running) |\n|---|---|---|---|---|\n| Detector p-values (permutation) | scipy.stats.permutation_test, 40,000 resamples | 13 | 13 | 3 combined Monte-Carlo SE + 1e-4 |\n| Detector 95% CIs (bootstrap) | scipy.stats.bootstrap, 9,999 resamples | 13 | 12 | endpoints within 10% of the reference CI width |\n| UNDERPOWERED gating | independent group counts | 5 | 5 | same decision |\n| Holm adjusted p (shipped, per trader) | statsmodels multipletests(holm) | 19 | 19 | 5e-4 (max observed 5.6e-17) |\n| Holm on random p-vectors | statsmodels multipletests(holm) | 3,000 | 3,000 | 1e-12 (max observed 0.0e+00) |\n| Court walk-forward verdicts (effect, p, status) | our re-implementation from the docs, 100,000 permutations | 24 | 24 | effect within $0.01; p within 3 combined SE |\n| After-loss labels | independent searchsorted implementation | 6 traders | 6 | identical arrays |\n| All-history CI of the 1.5x rule | arch IIDBootstrap, 5,000 resamples | 6 | 6 | endpoints within 10% of width |",
     "pbo_planted": "| Planted trader (300 trips, 60 sims) | Mean PBO | Mean P(best rule loses out of sample) | Mean DSR | Mean PSR(0) | Share DSR > 0.95 | Mean correlation between rules |\n|---|---|---|---|---|---|---|\n| No leak | 0.43 | 0.55 | 0.66 | 0.80 | 12% | 0.71 |\n| Costless habit | 0.47 | 0.43 | 0.59 | 0.64 | 12% | 0.94 |\n| Costly leak | 0.01 | 0.01 | 0.99 | 1.00 | 93% | 0.94 |",
     "pbo_real": "| Wallet | Trips used | PBO | P(best rule loses OOS) | In-sample best cap | PSR(0) | DSR (4 trials) | Court accepted |\n|---|---|---|---|---|---|---|---|\n| A | 76 | 0.77 | 1.00 | 3.0x | n/a | n/a | 0 |\n| B | 111 | 0.37 | 0.39 | 1.5x | 0.69 | 0.60 | 0 |\n| C | 273 | 0.69 | 0.39 | 3.0x | 0.92 | 0.81 | 0 |\n| D | 318 | 0.87 | 0.74 | 1.0x | 0.52 | 0.36 | 2 |\n| E | 223 | 0.76 | 0.59 | 2.0x | 0.98 | 0.54 | 0 |\n| G | 66 | 0.33 | 0.33 | 1.0x | 0.85 | 0.58 | 0 |",
-    "power_court": "| Planted trader | 60 trips | 150 trips | 300 trips | 600 trips |\n|---|---|---|---|---|\n| No leak (court wrongly accepts) | 0% [0%, 4%] | 1% [0%, 5%] | 1% [0%, 5%] | 1% [0%, 5%] |\n| Costless habit, 3x size up (court wrongly accepts) | 0% [0%, 4%] | 1% [0%, 5%] | 0% [0%, 4%] | 3% [1%, 8%] |\n| Costly leak (court correctly accepts = power) | 1% [0%, 5%] | 19% [13%, 28%] | 53% [43%, 62%] | 88% [80%, 93%] |",
-    "power_detector": "| Planted trader | 60 trips | 150 trips | 300 trips | 600 trips |\n|---|---|---|---|---|\n| No size habit (false flag) | 1% [0%, 5%] | 1% [0%, 5%] | 0% [0%, 4%] | 0% [0%, 4%] |\n| Sizes up 1.25x after a loss (power) | 40% [31%, 50%] | 54% [44%, 63%] | 49% [39%, 59%] | 55% [45%, 64%] |\n| Sizes up 1.5x after a loss (power) | 88% [80%, 93%] | 98% [93%, 99%] | 100% [96%, 100%] | 100% [96%, 100%] |\n| Sizes up 2x after a loss (power) | 99% [95%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] |\n| Sizes up 3x after a loss (power) | 99% [95%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] |"
+    "power_court": "| Planted trader | 60 trips | 150 trips | 300 trips | 600 trips |\n|---|---|---|---|---|\n| No leak (court wrongly accepts) | 0% [0%, 1%] | 0% [0%, 2%] | 0% [0%, 2%] | 1% [1%, 3%] |\n| Costless habit, 3x size up (court wrongly accepts) | 0% [0%, 1%] | 1% [0%, 2%] | 1% [0%, 3%] | 1% [0%, 3%] |\n| Costly leak (court correctly accepts = power) | 1% [0%, 3%] | 19% [15%, 23%] | 55% [49%, 60%] | 92% [88%, 95%] |",
+    "power_detector": "| Planted trader | 60 trips | 150 trips | 300 trips | 600 trips |\n|---|---|---|---|---|\n| No size habit (false flag) | 4% [2%, 10%] | 1% [0%, 5%] | 0% [0%, 4%] | 0% [0%, 4%] |\n| Sizes up 1.25x after a loss (power) | 38% [29%, 48%] | 48% [38%, 58%] | 46% [37%, 56%] | 51% [41%, 61%] |\n| Sizes up 1.5x after a loss (power) | 91% [84%, 95%] | 99% [95%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] |\n| Sizes up 2x after a loss (power) | 99% [95%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] |\n| Sizes up 3x after a loss (power) | 99% [95%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] | 100% [96%, 100%] |"
   }
 }

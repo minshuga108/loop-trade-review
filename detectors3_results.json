@@ -1,0 +1,126 @@
+{
+  "sims_per_cell": 200,
+  "n_perm": 400,
+  "cells": [
+    {
+      "detector": "chase_after_move[candles]",
+      "scenario": "habit_costless",
+      "sims": 200,
+      "flagged": 0.02,
+      "flagged_ci": [
+        0.007804300176394188,
+        0.050287865505193874
+      ],
+      "flagged_after_holm7": 0.01,
+      "underpowered": 0.0
+    },
+    {
+      "detector": "chase_after_move[candles]",
+      "scenario": "habit_costly",
+      "sims": 200,
+      "flagged": 1.0,
+      "flagged_ci": [
+        0.9811539940816791,
+        1.0
+      ],
+      "flagged_after_holm7": 1.0,
+      "underpowered": 0.0
+    },
+    {
+      "detector": "chase_after_move[own_fills]",
+      "scenario": "habit_costless",
+      "sims": 200,
+      "flagged": 0.03,
+      "flagged_ci": [
+        0.013820125830748327,
+        0.06389511973247333
+      ],
+      "flagged_after_holm7": 0.005,
+      "underpowered": 0.0
+    },
+    {
+      "detector": "chase_after_move[own_fills]",
+      "scenario": "habit_costly",
+      "sims": 200,
+      "flagged": 0.46,
+      "flagged_ci": [
+        0.39232931140961247,
+        0.5291783690638533
+      ],
+      "flagged_after_holm7": 0.13,
+      "underpowered": 0.0
+    },
+    {
+      "detector": "chase_after_move[no_habit]",
+      "scenario": "habit_costless",
+      "sims": 200,
+      "flagged": 0.04,
+      "flagged_ci": [
+        0.02040538715065641,
+        0.07693293829419882
+      ],
+      "flagged_after_holm7": 0.0,
+      "underpowered": 0.0
+    },
+    {
+      "detector": "chase_after_move[no_habit]",
+      "scenario": "habit_costly",
+      "sims": 200,
+      "flagged": 0.04,
+      "flagged_ci": [
+        0.02040538715065641,
+        0.07693293829419882
+      ],
+      "flagged_after_holm7": 0.0,
+      "underpowered": 0.0
+    },
+    {
+      "detector": "off_hours_trading",
+      "scenario": "habit_costless",
+      "sims": 200,
+      "flagged": 0.05,
+      "flagged_ci": [
+        0.027382349028644986,
+        0.08957905629784384
+      ],
+      "flagged_after_holm7": 0.005,
+      "underpowered": 0.01
+    },
+    {
+      "detector": "off_hours_trading",
+      "scenario": "habit_costly",
+      "sims": 200,
+      "flagged": 0.99,
+      "flagged_ci": [
+        0.9642775148038205,
+        0.9972533993962251
+      ],
+      "flagged_after_holm7": 0.955,
+      "underpowered": 0.01
+    },
+    {
+      "detector": "averaging_down",
+      "scenario": "habit_costless",
+      "sims": 200,
+      "flagged": 0.055,
+      "flagged_ci": [
+        0.030985020801370097,
+        0.0957879244659355
+      ],
+      "flagged_after_holm7": 0.01,
+      "underpowered": 0.0
+    },
+    {
+      "detector": "averaging_down",
+      "scenario": "habit_costly",
+      "sims": 200,
+      "flagged": 1.0,
+      "flagged_ci": [
+        0.9811539940816791,
+        1.0
+      ],
+      "flagged_after_holm7": 1.0,
+      "underpowered": 0.0
+    }
+  ]
+}

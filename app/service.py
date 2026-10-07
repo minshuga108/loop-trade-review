@@ -19,7 +19,7 @@ from collections import OrderedDict
 
 from engine import checklist as checklist_mod
 from engine.stats import holm
-from engine import detectors, detectors2, gate as gate_mod, halt, ledger, winrate
+from engine import detectors, detectors2, detectors3, gate as gate_mod, halt, ledger, winrate
 from engine.rulebook import Rulebook
 
 from engine.walkforward import judge_wf
@@ -236,7 +236,7 @@ def _plain(finding, suggestive, priced, court) -> str:
 def _review_uncached(tid: str) -> dict:
     meta, fills, orders, trips = _load(tid)
     findings = []
-    for f in detectors.run_all(trips) + detectors2.run_all(trips):
+    for f in detectors.run_all(trips) + detectors2.run_all(trips) + detectors3.run_all(trips, fills):
         findings.append({"detector": f.detector, "status": f.status, "ratio": None if f.effect != f.effect else round(f.effect, 3),
                          "ci": None if f.ci[0] != f.ci[0] else [round(f.ci[0], 3), round(f.ci[1], 3)],
                          "p": None if f.p != f.p else round(f.p, 4), "n_a": f.n_a, "n_b": f.n_b, "detail": f.detail})
@@ -379,6 +379,37 @@ def book(sid: str, tid: str) -> Rulebook:
         return rb
 
 
+def walkforward_view(sid: str, tid: str, multiple: float) -> dict:
+    """Same cap rule, two views. In-sample: the whole history, including the trades that surfaced the habit, no
+    trial counting. Walk-forward: the court's verdict on unseen trades with the trial-count bar. Existing engine functions only."""
+    from engine.court import _baseline, _effect
+    from engine.detectors import after_loss_labels
+    _, _, _, trips = _load(tid)
+    rb = book(sid, tid)
+    ts = sorted(trips, key=lambda t: t.t_open_ms)
+    rule = Rule(value=float(multiple))
+    ins = price_rule(ts, rule, _baseline(ts), 0, n_boot=1000)
+    lab = after_loss_labels(ts)
+    idx = np.where(lab >= 0)[0]
+    nt = np.array([ts[i].first_order_notional for i in idx]); pn = np.array([ts[i].net_pnl for i in idx]); af = lab[idx] == 1
+    obs = _effect(nt, pn, af, ins["cap"]); g = np.random.default_rng(0); sh = af.copy(); ge = 0
+    for _ in range(1500):
+        g.shuffle(sh)
+        ge += _effect(nt, pn, sh, ins["cap"]) >= obs - 1e-9
+    p_in = (ge + 1) / 1501
+    tried = tuple(r.value for r in rb.rules_tried)
+    v = _judge_cached(tid, tried, rule.value)
+    nan = lambda x: None if x is None or x != x else round(float(x), 4)
+    return {"multiple": rule.value, "trials": v.trials,
+            "in_sample": {"effect": round(ins["effect"], 2), "ci": [round(ins["ci"][0], 2), round(ins["ci"][1], 2)], "p": round(p_in, 4),
+                          "n_trips": ins["n_trips"], "n_affected": ins["n_affected"], "alpha": 0.05,
+                          "verdict": "WOULD_PASS" if ins["effect"] > 0 and p_in < 0.05 else "WOULD_NOT_PASS"},
+            "walk_forward": {"effect": round(v.test["effect"], 2), "p": nan(v.p), "n_trips": v.test["n_trips"], "n_affected": v.test["n_affected"],
+                             "alpha": round(v.alpha_used, 4), "verdict": v.status, "reason": v.reason},
+            "in_sample_flatters": bool(ins["effect"] > v.test["effect"]) and v.status != "ACCEPTED" and ins["effect"] > 0,
+            "paper_only": True}
+
+
 def _median_notional(trips) -> float:
     return float(np.median([t.first_order_notional for t in trips]))
 
@@ -442,7 +473,7 @@ def transition(sid: str, tid: str, action: str, rule_id: str) -> dict:
     return rulebook_view(sid, tid)
 
 
-def gate_check(sid: str, tid: str, text: str, after_loss: bool | None = None) -> dict:
+def gate_check(sid: str, tid: str, text: str, after_loss: bool | None = None, scenario: list | None = None) -> dict:
     meta, fills, orders, trips = _load(tid)
     rb = book(sid, tid)
     rv = review(tid)
@@ -466,6 +497,11 @@ def gate_check(sid: str, tid: str, text: str, after_loss: bool | None = None) ->
             "last_trade_was_loss": last_loss, "paper_only": True, "check_line": cl,
             "numbers": [round(r.value * _median_notional(trips), 0) for _, r in rb.active_rules()],
             "note": "This checks an idea against your own rules. It does not place, preview or route any order."}
+    from . import gate_plus
+    out["scenario"] = gate_plus.clean_scenarios(scenario)
+    if "after_loss" in out["scenario"]:
+        last_loss = out["last_trade_was_loss"] = True
+    out["similar"] = gate_plus.similar_trades(trips, out["idea"], bool(last_loss and (after_loss or "after_loss" in out["scenario"])), out["scenario"], _median_notional(trips))
     from engine import bitget_context
     out["context"] = bitget_context.context_for(idea.symbol, time.strftime("%Y-%m-%d", time.gmtime()))
     try:

@@ -52,7 +52,40 @@ async function bookAction(a, rid) {
   } catch (e) { $("#rbmsg").textContent = "Could not reach the server. Nothing was changed; check your connection and try again."; }
 }
 
+const GZH = () => typeof LANG !== "undefined" && LANG === "zh";
+const GCHIPS = [["after_loss", "after a loss", "亏损之后"], ["bigger", "bigger than usual", "比平时更大"], ["closed_market", "in a closed market", "休市时"], ["high_funding", "at high funding", "资金费率偏高时"]];
+let gScenario = new Set();
+
+function gateChips() {
+  const f = $("#gf"); if (!f || $("#gchips")) return;
+  f.insertAdjacentHTML("afterend", '<div id="gchips" class="chips" role="group" aria-label="Scenario"></div>');
+  const draw = () => { $("#gchips").innerHTML = GCHIPS.map(([k, en, zh]) => `<button type="button" data-sc="${k}" aria-pressed="${gScenario.has(k)}">${esc(GZH() ? zh : en)}</button>`).join(""); };
+  draw();
+  $("#gchips").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-sc]"); if (!b) return;
+    const k = b.dataset.sc, c = GCHIPS.find((x) => x[0] === k), inp = $("#gi");
+    if (gScenario.has(k)) { gScenario.delete(k); } else {
+      gScenario.add(k);
+      if (!inp.value.includes(c[1]) && !inp.value.includes(c[2])) inp.value = (inp.value.trim() + " " + (GZH() ? c[2] : c[1])).trim();
+      if (k === "after_loss" && $("#gloss")) $("#gloss").checked = true;
+    }
+    draw(); inp.focus();
+  });
+}
+
+function similarBlock(s) {
+  if (!s) return "";
+  const z = GZH(), usd = (v) => (v >= 0 ? "+" : "-") + "$" + Math.abs(Math.round(v)).toLocaleString("en-US");
+  const fl = s.filters, bandTxt = fl.size_band.kind === "idea_size_0.5x_to_2x" ? (z ? "金额在这笔想法的 0.5 到 2 倍" : "size 0.5x to 2x of this idea") : fl.size_band.kind === "above_1.5x_median" ? (z ? "金额高于中位数的 1.5 倍" : "size above 1.5x your median") : (z ? "任意金额" : "any size");
+  const head = z ? `相似的过往交易（${fl.symbol || "任意品种"}、${fl.side === "buy" ? "做多" : fl.side === "sell" ? "做空" : "任意方向"}、${bandTxt}${fl.after_loss ? "、亏损之后" : ""}）` :
+    `Similar past trades (${fl.symbol || "any symbol"}, ${fl.side || "any side"}, ${bandTxt}${fl.after_loss ? ", after a loss" : ""})`;
+  if (!s.n) return `<div class="chk"><b>${esc(head)}</b><small>${z ? "你的记录里没有匹配的交易。" : "None of your past round trips match."}</small></div>`;
+  const rows = s.rows.map((r) => `<li><a href="/trade/${encodeURIComponent(current)}/${r.index}">${esc(new Date(r.t_open_ms).toISOString().slice(0, 10))} ${esc(r.symbol)} ${esc(r.side)} $${Math.round(r.notional).toLocaleString("en-US")}</a>: <b>${esc(usd(r.net_pnl))}</b></li>`).join("");
+  return `<details class="chk" open><summary><b>${esc(head)}</b>: ${s.n} ${z ? "笔，合计" : "trades, net"} ${esc(usd(s.net_total))}, ${s.wins} ${z ? "笔盈利" : "won"}</summary><ul>${rows}</ul><small>${esc(z ? "这些是你自己记录里的事实，不是预测，也不是建议。" : s.label)}</small></details>`;
+}
+
 function wireBook() {
+  gateChips();
   $("#rbgo").addEventListener("click", async () => {
     $("#rbmsg").textContent = "court is deciding…";
     try {
@@ -67,6 +100,7 @@ function wireBook() {
     e.preventDefault();
     const body = { text: $("#gi").value };
     if ($("#gloss").checked) body.after_loss = true;
+    if (gScenario.size) body.scenario = [...gScenario];
     let r, j;
     try {
       r = await fetch("/api/gate/" + current, { method: "POST", headers: HDR, body: JSON.stringify(body) });
@@ -75,7 +109,7 @@ function wireBook() {
     $("#gres").innerHTML = r.ok
       ? `<p>${sb(j.state)}</p><p class="tag">Read: ${esc(j.idea.side || "?")} ${esc(j.idea.symbol || "?")} ${j.idea.notional ? "$" + esc(Number(j.idea.notional).toLocaleString("en-US")) : "(no size found)"}; ` +
         `last trade ${j.last_trade_was_loss ? "was a loss" : "was not a loss"}.</p>` +
-        j.reasons.map((x) => `<p>${esc(x)}</p>`).join("") + checkLine(j.check_line) + ctxLine(j.context) + j.checklist.map((i) => `<div class="chk">${esc(i.text)}</div>`).join("") +
+        j.reasons.map((x) => `<p>${esc(x)}</p>`).join("") + checkLine(j.check_line) + ctxLine(j.context) + similarBlock(j.similar) + j.checklist.map((i) => `<div class="chk">${esc(i.text)}</div>`).join("") +
         `<p class="tag">${esc(j.note)}</p>`
       : `<p class="err">${esc(detailText(j.detail))}</p>`;
   });

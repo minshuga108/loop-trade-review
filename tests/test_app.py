@@ -25,7 +25,9 @@ def test_review_numbers_are_computed_and_honest_on_a_real_wallet():
     r = c.get("/api/review/B").json()
     assert r["trader"]["provenance"] == "REAL_PLATFORM_PUBLIC"
     assert r["court"]["proposed"] == 4 and r["court"]["tested"] == 4
-    assert {f["detector"] for f in r["findings"]} == {"size_after_loss", "hold_asymmetry", "overtrading_clusters", "revenge_reentry"}
+    got = {f["detector"] for f in r["findings"]}
+    assert {"size_after_loss", "hold_asymmetry", "overtrading_clusters", "revenge_reentry"} <= got
+    assert got - {"size_after_loss", "hold_asymmetry", "overtrading_clusters", "revenge_reentry"} <= {"chase_after_move", "off_hours_trading", "averaging_down"}
 
 
 def test_planted_trader_shows_the_accept_path():

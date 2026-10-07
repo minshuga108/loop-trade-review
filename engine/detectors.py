@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
+from .dependence import assess
 from .schema import RoundTrip
 from .stats import bootstrap_ci, median_log_gap, perm_p_greater
 
@@ -48,6 +49,33 @@ def after_loss_labels(trips: list[RoundTrip]) -> np.ndarray:
     return lab
 
 
+BASELINE_WINDOW = 30        # trailing calm trips that set "usual size" at each trade
+BASELINE_MIN_PRIOR = 8
+
+
+def relative_log_size(notional: np.ndarray, after_loss: np.ndarray, window: int = BASELINE_WINDOW,
+                      min_prior: int = BASELINE_MIN_PRIOR) -> tuple[np.ndarray, np.ndarray]:
+    """log(size / the trader's usual size AT THAT TIME); returns (z, defined).
+
+    Usual size = median of the previous `window` trades that did NOT follow a loss (a size-up habit cannot inflate its own
+    yardstick, and a drifting or regime-shifted size level cannot masquerade as a habit). Causal after the warm-up: trade i sees
+    only trades before i. Until `min_prior` calm trades exist, the median of the first `min_prior` calm trades overall is used
+    (sizes only, never outcomes). With no calm trades at all nothing is defined."""
+    n = len(notional)
+    z = np.full(n, np.nan)
+    calm_all = [i for i in range(n) if not after_loss[i]]
+    if not calm_all:
+        return z, np.zeros(n, dtype=bool)
+    warm = float(np.median(notional[calm_all[:min_prior]]))
+    calm_idx: list[int] = []
+    for i in range(n):
+        base = float(np.median(notional[calm_idx[-window:]])) if len(calm_idx) >= min_prior else warm
+        z[i] = np.log(notional[i] / base)
+        if not after_loss[i]:
+            calm_idx.append(i)
+    return z, np.isfinite(z)
+
+
 def size_after_loss(trips: list[RoundTrip], n_perm: int = 4000, seed: int = 0) -> Finding:
     lab = after_loss_labels(trips)
     keep = lab >= 0
@@ -55,20 +83,31 @@ def size_after_loss(trips: list[RoundTrip], n_perm: int = 4000, seed: int = 0) -
     after_loss = lab[keep] == 1
     ok = notional > 0
     notional, after_loss = notional[ok], after_loss[ok]
+    z, defined = relative_log_size(notional, after_loss)
+    z, after_loss = z[defined], after_loss[defined]
     n_a, n_b = int(after_loss.sum()), int((~after_loss).sum())
     if min(n_a, n_b) < MIN_PER_GROUP:
         return Finding("size_after_loss", "UNDERPOWERED", n_a, n_b, float("nan"), (float("nan"),) * 2, float("nan"),
                        f"needs at least {MIN_PER_GROUP} trades in each group (has {n_a} after a loss, {n_b} after a win)")
-    obs, p = perm_p_greater(notional, after_loss, median_log_gap, n_perm, seed)
+    dep = assess(z)
+    obs, p = perm_p_greater(z, after_loss, _median_gap, n_perm, seed, block=dep.block)
     ratio = float(np.exp(obs))
     # bootstrap interval on the ratio, resampling each group
     g = np.random.default_rng(seed)
-    a, b = notional[after_loss], notional[~after_loss]
-    boots = [float(np.exp(median_log_gap(a[g.integers(0, len(a), len(a))], b[g.integers(0, len(b), len(b))]))) for _ in range(1500)]
+    a, b = z[after_loss], z[~after_loss]
+    boots = [float(np.exp(_median_gap(a[g.integers(0, len(a), len(a))], b[g.integers(0, len(b), len(b))]))) for _ in range(1500)]
     ci = (float(np.quantile(boots, 0.025)), float(np.quantile(boots, 0.975)))
     flagged = p < 0.05 and ratio >= 1.25
     return Finding("size_after_loss", "FLAGGED" if flagged else "NOT_FLAGGED", n_a, n_b, ratio, ci, p,
-                   "median opening size after a losing trip versus after a winning trip (within-trader permutation test)")
+                   "median opening size after a losing trip versus after a winning trip, each measured against your own usual size at that "
+                   "time (median of your previous 30 trades that did not follow a loss), so a drifting size level is not mistaken for a habit "
+                   "(within-trader permutation test" + (f", block length {dep.block}" if dep.block > 1 else "") + ")",
+                   {"block_length": dep.block})
+
+
+def _median_gap(a: np.ndarray, b: np.ndarray) -> float:
+    """median(a) - median(b) of already-logged relative sizes."""
+    return float(np.median(a) - np.median(b))
 
 
 def hold_asymmetry(trips: list[RoundTrip], n_perm: int = 4000, seed: int = 0) -> Finding:

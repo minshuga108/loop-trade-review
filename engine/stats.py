@@ -13,19 +13,28 @@ def median_log_gap(a: np.ndarray, b: np.ndarray) -> float:
     return float(np.median(np.log(a)) - np.median(np.log(b)))
 
 
-def perm_p_greater(x: np.ndarray, labels: np.ndarray, stat, n_perm: int = 4000, seed: int | None = 0) -> tuple[float, float]:
+def perm_p_greater(x: np.ndarray, labels: np.ndarray, stat, n_perm: int = 4000, seed: int | None = 0,
+                   block: int = 1) -> tuple[float, float]:
     """One-sided permutation p-value that stat(x[labels], x[~labels]) is this large.
 
     The labels are shuffled WITHIN this one trader, so the test is within-trader
-    by construction. Returns (observed, p) with the +1 correction.
+    by construction. block > 1 permutes whole contiguous blocks of the label sequence instead of single labels
+    (engine.dependence.block_permute), which keeps serial dependence in the null; block 1 is the ordinary permutation.
+    Returns (observed, p) with the +1 correction.
     """
+    from .dependence import block_permute
     g = rng(seed)
     labels = labels.astype(bool)
     obs = stat(x[labels], x[~labels])
     ge = 0
     lab = labels.copy()
     for _ in range(n_perm):
-        g.shuffle(lab)
+        if block > 1:
+            lab = block_permute(labels, block, g)
+            if lab.all() or not lab.any():
+                continue
+        else:
+            g.shuffle(lab)
         if stat(x[lab], x[~lab]) >= obs - 1e-12:
             ge += 1
     return obs, (ge + 1) / (n_perm + 1)

@@ -11,7 +11,7 @@ const statusBadge = (s) => ({
   ACCEPTED: ["b-ok", "✔ accepted"], REJECTED: ["b-bad", "✖ rejected"],
 }[s] || ["b-grey", s]);
 const badge = (s) => { const [c, t] = statusBadge(s); return `<span class="badge ${c}">${esc(t)}</span>`; };
-const detName = { size_after_loss: "Size after a loss", hold_asymmetry: "Holding losers longer than winners", overtrading_clusters: "Trading more on your busiest days", revenge_reentry: "Re-entering the same symbol soon after a loss" };
+const detName = { size_after_loss: "Size after a loss", hold_asymmetry: "Holding losers longer than winners", overtrading_clusters: "Trading more on your busiest days", revenge_reentry: "Re-entering the same symbol soon after a loss", chase_after_move: "Chasing a big prior move", off_hours_trading: "Trading stock perps outside US cash-session hours", averaging_down: "Adding at a worse price (averaging down)" };
 // 27 starters in seven groups; every one is answered by the typed parser or the router (tests/test_chat_ux.py runs them all)
 const CHIP_GROUPS = [
   ["New trader", ["Where does this data come from?", "How many trades are in this record?", "What is my win rate?", "Is this financial advice?"]],
@@ -73,6 +73,12 @@ function cardHtml(c) {
   if (c.type === "clarify") return `<div class="chips"><span class="tag">${esc(c.question || "")}</span>` + (c.options || []).map((o) => `<button type="button" data-q="${esc(o.label)}">${esc(o.label)}</button>`).join("") + "</div>";
   return "";
 }
+function traceHtml(r) {
+  const t = r.tool_trace; if (!t || !t.length) return "";
+  const z = typeof LANG !== "undefined" && LANG === "zh";
+  const body = t.map((x) => `<li><b>${esc(x.tool)}</b> ${esc(JSON.stringify(x.inputs || {}))}${x.rows != null ? " · " + num(x.rows) + (z ? " 笔" : " rows") : ""} · ${z ? "数字锁" : "number-lock"}: ${esc(x.number_lock)} · ${z ? "措辞" : "phrased by"}: ${esc(x.phrased_by)}${x.what ? " · " + esc(x.what) : ""}</li>`).join("");
+  return `<li><details class="how"><summary><b>${z ? "我是怎么回答的" : "How I answered"}</b></summary><ul>${body}</ul></details></li>`;
+}
 function receiptHtml(m, i) {
   const r = m.receipt; if (!r) return "";
   const rows = r.rows ? `${num(r.rows.used)}${r.rows.of != null && r.rows.of !== r.rows.used ? " of " + num(r.rows.of) : ""} round trips` : "";
@@ -82,7 +88,7 @@ function receiptHtml(m, i) {
     : `<span class="fbq">Did this answer your question?</span><button type="button" class="fb" data-fb="up" data-i="${i}" ${m.fb ? "disabled" : ""}>Helpful</button><button type="button" class="fb" data-fb="down" data-i="${i}" ${m.fb ? "disabled" : ""}>Not helpful</button>`;
   return `<div class="receipt"><p class="rc-h">Receipt</p><ul>
     ${li("Sources", (r.sources || []).map(esc).join("; "))}${li("Computed", (r.computations || []).map(esc).join("; "))}${li("Rows", rows)}
-    ${li("Ledger", r.ledger ? esc(r.ledger.note) : "")}${li("Trace", (r.trace || []).map(esc).join(" › "))}${li("Numbers", r.facts ? num(r.facts) + " computed facts; lock " + esc(r.number_lock) : esc(r.number_lock))}</ul>
+    ${li("Ledger", r.ledger ? esc(r.ledger.note) : "")}${li("Trace", (r.trace || []).map(esc).join(" › "))}${traceHtml(r)}${li("Numbers", r.facts ? num(r.facts) + " computed facts; lock " + esc(r.number_lock) : esc(r.number_lock))}</ul>
     <div class="fbrow">${fb}<button type="button" class="fb full" data-full="${m.lang === "zh" ? "zh" : "en"}">Run the full review on this</button></div></div>`;
 }
 async function sendFeedback(i, vote) {
@@ -321,6 +327,7 @@ function findingHtml(r, t) {
     <p class="finding-plain">${esc(h.plain || "")}</p>
     <details class="finding-details"><summary>The numbers behind this</summary><p class="finding-why">${why} <span>${ruleWhy}</span></p></details>
     <div class="actions">${primary}</div>
+    ${r.validation_note ? `<p class="finding-note" role="note"><span data-l="en">${esc(r.validation_note.en)} <a href="${r.validation_note.doc_url}">${esc(r.validation_note.doc)}</a> · <a href="${r.validation_note.proof_url}">proof</a></span><span data-l="zh">${esc(r.validation_note.zh)} <a href="${r.validation_note.doc_url}">${esc(r.validation_note.doc)}</a> · <a href="${r.validation_note.proof_url}">证明</a></span></p>` : ""}
     <p class="finding-court">Rule court: ${num(c.proposed)} proposed, ${num(c.tested)} tested, ${num(c.accepted)} accepted on unseen trades. ${arm}</p>
   </article>`;
 }
@@ -380,6 +387,7 @@ function render(r, t) {
     <h2 class="sec-h" id="court-h">Habits found, each tested within this one trader</h2>
     <table><caption class="vh">Habit tests: result, effect size and adjusted p</caption><thead><tr><th>Habit</th><th>Result</th><th>Size of effect</th><th>Range (95%)</th><th>p</th><th>Adjusted p</th><th>Trades in each group</th></tr></thead><tbody>${f}</tbody></table>
     <h2 class="sec-h" style="margin-top:18px">Rule court: ${num(r.court.proposed)} rules proposed, ${num(r.court.tested)} tested, ${num(r.court.accepted)} accepted</h2>
+    ${r.validation_note ? `<p class="finding-note" role="note"><span data-l="en">${esc(r.validation_note.en)}</span><span data-l="zh">${esc(r.validation_note.zh)}</span></p>` : ""}
     <p class="sec-lead">Every proposal is counted, so the bar for acceptance rises with each rule tried.</p>
     <table><caption class="vh">Rule court: verdict on unseen trades</caption><thead><tr><th>Rule</th><th>Verdict</th><th>Effect on unseen trades</th><th>Trades it touched</th><th>p</th><th>Bar to clear</th></tr></thead><tbody>${v}</tbody></table></section>
   <section class="sec" id="rbcard" aria-labelledby="rb-h">

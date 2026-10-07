@@ -95,7 +95,26 @@ def ci_noise_study(a, b, kind: str, ref_ci, seeds: int = 40) -> dict:
             "our_procedure_20000_draws": list(conv), "upper_endpoint_range_1500_draws": [min(c[1] for c in cis), max(c[1] for c in cis)]}
 
 
-def check_two_sample(shipped: dict, name: str, a, b, kind: str, seed: int) -> dict:
+def block_perm_p(x, lab, stat, block: int, n_resamples: int, seed: int) -> float:
+    """One-sided p of stat(x[lab], x[~lab]) under a BLOCK permutation of the labels (whole contiguous blocks reordered), +1 corrected.
+    Independent numpy re-implementation of engine.dependence.block_permute; the block length itself is taken from the engine
+    (its Ljung-Box and Politis-White pieces are cross-checked against statsmodels and arch separately, see the dependence rows)."""
+    rng = np.random.default_rng(seed)
+    n = len(x)
+    starts = np.arange(0, n, block)
+    obs = float(stat(x[lab], x[~lab]))
+    ge = 0
+    for _ in range(n_resamples):
+        order = rng.permutation(len(starts))
+        idx = np.concatenate([np.arange(starts[k], min(starts[k] + block, n)) for k in order])
+        pl = lab[idx]
+        if pl.all() or not pl.any():
+            continue
+        ge += float(stat(x[pl], x[~pl])) >= obs - 1e-12
+    return (ge + 1) / (n_resamples + 1)
+
+
+def check_two_sample(shipped: dict, name: str, a, b, kind: str, seed: int, blk=None) -> dict:
     """a = labelled group, b = other. kind 'ratio' (median log gap, CI on ratio) or 'meangap' (CI on mean(a)-mean(b))."""
     row = {"detector": name, "shipped_status": shipped["status"], "shipped_p": shipped["p"], "shipped_ci": shipped["ci"],
            "n_a": int(len(a)), "n_b": int(len(b))}
@@ -110,7 +129,11 @@ def check_two_sample(shipped: dict, name: str, a, b, kind: str, seed: int) -> di
     stat, ci_stat = (_med_log_gap, _ratio) if kind == "ratio" else (_mean_gap, _mean_diff)
     pt = sst.permutation_test((a, b), stat, permutation_type="independent", alternative="greater",
                               n_resamples=N_REF_PERM, vectorized=True, random_state=seed)
-    ok, se = _p_ok(shipped["p"], 4000, float(pt.pvalue), N_REF_PERM)
+    ref_p, n_ref = float(pt.pvalue), N_REF_PERM
+    if blk is not None and blk[2] > 1:                       # shipped used a block permutation: the reference must too
+        ref_p, n_ref = block_perm_p(blk[0], blk[1], lambda u, v: stat(u, v), blk[2], 20_000, seed), 20_000
+        row["block_length"] = int(blk[2])
+    ok, se = _p_ok(shipped["p"], 4000, ref_p, n_ref)
     bt = sst.bootstrap((a, b), ci_stat, vectorized=True, paired=False, n_resamples=N_REF_BOOT, method="percentile",
                        confidence_level=0.95, random_state=seed)
     ref_ci = (float(bt.confidence_interval.low), float(bt.confidence_interval.high))
@@ -119,12 +142,28 @@ def check_two_sample(shipped: dict, name: str, a, b, kind: str, seed: int) -> di
         row["ci_noise_study"] = ci_noise_study(a, b, kind, ref_ci)
     bca = sst.bootstrap((a, b), ci_stat, vectorized=True, paired=False, n_resamples=N_REF_BOOT, method="BCa",
                         confidence_level=0.95, random_state=seed)
-    row.update(scipy_p=float(pt.pvalue), p_tol_3se=float(3 * se), p_ok=bool(ok), scipy_ci_percentile=ref_ci,
+    row.update(scipy_p=ref_p, p_tol_3se=float(3 * se), p_ok=bool(ok), scipy_ci_percentile=ref_ci,
                ci_endpoint_gap_rel_width=float(rel), ci_ok=bool(ci_ok),
                scipy_ci_bca=[float(bca.confidence_interval.low), float(bca.confidence_interval.high)],
-               decision_agrees=bool((shipped["p"] < 0.05) == (pt.pvalue < 0.05)) if abs(shipped["p"] - 0.05) > 3 * se else True,
+               decision_agrees=bool((shipped["p"] < 0.05) == (ref_p < 0.05)) if abs(shipped["p"] - 0.05) > 3 * se else True,
                agree=bool(ok and ci_ok))
     return row
+
+
+def indep_relative_size(notional: np.ndarray, after_loss: np.ndarray, window: int = 30, min_prior: int = 8) -> np.ndarray:
+    """size / usual size at that time, re-implemented with pandas rolling medians (engine.detectors.relative_log_size, exponentiated).
+
+    Usual size = median of the previous `window` trades that did not follow a loss; before `min_prior` calm trades exist, the
+    median of the first `min_prior` calm trades overall."""
+    calm_pos = np.flatnonzero(~after_loss)
+    roll = pd.Series(notional[calm_pos]).rolling(window, min_periods=min_prior).median().values
+    warm = float(np.median(notional[calm_pos[:min_prior]]))
+    out = np.empty(len(notional))
+    for i in range(len(notional)):
+        k = int(np.searchsorted(calm_pos, i, side="left")) - 1          # last calm trade strictly before i
+        base = roll[k] if (k >= 0 and not np.isnan(roll[k])) else warm
+        out[i] = notional[i] / base
+    return out
 
 
 def detector_inputs(trips):
@@ -134,23 +173,25 @@ def detector_inputs(trips):
     keep = lab >= 0
     n, lo = notional[keep], lab[keep] == 1
     ok = n > 0
-    out["size_after_loss"] = (n[ok][lo[ok]], n[ok][~lo[ok]], "ratio")
+    rel = indep_relative_size(n[ok], lo[ok])
+    from engine.dependence import assess
+    out["size_after_loss"] = (rel[lo[ok]], rel[~lo[ok]], "ratio", (rel, lo[ok], assess(np.log(rel)).block))
     hold = np.array([max(t.t_close_ms - t.t_open_ms, 1) for t in trips], dtype=float)
     loser = np.array([t.net_pnl < 0 for t in trips])
-    out["hold_asymmetry"] = (hold[loser], hold[~loser], "ratio")
+    out["hold_asymmetry"] = (hold[loser], hold[~loser], "ratio", None)
     df = pd.DataFrame({"day": [t.t_open_ms // DAY_MS for t in trips], "pnl": [t.net_pnl for t in trips]})
     cnt = df.groupby("day")["pnl"].transform("size")
     per_day = df.groupby("day").size()
     thr = float(np.percentile(per_day.values, OVERTRADE_PERCENTILE))
     heavy = (cnt > thr).values
     if len(per_day) < MIN_ACTIVE_DAYS:
-        out["overtrading_clusters"] = (np.array([]), np.array([]), "meangap")
+        out["overtrading_clusters"] = (np.array([]), np.array([]), "meangap", None)
     else:
-        out["overtrading_clusters"] = (df.pnl.values[heavy], df.pnl.values[~heavy], "meangap")
+        out["overtrading_clusters"] = (df.pnl.values[heavy], df.pnl.values[~heavy], "meangap", (df.pnl.values, heavy, assess(df.pnl.values).block))
     return out
 
 
-def indep_court(trips, mult: float, n_perm: int, seed: int) -> dict:
+def indep_court(trips, mult: float, n_perm: int, seed: int, block: int = 1) -> dict:
     """Walk-forward court re-implemented from the docstring in engine/walkforward.py, vectorised, more permutations."""
     ts = sorted(trips, key=lambda t: t.t_open_ms)
     n = len(ts)
@@ -161,8 +202,10 @@ def indep_court(trips, mult: float, n_perm: int, seed: int) -> dict:
     chunks, n_aff, n_test, obs = [], 0, 0, 0.0
     for j in range(1, FOLDS + 1):
         lo, hi = edges[j], edges[j + 1]
-        calm = notional[:lo][lab[:lo] == 0]
-        base = float(np.median(calm if len(calm) >= 10 else notional[:lo]))
+        w0 = max(0, lo - 100)                                           # rolling yardstick: the last 100 trips before the chunk
+        lab_w = indep_after_loss(ts[w0:lo])                             # the yardstick relabels inside its window, as the shipped baseline does
+        calm = notional[w0:lo][lab_w == 0]
+        base = float(np.median(calm if len(calm) >= 10 else notional[w0:lo]))
         cap = mult * base
         idx = np.arange(lo, hi)[lab[lo:hi] >= 0]
         if len(idx) == 0:
@@ -184,7 +227,14 @@ def indep_court(trips, mult: float, n_perm: int, seed: int) -> dict:
         r = min(5000, n_perm - done)
         tot = np.zeros(r)
         for af, w in chunks:
-            sh = rng.permuted(np.tile(af, (r, 1)), axis=1)
+            if block > 1:                                        # serial dependence detected: permute whole blocks of labels
+                starts = np.arange(0, len(af), block)
+                sh = np.empty((r, len(af)), dtype=bool)
+                for q in range(r):
+                    order = rng.permutation(len(starts))
+                    sh[q] = af[np.concatenate([np.arange(starts[k], min(starts[k] + block, len(af))) for k in order])]
+            else:
+                sh = rng.permuted(np.tile(af, (r, 1)), axis=1)
             tot += sh @ w
         ge += int(np.sum(tot >= obs - 1e-9))
         done += r
@@ -229,8 +279,8 @@ def main() -> dict:
         trips = service._load(tid)[3]
         shipped = {f["detector"]: f for f in rev["findings"]}
         lab_ok = bool(np.array_equal(after_loss_labels(trips), indep_after_loss(trips)))
-        for name, (a, b, kind) in detector_inputs(trips).items():
-            r = check_two_sample(shipped[name], name, a, b, kind, seed=100 + ti)
+        for name, (a, b, kind, blk) in detector_inputs(trips).items():
+            r = check_two_sample(shipped[name], name, a, b, kind, seed=100 + ti, blk=blk)
             r["trader"] = tid
             det_rows.append(r)
         raw = [1.0 if f["p"] is None else f["p"] for f in rev["findings"]]
@@ -241,13 +291,16 @@ def main() -> dict:
             holm_rows.append({"trader": tid, "detector": f["detector"], "ours": f["p_adj"], "statsmodels": float(a_sm),
                               "abs_diff": abs(f["p_adj"] - float(a_sm)), "agree": abs(f["p_adj"] - float(a_sm)) <= 5e-4})
         for v in rev["court"]["verdicts"]:
-            ref = indep_court(trips, v["multiple"], 100_000, seed=500 + ti)
+            from engine import dependence as _dm
+            from engine.court import trip_returns as _tr
+            ref = indep_court(trips, v["multiple"], 20_000 if _dm.assess(_tr(trips)).block > 1 else 100_000, seed=500 + ti,
+                              block=_dm.assess(_tr(trips)).block)
             row = {"trader": tid, "multiple": v["multiple"], "shipped_status": v["status"], "ref_status": ref["status"],
                    "shipped_p": v["p"], "ref_p": ref.get("p"), "shipped_effect": v["held_out_effect"], "ref_effect": ref["effect"]}
             if v["status"] == "UNDERPOWERED" or ref["status"] == "UNDERPOWERED":
                 row["agree"] = v["status"] == ref["status"]
             else:
-                ok, se = _p_ok(v["p"], 1500, ref["p"], 100_000)
+                ok, se = _p_ok(v["p"], 1500, ref["p"], 20_000 if _dm.assess(_tr(trips)).block > 1 else 100_000)
                 eff_ok = abs((v["held_out_effect"] or 0.0) - ref["effect"]) <= 0.01
                 row.update(p_ok=bool(ok), effect_ok=bool(eff_ok), status_agrees=v["status"] == ref["status"],
                            agree=bool(ok and eff_ok and v["status"] == ref["status"]))
@@ -262,7 +315,18 @@ def main() -> dict:
         b["zero_in_iid_ci"] = bool(b["arch_iid"][0] <= 0 <= b["arch_iid"][1])
         b["zero_in_stationary_b5_ci"] = bool(b["arch_stationary_b5"][0] <= 0 <= b["arch_stationary_b5"][1])
         block_rows.append(b)
-        res["traders"][tid] = {"after_loss_labels_identical": lab_ok, "n_trips": len(trips)}
+        from engine import dependence as dep_mod
+        from engine.court import trip_returns
+        from statsmodels.stats.diagnostic import acorr_ljungbox
+        r_ = trip_returns(trips)
+        dep = dep_mod.assess(r_)
+        lb = acorr_ljungbox(r_, lags=[dep_mod.LB_LAGS]).iloc[0]
+        bl_ref = float(arch.bootstrap.optimal_block_length(r_).iloc[0, 0]) if len(r_) >= 30 else float("nan")
+        res["traders"][tid] = {"after_loss_labels_identical": lab_ok, "n_trips": len(trips),
+                               "dependence": {"rho1": dep.rho1, "lb_p": dep.lb_p, "lb_p_statsmodels": float(lb["lb_pvalue"]),
+                                              "lb_p_agree": bool(abs(dep.lb_p - float(lb["lb_pvalue"])) <= 1e-6 + 1e-4 * float(lb["lb_pvalue"])),
+                                              "detected": dep.detected, "ess": dep.ess,
+                                              "block_length_ours": float(dep_mod.optimal_block_length(r_)), "block_length_arch": bl_ref}}
     rng = np.random.default_rng(7)
     worst = 0.0
     nvec = 3000

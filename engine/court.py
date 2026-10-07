@@ -12,7 +12,8 @@ from dataclasses import dataclass, field
 import numpy as np
 from pydantic import BaseModel, ConfigDict
 
-from .detectors import after_loss_labels
+from .dependence import Dependence, assess, block_permute
+from .detectors import after_loss_labels, size_after_loss
 from .schema import RoundTrip
 
 
@@ -25,11 +26,54 @@ class Rule(BaseModel):
     action: str = "cap_size"
 
 
-def _baseline(trips: list[RoundTrip]) -> float:
+BASELINE_TRIPS = 100        # rolling window (trips) for the usual-size yardstick in the walk-forward court
+
+
+def trip_returns(trips: list[RoundTrip]) -> np.ndarray:
+    """Chronological return per trip (net pnl over opened notional): the series whose serial dependence the court checks."""
+    ts = sorted(trips, key=lambda t: t.t_open_ms)
+    return np.array([t.net_pnl / (t.opened_notional if t.opened_notional > 0 else max(t.first_order_notional, 1e-12)) for t in ts])
+
+
+def dependence_review(trips: list[RoundTrip], seed: int = 0) -> tuple[Dependence, object | None]:
+    """(dependence report on per-trip returns, size-habit finding or None when no dependence was detected).
+
+    Why: when returns are serially dependent (a loss tends to be followed by a loss) a cap after a loss helps out of sample
+    EVEN IF the trader never sizes up, so 'the cap helps' no longer shows that the habit the rule names exists. In that case
+    the court also demands evidence of the habit itself in the sizes (the size-after-loss test, relative to usual size)."""
+    dep = assess(trip_returns(trips))
+    if not dep.detected:
+        return dep, None
+    return dep, size_after_loss(trips, n_perm=1000, seed=seed)
+
+
+def _dependence_verdict(dep: Dependence, habit, status: str, reason: str, n_aff: int, n_test: int, min_affected: int) -> tuple[str, str, list[str]]:
+    """Apply the minimum-evidence guard. Returns (status, reason, notes); says so in the reason, never silently."""
+    if not dep.detected:
+        return status, reason, []
+    notes = [dep.sentence()]
+    if status != "ACCEPTED":
+        return status, reason, notes
+    eff_aff = n_aff * dep.ess / max(n_test, 1)
+    if eff_aff < min_affected:
+        return "UNDERPOWERED", (f"{dep.sentence()}; the rule touches {n_aff} trips, about {eff_aff:.0f} after the effective-sample-size correction, "
+                                f"and {min_affected} are needed"), notes
+    if habit is None or habit.status != "FLAGGED":
+        why = "no size-up-after-loss habit is visible in your sizes" if habit is not None else "the size habit could not be tested"
+        return "REJECTED", (f"{dep.sentence()}: a cap after a loss would help even without a size habit, so the held-out gain is not evidence "
+                            f"for this rule's premise, and {why} (size ratio {habit.effect:.2f}, p={habit.p:.4f}). Not accepted."
+                            if habit is not None and habit.effect == habit.effect else
+                            f"{dep.sentence()}: not accepted, because {why}"), notes
+    return status, reason + f"; {dep.sentence()} and the size habit is present (ratio {habit.effect:.2f}, p={habit.p:.4f}), so it stands", notes
+
+
+def _baseline(trips: list[RoundTrip], window: int | None = None) -> float:
     """The trader's usual size: median opening size of trips that did NOT follow a loss.
 
     Using all trips would let a size-up habit inflate its own yardstick; at least 10 calm trips
     are needed, otherwise the overall median is used."""
+    if window:
+        trips = trips[-window:]
     lab = after_loss_labels(trips)
     calm = [t.first_order_notional for t, l in zip(trips, lab) if l == 0]
     pool = calm if len(calm) >= 10 else [t.first_order_notional for t in trips]
@@ -126,8 +170,12 @@ class Court:
         g = np.random.default_rng(self.seed)
         sh = after.copy()
         ge = 0
+        dep, habit = dependence_review(trips, self.seed)
         for _ in range(self.n_perm):
-            g.shuffle(sh)
+            if dep.block > 1:
+                sh = block_permute(after, dep.block, g)
+            else:
+                g.shuffle(sh)
             if _effect(notional, pnl, sh, cap) >= obs - 1e-9:
                 ge += 1
         p = (ge + 1) / (self.n_perm + 1)
@@ -137,4 +185,5 @@ class Court:
             status, reason = "REJECTED", "held-out effect is not positive"
         else:
             status, reason = "REJECTED", f"held-out effect is positive but p={p:.4f} does not clear the trial-adjusted threshold {alpha:.4f}"
-        return Verdict(rule, status, reason, tr, te, p, self.trials, alpha)
+        status, reason, notes = _dependence_verdict(dep, habit, status, reason, te["n_affected"], te["n_trips"], self.min_affected)
+        return Verdict(rule, status, reason, tr, te, p, self.trials, alpha, notes)

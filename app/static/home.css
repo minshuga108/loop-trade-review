@@ -323,3 +323,4 @@ html:not([lang="zh-CN"]) [data-l="zh"]{display:none}
   .cg-l{min-width:0;white-space:nowrap}
   .fb.full{margin-left:0}
 }
+.finding-note,.vb-warn{margin:8px 0;padding:8px 12px;border-left:4px solid #b45309;background:rgba(180,83,9,.1);font-weight:600}

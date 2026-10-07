@@ -1,5 +1,5 @@
 {
-  "sims_per_cell": 100,
+  "sims_per_cell": 300,
   "n_perm": 300,
   "proposals_in_ledger": 4,
   "threshold_per_rule": 0.0125,
@@ -10,37 +10,37 @@
       "accepted": 0.0,
       "accepted_ci": [
         0.0,
-        0.03699480747600191
+        0.012643429997735661
       ],
-      "underpowered": 0.97
+      "underpowered": 0.9733333333333334
     },
     {
       "scenario": "null",
       "trips": 150,
-      "accepted": 0.01,
+      "accepted": 0.0033333333333333335,
       "accepted_ci": [
-        0.0017673865655472645,
-        0.0544875247609346
+        0.0005886425761407379,
+        0.018637164554943353
       ],
-      "underpowered": 0.49
+      "underpowered": 0.4866666666666667
     },
     {
       "scenario": "null",
       "trips": 300,
-      "accepted": 0.01,
+      "accepted": 0.0033333333333333335,
       "accepted_ci": [
-        0.0017673865655472645,
-        0.0544875247609346
+        0.0005886425761407379,
+        0.018637164554943353
       ],
-      "underpowered": 0.03
+      "underpowered": 0.01
     },
     {
       "scenario": "null",
       "trips": 600,
-      "accepted": 0.01,
+      "accepted": 0.013333333333333334,
       "accepted_ci": [
-        0.0017673865655472645,
-        0.0544875247609346
+        0.005196877684679467,
+        0.03377606084644991
       ],
       "underpowered": 0.0
     },
@@ -50,37 +50,37 @@
       "accepted": 0.0,
       "accepted_ci": [
         0.0,
-        0.03699480747600191
+        0.012643429997735661
       ],
       "underpowered": 0.0
     },
     {
       "scenario": "costless_habit",
       "trips": 150,
-      "accepted": 0.01,
+      "accepted": 0.006666666666666667,
       "accepted_ci": [
-        0.0017673865655472645,
-        0.0544875247609346
+        0.0018301100329710784,
+        0.023978074231461442
       ],
       "underpowered": 0.0
     },
     {
       "scenario": "costless_habit",
       "trips": 300,
-      "accepted": 0.0,
+      "accepted": 0.01,
       "accepted_ci": [
-        0.0,
-        0.03699480747600191
+        0.0034065567627181124,
+        0.028984004635062833
       ],
       "underpowered": 0.0
     },
     {
       "scenario": "costless_habit",
       "trips": 600,
-      "accepted": 0.03,
+      "accepted": 0.01,
       "accepted_ci": [
-        0.010254338223414816,
-        0.08452078080402699
+        0.0034065567627181124,
+        0.028984004635062833
       ],
       "underpowered": 0.0
     },
@@ -89,41 +89,41 @@
       "trips": 60,
       "accepted": 0.01,
       "accepted_ci": [
-        0.0017673865655472645,
-        0.0544875247609346
+        0.0034065567627181124,
+        0.028984004635062833
       ],
-      "underpowered": 0.0
+      "underpowered": 0.013333333333333334
     },
     {
       "scenario": "costly_leak",
       "trips": 150,
-      "accepted": 0.19,
+      "accepted": 0.18666666666666668,
       "accepted_ci": [
-        0.1251465399270426,
-        0.27779024070807856
+        0.14663682127589442,
+        0.23461972818935325
       ],
       "underpowered": 0.0
     },
     {
       "scenario": "costly_leak",
       "trips": 300,
-      "accepted": 0.53,
+      "accepted": 0.5466666666666666,
       "accepted_ci": [
-        0.4328868313724773,
-        0.6248934801789626
+        0.49009743799114724,
+        0.6020558418757308
       ],
       "underpowered": 0.0
     },
     {
       "scenario": "costly_leak",
       "trips": 600,
-      "accepted": 0.88,
+      "accepted": 0.92,
       "accepted_ci": [
-        0.8018773199709163,
-        0.9300066263473222
+        0.883725988586447,
+        0.9456535302154552
       ],
       "underpowered": 0.0
     }
   ],
-  "seconds": 123
+  "seconds": 714
 }

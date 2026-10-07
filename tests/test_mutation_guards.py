@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 
 from engine import numberlock
-from engine.court import Court, Rule, Verdict, _baseline
+from engine.court import BASELINE_TRIPS, Court, Rule, Verdict, _baseline
 from engine.detectors import after_loss_labels
 from engine.planted import planted_trader
 from engine.rulebook import Rulebook, RulebookError
@@ -60,7 +60,7 @@ def test_walk_forward_cap_never_sees_the_chunk_it_judges():
     trips = sorted(LEAK, key=lambda t: t.t_open_ms)
     edges = np.linspace(0, len(trips), 7).astype(int)          # folds=5 -> 7 edges
     v = judge_wf(Court(n_perm=20), trips, Rule(value=1.5))
-    assert v.test["cap"] == pytest.approx(1.5 * _baseline(trips[:edges[5]]))
+    assert v.test["cap"] == pytest.approx(1.5 * _baseline(trips[:edges[5]], BASELINE_TRIPS))     # rolling yardstick, still strictly before the chunk
     v2 = judge_wf(Court(n_perm=20), _inflate(trips, edges[5]), Rule(value=1.5))
     assert v2.test["cap"] == pytest.approx(v.test["cap"])
 

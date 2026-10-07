@@ -13,7 +13,7 @@ from fastapi import APIRouter, Header, HTTPException
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 
-from . import chat, record_api, service
+from . import chat, record_api, service, validation_note
 
 router = APIRouter()
 STATIC = Path(__file__).parent / "static"
@@ -32,9 +32,17 @@ def banner_html(tid: str = DEFAULT_TRADER) -> str:
     else:
         en = "Loop tests a habit on your own fills, then tests the rule for it on trades it never saw; the verdict appears here as soon as the review is computed."
         zh = "Loop 先在你自己的成交记录里检验一个习惯，再用没见过的交易检验针对它的规则；复盘算完后，结论会出现在这里。"
+    vn = ""
+    try:
+        n = validation_note.note_for(tid, rv["headline"]["priced"].get("all_history_effect")) if rv is not None else None
+        if n:
+            vn = (f'<p class="vb-warn" id="vbwarn"><span data-l="en">{html.escape(n["en"])} <a href="{n["doc_url"]}">{n["doc"]}</a> · <a href="{n["proof_url"]}">proof</a></span>'
+                  f'<span data-l="zh">{html.escape(n["zh"])} <a href="{n["doc_url"]}">{n["doc"]}</a> · <a href="{n["proof_url"]}">证明</a></span></p>')
+    except Exception:
+        vn = ""
     paths = "".join(f'<button type="button" class="vb-pick" data-pick="{i}"><span data-l="en">See an accepted rule: {html.escape(e)}</span><span data-l="zh">看一条通过的规则：{html.escape(z)}</span></button>'
                     for i, e, z in ACCEPT_PATH)
-    return (f'<section class="vbanner" id="vbanner" aria-label="Verdict"><p class="vb-line" id="vbline"><span data-l="en">{html.escape(en)}</span><span data-l="zh">{html.escape(zh)}</span></p>'
+    return (f'<section class="vbanner" id="vbanner" aria-label="Verdict"><p class="vb-line" id="vbline"><span data-l="en">{html.escape(en)}</span><span data-l="zh">{html.escape(zh)}</span></p>{vn}'
             f'<p class="vb-path" id="vbpath">{paths}</p></section>')
 
 

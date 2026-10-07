@@ -112,7 +112,7 @@
     $("#c-replay").scrollIntoView({ behavior: "smooth", block: "start" });
     const { ok, j } = await get(`/api/trips/${C.tid}?finding=${encodeURIComponent(det)}&limit=25`);
     if (!ok) { body.innerHTML = `<p class="err">${tx(j.detail || "error")}</p>`; return; }
-    const rows = j.rows.map((x) => `<tr data-i="${x.index}" tabindex="0"><td>${tx(x.symbol)}</td><td class="n">${ut(x.t_open_ms)}</td><td class="n">${hold(x.hold_ms)}</td><td>${x.side === "buy" ? "long" : "short"}</td>
+    const rows = j.rows.map((x) => `<tr data-i="${x.index}" tabindex="0"><td>${tx(x.symbol)} <a class="tlink" href="/trade/${encodeURIComponent(C.tid)}/${x.index}" aria-label="Trade page">↗</a></td><td class="n">${ut(x.t_open_ms)}</td><td class="n">${hold(x.hold_ms)}</td><td>${x.side === "buy" ? "long" : "short"}</td>
       <td class="n">${nf(x.first_order_notional, 0)}</td><td class="n ${cls(x.net_pnl)}">${sgn(x.net_pnl)}</td>
       <td><span class="ctags">${x.tags.filter((g) => g !== j.tag).map((g) => `<span class="ctag">${tx(TAG[g] || g)}</span>`).join("")}</span></td></tr>`).join("");
     body.innerHTML = `<p><b>${tx(detName[det] || det)}</b></p>
@@ -120,6 +120,7 @@
       <table class="ctable"><thead><tr><th>Symbol</th><th>Opened (UTC)</th><th>Held</th><th>Side</th><th>First order (USD)</th><th>Net result (USD)</th><th>Also tagged</th></tr></thead><tbody>${rows}</tbody></table>
       <p class="cnote">${tx(j.note)}</p><p class="cnote">Pick a row to see its fills.</p>`;
     const tb = body.querySelector("tbody");
+    tb.addEventListener("click", (e) => { if (e.target.closest("a.tlink")) e.stopPropagation(); }, true);
     const pick = (tr) => { if (!tr) return; tb.querySelectorAll("tr").forEach((x) => x.classList.toggle("sel", x === tr)); loadTrip(+tr.dataset.i); };
     tb.addEventListener("click", (e) => pick(e.target.closest("tr[data-i]")));
     tb.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(e.target.closest("tr[data-i]")); } });
@@ -143,7 +144,7 @@
       chart = lineChart([{ pts, color: "var(--accent)", label: "candle close" }], { aria: "Price path during the trip from stored candles", fmt: (v) => nf(v, 4), h: 160 }) +
         `<p class="cnote"><span>MAE:</span> <b>${pc(j.mae_frac, 2)}</b> · <span>MFE:</span> <b>${pc(j.mfe_frac, 2)}</b></p><p class="cnote">${tx(j.candles_note)}</p>`;
     }
-    el.innerHTML = `<h2 style="margin-top:14px">Trip</h2><p class="cnote"><b>${tx(t.symbol)}</b> · ${ut(t.t_open_ms)} → ${ut(t.t_close_ms)} · <span>net result</span> <b class="${cls(t.net_pnl)}">${sgn(t.net_pnl)}</b> · <span class="clabel">${tx(t.provenance)}</span></p>${fills}${chart}`;
+    el.innerHTML = `<h2 style="margin-top:14px">Trip</h2><p class="cnote"><b>${tx(t.symbol)}</b> · ${ut(t.t_open_ms)} → ${ut(t.t_close_ms)} · <span>net result</span> <b class="${cls(t.net_pnl)}">${sgn(t.net_pnl)}</b> · <span class="clabel">${tx(t.provenance)}</span></p>${fills}${chart}<p class="cnote"><a href="/trade/${encodeURIComponent(C.tid)}/${i}">Open the full trade page</a></p>`;
   }
 
   // ---------------------------------------------------------------- 2. trend and drift
