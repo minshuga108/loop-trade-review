@@ -30,15 +30,19 @@ THESIS = re.compile(r"(\bmy (trading )?thesis\b|\bthesis\b.{0,20}\b(me|my|trader
 IS_ADVICE = re.compile(r"(is (this|that|it) (financial |investment |trading )?advice|financial advice\?|投资建议吗|是建议吗|算建议吗)", re.I)
 ADVICE = re.compile(r"(should i (buy|sell|long|short|hold|trade)|do you think i should|what should i (buy|sell|trade)|is (it|this) a good (buy|time|trade)|该买|该卖|要不要买|要不要卖|买入还是|值得买)", re.I)
 FALSIFY = re.compile(r"(luck|lucky|by chance|disprove|prove (it )?wrong|could (this|that) be wrong|what would make (this|it|that) wrong|how sure|is it real|运气|会不会是|什么情况下.{0,4}错|可靠吗|真的吗|怎么才算错|什么会让.{0,10}(错|不成立|站不住)|(什么|哪些).{0,6}(会|能|可能)?(让|使|导致).{0,10}(出错|错误|不成立)|(结论|发现|判断).{0,6}(可能)?(出错|错误|不成立)吗)", re.I)
-_SAL_LOSS = re.compile(r"\b(los(s|ses|ing|t)|streaks?|in a row|red)\b|亏|连败")
-_SAL_BIG = re.compile(r"\b(bigger|larger|heavier|increas\w*|rais\w*|up ?siz\w*|size[sd]? up|scal\w* up|doubl\w*|more)\b|加大|放大|加仓|变大|更大|翻倍|多下")
-_SAL_SIZE = re.compile(r"\b(bet\w*|siz\w*|stake\w*|position\w*|risk\w*|notional|big)\b|仓|大小|金额|下注")
-_SAL_AFTER = re.compile(r"\b(after\w*|follow\w*|then|next|later|following)\b|之后|以后|后来|接着")
+_SAL_LOSS = re.compile(r"\b(los(s|ses|ing|e|t)|streaks?|in a row|red|revenge)\b|亏|连败|输")
+_SAL_BIG = re.compile(r"\b(bigger|larger|heavier|smaller|lower|less|reduc\w*|shrink\w*|cut\w*|increas\w*|rais\w*|up ?siz\w*|size[sd]? up|go(es)? up|scal\w* up|doubl\w*|more|revenge)\b|加大|放大|加仓|变大|更大|翻倍|多下|变小|更小|减仓|缩小|减小")
+_SAL_SIZE = re.compile(r"\b(bet\w*|siz\w*|stake\w*|position\w*|risk\w*|notional|big\w*|large\w*|trades?|heavier|revenge)\b|仓|大小|金额|下注|下单|单子|订单")
+_SAL_AFTER = re.compile(r"\b(after\w*|follow\w*|then|next|later|following|when|revenge)\b|之后|以后|后来|接着|后|了就")
 
 
 def SIZE_AFTER_LOSS(text: str) -> bool:
-    """A question about betting bigger after losses or a losing streak: it is about size after a loss, even when the word streak appears."""
+    """A question about betting bigger (or smaller) after losses or a losing streak: it is about size after a loss, even when the word streak appears."""
     t = text.lower()
+    if re.search(r"longest|最长|最多连", t) and not re.search(r"bigger|larger|bet|siz|stake|仓|加大|变大", t):
+        return False
+    if re.search(r"revenge siz", t):
+        return True
     return bool(_SAL_LOSS.search(t) and _SAL_BIG.search(t) and _SAL_SIZE.search(t) and _SAL_AFTER.search(t))
 
 

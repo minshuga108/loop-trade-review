@@ -244,6 +244,12 @@ new MutationObserver(() => { if (_busy || LANG !== "zh") return; _busy = true; t
 window.addEventListener("DOMContentLoaded", () => { setLang(LANG); });
 // wired here, not as an onclick attribute: the Content-Security-Policy runs no inline handlers
 { const lb = document.getElementById("langbtn"); if (lb) lb.addEventListener("click", () => setLang(LANG === "zh" ? "en" : "zh")); }
+Object.assign(ZH_EXACT, {
+  "Bitget public futures ticker": "Bitget 公开合约行情", "Bitget public current funding rate": "Bitget 公开当前资金费率",
+  "Bitget public funding rate history": "Bitget 公开资金费率历史", "Bitget public open interest": "Bitget 公开持仓量",
+  "Bitget public candles (1h)": "Bitget 公开K线（1小时）", "Bitget public recent public fills": "Bitget 公开最近成交",
+  "Bitget public account long/short ratio": "Bitget 公开多空账户比",
+});
 // status strip, /wrong, /proof, skills panel (appended; exact phrases only)
 Object.assign(ZH_EXACT, {
   "Sources": "数据源", "Public record": "公开记录", "live": "在线", "stale": "过期", "off": "关闭", "broken": "已损坏",
