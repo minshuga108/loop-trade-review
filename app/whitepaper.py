@@ -162,3 +162,9 @@ def router():
     def whitepaper():
         return HTMLResponse(render())
     return r
+
+
+try:   # build the page once at start-up so the first visitor never pays for it
+    render()
+except Exception:   # a missing file must not stop the app from starting; the route reports it
+    pass

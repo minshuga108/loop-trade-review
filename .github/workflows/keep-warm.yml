@@ -1,6 +1,6 @@
 name: keep-warm
-# Visits the public home page every 5 minutes so the free Render host does not go to sleep.
-# GET only: it reads a page and writes nothing to the record.
+# Visits the public pages every 5 minutes so the free Render host does not go to sleep.
+# GET only: it reads pages and writes nothing to the record.
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -13,3 +13,5 @@ jobs:
     steps:
       - name: GET home page
         run: curl -fsS -m 90 -o /dev/null -w "http %{http_code} in %{time_total}s\n" https://loop-trade-review.onrender.com/ || true
+      - name: GET whitepaper
+        run: curl -fsS -m 90 -o /dev/null -w "http %{http_code} in %{time_total}s\n" https://loop-trade-review.onrender.com/whitepaper || true
