@@ -65,6 +65,8 @@ from . import thesis_api  # noqa: E402
 app.include_router(thesis_api.router)
 from . import validation_note  # noqa: E402
 app.include_router(validation_note.router())
+from . import whitepaper  # noqa: E402
+app.include_router(whitepaper.router())
 from . import runs_api  # noqa: E402
 app.include_router(runs_api.router)
 

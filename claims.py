@@ -266,5 +266,118 @@ for _k, _d in _ROB.items():
 CLAIMS["robustness.table"] = {"desc": "robustness table", "cmd": "python scripts/robustness_suite.py", "fn": lambda: _rr()["table"]}
 
 
+# ---- Whitepaper-only numbers: each is read from its source file or code constant, never typed ----------------------------
+def _p1(x: float) -> str:
+    return f"{100 * x:.1f}%"
+
+
+def _court_cell(scenario: str, trips: int) -> dict:
+    data = json.loads((ROOT / "court_results.json").read_text(encoding="utf-8"))
+    return next(c for c in data["cells"] if c["scenario"] == scenario and c["trips"] == trips)
+
+
+def _court_table() -> str:
+    rows = ["| Planted trader | " + " | ".join(f"{t} trips" for t in (60, 150, 300, 600)) + " |", "|---|---|---|---|---|"]
+    for sc, label in (("null", "No leak: court wrongly accepts"), ("costless_habit", "Costless habit: court wrongly accepts"),
+                      ("costly_leak", "Costly leak: court correctly accepts (power)")):
+        cells = []
+        for t in (60, 150, 300, 600):
+            c = _court_cell(sc, t)
+            lo, hi = c["accepted_ci"]
+            cells.append(f"{_p1(c['accepted'])} ({_p1(lo)} to {_p1(hi)})")
+        rows.append(f"| {label} | " + " | ".join(cells) + " |")
+    return "\n".join(rows)
+
+
+def _court_meta(key: str) -> str:
+    return str(json.loads((ROOT / "court_results.json").read_text(encoding="utf-8"))[key])
+
+
+def _look() -> dict:
+    s = json.loads((ROOT / "suite_results.json").read_text(encoding="utf-8"))
+    return next(x for x in s["summaries"] if x["scenario"] == "LOOKAHEAD")["rules"]
+
+
+def _look_k(rule: str, key: str) -> str:
+    r = _look()[rule][key]
+    return f"{r['k']} of {r['n']}"
+
+
+def _cohort() -> dict:
+    return json.loads((ROOT / "cohort_results.json").read_text(encoding="utf-8"))
+
+
+def _coh_det(name: str) -> str:
+    d = _cohort()["detectors"][name]
+    return f"{d['bh_significant']} of {d['tested']}"
+
+
+def _selftest() -> dict:
+    return json.loads((ROOT / "eval" / "selftest_first_run.json").read_text(encoding="utf-8"))["summary"]
+
+
+def _pbo_real(tid: str, key: str) -> str:
+    return f"{_vr()['pbo']['real'][tid][key]:.2f}"
+
+
+def _journal_trades() -> str:
+    p = ROOT / "deploy_data" / "real_bitget_journal" / "journal_verified.json"
+    return str(len(json.loads(p.read_text(encoding="utf-8"))))
+
+
+def _qwen_deadline() -> str:
+    from app import qa_chat
+    return f"{qa_chat.QWEN_TIMEOUT_S:g}"
+
+
+def _qwen_cap() -> str:
+    from app import llm
+    return str(llm.DAILY_CAP)
+
+
+def _d3_extreme(key: str) -> str:
+    return _p1(max(c[key] for c in _d3_cells() if c["scenario"] == "habit_costless" or "no_habit" in c["detector"]))
+
+
+_WP = {
+    "court.table": ("court false admission and power table, 1 decimal with Wilson intervals", "python scripts/measure_court.py", _court_table),
+    "court.fa_null_600_1dp": ("court wrongly accepts a no-leak trader, 600 trips, 1 decimal", "python scripts/measure_court.py", lambda: _p1(_court_cell("null", 600)["accepted"])),
+    "court.power_150_1dp": ("court power at 150 trips, 1 decimal", "python scripts/measure_court.py", lambda: _p1(_court_cell("costly_leak", 150)["accepted"])),
+    "court.power_300_1dp": ("court power at 300 trips, 1 decimal", "python scripts/measure_court.py", lambda: _p1(_court_cell("costly_leak", 300)["accepted"])),
+    "court.ledger": ("proposals in the trial ledger", "python scripts/measure_court.py", lambda: _court_meta("proposals_in_ledger")),
+    "court.threshold": ("per-rule threshold", "python scripts/measure_court.py", lambda: _court_meta("threshold_per_rule")),
+    "look.leaky_refused": ("peeking rule refused by the look-ahead guard", "python scripts/run_suite.py", lambda: _look_k("peek", "refused")),
+    "look.leaky_stats_only": ("peeking rule the statistics alone would accept", "python scripts/run_suite.py", lambda: _look_k("peek", "stats_only_accept")),
+    "look.following_stats_only": ("second leaky rule the statistics alone would accept", "python scripts/run_suite.py", lambda: _look_k("following", "stats_only_accept")),
+    "look.honest_refused": ("honest control rule refused by the guard", "python scripts/run_suite.py", lambda: _look_k("honest_cap", "refused")),
+    "look.honest_accepted": ("honest control rule accepted", "python scripts/run_suite.py", lambda: _look_k("honest_cap", "accepted")),
+    "cohort.wallets": ("wallets in the cohort study", "python scripts/cohort_study.py", lambda: str(_cohort()["n_wallets"])),
+    "cohort.trips": ("round trips in the cohort", "python scripts/cohort_study.py", lambda: f"{_cohort()['n_round_trips']:,}"),
+    "cohort.fills": ("fills in the cohort", "python scripts/cohort_study.py", lambda: f"{_cohort()['n_fills']:,}"),
+    "cohort.leaderboard": ("leaderboard rows in the snapshot", "python scripts/cohort_study.py", lambda: f"{_cohort()['sampling']['leaderboard_rows']:,}"),
+    "cohort.eligible": ("eligible wallets in the snapshot", "python scripts/cohort_study.py", lambda: f"{_cohort()['sampling']['eligible']:,}"),
+    "cohort.size_bh": ("wallets with size-after-loss habit after BH", "python scripts/cohort_study.py", lambda: _coh_det("size_after_loss")),
+    "cohort.hold_bh": ("wallets with hold asymmetry after BH", "python scripts/cohort_study.py", lambda: _coh_det("hold_asymmetry")),
+    "cohort.over_bh": ("wallets with overtrading days after BH", "python scripts/cohort_study.py", lambda: _coh_det("overtrading_clusters")),
+    "cohort.revenge_bh": ("wallets with revenge re-entry after BH", "python scripts/cohort_study.py", lambda: _coh_det("revenge_reentry")),
+    "cohort.pooled_p": ("pooled size-after-loss p", "python scripts/cohort_study.py", lambda: f"{_cohort()['detectors']['size_after_loss']['pooled']['p_pooled_shuffle']:.4f}"),
+    "cohort.within_p": ("within-trader size-after-loss p", "python scripts/cohort_study.py", lambda: f"{_cohort()['detectors']['size_after_loss']['pooled']['p_within_trader_shuffle']:.2f}"),
+    "cohort.court_wallets": ("cohort wallets with an accepted rule", "python scripts/cohort_study.py", lambda: f"{_cohort()['court']['wallets_with_any_accepted']} of {_cohort()['n_wallets']}"),
+    "cohort.court_trials": ("cohort rule trials", "python scripts/cohort_study.py", lambda: str(_cohort()["court"]["cohort_trials"])),
+    "cohort.court_judged": ("cohort rule trials judged", "python scripts/cohort_study.py", lambda: str(_cohort()["court"]["judged_not_underpowered"])),
+    "cohort.expected_chance": ("acceptances expected by chance at most", "python scripts/cohort_study.py", lambda: f"{_cohort()['court']['expected_acceptances_if_no_leak_at_most']:.1f}"),
+    "selftest.passed": ("selftest first run passes", "eval/selftest_first_run.json", lambda: f"{_selftest()['passed']} of {_selftest()['n']}"),
+    "wallet.d_pbo": ("wallet D PBO", "python scripts/run_validation.py", lambda: _pbo_real("D", "pbo")),
+    "wallet.d_dsr": ("wallet D deflated Sharpe", "python scripts/run_validation.py", lambda: _pbo_real("D", "dsr")),
+    "journal.trades": ("wallet H verified trades", "deploy_data/real_bitget_journal/journal_verified.json", _journal_trades),
+    "qwen.deadline": ("Qwen per-call deadline in seconds", "app/qa_chat.py QWEN_TIMEOUT_S", _qwen_deadline),
+    "qwen.cap": ("Qwen daily call cap", "app/llm.py DAILY_CAP", _qwen_cap),
+    "d3.falseflag_max_1dp": ("highest false flag of the three newer detectors before Holm, 1 decimal", "python scripts/measure_detectors3.py", lambda: _d3_extreme("flagged")),
+    "d3.falseflag_after_holm": ("highest false flag of the three newer detectors after Holm", "python scripts/measure_detectors3.py", lambda: _d3_extreme("flagged_after_holm7")),
+}
+for _k, (_d, _c, _f) in _WP.items():
+    CLAIMS[_k] = {"desc": _d, "cmd": _c, "fn": _f}
+
+
 def values() -> dict[str, str]:
     return {k: v["fn"]() for k, v in CLAIMS.items()}

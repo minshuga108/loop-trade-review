@@ -197,3 +197,41 @@ def test_d15_evidence_and_wf_table_scroll():
     assert "pre{overflow-x:auto" in ev and "#skills{overflow-x:auto}" in ev
     wf = open("app/static/wf_toggle.js", encoding="utf-8").read()
     assert '<div class="scroll"><table><caption class="vh">In-sample' in wf and "</tbody></table></div>" in wf
+
+
+def test_whitepaper_route_and_image_allow_list():
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    ignore = (root / ".dockerignore").read_text(encoding="utf-8").splitlines()
+    assert "*.md" in ignore and "!WHITEPAPER.md" in ignore and ignore.index("!WHITEPAPER.md") > ignore.index("*.md")
+    assert (root / "WHITEPAPER.md").exists()
+    c = TestClient(app)
+    r = c.get("/whitepaper")
+    assert r.status_code == 200 and "text/html" in r.headers["content-type"]
+    assert "<title>Whitepaper: Loop: a trade review desk that tests its own rules</title>" in r.text
+    assert 'name="viewport"' in r.text and "{{" not in r.text and "not in this build" not in r.text
+    assert "<table>" in r.text and "Where we lost" in r.text
+    for page in ("/", "/cockpit"):
+        assert 'href="/whitepaper"' in c.get(page).text
+
+
+def test_whitepaper_numbers_come_from_claims_and_none_are_typed():
+    import re
+    import claims
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    tpl = (root / "WHITEPAPER.template.md").read_text(encoding="utf-8")
+    rendered = (root / "WHITEPAPER.md").read_text(encoding="utf-8")
+    v = claims.values()
+    for key in ("tests.collected", "robustness.ac_court", "robustness.all_court", "robustness.before_ac_court", "qwen.deadline", "qwen.cap"):
+        assert v[key] in rendered, key
+    assert f"{v['tests.collected']} automated tests" in rendered
+    # no hand-typed number in the template: strip placeholders, code, URLs and headings, then no digit may remain
+    t = re.sub(r"```.*?```", "", tpl, flags=re.S)
+    t = re.sub(r"\{\{[\w.]+\}\}|`[^`]*`|https?://\S+", "", t)
+    t = "\n".join(l for l in t.splitlines() if not l.startswith("#"))
+    for ident in ("SHA-256", "UTA v3", "MPL-2.0", "Wilson 95%"):   # names and conventions, not results
+        t = t.replace(ident, "")
+    assert not re.search(r"\d", t), re.findall(r".{20}\d.{20}", t)[:5]
+    for stale in ("1205", "1253 tests", "Qwen is off", "consent pending"):
+        assert stale not in tpl

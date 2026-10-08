@@ -10,7 +10,8 @@ import claims  # noqa: E402
 PAIRS = [("README.template.md", "README.md"), ("SUBMISSION.template.md", "SUBMISSION.md"),
          ("SELF_ASSESSMENT.template.md", "SELF_ASSESSMENT.md"),
          ("VALIDATION.template.md", "VALIDATION.md"),
-         ("LOSSES.template.md", "LOSSES.md")]
+         ("LOSSES.template.md", "LOSSES.md"),
+         ("WHITEPAPER.template.md", "WHITEPAPER.md")]
 
 
 def render(text: str, vals: dict[str, str]) -> str:
